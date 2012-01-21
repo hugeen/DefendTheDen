@@ -7,6 +7,7 @@ var Atom = false;
 // wait for external resources (like images) to be loaded
 function load() {
 	console.log('Popup page is loaded.');
+	pokki.setPopupClientSize(710, 580);
 	Atom = new App();
 }
 window.addEventListener('DOMContentLoaded', load, false);

@@ -1,10 +1,11 @@
 {
-   "name": "Defend the Moon",
+   "name": "Defend the Den",
    "version": "1.0",
+   "default_popup_size": "780,580",
    "icon-19x19": "img/icon-19x19.png",
    "icon-29x29": "img/icon-29x29.png",
    "icon-42x42": "img/icon-42x42.png",
-   "description": "A Tower defense HTML5 Game",
+   "description": "A HTML5 Tower defense",
    "popup": "popup.html",
    "background_page": "background.html"
 }
