@@ -18,16 +18,10 @@ body {
 #wrapper {
     margin: auto;
     width: 710px;
-    height: 710px;
-    position: relative;
+    height: 580px;
+    position: absolute;
     opacity: 0;
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0, rgb(240,240,240)),
-        color-stop(1, rgb(251,250,255))
-    );
+    z-index: 1;
 }
 #wrapper.show { 
     opacity: 1; 

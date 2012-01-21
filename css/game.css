@@ -1,1 +1,10 @@
-#cr-stage { border:2px solid black; margin:5px auto; color:white }
+#cr-stage {
+  z-index: 0;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, rgb(240,240,240)),
+      color-stop(1, rgb(251,250,255))
+  );
+}
