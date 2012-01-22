@@ -15,14 +15,14 @@ body {
 }
 
 /* Used to contain the contents of a Pokki when testing in a web browser using PokkiBrowser.js */
-#wrapper {
+/*#wrapper {
     margin: auto;
     width: 710px;
     height: 580px;
     position: absolute;
     opacity: 0;
     z-index: 1;
-}
+}*/
 #wrapper.show { 
     opacity: 1; 
     -webkit-animation-name: fadein;
