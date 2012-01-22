@@ -10,7 +10,7 @@ var isMultiwayPress = function(component) {
 };
 
 var hitDenWalls = function(component) {
-	return component.hit("DenWallleft") ||
+	return component.hit("DenWallLeft") ||
 		component.hit("DenWallRight") ||
 		component.hit("DenWallTop") ||
 		component.hit("DenWallBottom");

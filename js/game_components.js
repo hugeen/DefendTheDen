@@ -1,31 +1,72 @@
-Crafty.c("Missile", {
+Crafty.c("ThrowingAxe", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision, Tween");
-        this.color("#000");
+        this.addComponent("2D, Canvas, Collision, Tween, axe");
         this.attr({
-            alpha: 1.0,
-            x: 90,
-            y: 90,
-            w: 5,
-            h: 5
+            x: 32,
+            y: 32,
+            w: 32,
+            h: 32
         });
-        this.tween({
-            alpha: 0.0,
-            rotation: -900,
-            x: 500,
-            y: 90
-        }, 50);
+        this.origin("center");
+        this.bind("EnterFrame", function() {
+            this.attr({
+                rotation: this.rotation + 18
+            });
+            this.move("e", 10);
+        });
     }
 });
 
-Crafty.c("DenWall", {
+Crafty.c("DenWallLeft", {
+    init: function() {
+        this.addComponent("2D, Canvas, Color, Collision");
+        this.attr({
+            x: 0,
+            y: 90,
+            w: 1,
+            h: 420,
+            z: 1
+        });
+        this.color("#000");
+    }
+});
+
+Crafty.c("DenWallRight", {
+    init: function() {
+        this.addComponent("2D, Canvas, Color, Collision");
+        this.attr({
+            x: 65,
+            y: 90,
+            w: 1,
+            h: 420,
+            z: 1
+        });
+        this.color("#000");
+    }
+});
+
+Crafty.c("DenWallTop", {
     init: function() {
         this.addComponent("2D, Canvas, Color, Collision");
         this.attr({
             x: 0,
             y: 90,
             w: 65,
-            h: 420,
+            h: 1,
+            z: 1
+        });
+        this.color("#000");
+    }
+});
+
+Crafty.c("DenWallBottom", {
+    init: function() {
+        this.addComponent("2D, Canvas, Color, Collision");
+        this.attr({
+            x: 0,
+            y: 90 + 420,
+            w: 65,
+            h: 1,
             z: 1
         });
         this.color("#000");
@@ -46,15 +87,26 @@ Crafty.c("Wolf", {
 
         this.fourway(8);
         this.bind("EnterFrame", function() {
-
-            if(this.isDown("UP_ARROW") || this.isDown("W") || this.isDown("LEFT_ARROW") || this.isDown("A") || this.isDown("RIGHT_ARROW") || this.isDown("D") || this.isDown("DOWN_ARROW") || this.isDown("S")) {
+            if(isMultiwayPress(this) && !hitDenWalls(this)) {
                 if(!this.isPlaying("walkWolf")) {
                     this.stop().animate("walkWolf", 15);
                 }
             } else {
                 this.stop();
             }
+        });
 
+        this.onHit("DenWallLeft", function() {
+            this.x += this._speed;
+        });
+        this.onHit("DenWallRight", function() {
+            this.x -= this._speed;
+        });
+        this.onHit("DenWallBottom", function() {
+            this.y -= this._speed;
+        });
+        this.onHit("DenWallTop", function() {
+            this.y += this._speed;
         });
     }
 });
@@ -73,7 +125,7 @@ Crafty.c("Pig", {
 
         this.bind("EnterFrame", function() {
 
-            if(!this.hit("DenWall")) {
+            if(!this.hit("DenWallRight")) {
                 this.move("w", 1.5);
                 if(!this.isPlaying("walk")) {
                     this.stop().animate("walk", 70);
@@ -89,5 +141,19 @@ Crafty.c("Pig", {
         this.attr({
             y: 90 + (line * 70) - 70
         });
+    }
+});
+
+Crafty.c("SkillButton", {
+    init: function() {
+        this.addComponent("2D, Canvas, Color, Mouse");
+        this.attr({
+            x: 10,
+            y: 10,
+            w: 30,
+            h: 30,
+            z: 1
+        });
+        this.color("#fff");
     }
 });

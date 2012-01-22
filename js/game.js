@@ -21,16 +21,21 @@ window.onload = (function() {
 
     Crafty.scene("newGame", function() {
         console.log("newGame");
-        Crafty.load(["img/pig-sprite.png"], function() {
+        Crafty.load(["img/pig-sprite.png","img/pig-sprite.png","img/axe-sprite.png"], function() {
 
-            var denWall = Crafty.e("DenWall");
-
+            var denWall = {
+            	left: Crafty.e("DenWallLeft"),
+            	right: Crafty.e("DenWallRight"),
+            	top: Crafty.e("DenWallTop"),
+            	bottom: Crafty.e("DenWallBottom")
+            };
             Crafty.e("Pig").setToLine(1);
             Crafty.e("Pig").setToLine(2);
             Crafty.e("Pig").setToLine(3);
             Crafty.e("Pig").setToLine(4);
-            Crafty.e("Wolf");
-            Crafty.e("Missile");
+            var wolf = Crafty.e("Wolf");
+            Crafty.e("ThrowingAxe");
+            Crafty.e("SkillButton");
         });
     });
 
