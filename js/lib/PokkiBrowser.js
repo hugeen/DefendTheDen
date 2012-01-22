@@ -333,7 +333,7 @@ catch(e) {
 				    }
                 }
             }		  
-		})
+		});
 	}
 	
 	window.addEventListener('DOMContentLoaded', function() {
