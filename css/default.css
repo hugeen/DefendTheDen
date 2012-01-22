@@ -44,6 +44,7 @@ a#minimize {
     width: 21px;
     height: 12px;
     cursor: pointer;
+    z-index: 1;
     background: #555 url(../img/minimize.png) 0px -2px no-repeat;
     border-bottom-left-radius: 3px;
     -webkit-transition: background-color 0.3s linear;
