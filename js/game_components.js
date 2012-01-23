@@ -16,7 +16,8 @@ Crafty.c("ThrowingAxe", {
             this.move("e", 10);
         });
         this.onHit("Pig", function(o) {
-            o[0].obj.setDamage(50);
+        	
+            o[0].obj.setDamage(Crafty.randRange(100, 125));
             this.destroy();
         });
         this.bind("EnterFrame", function() {
@@ -189,7 +190,7 @@ Crafty.c("Pig", {
         });
     },
     setDamage: function(damages) {
-        this._hitPoints -= 50;
+        this._hitPoints -= damages;
         if(this._hitPoints < 1) {
             this.destroy();
         }

@@ -41,7 +41,14 @@ window.onload = (function() {
 
     Crafty.scene("newGame", function() {
         console.log("newGame");
-        Crafty.load(["img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
+        Crafty.load(["img/background-game.png","img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
+			
+			Crafty.e("2D, Canvas, Image").attr({
+                w: DefendTheDen.viewPort.w,
+                h: DefendTheDen.viewPort.h,
+                x: 0,
+                y: 0
+            }).image("img/background-game.png", "repeat");
 
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
@@ -60,8 +67,8 @@ window.onload = (function() {
                 y: 10
             });
             setInterval(function() {
-                Crafty.e("Pig").setToLine(Math.ceil(Math.random() * 6));
-            }, 350);
+                Crafty.e("Pig").setToLine(Crafty.randRange(1, 5));
+            }, 750);
             makeMatrix();
 
         });
