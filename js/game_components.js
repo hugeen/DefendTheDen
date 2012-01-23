@@ -1,3 +1,4 @@
+Crafty.c("SkillBar");
 Crafty.c("ThrowingAxe", {
     init: function() {
         this._used = false;
