@@ -15,7 +15,7 @@ Crafty.c("Pig", {
         this.bind("EnterFrame", function() {
 
             if(!this.hit("DenWallRight")) {
-                this.move("w", 1.5);
+                this.move("w", 0.75);
                 if(!this.isPlaying("walk")) {
                     this.stop().animate("walk", 70);
                 }

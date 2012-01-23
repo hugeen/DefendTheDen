@@ -73,18 +73,17 @@ Crafty.c("SkillButton", {
 
 Crafty.c("Cell", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision, Mouse");
+        this.addComponent("2D, Canvas, Collision, Mouse");
         this.attr({
             w: 65,
             h: 70,
             z: 0
         });
-        this.color("#000");
         this.bind("MouseOver", function() {
             if(DefendTheDen.wolf !== undefined) {
                 DefendTheDen.wolf.attr({
                     y: this.y + 15
-                })
+                });
             }
         });
     }
@@ -118,7 +117,7 @@ Crafty.c("NewGameMenuItem", {
             x: 237,
             y: 316
         });
-        this.css("background", "url(img/menu-sprites.png)")
+        this.css("background", "url(img/menu-sprites.png)");
         this.css("background-position", "0 0");
         this.css("z-index", "0");
         this.css("cursor", "pointer");

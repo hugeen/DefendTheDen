@@ -58,10 +58,10 @@ window.onload = (function() {
             };
             
             DefendTheDen.wolf = Crafty.e("Wolf");
-            DefendTheDen.wolfSprite = Crafty.e("WolfSprite");
+            DefendTheDen.wolf.attachSprite(Crafty.e("WolfSprite"));
             
             DefendTheDen.selectedSkill = "ThrowingAxeSkill";
-            attachSpriteTo(DefendTheDen.wolf, DefendTheDen.wolfSprite);
+            
             DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
             DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
             
@@ -69,9 +69,11 @@ window.onload = (function() {
                 x: 50,
                 y: 10
             });
+            
             setInterval(function() {
                 Crafty.e("Pig").setToLine(Crafty.randRange(1, 5));
-            }, 750);
+            }, 1250);
+            
             makeMatrix();
 
         });
