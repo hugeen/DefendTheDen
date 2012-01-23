@@ -57,11 +57,14 @@ window.onload = (function() {
                 bottom: Crafty.e("DenWallBottom")
             };
             
-            var wolf = Crafty.e("Wolf");
-            var wolfSprite = Crafty.e("WolfSprite");
-            attachSpriteTo(wolf, wolfSprite);
-
-            Crafty.e("ThrowingAxeSkill").bindWolf(wolf);
+            DefendTheDen.wolf = Crafty.e("Wolf");
+            DefendTheDen.wolfSprite = Crafty.e("WolfSprite");
+            
+            DefendTheDen.selectedSkill = "ThrowingAxeSkill";
+            attachSpriteTo(DefendTheDen.wolf, DefendTheDen.wolfSprite);
+            DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
+            DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
+            
             Crafty.e("PlaceTrapSkill").attr({
                 x: 50,
                 y: 10
