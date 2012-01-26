@@ -24,13 +24,13 @@ Crafty.c("Bleed", {
 });
 
 
-Crafty.c("Tusk", {
+Crafty.c("Gold", {
 	init: function() {
-		this.addComponent("2D, Canvas, SpriteAnimation, Mouse, tusk");
+		this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
 		this.attr({
 
-            w: 25,
-            h: 25,
+            w: 35,
+            h: 35,
             z: 1
         });
         this.animate("tusk", 0, 0, 1);

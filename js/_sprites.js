@@ -21,3 +21,8 @@ Crafty.sprite(55, "img/blood-sprite.png", {
 Crafty.sprite(24, "img/tusk-sprite.png", {
     tusk: [0, 0, 1, 1]
 });
+
+Crafty.sprite(50, "img/gold-sprite.png", {
+    gold: [0, 0, 1, 1]
+});
+
