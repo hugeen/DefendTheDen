@@ -7,7 +7,6 @@ var soundResources = {
 };
 
 var maxVolume = 80;
-var userVolume = 50;
 var soundManager = [];
 var soundIds = 0;
 
@@ -23,6 +22,13 @@ $(document).ready(function() {
 });
 
 
+var changeGlobalVolume = function(volume) {
+	soundVolumeStorage.set(volume);
+	_.each(soundManager, function(item, key) {
+		item.refreshVolume();
+	});
+};
+
 function Sound(file, params) {
 	this.file = file;
 	this.params = params || {};
@@ -35,7 +41,6 @@ function Sound(file, params) {
 	this.$e = document.createElement('audio');
 	this.$e.setAttribute('src', 'audio/'+file);
 	this.$e.setAttribute('type', 'audio/ogg');
-	this.$e.volume=(maxVolume*(this.params.volume/100))*(userVolume/100)/100;
 	if(this.params.loop) {
 		this.$e.setAttribute('loop', 'loop');
 	}
@@ -51,14 +56,16 @@ function Sound(file, params) {
 			that.jqueryElement.remove();
 		}, that.params.destroyIn);
 	}
+	this.refreshVolume();
 }
 
 Sound.prototype.play = function() {
 	this.$e.play(); 
 };
 
-Sound.prototype.destroy = function() {
-	this.$e.play(); 
+Sound.prototype.refreshVolume = function() {
+	this.$e.volume=(maxVolume*(this.params.volume/100))*(soundVolumeStorage.get()/100)/100;
+	console.log(this.$e.volume);
 };
 
 

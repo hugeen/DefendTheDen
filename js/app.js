@@ -66,4 +66,8 @@ var App = function() {
     this.onPopupUnload = function() {
         unloaded.set(true);
     };
+    
 };
+
+var soundVolumeStorage = new LocalStore('sound_volume', {defaultVal: 80});
+var musicVolumeStorage = new LocalStore('music_volume', {defaultVal: 80});
