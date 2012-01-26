@@ -38,10 +38,17 @@ Crafty.c("Wolf", {
 
         this.fourway(8);
         this.bind("EnterFrame", function() {
+            if(this._wagon !== undefined) {
+                this._wagon.attr({
+                    x: this.x-13,
+                    y: this.y
+                });
+            }
             if(isMultiwayPress(this) && !hitDenWalls(this)) {
                 if(this._spriteComponent !== undefined) {
                     this._spriteComponent._walking = true;
                 }
+
             } else {
                 this._spriteComponent._walking = false;
             }
@@ -68,5 +75,8 @@ Crafty.c("Wolf", {
             x: this.x,
             y: this.y
         });
+    },
+    attachWagon: function(wagon) {
+        this._wagon = wagon;
     }
 });

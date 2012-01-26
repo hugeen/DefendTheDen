@@ -84,7 +84,7 @@ Crafty.c("DenWallTop", {
 
 Crafty.c("DenWallBottom", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision");
+        this.addComponent("2D, Canvas, Collision");
         this.attr({
             x: 0,
             y: 90 + 420,
@@ -114,18 +114,16 @@ Crafty.c("Cell", {
 });
 
 
-Crafty.c("Rails", {
+Crafty.c("Wagon", {
     init: function() {
-        this.addComponent("2D, DOM, Image");
+        this.addComponent("2D, Canvas, Sprite, Mouse, wagon");
         this.attr({
-            w: 74,
-            h: 430,
+            w: 81,
+            h: 81,
             x: 0,
-            y: 90
+            y: 0
         });
-        console.log("rails");
-        this.image("img/rails.png", "no-repeat");
-        
+        this.sprite(0,0,1,1);
     }
 });
 

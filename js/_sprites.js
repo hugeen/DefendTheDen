@@ -26,3 +26,12 @@ Crafty.sprite(50, "img/gold-sprite.png", {
     gold: [0, 0, 1, 1]
 });
 
+
+Crafty.sprite(74, "img/rails.png", {
+    rails: [0, 0, 1, 6]
+});
+
+Crafty.sprite(81, "img/wagon.png", {
+    wagon: [0, 0, 1, 1]
+});
+

@@ -39,7 +39,8 @@ Crafty.c("Pig", {
             if(!this.hit("DenWallRight")) {
             	this.move("w", 0.60);
             } else {
-                this.stop();
+            	this._spriteComponent.stop();
+            	this._spriteComponent.destroy();
                 this.destroy();
             }
         });

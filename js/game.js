@@ -53,13 +53,13 @@ window.onload = (function() {
             }).image("img/background-game.png", "repeat").bind("MouseOver", function() {
 
             });
-			Crafty.e("2D, Canvas, Image, Mouse").attr({
-                w: 90,
-                h: 500,
-                x: 0,
-                y: 90
-            }).image("img/rails.png", "no-repeat").bind("MouseOver", function() {
-            	});
+            
+			Crafty.e("2D, Canvas, Sprite, Mouse, rails").attr({
+				y: 98,
+                w: 74,
+                h: 430
+            }).sprite(0,0,1,6);
+
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
                 right: Crafty.e("DenWallRight"),
@@ -69,12 +69,13 @@ window.onload = (function() {
 
             DefendTheDen.wolf = Crafty.e("Wolf");
             DefendTheDen.wolf.attachSprite(Crafty.e("WolfSprite"));
-
+            
+            DefendTheDen.wolf.attachWagon(Crafty.e("Wagon"));
+            
             DefendTheDen.selectedSkill = "ThrowingAxeSkill";
 
             DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
             DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
-
             Crafty.e("PlaceTrapSkill").attr({
                 x: 50,
                 y: 10
@@ -82,14 +83,14 @@ window.onload = (function() {
 
             setInterval(function() {
             	var newPig = Crafty.e("Pig");
-                newPig.setToLine(Crafty.randRange(1, 5));
+                newPig.setToLine(Crafty.randRange(1, 6));
                 newPig.attachSprite(Crafty.e("PigSprite"));
             }, 1250);
             makeMatrix();
 			
             $(document).mousemove(function(e) {
 
-                if(e.pageY >= denWall.top._y+40 && e.pageY <= denWall.bottom._y -40) {
+                if(e.pageY >= denWall.top._y && e.pageY <= denWall.bottom._y-60) {
                     DefendTheDen.wolf.attr({
                         y: e.pageY
                     });
