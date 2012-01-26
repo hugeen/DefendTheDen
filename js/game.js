@@ -43,7 +43,7 @@ window.onload = (function() {
 
     Crafty.scene("newGame", function() {
 
-        Crafty.load(["img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
+        Crafty.load(["img/rails.png","img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
 
             Crafty.e("2D, Canvas, Image, Mouse").attr({
                 w: DefendTheDen.viewPort.w,
@@ -53,6 +53,13 @@ window.onload = (function() {
             }).image("img/background-game.png", "repeat").bind("MouseOver", function() {
 
             });
+			Crafty.e("2D, Canvas, Image, Mouse").attr({
+                w: 90,
+                h: 500,
+                x: 0,
+                y: 90
+            }).image("img/rails.png", "no-repeat").bind("MouseOver", function() {
+            	});
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
                 right: Crafty.e("DenWallRight"),
@@ -74,10 +81,12 @@ window.onload = (function() {
             });
 
             setInterval(function() {
-                Crafty.e("Pig").setToLine(Crafty.randRange(1, 5));
-            }, 3250);
+            	var newPig = Crafty.e("Pig");
+                newPig.setToLine(Crafty.randRange(1, 5));
+                newPig.attachSprite(Crafty.e("PigSprite"));
+            }, 1250);
             makeMatrix();
-
+			
             $(document).mousemove(function(e) {
 
                 if(e.pageY >= denWall.top._y+40 && e.pageY <= denWall.bottom._y -40) {
@@ -87,6 +96,7 @@ window.onload = (function() {
                 }
 
             });
+            
         });
     });
 

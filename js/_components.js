@@ -7,27 +7,27 @@ Crafty.c("Bleed", {
             z: 1
         });
         this.animate("bleed", 0, 0, 11);
-        
-        
-		this.bind("EnterFrame", function() {
-			this.attr({x: this._creature.x, y: this._creature.y});
-		});
+
+        this.bind("EnterFrame", function() {
+            this.attr({
+                x: this._creature.x,
+                y: this._creature.y
+            });
+        });
     },
     attachCreature: function(creature) {
-    	this._creature = creature;
-    	this.animate("bleed", 10);
-    	this.delay(function() {
-			this.destroy();
-		}, 500);
-    	
+        this._creature = creature;
+        this.animate("bleed", 10);
+        this.delay(function() {
+            this.destroy();
+        }, 500);
     }
 });
 
-
 Crafty.c("Gold", {
-	init: function() {
-		this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
-		this.attr({
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
+        this.attr({
 
             w: 35,
             h: 35,
@@ -35,17 +35,17 @@ Crafty.c("Gold", {
         });
         this.animate("tusk", 0, 0, 1);
         this.delay(function() {
-        	this.destroy();
+            this.destroy();
         }, 2500);
         this.bind("MouseOver", function() {
-        	this.destroy();
+            this.destroy();
         });
-	}
+    }
 });
 
 Crafty.c("DenWallLeft", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision");
+        this.addComponent("2D, Canvas, Collision");
         this.attr({
             x: 0,
             y: 90,
@@ -53,13 +53,12 @@ Crafty.c("DenWallLeft", {
             h: 420,
             z: 1
         });
-        this.color("#000");
     }
 });
 
 Crafty.c("DenWallRight", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision");
+        this.addComponent("2D, Canvas, Collision");
         this.attr({
             x: 65,
             y: 90,
@@ -67,13 +66,12 @@ Crafty.c("DenWallRight", {
             h: 420,
             z: 1
         });
-        this.color("#000");
     }
 });
 
 Crafty.c("DenWallTop", {
     init: function() {
-        this.addComponent("2D, Canvas, Color, Collision");
+        this.addComponent("2D, Canvas, Collision");
         this.attr({
             x: 0,
             y: 90,
@@ -81,7 +79,6 @@ Crafty.c("DenWallTop", {
             h: 1,
             z: 1
         });
-        this.color("#000");
     }
 });
 
@@ -95,12 +92,8 @@ Crafty.c("DenWallBottom", {
             h: 1,
             z: 1
         });
-        this.color("#000");
     }
 });
-
-
-
 
 Crafty.c("Cell", {
     init: function() {
@@ -112,11 +105,27 @@ Crafty.c("Cell", {
         });
         this.bind("MouseOver", function() {
             /*if(DefendTheDen.wolf !== undefined) {
-                DefendTheDen.wolf.attr({
-                    y: this.y + 15
-                });
-            }*/
+             DefendTheDen.wolf.attr({
+             y: this.y + 15
+             });
+             }*/
         });
+    }
+});
+
+
+Crafty.c("Rails", {
+    init: function() {
+        this.addComponent("2D, DOM, Image");
+        this.attr({
+            w: 74,
+            h: 430,
+            x: 0,
+            y: 90
+        });
+        console.log("rails");
+        this.image("img/rails.png", "no-repeat");
+        
     }
 });
 
@@ -165,7 +174,6 @@ Crafty.c("NewGameMenuItem", {
     }
 });
 
-
 Crafty.c("ToogleSound", {
     init: function() {
         this.addComponent("2D, DOM, Mouse");
@@ -175,5 +183,21 @@ Crafty.c("ToogleSound", {
 Crafty.c("ToogleMusic", {
     init: function() {
         this.addComponent("2D, DOM, Mouse");
+    }
+});
+
+Crafty.c("AttachSprite", {
+    init: function() {
+        this.bind("EnterFrame", function() {
+            if(this._spriteComponent !== undefined) {
+                this._spriteComponent.attr({
+                    x: this.x - this._spriteComponent._mainComponentAttr.x,
+                    y: this.y - this._spriteComponent._mainComponentAttr.y
+                });
+            }
+        });
+    },
+    attachSprite: function(spriteComponent) {
+        this._spriteComponent = spriteComponent;
     }
 });

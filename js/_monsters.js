@@ -1,52 +1,74 @@
+Crafty.c("PigSprite", {
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, pig");
+        this.attr({
+        	x: 0,
+            y: 90,
+            w: 115,
+            h: 115,
+            z: 1
+        });
+        this._mainComponentAttr = {
+            x: 30,
+            y: 20
+        };     
+        this.animate("walk", 0, 0, 3);
+        this.bind("EnterFrame", function() {			
+	        if(!this.isPlaying("walk")) {
+	            this.animate("walk", 30, -1);
+	        }
+        });
+    }
+});
+
 Crafty.c("Pig", {
     init: function() {
-        this.addComponent("2D, Canvas, SpriteAnimation, Collision, Mouse, pig");
+        this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite");
 
         this._hitPoints = 100;
 
         this.attr({
             x: 650,
             y: 90,
+            w: 40,
+            h: 70,
             z: 1
         });
 		
-        this.animate("walk", 0, 0, 3);
-		
         this.bind("EnterFrame", function() {
-			
             if(!this.hit("DenWallRight")) {
             	this.move("w", 0.60);
-                if(!this.isPlaying("walk")) {
-                    this.animate("walk", 30, -1);
-                }
             } else {
                 this.stop();
                 this.destroy();
             }
-            
-            
-
         });
+        
         this.bind("MouseOver", function() {
             if(DefendTheDen.selectedSkill == "ThrowingAxeSkill") {
                 $("body").css("cursor", "url(img/axe-sprite.png),auto");
             }
         });
+        
         this.bind("MouseOut", function() {
             $("body").css("cursor", "auto");
         });
+        
         this.bind("Click", function() {
             if(DefendTheDen.selectedSkill == "ThrowingAxeSkill") {
                 DefendTheDen.throwingAxeSkill.throwAxe();
             }
         });
+        
         this.bind("dead", function() {
-        	console.log("dead");
         	Crafty.e("Gold").attr({ x: this.x, y: this.y });
+        	this._spriteComponent.destroy();
         	this.destroy();
         });
+        
     },
     setToLine: function(line) {
+    	console.log(line);
         this.attr({
             y: 90 + (line * 70) - 70
         });
@@ -61,7 +83,6 @@ Crafty.c("Pig", {
         this._hitPoints -= damages;
         if(this._hitPoints < 1) {
         	this.trigger("dead");
-            
         }
     }
 });
