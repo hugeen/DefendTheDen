@@ -16,7 +16,7 @@ window.onload = (function() {
 
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
-            
+            //new Sound(soundResources.titleScreen, { loop: true, type: 'music' }).play();
             Crafty.e("2D, DOM").attr({
                 w: DefendTheDen.viewPort.w,
                 h: DefendTheDen.viewPort.h,
@@ -75,7 +75,7 @@ window.onload = (function() {
 
             setInterval(function() {
                 Crafty.e("Pig").setToLine(Crafty.randRange(1, 5));
-            }, 1250);
+            }, 3250);
             makeMatrix();
 
             $(document).mousemove(function(e) {

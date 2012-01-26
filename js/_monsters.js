@@ -10,14 +10,14 @@ Crafty.c("Pig", {
             z: 1
         });
 		
-        this.animate("walk", 0, 0, 0);
+        this.animate("walk", 0, 0, 3);
 		
         this.bind("EnterFrame", function() {
 			
             if(!this.hit("DenWallRight")) {
-                this.move("w", 0.75);
+            	this.move("w", 0.60);
                 if(!this.isPlaying("walk")) {
-                    this.stop().animate("walk", 70);
+                    this.animate("walk", 30, -1);
                 }
             } else {
                 this.stop();
@@ -42,7 +42,7 @@ Crafty.c("Pig", {
         });
         this.bind("dead", function() {
         	console.log("dead");
-        	Crafty.e("Tusk").attr({ x: this.x, y: this.y });
+        	Crafty.e("Gold").attr({ x: this.x, y: this.y });
         	this.destroy();
         });
     },
