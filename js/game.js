@@ -14,7 +14,7 @@ window.onload = (function() {
 
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
-
+            screenMusic();
             Crafty.e("2D, DOM").attr({
                 w: DefendTheDen.viewPort.w,
                 h: DefendTheDen.viewPort.h,
@@ -41,41 +41,50 @@ window.onload = (function() {
 
     Crafty.scene("newGame", function() {
         console.log("newGame");
-        Crafty.load(["img/background-game.png","img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
-			
-			Crafty.e("2D, Canvas, Image").attr({
+        Crafty.load(["img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
+
+            Crafty.e("2D, Canvas, Image, Mouse").attr({
                 w: DefendTheDen.viewPort.w,
                 h: DefendTheDen.viewPort.h,
                 x: 0,
                 y: 0
-            }).image("img/background-game.png", "repeat");
-
+            }).image("img/background-game.png", "repeat").bind("MouseOver", function() {
+                console.log("over");
+            });
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
                 right: Crafty.e("DenWallRight"),
                 top: Crafty.e("DenWallTop"),
                 bottom: Crafty.e("DenWallBottom")
             };
-            
+
             DefendTheDen.wolf = Crafty.e("Wolf");
             DefendTheDen.wolf.attachSprite(Crafty.e("WolfSprite"));
-            
+
             DefendTheDen.selectedSkill = "ThrowingAxeSkill";
-            
+
             DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
             DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
-            
+
             Crafty.e("PlaceTrapSkill").attr({
                 x: 50,
                 y: 10
             });
-            
+
             setInterval(function() {
                 Crafty.e("Pig").setToLine(Crafty.randRange(1, 5));
             }, 1250);
-            
             makeMatrix();
 
+            $(document).mousemove(function(e) {
+            	console.log(denWall.top._y);
+                if(e.pageY >= denWall.top._y+40 && e.pageY <= denWall.bottom._y -40) {
+                    DefendTheDen.wolf.attr({
+                        y: e.pageY
+                    });
+                }
+
+            });
         });
     });
 

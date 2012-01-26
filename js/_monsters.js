@@ -9,11 +9,11 @@ Crafty.c("Pig", {
             y: 90,
             z: 1
         });
-
-        this.animate("walk", 0, 0, 7);
-
+		
+        this.animate("walk", 0, 0, 0);
+		
         this.bind("EnterFrame", function() {
-
+			
             if(!this.hit("DenWallRight")) {
                 this.move("w", 0.75);
                 if(!this.isPlaying("walk")) {
@@ -23,6 +23,8 @@ Crafty.c("Pig", {
                 this.stop();
                 this.destroy();
             }
+            
+            
 
         });
         this.bind("MouseOver", function() {
@@ -38,16 +40,26 @@ Crafty.c("Pig", {
                 DefendTheDen.throwingAxeSkill.throwAxe();
             }
         });
+        this.bind("dead", function() {
+        	console.log("dead");
+        	Crafty.e("Tusk").attr({ x: this.x, y: this.y });
+        	this.destroy();
+        });
     },
     setToLine: function(line) {
         this.attr({
             y: 90 + (line * 70) - 70
         });
     },
-    setDamage: function(damages) {
+    takeDamage: function(damages) {
+    	if(this.bleed !== undefined) {
+    		this.bleed.destroy();
+    	}
+    	this.bleed = Crafty.e("Bleed").attachCreature(this);
         this._hitPoints -= damages;
         if(this._hitPoints < 1) {
-            this.destroy();
+        	this.trigger("dead");
+            
         }
     }
 });

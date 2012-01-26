@@ -1,3 +1,48 @@
+Crafty.c("Bleed", {
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, bleed");
+        this.attr({
+            w: 55,
+            h: 55,
+            z: 1
+        });
+        this.animate("bleed", 0, 0, 11);
+        
+        
+		this.bind("EnterFrame", function() {
+			this.attr({x: this._creature.x, y: this._creature.y});
+		});
+    },
+    attachCreature: function(creature) {
+    	this._creature = creature;
+    	this.animate("bleed", 10);
+    	this.delay(function() {
+			this.destroy();
+		}, 500);
+    	
+    }
+});
+
+
+Crafty.c("Tusk", {
+	init: function() {
+		this.addComponent("2D, Canvas, SpriteAnimation, Mouse, tusk");
+		this.attr({
+
+            w: 25,
+            h: 25,
+            z: 1
+        });
+        this.animate("tusk", 0, 0, 1);
+        this.delay(function() {
+        	this.destroy();
+        }, 2500);
+        this.bind("MouseOver", function() {
+        	this.destroy();
+        });
+	}
+});
+
 Crafty.c("DenWallLeft", {
     init: function() {
         this.addComponent("2D, Canvas, Color, Collision");
@@ -56,20 +101,6 @@ Crafty.c("DenWallBottom", {
 
 
 
-Crafty.c("SkillButton", {
-    init: function() {
-        this.addComponent("2D, Canvas, Color, Mouse, KeyBoard");
-        this.attr({
-            x: 10,
-            y: 10,
-            w: 30,
-            h: 30,
-            z: 1
-        });
-        this.color("#fff");
-
-    }
-});
 
 Crafty.c("Cell", {
     init: function() {
@@ -80,11 +111,11 @@ Crafty.c("Cell", {
             z: 0
         });
         this.bind("MouseOver", function() {
-            if(DefendTheDen.wolf !== undefined) {
+            /*if(DefendTheDen.wolf !== undefined) {
                 DefendTheDen.wolf.attr({
                     y: this.y + 15
                 });
-            }
+            }*/
         });
     }
 });

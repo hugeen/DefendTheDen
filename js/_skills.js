@@ -1,3 +1,17 @@
+
+Crafty.c("SkillButton", {
+    init: function() {
+        this.addComponent("2D, Canvas, Mouse, KeyBoard");
+        this.attr({
+            x: 10,
+            y: 10,
+            w: 50,
+            h: 50,
+            z: 1
+        });
+
+    }
+});
 Crafty.c("ThrowingAxe", {
     init: function() {
         this._used = false;
@@ -16,8 +30,7 @@ Crafty.c("ThrowingAxe", {
             this.move("e", 10);
         });
         this.onHit("Pig", function(o) {
-
-            o[0].obj.setDamage(Crafty.randRange(100, 125));
+            o[0].obj.takeDamage(Crafty.randRange(25, 50));
             this.destroy();
         });
         this.bind("EnterFrame", function() {
@@ -30,12 +43,13 @@ Crafty.c("ThrowingAxe", {
 
 Crafty.c("ThrowingAxeSkill", {
     init: function() {
-        this.addComponent("SkillButton");
+        this.addComponent("SkillButton, Image");
         this.bind('KeyUp', function(e) {
             if(e.keyCode === Crafty.keys["1"]) {
                 this.throwAxe();
             }
         });
+        this.image("img/axe-sprite.png");
         this.bind("Click", function() {
 
         });
