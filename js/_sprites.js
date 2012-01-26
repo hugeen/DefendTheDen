@@ -35,3 +35,12 @@ Crafty.sprite(81, "img/wagon.png", {
     wagon: [0, 0, 1, 1]
 });
 
+Crafty.sprite(44, "img/skill.png", {
+    skill: [0, 0, 1, 1]
+});
+
+Crafty.sprite(44, "img/skill-cooldown.png", {
+    skillCooldown: [0, 0, 1, 1]
+});
+
+
