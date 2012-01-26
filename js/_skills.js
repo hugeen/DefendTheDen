@@ -29,6 +29,7 @@ Crafty.c("ThrowingAxe", {
             });
             this.move("e", 10);
         });
+        
         this.onHit("Pig", function(o) {
             o[0].obj.takeDamage(Crafty.randRange(25, 50));
             this.destroy();
@@ -38,6 +39,7 @@ Crafty.c("ThrowingAxe", {
                 this.destroy();
             }
         });
+        new Sound(soundResources.throwing, { volume: 40, destroyIn: 1000 }).play();
     },
 });
 

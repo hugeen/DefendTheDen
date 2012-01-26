@@ -3,7 +3,9 @@ var DefendTheDen = {
     viewPort: {
         w: 710,
         h: 580
-    }
+    },
+    sound: 1,
+    music: 1
 };
 
 var debugMode = true;
@@ -14,7 +16,7 @@ window.onload = (function() {
 
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
-            screenMusic();
+            
             Crafty.e("2D, DOM").attr({
                 w: DefendTheDen.viewPort.w,
                 h: DefendTheDen.viewPort.h,
@@ -40,7 +42,7 @@ window.onload = (function() {
     });
 
     Crafty.scene("newGame", function() {
-        console.log("newGame");
+
         Crafty.load(["img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
 
             Crafty.e("2D, Canvas, Image, Mouse").attr({
@@ -49,7 +51,7 @@ window.onload = (function() {
                 x: 0,
                 y: 0
             }).image("img/background-game.png", "repeat").bind("MouseOver", function() {
-                console.log("over");
+
             });
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
@@ -77,7 +79,7 @@ window.onload = (function() {
             makeMatrix();
 
             $(document).mousemove(function(e) {
-            	console.log(denWall.top._y);
+
                 if(e.pageY >= denWall.top._y+40 && e.pageY <= denWall.bottom._y -40) {
                     DefendTheDen.wolf.attr({
                         y: e.pageY

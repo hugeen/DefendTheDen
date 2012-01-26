@@ -52,6 +52,8 @@ Crafty.c("Pig", {
         });
     },
     takeDamage: function(damages) {
+    	new Sound(soundResources.wound, { destroyIn: 1000 }).play();
+
     	if(this.bleed !== undefined) {
     		this.bleed.destroy();
     	}

@@ -164,3 +164,16 @@ Crafty.c("NewGameMenuItem", {
         });
     }
 });
+
+
+Crafty.c("ToogleSound", {
+    init: function() {
+        this.addComponent("2D, DOM, Mouse");
+    }
+});
+
+Crafty.c("ToogleMusic", {
+    init: function() {
+        this.addComponent("2D, DOM, Mouse");
+    }
+});
