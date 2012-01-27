@@ -13,10 +13,14 @@ Crafty.c("PigSprite", {
             y: 20
         };     
         this.animate("walk", 0, 0, 3);
-        this.bind("EnterFrame", function() {			
-	        if(!this.isPlaying("walk")) {
-	            this.animate("walk", 30, -1);
-	        }
+	    this.animate("walk", 38, 1);
+
+        this.bind("EnterFrame", function() {
+        	if(this._frame.frame==4) {
+        		this._frame.current=0;
+        		this._frame.frame=0;
+        	}	
+	        
         });
     }
 });
@@ -26,7 +30,7 @@ Crafty.c("Pig", {
         this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite");
 		this._state = "free";
         this._hitPoints = 100;
-		this._movingSpeed = 0.60;
+		this._movingSpeed = 0.45;
         this.attr({
             x: 650,
             y: 90,

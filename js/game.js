@@ -70,7 +70,7 @@ window.onload = (function() {
 				if(DefendTheDen.skillBoundToMouse !== undefined) {
                     DefendTheDen.skillBoundToMouse.destroy();
                 }
-			}
+			};
             DefendTheDen.bindSkillToMouse = function(skill) {
                 if(DefendTheDen.skillBoundToMouse !== undefined) {
                     DefendTheDen.skillBoundToMouse.destroy();
@@ -101,12 +101,16 @@ window.onload = (function() {
                 keyBind: 2,
                 sprite: 'bearTrapSkill'
             });
-
+			
+			var newPig = Crafty.e("Pig");
+            newPig.setToLine(Crafty.randRange(1, 6));
+            newPig.attachSprite(Crafty.e("PigSprite"));
+			
             setInterval(function() {
                 var newPig = Crafty.e("Pig");
                 newPig.setToLine(Crafty.randRange(1, 6));
                 newPig.attachSprite(Crafty.e("PigSprite"));
-            }, 1250);
+            }, 4250);
             makeMatrix();
 
             $(document).mousemove(function(e) {
