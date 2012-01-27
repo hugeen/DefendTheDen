@@ -13,7 +13,7 @@ Crafty.c("SkillButton", {
             this.sprite(1, 0, 1, 1);
         });
         this.bind("MouseUp", function() {
-            this.sprite(0, 0, 1, 1);
+            this.sprite(2, 0, 1, 1);
         });
 		this.coolDownStart = 0;
 		this.coolDownFinish = 0;
@@ -29,11 +29,13 @@ Crafty.c("SkillButton", {
         this.bind("EnterFrame", function() {
         	if(this.cdon) {
 				var newH = (this.coolDownFinish-parseInt(new Date().getTime(),10))*44/(1000*this.cooldown);
+				var newY = this.y +(44-newH)/2;
 				if(newH < 0 ) {
 					this.cdon = false;
 					newH = 0;
+					newY = 10;
 				}
-				this._coolDownCount.attr({ h:  newH});
+				this._coolDownCount.attr({ h: newH, y: newY});
 			}
         });
 
@@ -81,7 +83,7 @@ Crafty.c("ThrowingAxeSkill", {
             if(e.keyCode === Crafty.keys["1"]) {
             	if(!this.cdon) {
 	                this.throwAxe();
-	                this.sprite(0, 0, 1, 1);
+	                this.sprite(2, 0, 1, 1);
 					this.coolDownStart = parseInt(new Date().getTime(),10);
 					this.coolDownFinish = parseInt(new Date().getTime()+(this.cooldown*1000),10);
 					this.cdon = true;
@@ -119,6 +121,47 @@ Crafty.c("ThrowingAxeSkill", {
             h: 32,
             z: 5
         });
+    }
+});
 
+
+Crafty.c("PlaceTrapSkill", {
+    init: function() {
+        this.addComponent("SkillButton");
+        this.cooldown = 0.625;
+        this.attr({
+            x: 64
+        });
+        this.bind('KeyUp', function(e) {
+            if(e.keyCode === Crafty.keys["2"]) {
+            	if(!this.cdon) {
+	                this.sprite(2, 0, 1, 1);
+					this.coolDownStart = parseInt(new Date().getTime(),10);
+					this.coolDownFinish = parseInt(new Date().getTime()+(this.cooldown*1000),10);
+					this.cdon = true;
+				}
+            }
+        });
+        this.bind('KeyDown', function(e) {
+            if(e.keyCode === Crafty.keys["2"]) {
+                this.sprite(1, 0, 1, 1);
+            }
+        });
+        this.bind("Click", function() {
+
+        });
+        this.bindVisual();
+    },
+    bindWolf: function(wolf) {
+        this._wolf = wolf;
+    },
+    bindVisual: function() {
+        this._skillVisual = Crafty.e("2D, Canvas, bearTrapSkill").attr({
+            x: this.x + 6,
+            y: this.y + 6,
+            w: 32,
+            h: 32,
+            z: 5
+        });
     }
 });

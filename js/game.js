@@ -76,10 +76,8 @@ window.onload = (function() {
 
             DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
             DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
-            Crafty.e("PlaceTrapSkill").attr({
-                x: 50,
-                y: 10
-            });
+            DefendTheDen.placeTrapSkill = Crafty.e("PlaceTrapSkill");
+            DefendTheDen.placeTrapSkill.bindWolf(DefendTheDen.wolf);
 
             setInterval(function() {
             	var newPig = Crafty.e("Pig");

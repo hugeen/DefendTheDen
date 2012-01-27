@@ -1,4 +1,4 @@
-Crafty.c("PlaceTrapSkill", {
+/*Crafty.c("PlaceTrapSkill", {
     init: function() {
         this.addComponent("SkillButton");
         this.bind('KeyUp', function(e) {
@@ -11,4 +11,4 @@ Crafty.c("PlaceTrapSkill", {
         });
         this.color("#ccc");
     }
-});
+});*/
