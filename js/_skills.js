@@ -15,9 +15,9 @@ Crafty.c("SkillButton", {
         this.bind("MouseUp", function() {
             this.sprite(2, 0, 1, 1);
         });
-		this.coolDownStart = 0;
-		this.coolDownFinish = 0;
-		this.cdon = false;
+        this.coolDownStart = 0;
+        this.coolDownFinish = 0;
+        this.cdon = false;
         this._coolDownCount = Crafty.e("2D, Canvas, skillCooldown").attr({
             x: this.x,
             y: this.y,
@@ -25,20 +25,21 @@ Crafty.c("SkillButton", {
             h: 0,
             z: 6
         });
-        
         this.bind("EnterFrame", function() {
-        	if(this.cdon) {
-				var newH = (this.coolDownFinish-parseInt(new Date().getTime(),10))*44/(1000*this.cooldown);
-				var newY = this.y +(44-newH)/2;
-				if(newH < 0 ) {
-					this.cdon = false;
-					newH = 0;
-					newY = 10;
-				}
-				this._coolDownCount.attr({ h: newH, y: newY});
-			}
+            if(this.cdon) {
+                var newH = (this.coolDownFinish - parseInt(new Date().getTime(), 10)) * 44 / (1000 * this.cooldown);
+                var newY = this.y + (44 - newH) / 2;
+                if(newH < 0) {
+                    this.cdon = false;
+                    newH = 0;
+                    newY = 10;
+                }
+                this._coolDownCount.attr({
+                    h: newH,
+                    y: newY
+                });
+            }
         });
-
     }
 });
 Crafty.c("ThrowingAxe", {
@@ -75,93 +76,78 @@ Crafty.c("ThrowingAxe", {
     }
 });
 
-Crafty.c("ThrowingAxeSkill", {
-    init: function() {
-        this.addComponent("SkillButton");
-        this.cooldown = 0.625;
-        this.bind('KeyUp', function(e) {
-            if(e.keyCode === Crafty.keys["1"]) {
-            	if(!this.cdon) {
-	                this.throwAxe();
-	                this.sprite(2, 0, 1, 1);
-					this.coolDownStart = parseInt(new Date().getTime(),10);
-					this.coolDownFinish = parseInt(new Date().getTime()+(this.cooldown*1000),10);
-					this.cdon = true;
-				}
-            }
-        });
-        this.bind('KeyDown', function(e) {
-            if(e.keyCode === Crafty.keys["1"]) {
-                this.sprite(1, 0, 1, 1);
-            }
-        });
-        this.bind("Click", function() {
+function throwAxe() {
+    Crafty.e("ThrowingAxe").attr({
+        x: DefendTheDen.wolf.x,
+        y: DefendTheDen.wolf.y
+    });
+}
 
-        });
-        this.bindVisual();
-        
-    },
-    bindWolf: function(wolf) {
-        this._wolf = wolf;
-    },
-    throwAxe: function() {
-        if(this._wolf !== undefined) {
-            DefendTheDen.selectedSkill = "ThrowingAxeSkill";
-            Crafty.e("ThrowingAxe").attr({
-                x: this._wolf.x,
-                y: this._wolf.y
+function SkillButton(position, skillName, options) {
+    this.position = position || 1;
+    this.skillName = skillName || "";
+    _.defaults(options, {
+        sprite: "axe",
+        keyBind: 1,
+        cooldown: 1.5,
+        action: function() {
+
+        }
+    });
+    var that = this;
+    this.c = Crafty.c(that.skillName + "Skill", {
+        init: function() {
+            this.addComponent("SkillButton");
+            this.attr({
+            	x: this._x+((this._x+this._w)*position)-this._w
+            });
+            
+            this.cooldown = options.cooldown;
+            this.bind('KeyUp', function(e) {
+                if(e.keyCode === Crafty.keys["" + options.keyBind + ""]) {
+					this.checkAction();
+                }
+            });
+            this.bind('KeyDown', function(e) {
+                if(e.keyCode === Crafty.keys["1"]) {
+                    this.sprite(1, 0, 1, 1);
+                }
+            });
+            this.bind("Click", function() {
+            	this.checkAction();
+            });
+            this.bindVisual();
+            
+            this._coolDownCount.attr({
+            	x: this._x
+            });
+        },
+        checkAction: function() {
+            if(!this.cdon) {
+                this.action();
+                this.sprite(2, 0, 1, 1);
+                this.coolDownStart = parseInt(new Date().getTime(), 10);
+                this.coolDownFinish = parseInt(new Date().getTime() + (this.cooldown * 1000), 10);
+                this.cdon = true;
+            }
+        },
+        bindWolf: function(wolf) {
+            this._wolf = wolf;
+        },
+        action: function() {
+            DefendTheDen.selectedSkill = that.skillName + "Skill";
+            this.trigger("action");
+            options.action();
+        },
+        bindVisual: function() {
+            this._skillVisual = Crafty.e("2D, Canvas, " + options.sprite).attr({
+                x: this.x + 6,
+                y: this.y + 6,
+                w: 32,
+                h: 32,
+                z: 5
             });
         }
-    },
-    bindVisual: function() {
-        this._skillVisual = Crafty.e("2D, Canvas, axe").attr({
-            x: this.x + 6,
-            y: this.y + 6,
-            w: 32,
-            h: 32,
-            z: 5
-        });
-    }
-});
-
-
-Crafty.c("PlaceTrapSkill", {
-    init: function() {
-        this.addComponent("SkillButton");
-        this.cooldown = 0.625;
-        this.attr({
-            x: 64
-        });
-        this.bind('KeyUp', function(e) {
-            if(e.keyCode === Crafty.keys["2"]) {
-            	if(!this.cdon) {
-	                this.sprite(2, 0, 1, 1);
-					this.coolDownStart = parseInt(new Date().getTime(),10);
-					this.coolDownFinish = parseInt(new Date().getTime()+(this.cooldown*1000),10);
-					this.cdon = true;
-				}
-            }
-        });
-        this.bind('KeyDown', function(e) {
-            if(e.keyCode === Crafty.keys["2"]) {
-                this.sprite(1, 0, 1, 1);
-            }
-        });
-        this.bind("Click", function() {
-
-        });
-        this.bindVisual();
-    },
-    bindWolf: function(wolf) {
-        this._wolf = wolf;
-    },
-    bindVisual: function() {
-        this._skillVisual = Crafty.e("2D, Canvas, bearTrapSkill").attr({
-            x: this.x + 6,
-            y: this.y + 6,
-            w: 32,
-            h: 32,
-            z: 5
-        });
-    }
-});
+    });
+    this.e = Crafty.e(this.skillName + "Skill");
+}

@@ -74,10 +74,21 @@ window.onload = (function() {
             
             DefendTheDen.selectedSkill = "ThrowingAxeSkill";
 
-            DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
-            DefendTheDen.throwingAxeSkill.bindWolf(DefendTheDen.wolf);
-            DefendTheDen.placeTrapSkill = Crafty.e("PlaceTrapSkill");
-            DefendTheDen.placeTrapSkill.bindWolf(DefendTheDen.wolf);
+            //DefendTheDen.throwingAxeSkill = Crafty.e("ThrowingAxeSkill");
+            DefendTheDen.throwingAxeSkill = new SkillButton(1,"ThrowingAxe", {
+            	cooldown: 0.625,
+            	action: function() {
+            		throwAxe();
+            	}
+            });
+            DefendTheDen.throwingAxeSkill = new SkillButton(2,"PlaceTrap", {
+            	cooldown: 5,
+            	action: function() {
+            		console.log("trap");
+            	},
+            	keyBind: 2,
+            	sprite: 'bearTrapSkill'
+            });
 
             setInterval(function() {
             	var newPig = Crafty.e("Pig");

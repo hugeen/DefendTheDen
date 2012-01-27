@@ -47,7 +47,6 @@ Crafty.sprite(32, "img/beartrap-skill.png", {
     bearTrapSkill: [0, 0, 1, 1]
 });
 
-
 Crafty.sprite(65, "img/beartrap-sprite.png", {
     bearTrap: [0, 0, 1, 1]
 });
