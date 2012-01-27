@@ -24,9 +24,9 @@ Crafty.c("PigSprite", {
 Crafty.c("Pig", {
     init: function() {
         this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite");
-
+		this._state = "free";
         this._hitPoints = 100;
-
+		this._movingSpeed = 0.60;
         this.attr({
             x: 650,
             y: 90,
@@ -37,7 +37,9 @@ Crafty.c("Pig", {
 		
         this.bind("EnterFrame", function() {
             if(!this.hit("DenWallRight")) {
-            	this.move("w", 0.60);
+            	if(this._state == "free") {
+            		this.move("w", this._movingSpeed);
+            	}
             } else {
             	this._spriteComponent.stop();
             	this._spriteComponent.destroy();
