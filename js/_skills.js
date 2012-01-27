@@ -45,7 +45,7 @@ Crafty.c("SkillButton", {
 Crafty.c("ThrowingAxe", {
     init: function() {
         this._used = false;
-        this.addComponent("2D, Canvas, Collision, Tween, axe");
+        this.addComponent("2D, Canvas, Collision, axe");
         this.attr({
             x: 32,
             y: 32,
@@ -61,7 +61,7 @@ Crafty.c("ThrowingAxe", {
         });
 
         this.onHit("Pig", function(o) {
-            o[0].obj.takeDamage(Crafty.randRange(25, 50));
+            o[0].obj.takeDamage(Crafty.randRange(45, 75));
             this.destroy();
         });
         this.bind("EnterFrame", function() {
@@ -76,8 +76,34 @@ Crafty.c("ThrowingAxe", {
     }
 });
 
+Crafty.c("BearTrap", {
+    init: function() {
+        this._used = false;
+        this.addComponent("2D, Canvas, Collision, bearTrap");
+        this.attr({
+            x: 32,
+            y: 32,
+            w: 65,
+            h: 65
+        });
+        //this.origin("center");
+        this.bind("EnterFrame", function() {
+
+        });
+
+        
+    }
+});
+
 function throwAxe() {
     Crafty.e("ThrowingAxe").attr({
+        x: DefendTheDen.wolf.x,
+        y: DefendTheDen.wolf.y
+    });
+}
+
+function bearTrap() {
+	Crafty.e("BearTrap").attr({
         x: DefendTheDen.wolf.x,
         y: DefendTheDen.wolf.y
     });
@@ -125,7 +151,7 @@ function SkillButton(position, skillName, options) {
         checkAction: function() {
             if(!this.cdon) {
                 this.action();
-                this.sprite(2, 0, 1, 1);
+                this.sprite(0, 0, 1, 1);
                 this.coolDownStart = parseInt(new Date().getTime(), 10);
                 this.coolDownFinish = parseInt(new Date().getTime() + (this.cooldown * 1000), 10);
                 this.cdon = true;
@@ -135,6 +161,7 @@ function SkillButton(position, skillName, options) {
             this._wolf = wolf;
         },
         action: function() {
+        	DefendTheDen.skillChange();
             DefendTheDen.selectedSkill = that.skillName + "Skill";
             this.trigger("action");
             options.action();

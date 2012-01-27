@@ -104,11 +104,24 @@ Crafty.c("Cell", {
             z: 0
         });
         this.bind("MouseOver", function() {
+        	if(DefendTheDen.selectedSkill == "BearTrapSkill") {
+        		DefendTheDen.skillBoundToMouse.attr({
+        			x: this.x,
+        			y: this.y
+        		});
+        	}
             /*if(DefendTheDen.wolf !== undefined) {
              DefendTheDen.wolf.attr({
              y: this.y + 15
              });
              }*/
+        });
+        this.bind("MouseDown", function() {
+        	DefendTheDen.skillBoundToMouse.destroy();
+        	Crafty.e("BearTrap").attr({
+                x: this.x,
+                y: this.y
+           });
         });
     }
 });

@@ -50,8 +50,7 @@ function Sound(file, params) {
 	soundManager[soundIds] = this;
 	if(this.params.destroyIn) {
 		var that = this;
-		setTimeout(function() {
-			console.log("destroy");			
+		setTimeout(function() {	
 			delete soundManager[that.id];
 			that.jqueryElement.remove();
 		}, that.params.destroyIn);
@@ -65,7 +64,6 @@ Sound.prototype.play = function() {
 
 Sound.prototype.refreshVolume = function() {
 	this.$e.volume=(maxVolume*(this.params.volume/100))*(soundVolumeStorage.get()/100)/100;
-	console.log(this.$e.volume);
 };
 
 

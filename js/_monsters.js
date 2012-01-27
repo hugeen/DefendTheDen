@@ -57,7 +57,7 @@ Crafty.c("Pig", {
         
         this.bind("Click", function() {
             if(DefendTheDen.selectedSkill == "ThrowingAxeSkill") {
-                DefendTheDen.throwingAxeSkill.throwAxe();
+                DefendTheDen.skills.throwingAxeSkill.e.checkAction();
             }
         });
         
@@ -69,9 +69,8 @@ Crafty.c("Pig", {
         
     },
     setToLine: function(line) {
-    	console.log(line);
         this.attr({
-            y: 90 + (line * 70) - 70
+            y: (90 + (line * 70) - 70)-15
         });
     },
     takeDamage: function(damages) {
