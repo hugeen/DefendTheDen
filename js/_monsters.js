@@ -99,7 +99,6 @@ Crafty.c("Pig", {
 				break;
 		}
 		this._zIndex = zIndex;
-		/*this._spriteComponent.attr({ z: zIndex }); */
         this.attr({
             y: (90 + (line * 70) - 70)-25
         });

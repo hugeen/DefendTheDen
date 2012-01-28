@@ -23,7 +23,7 @@ Crafty.c("SkillButton", {
             y: this.y,
             w: this.w,
             h: 0,
-            z: 6
+            z: 16
         });
         this.bind("EnterFrame", function() {
             if(this.cdon) {
@@ -175,7 +175,7 @@ function SkillButton(position, skillName, options) {
                 y: this.y + 6,
                 w: 32,
                 h: 32,
-                z: 5
+                z: 16
             });
         }
     });
