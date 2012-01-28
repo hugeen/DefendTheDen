@@ -10,6 +10,65 @@ var DefendTheDen = {
 
 var debugMode = true;
 
+var makeBattlefield = function() {
+
+};
+Crafty.c("GrassField", {
+    init: function() {
+        this.addComponent("2D, Canvas, Image");
+        this.attr({
+            w: DefendTheDen.viewPort.w,
+            h: DefendTheDen.viewPort.h,
+            x: 0,
+            y: 0,
+            z: 0
+        });
+        this.image("img/bg-lines.png", "no-repeat");
+    }
+});
+
+Crafty.c("SideRails", {
+    init: function() {
+        this.addComponent("2D, Canvas, Image");
+        this.attr({
+            w: 74,
+            h: 580,
+            x: 0,
+            y: 0,
+            z: 0
+        });
+        this.image("img/rails-sprite.png", "no-repeat");
+    }
+});
+
+Crafty.c("EarthBackground", {
+    init: function() {
+        this.addComponent("2D, Canvas, Image");
+        this.attr({
+            w: DefendTheDen.viewPort.w,
+            h: DefendTheDen.viewPort.h,
+            x: 0,
+            y: 0,
+            z: 0
+        });
+        this.image("img/background-earth.png", "no-repeat");
+    }
+});
+
+Crafty.c("SkyBackground", {
+    init: function() {
+        this.addComponent("2D, Canvas, Image");
+        this.attr({
+            w: DefendTheDen.viewPort.w,
+            h: DefendTheDen.viewPort.h,
+            x: 0,
+            y: 0,
+            z: 0
+        });
+        this.image("img/background-sky.png", "no-repeat");
+    }
+});
+
 window.onload = (function() {
 
     Crafty.init(DefendTheDen.viewPort.w, DefendTheDen.viewPort.h);
@@ -23,7 +82,7 @@ window.onload = (function() {
                 x: 0,
                 y: 0
             }).css("background", "url(img/background.png)").css("z-index", "0");
-
+            
             Crafty.e("Clouds");
 
             Crafty.e("2D, DOM").attr({
@@ -45,20 +104,10 @@ window.onload = (function() {
 
         Crafty.load(["img/rails.png", "img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
 
-            Crafty.e("2D, Canvas, Image, Mouse").attr({
-                w: DefendTheDen.viewPort.w,
-                h: DefendTheDen.viewPort.h,
-                x: 0,
-                y: 0
-            }).image("img/background-game.png", "repeat").bind("MouseOver", function() {
-
-            });
-
-            Crafty.e("2D, Canvas, Sprite, Mouse, rails").attr({
-                y: 98,
-                w: 74,
-                h: 430
-            }).sprite(0, 0, 1, 6);
+			Crafty.e("GrassField");
+			Crafty.e("SideRails");
+			Crafty.e("EarthBackground");
+			Crafty.e("SkyBackground");
 
             var denWall = {
                 left: Crafty.e("DenWallLeft"),
@@ -66,11 +115,11 @@ window.onload = (function() {
                 top: Crafty.e("DenWallTop"),
                 bottom: Crafty.e("DenWallBottom")
             };
-			DefendTheDen.skillChange = function() {
-				if(DefendTheDen.skillBoundToMouse !== undefined) {
+            DefendTheDen.skillChange = function() {
+                if(DefendTheDen.skillBoundToMouse !== undefined) {
                     DefendTheDen.skillBoundToMouse.destroy();
                 }
-			};
+            };
             DefendTheDen.bindSkillToMouse = function(skill) {
                 if(DefendTheDen.skillBoundToMouse !== undefined) {
                     DefendTheDen.skillBoundToMouse.destroy();
@@ -87,12 +136,11 @@ window.onload = (function() {
             DefendTheDen.skills["throwingAxeSkill"] = new SkillButton(1, "ThrowingAxe", {
                 cooldown: 0.625,
                 action: function() {
-                	DefendTheDen.wolf._spriteComponent.stop().animate("throwAxe", 18, 0);
-                	setTimeout(function() {
-                		throwAxe();
-                		
-                	}, 20*20*0.9);
-                    
+                    DefendTheDen.wolf._spriteComponent.stop().animate("throwAxe", 18, 0);
+                    setTimeout(function() {
+                        throwAxe();
+
+                    }, 20 * 20 * 0.9);
                 }
             });
             DefendTheDen.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {
@@ -106,11 +154,11 @@ window.onload = (function() {
                 keyBind: 2,
                 sprite: 'bearTrapSkill'
             });
-			
-			var newPig = Crafty.e("Pig");
+
+            var newPig = Crafty.e("Pig");
             newPig.setToLine(Crafty.randRange(1, 6));
             newPig.attachSprite(Crafty.e("PigSprite"));
-			
+
             setInterval(function() {
                 var newPig = Crafty.e("Pig");
                 newPig.setToLine(Crafty.randRange(1, 6));
@@ -120,7 +168,7 @@ window.onload = (function() {
 
             $(document).mousemove(function(e) {
 
-                if(e.pageY >= denWall.top._y && e.pageY <= denWall.bottom._y - 60) {
+                if(e.pageY >= denWall.top._y - 15 && e.pageY <= denWall.bottom._y - 30 ) {
                     DefendTheDen.wolf.attr({
                         y: e.pageY
                     });
