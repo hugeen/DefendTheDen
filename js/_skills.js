@@ -3,10 +3,10 @@ Crafty.c("SkillButton", {
         this.addComponent("2D, Canvas, Mouse, KeyBoard, Sprite, skill");
         this.attr({
             x: 10,
-            y: 10,
+            y: 520,
             w: 44,
             h: 44,
-            z: 1
+            z: 16
         });
         this.cooldown = 0.5;
         this.bind("MouseDown", function() {

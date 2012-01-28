@@ -75,8 +75,32 @@ Crafty.c("Pig", {
         
     },
     setToLine: function(line) {
+    	if(line == 6) 
+		var zIndex = 0;
+		switch(line) {
+			case 6:
+				zIndex = 11;
+				break;
+			case 5:
+				zIndex = 9;
+				break;
+			case 4:
+				zIndex = 7;
+				break;
+			case 3:
+				zIndex = 5;
+				break;
+			case 2:
+				zIndex = 3;
+				break;
+			case 1:
+				zIndex = 1;
+				break;
+		}
+		this._zIndex = zIndex;
+		/*this._spriteComponent.attr({ z: zIndex }); */
         this.attr({
-            y: (90 + (line * 70) - 70)-15
+            y: (90 + (line * 70) - 70)-25
         });
     },
     takeDamage: function(damages) {

@@ -6,7 +6,7 @@ Crafty.c("WolfSprite", {
             y: 90,
             w: 135,
             h: 135,
-            z: 1
+            z: 14
         });
         this._mainComponentAttr = {
             x: 40,
@@ -39,7 +39,7 @@ Crafty.c("Wolf", {
             y: 90,
             w: 40,
             h: 40,
-            z: 1
+            z: 14
         });
 
         this.bind("EnterFrame", function() {

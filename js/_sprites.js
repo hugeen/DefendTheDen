@@ -47,4 +47,11 @@ Crafty.sprite(65, "img/beartrap-sprite.png", {
     bearTrap: [0, 0, 1, 1]
 });
 
+Crafty.sprite(157, "img/grass-piece-light.png", {
+    grassLight: [0, 0, 1, 1]
+});
+
+Crafty.sprite(157, "img/grass-piece-dark.png", {
+    grassDark: [0, 0, 1, 1]
+});
 

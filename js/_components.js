@@ -134,7 +134,8 @@ Crafty.c("Wagon", {
             w: 81,
             h: 81,
             x: 0,
-            y: 0
+            y: 0,
+            z: 13
         });
         this.sprite(0,0,1,1);
     }
@@ -210,5 +211,9 @@ Crafty.c("AttachSprite", {
     },
     attachSprite: function(spriteComponent) {
         this._spriteComponent = spriteComponent;
+        console.log(this._zIndex);
+        if(this._zIndex) {
+        	this._spriteComponent.attr({z : this._zIndex});
+        }
     }
 });

@@ -9,3 +9,158 @@
       color-stop(1, rgb(36,45,56))
   );
 }
+
+
+#portrait {
+  top: 9px;
+  left: 8px;
+  width: 218px;
+  height: 64px;
+  position: fixed;
+  background: url("../img/portrait.png") top left no-repeat;
+  z-index: 15;
+}
+
+#lifeBar {
+  top: 14px;
+  left: 90px;
+  width: 130px;
+  height: 17px;
+  position: fixed;
+  background: url("../img/life-bar.png") top left no-repeat;
+  z-index: 15;
+}
+
+#lifeBarProgress {
+  top: 14px;
+  left: 90px;
+  width: 90px;
+  height: 17px;
+  position: fixed;
+  background: url("../img/life-bar-filled.png") top left no-repeat;
+  z-index: 15;
+}
+
+#lifeBar span {
+  top: 16px;
+  left: 194px;
+  width: 21px;
+  height: 12px;
+  position: fixed;
+  background: url("../img/life-text.png") top left no-repeat;
+  z-index: 15;
+}
+
+#energyBar {
+  top: 34px;
+  left: 91px;
+  width: 129px;
+  height: 17px;
+  position: fixed;
+  background: url("../img/energy-bar.png") top left no-repeat;
+  z-index: 15;
+}
+
+#energyBarProgress {
+  top: 34px;
+  left: 91px;
+  width: 90px;
+  height: 17px;
+  position: fixed;
+  background: url("../img/energy-bar-filled.png") top left no-repeat;
+  z-index: 15;
+}
+
+#energyBar span {
+  top: 36px;
+  left: 179px;
+  width: 37px;
+  height: 11px;
+  position: fixed;
+  background: url("../img/energy-text.png") top left no-repeat;
+  z-index: 15;
+}
+
+#goldCoin {
+  top: 53px;
+  left: 201px;
+  width: 16px;
+  height: 16px;
+  position: fixed;
+  background: url("../img/gold-coin.png") top left no-repeat;
+  z-index: 15;
+}
+
+#goldCount {
+  top: 54px;
+  left: 93px;
+  width: 105px;
+  font: bold 11px sans-serif;
+  color: #62727b;
+  z-index: 15;
+  text-align: right;
+  position: fixed;
+}
+
+
+#menu {
+  top: 0;
+  left: 598px;
+  width: 84px;
+  height: 27px;
+  text-align: center;
+  position: fixed;
+  background: url("../img/menu-button.png") top left no-repeat;
+  z-index: 15;
+  cursor: pointer;
+  text-decoration: none;
+  color: #62727b;
+}
+
+
+#menu:hover {
+  color: #000;
+}
+
+#menu span {
+  top: 4px;
+  left: 598px;
+  width: 84px;
+  position: fixed;
+  text-align: center;
+  font: bold 11px sans-serif;
+  text-transform: uppercase;
+}
+
+
+#progressBarBelow {
+  top: 47px;
+  left: 234px;
+  width: 468px;
+  height: 26px;
+  position: fixed;
+  background: url("../img/progress-bar-below.png") top left no-repeat;
+  z-index: 15;
+}
+
+#progressBar {
+  top: 47px;
+  left: 234px;
+  width: 265px;
+  height: 26px;
+  position: fixed;
+  background: url("../img/progress-bar-over.png") top left no-repeat;
+  z-index: 15;
+}
+
+#levelNumber {
+  text-shadow: 0px 0px 1px #000000, 0px 0px 1px #000000, 0px 0px 1px #000000;
+  top: 22px;
+  left: 234px;
+  width: 468px;
+  position: fixed;
+  z-index: 15;
+  text-align: center;
+  color: #fff;
+  font: bold 13px sans-serif;
+}
