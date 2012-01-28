@@ -32,17 +32,16 @@ Crafty.c("WolfSprite", {
 
 Crafty.c("Wolf", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, Keyboard, Fourway, AttachSprite");
+        this.addComponent("2D, Canvas, Collision, AttachSprite");
 
         this.attr({
-            x: 0,
+            x: 9,
             y: 90,
             w: 40,
             h: 40,
             z: 1
         });
 
-        this.fourway(8);
         this.bind("EnterFrame", function() {
             if(this._wagon !== undefined) {
                 this._wagon.attr({
@@ -50,30 +49,6 @@ Crafty.c("Wolf", {
                     y: this.y
                 });
             }
-            if(isMultiwayPress(this) && !hitDenWalls(this)) {
-                if(this._spriteComponent !== undefined) {
-                    this._spriteComponent._walking = true;
-                }
-
-            } else {
-                this._spriteComponent._walking = false;
-            }
-        });
-
-        this.onHit("DenWallLeft", function() {
-            this.x += this._speed;
-        });
-
-        this.onHit("DenWallRight", function() {
-            this.x -= this._speed;
-        });
-
-        this.onHit("DenWallBottom", function() {
-            this.y -= this._speed;
-        });
-
-        this.onHit("DenWallTop", function() {
-            this.y += this._speed;
         });
     },
     throwAxe: function() {
