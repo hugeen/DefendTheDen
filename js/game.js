@@ -1,3 +1,7 @@
+var storage = {}
+storage.pigDied = new LocalStore('pig_died', { defaultVal: 0 });
+storage.axeThrowed = new LocalStore('axe_trhowed', { defaultVal: 0 });
+
 var DefendTheDen = {
     KeyBoardType: "QWERTY",
     viewPort: {

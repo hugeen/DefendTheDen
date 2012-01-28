@@ -68,6 +68,7 @@ Crafty.c("Pig", {
         });
         
         this.bind("dead", function() {
+        	storage.pigDied.set(storage.pigDied.get()+1);
         	Crafty.e("Gold").attr({ x: this.x, y: this.y });
         	this._spriteComponent.destroy();
         	this.destroy();

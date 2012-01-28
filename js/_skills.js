@@ -96,6 +96,9 @@ Crafty.c("BearTrap", {
 });
 
 function throwAxe() {
+	
+	storage.axeThrowed.set(storage.axeThrowed.get()+1);
+    
     Crafty.e("ThrowingAxe").attr({
         x: DefendTheDen.wolf.x,
         y: DefendTheDen.wolf.y-30
