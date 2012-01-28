@@ -87,7 +87,12 @@ window.onload = (function() {
             DefendTheDen.skills["throwingAxeSkill"] = new SkillButton(1, "ThrowingAxe", {
                 cooldown: 0.625,
                 action: function() {
-                    throwAxe();
+                	DefendTheDen.wolf._spriteComponent.stop().animate("throwAxe", 18, 0);
+                	setTimeout(function() {
+                		throwAxe();
+                		
+                	}, 20*20*0.9);
+                    
                 }
             });
             DefendTheDen.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {

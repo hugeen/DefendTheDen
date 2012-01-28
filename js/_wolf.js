@@ -13,13 +13,19 @@ Crafty.c("WolfSprite", {
             y: 60
         };
         this.animate("walkWolf", 0, 0, 1);
+        this.animate("throwAxe", 1, 0, 3);
         this._walking = false;
         this.bind("EnterFrame", function() {
-            if(!this.isPlaying("walkWolf") && this._walking) {
-                this.stop().animate("walkWolf", 15);
-            } else {
-                this.stop();
-            }
+        	/*if(!this.isPlaying("throwAxe") && this._isThrowing) {
+        		console.log("coucou");
+        		this.stop().animate("throwAxe", 12);
+        	} else {
+        		if(!this.isPlaying("walkWolf") && this._walking) {
+	                this.stop().animate("walkWolf", 15);
+	            } else {
+	                this.stop();
+	            }
+        	}*/
         });
     }
 });

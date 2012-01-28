@@ -49,15 +49,15 @@ Crafty.c("ThrowingAxe", {
         this.attr({
             x: 32,
             y: 32,
-            w: 32,
-            h: 32
+            w: 42,
+            h: 42
         });
         this.origin("center");
         this.bind("EnterFrame", function() {
             this.attr({
-                rotation: this.rotation + 18
+                rotation: this.rotation + 19
             });
-            this.move("e", 10);
+            this.move("e", 12);
         });
 
         this.onHit("Pig", function(o) {
@@ -98,7 +98,7 @@ Crafty.c("BearTrap", {
 function throwAxe() {
     Crafty.e("ThrowingAxe").attr({
         x: DefendTheDen.wolf.x,
-        y: DefendTheDen.wolf.y
+        y: DefendTheDen.wolf.y-30
     });
 }
 
