@@ -54,6 +54,18 @@ var waveParser = function(waveString) {
 	return lines;
 };
 
+var monsterCount = function(waves) {
+	var monsterCount = 0;
+	_.each(waves, function(item){
+		for(i=0; i < 6; i++) {
+			if(item.wave[i] != "!") {
+				monsterCount++;
+			}
+		}
+	});
+	return monsterCount;
+};
+
 var pauseGame = function() {
 	/*Crafty.stop();*/
 };

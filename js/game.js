@@ -116,7 +116,7 @@ window.onload = (function() {
             $("#menu").on('click', function() {
                 Crafty.pause();
             });
-            RoundOne.play();
+            RoundOne();
         });
     });
 

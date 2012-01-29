@@ -181,19 +181,20 @@ Crafty.c("Cell", {
             z: 0
         });
         this.bind("MouseOver", function() {
-            if(DTD.selectedSkill == "BearTrapSkill") {
+            /*if(DTD.selectedSkill == "BearTrapSkill") {
                 DTD.skillBoundToMouse.attr({
                     x: this.x,
                     y: this.y
                 });
-            }
+            }*/
         });
         this.bind("MouseDown", function() {
-            DTD.skillBoundToMouse.destroy();
-            Crafty.e("BearTrap").attr({
-                x: this.x,
-                y: this.y
-            });
+        	/*if(DTD.selectedSkill == "BearTrapSkill") {
+	            Crafty.e("BearTrap").attr({
+	                x: this.x,
+	                y: this.y
+	            });
+         	}*/
         });
     }
 });

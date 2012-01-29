@@ -1,10 +1,10 @@
-var rounds = [];
-
+var currentRound;
 Crafty.c("Round", {
 	init: function() {
 		this._start = 0;
 		this.waves = [];
-		
+		this._monsterCount = 0;
+		this._monstersDied = 0;
 		this._played = false;
 		this.bind("EnterFrame", function() {
 			
@@ -31,15 +31,18 @@ Crafty.c("Round", {
 						}
 					});
 				} else {
-					this._played = false;
-					console.log("finished");
+					if(this._monsterCount == this._monstersDied) {
+						this._played = false;
+						this.trigger("Ended");
+						console.log("finished");
+					}
 				}
-			}
+			};
+			currentRound = this;
 		});
 	},
 	create: function(id) {
 		this._roundId = id;
-		rounds[this.id] = this;
 	},
 	addWave: function(wave, at) {
 		this.waves.push({
@@ -51,6 +54,8 @@ Crafty.c("Round", {
 	play: function() {
 		var that = this;
 		var lastWave = _.last(this.waves);
+		this._monsterCount = monsterCount(this.waves);
+		this._monstersDied = 0;
 		this._played = true;
 		this._duration = lastWave.at*1000;
 		this._startAt = parseInt(new Date().getTime(), 10);
@@ -59,9 +64,17 @@ Crafty.c("Round", {
 	}
 });
 
-RoundOne = Crafty.e("Round");
-RoundOne.create(1);
-RoundOne.addWave("!!!!!p",1);
-RoundOne.addWave("!!!!p!",3);
-RoundOne.addWave("!!p!!!",5);
-
+var RoundOne = function() {
+	round = Crafty.e("Round");
+	round.create(1);
+	round.addWave("!!!!!p",1);
+	round.addWave("!!!!p!",3);
+	round.addWave("!!!p!!",5);
+	round.addWave("!!p!!!",7);
+	round.addWave("!!p!p!",12);
+	round.addWave("p!ppp!",18);
+	round.addWave("p!ppp!",25);
+	round.addWave("!pp!!!",27);
+	round.play();
+	return round;
+};

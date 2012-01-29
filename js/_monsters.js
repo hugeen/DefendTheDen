@@ -20,7 +20,6 @@ Crafty.c("PigSprite", {
                 this._frame.current = 0;
                 this._frame.frame = 0;
             }
-
         });
         
     }
@@ -70,10 +69,12 @@ Crafty.c("Pig", {
         });
 
         this.bind("dead", function() {
+        	this._state = "dead";
         	new Sound(soundResources.pigDie, {
                 destroyIn: 1000
             }).play();
-            this._state = "dead";
+            
+            currentRound._monstersDied++;
             storage.pigDied.set(storage.pigDied.get() + 1);
             Crafty.e("Gold").attr({
                 x: Crafty.randRange(this.x - 10, this.x + this.w + 10),
