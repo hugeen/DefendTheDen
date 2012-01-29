@@ -20,10 +20,6 @@ var DTD = {
     music: 1
 };
 
-var buildUI = function() {
-    $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>15</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
-};
-
 window.onload = (function() {
 
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
@@ -59,7 +55,7 @@ window.onload = (function() {
 
         Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
             buildUI();
-			makeBattlefield();
+            makeBattlefield();
 
             DTD.skillChange = function() {
                 if(DTD.skillBoundToMouse !== undefined) {
@@ -79,43 +75,10 @@ window.onload = (function() {
             DTD.player.attachWagon(Crafty.e("Wagon"));
 
             DTD.skills = [];
-            DTD.skills["throwingAxeSkill"] = new SkillButton(1, "ThrowingAxe", {
-                cooldown: 0.625,
-                action: function() {
-                    DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
-                    setTimeout(function() {
-                        throwAxe();
+            DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
+            //DTD.skills["bearTrapSkill"] = bearTrapSkill();
 
-                    }, 20 * 20 * 0.9);
-                }
-            });
-            
-            DTD.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {
-                cooldown: 5,
-                action: function() {
-                    DTD.skillBoundToMouse = DTD.bindSkillToMouse(Crafty.e("BearTrap").attr({
-                        x: DTD.player.x,
-                        y: DTD.player.y
-                    }));
-                },
-                keyBind: 2,
-                sprite: 'bearTrapSkill'
-            });
-
-            makeMatrix();
-
-            $(document).mousemove(function(e) {
-                if(!DTD.player._paused) {
-                    if(e.pageY >= 90 && e.pageY <= 480) {
-                        DTD.player.attr({
-                            y: e.pageY
-                        });
-                    }
-                }
-            });
-            $("#menu").on('click', function() {
-                Crafty.pause();
-            });
+            allowPlayerMoves();
             RoundOne();
         });
     });

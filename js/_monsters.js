@@ -21,11 +21,16 @@ Crafty.c("PigSprite", {
                 this._frame.frame = 0;
             }
         });
-        
     }
 });
 
 Crafty.c("Pig", {
+    init: function() {
+        this.addComponent("Enemy");
+    }
+});
+
+Crafty.c("Enemy", {
     init: function() {
         this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite");
         this._state = "free";
@@ -45,10 +50,10 @@ Crafty.c("Pig", {
                     this.move("w", this._movingSpeed);
                 }
             } else {
-            	if(this._state != "dead") {
-	            	this.takeDamage(this._hitPoints);
-	            	DTD.player.takeDamage();
-            	}
+                if(this._state != "dead") {
+                    this.takeDamage(this._hitPoints);
+                    DTD.player.takeDamage();
+                }
             }
         });
 
@@ -69,11 +74,11 @@ Crafty.c("Pig", {
         });
 
         this.bind("dead", function() {
-        	this._state = "dead";
-        	new Sound(soundResources.pigDie, {
+            this._state = "dead";
+            new Sound(soundResources.pigDie, {
                 destroyIn: 1000
             }).play();
-            
+
             currentRound._monstersDied++;
             storage.pigDied.set(storage.pigDied.get() + 1);
             Crafty.e("Gold").attr({

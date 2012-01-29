@@ -1,3 +1,29 @@
+var throwingAxeSkill = function() {
+    return new SkillButton(1, "ThrowingAxe", {
+        cooldown: 0.625,
+        action: function() {
+            DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
+            setTimeout(function() {
+                throwAxe();
+
+            }, 20 * 20 * 0.9);
+        }
+    });
+};
+var bearTrapSkill = function() {
+    return new SkillButton(2, "BearTrap", {
+        cooldown: 5,
+        action: function() {
+            DTD.skillBoundToMouse = DTD.bindSkillToMouse(Crafty.e("BearTrap").attr({
+                x: DTD.player.x,
+                y: DTD.player.y
+            }));
+        },
+        keyBind: 2,
+        sprite: 'bearTrapSkill'
+    });
+};
+
 Crafty.c("SkillButton", {
     init: function() {
         this.addComponent("2D, Canvas, Mouse, KeyBoard, Sprite, skill");
@@ -91,21 +117,19 @@ Crafty.c("BearTrap", {
         this.bind("EnterFrame", function() {
 
         });
-
-        
     }
 });
 
 function throwAxe() {
-	storage.axeThrowed.set(storage.axeThrowed.get()+1);
+    storage.axeThrowed.set(storage.axeThrowed.get() + 1);
     Crafty.e("ThrowingAxe").attr({
         x: DTD.player.x,
-        y: DTD.player.y-30
+        y: DTD.player.y - 30
     });
 }
 
 function bearTrap() {
-	Crafty.e("BearTrap").attr({
+    Crafty.e("BearTrap").attr({
         x: DTD.player.x,
         y: DTD.player.y
     });
@@ -127,45 +151,45 @@ function SkillButton(position, skillName, options) {
         init: function() {
             this.addComponent("SkillButton");
             this.attr({
-            	x: this._x+((this._x+this._w)*position)-this._w
+                x: this._x + ((this._x + this._w) * position) - this._w
             });
-            
+
             this.cooldown = options.cooldown;
             this.bind('KeyUp', function(e) {
                 if(e.keyCode === Crafty.keys["" + options.keyBind + ""]) {
-                	this._keyPressSprite.attr({
-                		h: 0
-                	});
-					this.checkAction();
+                    this._keyPressSprite.attr({
+                        h: 0
+                    });
+                    this.checkAction();
                 }
             });
             this.bind('KeyDown', function(e) {
                 if(e.keyCode === Crafty.keys["" + options.keyBind + ""]) {
                     this._keyPressSprite.attr({
-                		h: 54
-                	});
+                        h: 54
+                    });
                 }
             });
-            
+
             this.bind('MouseDown', function(e) {
-            	this._keyPressSprite.attr({
-            		h: 54
-            	});
+                this._keyPressSprite.attr({
+                    h: 54
+                });
             });
             this.bind('MouseUp', function(e) {
-            	this._keyPressSprite.attr({
-            		h: 0
-            	});
-            	this.checkAction();
+                this._keyPressSprite.attr({
+                    h: 0
+                });
+                this.checkAction();
             });
 
             this.bindVisual();
-            
+
             this._coolDownCount.attr({
-            	x: this._x
+                x: this._x
             });
             this._keyPressSprite.attr({
-            	x: this._x
+                x: this._x
             });
         },
         checkAction: function() {
@@ -180,7 +204,7 @@ function SkillButton(position, skillName, options) {
             this._wolf = wolf;
         },
         action: function() {
-        	DTD.skillChange();
+            DTD.skillChange();
             DTD.selectedSkill = that.skillName + "Skill";
             this.trigger("action");
             options.action();

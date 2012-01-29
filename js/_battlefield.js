@@ -11,7 +11,16 @@ var makeBattlefield = function() {
     grassLine(4);
     grassLine(5);
     grassLine(6);
+    makeMatrix();
 };
+
+var buildUI = function() {
+    $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>15</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
+    $("#menu").on('click', function() {
+        Crafty.pause();
+    });
+};
+
 var grassLine = function(line) {
     var component = "grassLight";
     var yBase = 125;
@@ -171,6 +180,7 @@ Crafty.c("Gold", {
         });
     }
 });
+
 
 Crafty.c("Cell", {
     init: function() {
