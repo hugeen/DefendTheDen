@@ -66,6 +66,15 @@ var monsterCount = function(waves) {
 	return monsterCount;
 };
 
+
+
+var rolling = function(percent) {
+	if(Crafty.randRange(1, 100) > 100-percent) {
+		return true;
+	} else {
+		return false;
+	}
+};
 var pauseGame = function() {
 	/*Crafty.stop();*/
 };

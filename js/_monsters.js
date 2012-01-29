@@ -36,6 +36,7 @@ Crafty.c("Enemy", {
         this._state = "free";
         this._hitPoints = 100;
         this._movingSpeed = 0.45;
+        this._coinDropRate = 50;
         this.attr({
             x: 650,
             y: -90,
@@ -81,12 +82,13 @@ Crafty.c("Enemy", {
 
             currentRound._monstersDied++;
             storage.pigDied.set(storage.pigDied.get() + 1);
-            Crafty.e("Gold").attr({
-                x: Crafty.randRange(this.x - 10, this.x + this.w + 10),
-                y: Crafty.randRange(this.y - 10, this.y + this.h + 10),
-                z: 20
-            });
-
+            if(rolling(this._coinDropRate)) {
+	            Crafty.e("Gold").attr({
+	                x: Crafty.randRange(this.x - 10, this.x + this.w + 10),
+	                y: Crafty.randRange(this.y - 10, this.y + this.h + 10),
+	                z: 20
+	            });
+			}
             this.delay(function() {
                 this._spriteComponent.destroy();
                 this.destroy();
