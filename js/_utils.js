@@ -16,6 +16,12 @@ var hitDenWalls = function(component) {
 		component.hit("DenWallBottom");
 };
 
+var updateGolds = function(nb) {
+    storage.goldCoins.set(storage.goldCoins.get()+1);
+    $('#goldCount').html(storage.goldCoins.get());
+    $('#goldCoin').effect("shake", { distance: 5, times: 1}, 100);
+};
+
 var makeMatrix = function() {
 	var cols = 9;
 	var rows = 6;
@@ -45,3 +51,8 @@ var attachSpriteTo = function(mainComponent, spriteComponent) {
 		});
 	});
 };
+
+
+var pauseGame = function() {
+	Crafty.stop();
+}

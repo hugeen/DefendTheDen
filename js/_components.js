@@ -1,10 +1,22 @@
+Crafty.c("PlayerLife", {
+	init: function() {
+		this._baseLife = 100;
+		this._modifier = 1;
+		this._actualLife = 100;
+		this.bind("EnterFrame", function() {
+			
+		});
+	}
+});
+
+
 Crafty.c("Bleed", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, bleed");
         this.attr({
             w: 55,
             h: 55,
-            z: 1
+            z: 36
         });
         this.animate("bleed", 0, 0, 11);
 
@@ -24,13 +36,40 @@ Crafty.c("Bleed", {
     }
 });
 
+
+Crafty.c("DyingBleed", {
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, dyingBleed");
+        this.attr({
+            w: 115,
+            h: 115,
+            z: 36
+        });
+        this.animate("bleed", 0, 0, 10);
+
+        this.bind("EnterFrame", function() {
+            this.attr({
+                x: this._creature.x,
+                y: this._creature.y-30
+            });
+        });
+    },
+    attachCreature: function(creature) {
+        this._creature = creature;
+        this.animate("bleed", 10);
+        this.delay(function() {
+            this.destroy();
+        }, 500);
+    }
+});
+
 Crafty.c("Gold", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
         this.attr({
 
-            w: 35,
-            h: 35,
+            w: 16,
+            h: 16,
             z: 1
         });
         this.animate("tusk", 0, 0, 1);
@@ -39,7 +78,13 @@ Crafty.c("Gold", {
         }, 2500);
         this.bind("MouseOver", function() {
             this.destroy();
+            updateGolds();
+            new Sound(soundResources.goldCoin, {
+	            volume: 65,
+	            destroyIn: 2000
+	        }).play();
         });
+        
     }
 });
 
