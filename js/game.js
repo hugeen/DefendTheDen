@@ -173,7 +173,7 @@ window.onload = (function() {
 
     Crafty.scene("newGame", function() {
 
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/pig-sprite.png", "img/pig-sprite.png", "img/axe-sprite.png"], function() {
+        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
             buildUI();
             Crafty.e("GrassField");
             Crafty.e("SideRails");

@@ -18,10 +18,6 @@ Crafty.sprite(115, "img/blood-sprite-die.png", {
     dyingBleed: [0, 0, 1, 1]
 });
 
-Crafty.sprite(24, "img/tusk-sprite.png", {
-    tusk: [0, 0, 1, 1]
-});
-
 Crafty.sprite(16, "img/gold-coin.png", {
     gold: [0, 0, 1, 1]
 });

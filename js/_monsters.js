@@ -22,6 +22,7 @@ Crafty.c("PigSprite", {
             }
 
         });
+        
     }
 });
 
