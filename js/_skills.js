@@ -100,22 +100,6 @@ Crafty.c("ThrowingAxe", {
     }
 });
 
-Crafty.c("BearTrap", {
-    init: function() {
-        this._used = false;
-        this.addComponent("2D, Canvas, Collision, bearTrap");
-        this.attr({
-            x: 32,
-            y: 32,
-            w: 65,
-            h: 65
-        });
-        this.bind("EnterFrame", function() {
-
-        });
-    }
-});
-
 function throwAxe() {
     storage.axeThrowed.set(storage.axeThrowed.get() + 1);
     Crafty.e("ThrowingAxe").attr({

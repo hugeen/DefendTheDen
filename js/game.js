@@ -64,13 +64,13 @@ window.onload = (function() {
             buildUI();
             makeBattlefield();
 
-            DTD.player = Crafty.e("Wolf");
+            /*DTD.player = Crafty.e("Wolf");
             DTD.skills = [];
             DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
 			DTD.selectedSkill == "ThrowingAxeSkill";
 			DTD.inGame = true;
             allowPlayerMoves();
-            RoundOne();
+            RoundOne();*/
         });
     });
 

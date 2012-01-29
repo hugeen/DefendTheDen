@@ -1,3 +1,14 @@
+var loadScene = function(scene) {
+	switch(scene) {
+		case 1: 
+			Crafty.scene("newGame");
+			break;
+		default:
+			
+			break;
+	}
+};
+
 var currentRound;
 Crafty.c("Round", {
 	init: function() {
