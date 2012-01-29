@@ -1,4 +1,5 @@
 var storage = {};
+
 storage.pigDied = new LocalStore('pig_died', {
     defaultVal: 0
 });
@@ -19,70 +20,8 @@ var DTD = {
     music: 1
 };
 
-var debugMode = true;
-
-var makeBattlefield = function() {
-    Crafty.e("GrassField");
-    Crafty.e("UnderRails");
-    Crafty.e("SideRails");
-    Crafty.e("EarthBackground");
-    Crafty.e("SkyBackground");
-    Crafty.e("Wires");
-    grassLine(1);
-    grassLine(2);
-    grassLine(3);
-    grassLine(4);
-    grassLine(5);
-    grassLine(6);
-
-};
 var buildUI = function() {
     $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>15</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
-};
-var grassLine = function(line) {
-    var component = "grassLight";
-    var yBase = 125;
-    var xBase = 75;
-    var hBase = 70;
-    var wBase = 157;
-
-    var yNew = 125 + (70 * (line - 1));
-
-    switch(line) {
-        case 6:
-            zIndex = 12;
-            var component = "grassDark";
-            break;
-        case 5:
-            zIndex = 10;
-            var component = "grassLight";
-            break;
-        case 4:
-            zIndex = 8;
-            var component = "grassDark";
-            break;
-        case 3:
-            zIndex = 6;
-            var component = "grassLight";
-            break;
-        case 2:
-            zIndex = 4;
-            var component = "grassDark";
-            break;
-        case 1:
-            zIndex = 2;
-            var component = "grassLight";
-            break;
-    }
-
-    for(var i = 0; i <= 4; i++) {
-        Crafty.e("GrassLine").addComponent(component).attr({
-            x: 110 + (yBase * i),
-            y: yNew,
-            z: zIndex
-        });
-    }
-
 };
 
 window.onload = (function() {
@@ -150,6 +89,7 @@ window.onload = (function() {
                     }, 20 * 20 * 0.9);
                 }
             });
+            
             DTD.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {
                 cooldown: 5,
                 action: function() {
