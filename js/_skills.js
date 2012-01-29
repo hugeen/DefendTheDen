@@ -4,17 +4,11 @@ Crafty.c("SkillButton", {
         this.attr({
             x: 10,
             y: 520,
-            w: 44,
-            h: 44,
+            w: 52,
+            h: 52,
             z: 16
         });
         this.cooldown = 0.5;
-        this.bind("MouseDown", function() {
-            this.sprite(1, 0, 1, 1);
-        });
-        this.bind("MouseUp", function() {
-            this.sprite(2, 0, 1, 1);
-        });
         this.coolDownStart = 0;
         this.coolDownFinish = 0;
         this.cdon = false;
@@ -23,7 +17,14 @@ Crafty.c("SkillButton", {
             y: this.y,
             w: this.w,
             h: 0,
-            z: 16
+            z: 19
+        });
+        this._keyPressSprite = Crafty.e("2D, Canvas, skillKeyPress").attr({
+            x: this.x,
+            y: this.y,
+            w: this.w,
+            h: 0,
+            z: 17
         });
         this.bind("EnterFrame", function() {
             if(this.cdon) {
@@ -134,27 +135,44 @@ function SkillButton(position, skillName, options) {
             this.cooldown = options.cooldown;
             this.bind('KeyUp', function(e) {
                 if(e.keyCode === Crafty.keys["" + options.keyBind + ""]) {
+                	this._keyPressSprite.attr({
+                		h: 0
+                	});
 					this.checkAction();
                 }
             });
             this.bind('KeyDown', function(e) {
-                if(e.keyCode === Crafty.keys["1"]) {
-                    this.sprite(1, 0, 1, 1);
+                if(e.keyCode === Crafty.keys["" + options.keyBind + ""]) {
+                    this._keyPressSprite.attr({
+                		h: 54
+                	});
                 }
             });
-            this.bind("Click", function() {
+            
+            this.bind('MouseDown', function(e) {
+            	this._keyPressSprite.attr({
+            		h: 54
+            	});
+            });
+            this.bind('MouseUp', function(e) {
+            	this._keyPressSprite.attr({
+            		h: 0
+            	});
             	this.checkAction();
             });
+
             this.bindVisual();
             
             this._coolDownCount.attr({
+            	x: this._x
+            });
+            this._keyPressSprite.attr({
             	x: this._x
             });
         },
         checkAction: function() {
             if(!this.cdon) {
                 this.action();
-                this.sprite(0, 0, 1, 1);
                 this.coolDownStart = parseInt(new Date().getTime(), 10);
                 this.coolDownFinish = parseInt(new Date().getTime() + (this.cooldown * 1000), 10);
                 this.cdon = true;
@@ -171,10 +189,10 @@ function SkillButton(position, skillName, options) {
         },
         bindVisual: function() {
             this._skillVisual = Crafty.e("2D, Canvas, " + options.sprite).attr({
-                x: this.x + 6,
-                y: this.y + 6,
-                w: 32,
-                h: 32,
+                x: this.x + 4,
+                y: this.y + 4,
+                w: 42,
+                h: 42,
                 z: 16
             });
         }
