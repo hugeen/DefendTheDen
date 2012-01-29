@@ -1,9 +1,11 @@
 var soundResources = {
 	titleScreen: "462638_Travels_of_Vagabonds.ogg",
 	wound: "Vampire_Bite_SoundBible.ogg",
+	pigDie: "Whip_SoundBible.ogg",
 	howl: "Werewolf_Howl_SoundBible.ogg",
 	breath: "Breathing_Weird_SoundBible.ogg",
-	throwing: "spin_jump_Brandino480_2020916281.ogg"
+	throwing: "spin_jump_Brandino480_2020916281.ogg",
+	goldCoin: "Metal_Reflect_SoundBible.ogg"
 };
 
 var maxVolume = 80;
