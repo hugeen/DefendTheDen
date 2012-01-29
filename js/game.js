@@ -44,7 +44,7 @@ Crafty.c("GrassField", {
 
 Crafty.c("SideRails", {
     init: function() {
-        this.addComponent("2D, Canvas, Image");
+        this.addComponent("2D, Canvas, Sprite, rails");
         this.attr({
             w: 74,
             h: 580,
@@ -52,7 +52,6 @@ Crafty.c("SideRails", {
             y: 0,
             z: 0
         });
-        this.image("img/rails-sprite.png", "no-repeat");
     }
 });
 

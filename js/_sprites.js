@@ -27,8 +27,8 @@ Crafty.sprite(16, "img/gold-coin.png", {
 });
 
 
-Crafty.sprite(74, "img/rails.png", {
-    rails: [0, 0, 1, 6]
+Crafty.sprite(74, "img/rails-sprite.png", {
+    rails: [0, 0, 1, 8]
 });
 
 Crafty.sprite(81, "img/wagon.png", {
