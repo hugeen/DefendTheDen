@@ -35,7 +35,7 @@ Crafty.c("WolfSprite", {
             y: 90,
             w: 135,
             h: 135,
-            z: 14
+            z: 17
         });
         this._mainComponentAttr = {
             x: 40,

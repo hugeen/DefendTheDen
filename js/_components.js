@@ -21,6 +21,31 @@ Crafty.c("Gold", {
     }
 });
 
+Crafty.c("UnderRails", {
+    init: function() {
+        this.addComponent("2D, Canvas, Sprite, underRails");
+        this.attr({
+            w: 167,
+            h: 668,
+            x: -20,
+            y: 35
+        });
+    }
+});
+
+Crafty.c("Wires", {
+    init: function() {
+        this.addComponent("2D, Canvas, Sprite, Collision, wires");
+        this.attr({
+            w: 42,
+            h: 420,
+            x: 70,
+            y: 85,
+            z: 16
+        });
+    }
+});
+
 Crafty.c("DenWallLeft", {
     init: function() {
         this.addComponent("2D, Canvas, Collision");

@@ -2,8 +2,8 @@ Crafty.c("PigSprite", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, pig");
         this.attr({
-            x: 0,
-            y: 90,
+            x: -150,
+            y: -90,
             w: 115,
             h: 115,
             z: 1
@@ -34,14 +34,14 @@ Crafty.c("Pig", {
         this._movingSpeed = 0.45;
         this.attr({
             x: 650,
-            y: 90,
+            y: -90,
             w: 40,
             h: 70,
             z: 1
         });
 
         this.bind("EnterFrame", function() {
-            if(!this.hit("DenWallRight")) {
+            if(!this.hit("Wires")) {
                 if(this._state == "free" && !this._paused) {
                     this.move("w", this._movingSpeed);
                 }

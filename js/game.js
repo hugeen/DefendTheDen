@@ -132,7 +132,7 @@ var grassLine = function(line) {
 
     for(var i = 0; i <= 4; i++) {
         Crafty.e("GrassLine").addComponent(component).attr({
-            x: 80 + (yBase * i),
+            x: 110 + (yBase * i),
             y: yNew,
             z: zIndex
         });
@@ -176,9 +176,12 @@ window.onload = (function() {
         Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
             buildUI();
             Crafty.e("GrassField");
+            Crafty.e("UnderRails");
             Crafty.e("SideRails");
             Crafty.e("EarthBackground");
             Crafty.e("SkyBackground");
+            
+            Crafty.e("Wires");
             grassLine(1);
             grassLine(2);
             grassLine(3);

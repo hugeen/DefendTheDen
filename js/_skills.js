@@ -51,7 +51,8 @@ Crafty.c("ThrowingAxe", {
             x: 32,
             y: 32,
             w: 42,
-            h: 42
+            h: 42,
+            z: 25
         });
         this.origin("center");
         this.bind("EnterFrame", function() {

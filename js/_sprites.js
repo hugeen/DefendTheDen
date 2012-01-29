@@ -10,6 +10,14 @@ Crafty.sprite(42, "img/axe-sprite.png", {
     axe: [0, 0, 1, 1]
 });
 
+Crafty.sprite(42, "img/wires-sprite.png", {
+    wires: [0, 0, 1, 10]
+});
+
+Crafty.sprite(167, "img/under-rails.png", {
+    underRails: [0, 0, 1, 4]
+});
+
 Crafty.sprite(55, "img/blood-sprite.png", {
     bleed: [0, 0, 1, 1]
 });
