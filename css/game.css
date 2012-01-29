@@ -163,3 +163,56 @@
   color: #4f6d7c;
   font: 18px 'Bangers', cursive;
 }
+
+
+.wolfBig {
+  width: 198px;
+  height: 279px;
+  background: url("../img/wolf-big.png") top left no-repeat;
+  z-index: 35;
+  position: fixed;
+  top: 328px;
+  left: -198px;
+}
+
+.pigBig {
+  width: 199px;
+  height: 276px;
+  background: url("../img/pig-big.png") top left no-repeat;
+  z-index: 35;
+  position: fixed;
+  top: 328px;
+  right: -199px;
+}
+
+.wolfSpeech {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 2px solid #000;
+  z-index: 35;
+  position: fixed;
+  width: 160px;
+  text-align: left;
+  top: 305px;
+  left: 170px;
+  font-family: 'Bangers', cursive;
+  text-align: center;
+  font-size: 19px;
+}
+
+
+.pigSpeech {
+  padding: 5px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 30px;
+  z-index: 35;
+  position: fixed;
+  width: 160px;
+  text-align: center;
+  top: 305px;
+  right: 170px;
+  font-family: 'Eater', cursive;
+  font-size: 19px;
+}
