@@ -53,6 +53,25 @@ var attachSpriteTo = function(mainComponent, spriteComponent) {
 };
 
 
-var pauseGame = function() {
-	Crafty.stop();
+var waveParser = function(waveString) {
+	var lines = [];
+	for(i=0; i < 6; i++) {
+		var enemy = waveString[i];
+		switch(waveString[i]) {
+			case 'p':
+				enemy = "Pig";
+				break;
+			case '!':
+				enemy = "Nobody";
+				break;
+			default:
+				enemy = "Nobody";
+		}
+		lines[i] = enemy;
+	}
+	return lines;
 }
+
+var pauseGame = function() {
+	/*Crafty.stop();*/
+};

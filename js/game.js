@@ -233,18 +233,6 @@ window.onload = (function() {
                 sprite: 'bearTrapSkill'
             });
 
-            var newPig = Crafty.e("Pig");
-            newPig.setToLine(Crafty.randRange(1, 6));
-            newPig.attachSprite(Crafty.e("PigSprite"));
-
-            setInterval(function() {
-                if(!DefendTheDen.wolf._paused) {
-                    var newPig = Crafty.e("Pig");
-                    newPig.setToLine(Crafty.randRange(1, 6));
-                    newPig.attachSprite(Crafty.e("PigSprite"));
-                }
-
-            }, 4250);
             makeMatrix();
 
             $(document).mousemove(function(e) {
@@ -259,6 +247,7 @@ window.onload = (function() {
             $("#menu").on('click', function() {
 				Crafty.pause();
 			});
+			RoundOne.play();
         });
     });
 

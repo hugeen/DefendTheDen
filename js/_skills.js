@@ -29,7 +29,7 @@ Crafty.c("SkillButton", {
         this.bind("EnterFrame", function() {
             if(this.cdon) {
                 var newH = (this.coolDownFinish - parseInt(new Date().getTime(), 10)) * 44 / (1000 * this.cooldown);
-                var newY = this.y + (44 - newH) / 2;
+                var newY = this.y + (52 - newH) / 2;
                 if(newH < 0) {
                     this.cdon = false;
                     newH = 0;
