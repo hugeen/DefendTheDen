@@ -53,7 +53,7 @@ Crafty.c("Enemy", {
             } else {
                 if(this._state != "dead") {
                     this.takeDamage(this._hitPoints);
-                    DTD.player.takeDamage();
+                    DTD.player.takeDamage("wallReached");
                 }
             }
         });

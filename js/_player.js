@@ -26,10 +26,10 @@ Crafty.c("PlayerLife", {
         var damages = 0;
         switch(type) {
             case "wallReached":
-                damages = 15;
+                damages = 25;
                 break;
             default:
-                damages = 5;
+                damages = 0;
                 break;
         }
         this._actualLife = this._actualLife - damages;

@@ -5,7 +5,7 @@ var loadScene = function(scene) {
 			Crafty.scene("storyLevel");
 			break;
 		case "loose":
-			console.log("loose");
+			loadScene(storage.level.get());
 			break;
 		default:
 			Crafty.scene("skillShop");
