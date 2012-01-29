@@ -2,10 +2,28 @@ Crafty.c("PlayerLife", {
 	init: function() {
 		this._baseLife = 100;
 		this._modifier = 1;
-		this._actualLife = 100;
+		this._fullLife = this._baseLife*this._modifier;
+		this._actualLife = this._fullLife;
 		this.bind("EnterFrame", function() {
 			
 		});
+	},
+	takeDamage: function(type) {
+		var damages = 0;
+		switch(type) {
+			case "wallReached":
+				damages = 15;
+				break;
+			default:
+				damages = 5;
+				break;
+		}
+		this._actualLife = this._actualLife-damages;
+		var barSize = 180-((this._fullLife-this._actualLife)*(130/this._fullLife));
+		$("#lifeBarProgress").width(barSize);
+		if(this._actualLife <= 0) {
+			this.trigger("dead");
+		}
 	}
 });
 
@@ -31,7 +49,7 @@ Crafty.c("WolfSprite", {
 
 Crafty.c("Wolf", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, AttachSprite");
+        this.addComponent("2D, Canvas, Collision, AttachSprite, PlayerLife");
 
         this.attr({
             x: 9,

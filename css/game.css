@@ -34,7 +34,7 @@
 #lifeBarProgress {
   top: 14px;
   left: 90px;
-  width: 90px;
+  width: 130px;
   height: 17px;
   position: fixed;
   background: url("../img/life-bar-filled.png") top left no-repeat;
@@ -64,7 +64,7 @@
 #energyBarProgress {
   top: 34px;
   left: 91px;
-  width: 90px;
+  width: 129px;
   height: 17px;
   position: fixed;
   background: url("../img/energy-bar-filled.png") top left no-repeat;

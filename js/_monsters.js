@@ -46,10 +46,10 @@ Crafty.c("Pig", {
                     this.move("w", this._movingSpeed);
                 }
             } else {
-            	$( "#lifeBarProgress" ).animate({
-					width: $("#lifeBarProgress").width()-10
-				}, 100 );
-            	this.takeDamage(this._hitPoints);
+            	if(this._state != "dead") {
+	            	this.takeDamage(this._hitPoints);
+	            	DTD.player.takeDamage();
+            	}
             }
         });
 

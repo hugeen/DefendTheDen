@@ -23,7 +23,6 @@ $(document).ready(function() {
 	});	
 });
 
-
 var changeGlobalVolume = function(volume) {
 	soundVolumeStorage.set(volume);
 	_.each(soundManager, function(item, key) {
