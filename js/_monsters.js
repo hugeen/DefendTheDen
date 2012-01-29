@@ -53,7 +53,7 @@ Crafty.c("Pig", {
         });
 
         this.bind("MouseOver", function() {
-            if(DefendTheDen.selectedSkill == "ThrowingAxeSkill") {
+            if(DTD.selectedSkill == "ThrowingAxeSkill") {
                 $("body").css("cursor", "url(img/axe-sprite.png),auto");
             }
         });
@@ -63,8 +63,8 @@ Crafty.c("Pig", {
         });
 
         this.bind("Click", function() {
-            if(DefendTheDen.selectedSkill == "ThrowingAxeSkill") {
-                DefendTheDen.skills.throwingAxeSkill.e.checkAction();
+            if(DTD.selectedSkill == "ThrowingAxeSkill") {
+                DTD.skills.throwingAxeSkill.e.checkAction();
             }
         });
 

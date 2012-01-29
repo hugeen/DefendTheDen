@@ -9,7 +9,7 @@ storage.goldCoins = new LocalStore('gold_coins', {
     defaultVal: 0
 });
 
-var DefendTheDen = {
+var DTD = {
     KeyBoardType: "QWERTY",
     viewPort: {
         w: 710,
@@ -32,8 +32,8 @@ Crafty.c("GrassField", {
     init: function() {
         this.addComponent("2D, Canvas, Image");
         this.attr({
-            w: DefendTheDen.viewPort.w,
-            h: DefendTheDen.viewPort.h,
+            w: DTD.viewPort.w,
+            h: DTD.viewPort.h,
             x: 0,
             y: 0,
             z: 0
@@ -59,8 +59,8 @@ Crafty.c("EarthBackground", {
     init: function() {
         this.addComponent("2D, Canvas, Image");
         this.attr({
-            w: DefendTheDen.viewPort.w,
-            h: DefendTheDen.viewPort.h,
+            w: DTD.viewPort.w,
+            h: DTD.viewPort.h,
             x: 0,
             y: 0,
             z: 13
@@ -73,8 +73,8 @@ Crafty.c("SkyBackground", {
     init: function() {
         this.addComponent("2D, Canvas, Image");
         this.attr({
-            w: DefendTheDen.viewPort.w,
-            h: DefendTheDen.viewPort.h,
+            w: DTD.viewPort.w,
+            h: DTD.viewPort.h,
             x: 0,
             y: 0,
             z: 0
@@ -142,14 +142,14 @@ var grassLine = function(line) {
 
 window.onload = (function() {
 
-    Crafty.init(DefendTheDen.viewPort.w, DefendTheDen.viewPort.h);
+    Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
 
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
             //new Sound(soundResources.titleScreen, { loop: true, type: 'music' }).play();
             Crafty.e("2D, DOM").attr({
-                w: DefendTheDen.viewPort.w,
-                h: DefendTheDen.viewPort.h,
+                w: DTD.viewPort.w,
+                h: DTD.viewPort.h,
                 x: 0,
                 y: 0
             }).css("background", "url(img/background.png)").css("z-index", "0");
@@ -157,10 +157,10 @@ window.onload = (function() {
             Crafty.e("Clouds");
 
             Crafty.e("2D, DOM").attr({
-                w: DefendTheDen.viewPort.w,
+                w: DTD.viewPort.w,
                 h: 309,
                 x: 0,
-                y: DefendTheDen.viewPort.h - 309
+                y: DTD.viewPort.h - 309
             }).css("background", "url(img/floor.png)").css("z-index", "0");
 
             Crafty.e("NewGameMenuItem");
@@ -192,40 +192,40 @@ window.onload = (function() {
                 top: Crafty.e("DenWallTop"),
                 bottom: Crafty.e("DenWallBottom")
             };
-            DefendTheDen.skillChange = function() {
-                if(DefendTheDen.skillBoundToMouse !== undefined) {
-                    DefendTheDen.skillBoundToMouse.destroy();
+            DTD.skillChange = function() {
+                if(DTD.skillBoundToMouse !== undefined) {
+                    DTD.skillBoundToMouse.destroy();
                 }
             };
-            DefendTheDen.bindSkillToMouse = function(skill) {
-                if(DefendTheDen.skillBoundToMouse !== undefined) {
-                    DefendTheDen.skillBoundToMouse.destroy();
+            DTD.bindSkillToMouse = function(skill) {
+                if(DTD.skillBoundToMouse !== undefined) {
+                    DTD.skillBoundToMouse.destroy();
                 }
                 return skill;
             };
 
-            DefendTheDen.wolf = Crafty.e("Wolf");
-            DefendTheDen.wolf.attachSprite(Crafty.e("WolfSprite"));
+            DTD.player = Crafty.e("Wolf");
+            DTD.player.attachSprite(Crafty.e("WolfSprite"));
 
-            DefendTheDen.wolf.attachWagon(Crafty.e("Wagon"));
+            DTD.player.attachWagon(Crafty.e("Wagon"));
 
-            DefendTheDen.skills = [];
-            DefendTheDen.skills["throwingAxeSkill"] = new SkillButton(1, "ThrowingAxe", {
+            DTD.skills = [];
+            DTD.skills["throwingAxeSkill"] = new SkillButton(1, "ThrowingAxe", {
                 cooldown: 0.625,
                 action: function() {
-                    DefendTheDen.wolf._spriteComponent.stop().animate("throwAxe", 18, 0);
+                    DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
                     setTimeout(function() {
                         throwAxe();
 
                     }, 20 * 20 * 0.9);
                 }
             });
-            DefendTheDen.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {
+            DTD.skills["bearTrapSkill"] = new SkillButton(2, "BearTrap", {
                 cooldown: 5,
                 action: function() {
-                    DefendTheDen.skillBoundToMouse = DefendTheDen.bindSkillToMouse(Crafty.e("BearTrap").attr({
-                        x: DefendTheDen.wolf.x,
-                        y: DefendTheDen.wolf.y
+                    DTD.skillBoundToMouse = DTD.bindSkillToMouse(Crafty.e("BearTrap").attr({
+                        x: DTD.player.x,
+                        y: DTD.player.y
                     }));
                 },
                 keyBind: 2,
@@ -235,9 +235,9 @@ window.onload = (function() {
             makeMatrix();
 
             $(document).mousemove(function(e) {
-                if(!DefendTheDen.wolf._paused) {
+                if(!DTD.player._paused) {
                     if(e.pageY >= denWall.top._y - 15 && e.pageY <= denWall.bottom._y - 30) {
-                        DefendTheDen.wolf.attr({
+                        DTD.player.attr({
                             y: e.pageY
                         });
                     }

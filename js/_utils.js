@@ -36,9 +36,9 @@ var makeMatrix = function() {
 };
 
 var isInViewPort = function(component) {
-	return component.x < DefendTheDen.viewPort.w &&
+	return component.x < DTD.viewPort.w &&
 		component.x > 0 &&
-		component.y < DefendTheDen.viewPort.h &&
+		component.y < DTD.viewPort.h &&
 		component.y > 0;
 };
 

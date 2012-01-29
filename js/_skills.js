@@ -101,15 +101,15 @@ function throwAxe() {
 	storage.axeThrowed.set(storage.axeThrowed.get()+1);
     
     Crafty.e("ThrowingAxe").attr({
-        x: DefendTheDen.wolf.x,
-        y: DefendTheDen.wolf.y-30
+        x: DTD.player.x,
+        y: DTD.player.y-30
     });
 }
 
 function bearTrap() {
 	Crafty.e("BearTrap").attr({
-        x: DefendTheDen.wolf.x,
-        y: DefendTheDen.wolf.y
+        x: DTD.player.x,
+        y: DTD.player.y
     });
 }
 
@@ -182,8 +182,8 @@ function SkillButton(position, skillName, options) {
             this._wolf = wolf;
         },
         action: function() {
-        	DefendTheDen.skillChange();
-            DefendTheDen.selectedSkill = that.skillName + "Skill";
+        	DTD.skillChange();
+            DTD.selectedSkill = that.skillName + "Skill";
             this.trigger("action");
             options.action();
         },

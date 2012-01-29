@@ -1,73 +1,7 @@
-Crafty.c("PlayerLife", {
-	init: function() {
-		this._baseLife = 100;
-		this._modifier = 1;
-		this._actualLife = 100;
-		this.bind("EnterFrame", function() {
-			
-		});
-	}
-});
-
-
-Crafty.c("Bleed", {
-    init: function() {
-        this.addComponent("2D, Canvas, SpriteAnimation, bleed");
-        this.attr({
-            w: 55,
-            h: 55,
-            z: 36
-        });
-        this.animate("bleed", 0, 0, 11);
-
-        this.bind("EnterFrame", function() {
-            this.attr({
-                x: this._creature.x,
-                y: this._creature.y
-            });
-        });
-    },
-    attachCreature: function(creature) {
-        this._creature = creature;
-        this.animate("bleed", 10);
-        this.delay(function() {
-            this.destroy();
-        }, 500);
-    }
-});
-
-
-Crafty.c("DyingBleed", {
-    init: function() {
-        this.addComponent("2D, Canvas, SpriteAnimation, dyingBleed");
-        this.attr({
-            w: 115,
-            h: 115,
-            z: 36
-        });
-        this.animate("bleed", 0, 0, 10);
-
-        this.bind("EnterFrame", function() {
-            this.attr({
-                x: this._creature.x,
-                y: this._creature.y-30
-            });
-        });
-    },
-    attachCreature: function(creature) {
-        this._creature = creature;
-        this.animate("bleed", 10);
-        this.delay(function() {
-            this.destroy();
-        }, 500);
-    }
-});
-
 Crafty.c("Gold", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
         this.attr({
-
             w: 16,
             h: 16,
             z: 1
@@ -84,7 +18,6 @@ Crafty.c("Gold", {
 	            destroyIn: 2000
 	        }).play();
         });
-        
     }
 });
 
@@ -149,20 +82,15 @@ Crafty.c("Cell", {
             z: 0
         });
         this.bind("MouseOver", function() {
-        	if(DefendTheDen.selectedSkill == "BearTrapSkill") {
-        		DefendTheDen.skillBoundToMouse.attr({
+        	if(DTD.selectedSkill == "BearTrapSkill") {
+        		DTD.skillBoundToMouse.attr({
         			x: this.x,
         			y: this.y
         		});
         	}
-            /*if(DefendTheDen.wolf !== undefined) {
-             DefendTheDen.wolf.attr({
-             y: this.y + 15
-             });
-             }*/
         });
         this.bind("MouseDown", function() {
-        	DefendTheDen.skillBoundToMouse.destroy();
+        	DTD.skillBoundToMouse.destroy();
         	Crafty.e("BearTrap").attr({
                 x: this.x,
                 y: this.y
@@ -191,7 +119,7 @@ Crafty.c("Clouds", {
         this.addComponent("2D, DOM");
         this._backgroundPos = 0;
         this.attr({
-            w: DefendTheDen.viewPort.w,
+            w: DTD.viewPort.w,
             h: 114,
             x: 0,
             y: 0
@@ -228,18 +156,6 @@ Crafty.c("NewGameMenuItem", {
             this.css("background-position", "-480px 0");
             Crafty.scene("newGame");
         });
-    }
-});
-
-Crafty.c("ToogleSound", {
-    init: function() {
-        this.addComponent("2D, DOM, Mouse");
-    }
-});
-
-Crafty.c("ToogleMusic", {
-    init: function() {
-        this.addComponent("2D, DOM, Mouse");
     }
 });
 
