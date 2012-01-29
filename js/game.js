@@ -1,20 +1,4 @@
-var storage = {};
 
-storage.pigDied = new LocalStore('pig_died', {
-    defaultVal: 0
-});
-storage.axeThrowed = new LocalStore('axe_trhowed', {
-    defaultVal: 0
-});
-storage.goldCoins = new LocalStore('gold_coins', {
-    defaultVal: 0
-});
-storage.level = new LocalStore('level', {
-    defaultVal: 1
-});
-storage.axeSkill = new LocalStore('axe_skill', {
-    defaultVal: 1
-});
 
 var DTD = {
     KeyBoardType: "QWERTY",
@@ -30,7 +14,7 @@ var DTD = {
 window.onload = (function() {
 
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
-
+	allowPlayerMoves();
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
             //new Sound(soundResources.titleScreen, { loop: true, type: 'music' }).play();
@@ -58,19 +42,12 @@ window.onload = (function() {
         renderGameTitle();
     });
 
-    Crafty.scene("newGame", function() {
+    Crafty.scene("storyLevel", function() {
 
         Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
             buildUI();
             makeBattlefield();
-
-            /*DTD.player = Crafty.e("Wolf");
-            DTD.skills = [];
-            DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
-			DTD.selectedSkill == "ThrowingAxeSkill";
-			DTD.inGame = true;
-            allowPlayerMoves();
-            RoundOne();*/
+			loadCutScene();
         });
     });
 

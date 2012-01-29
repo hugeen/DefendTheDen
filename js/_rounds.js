@@ -1,12 +1,21 @@
 var loadScene = function(scene) {
 	switch(scene) {
 		case 1: 
-			Crafty.scene("newGame");
+			resetStorage();
+			Crafty.scene("storyLevel");
 			break;
 		default:
-			
+			Crafty.scene("skillshop");
 			break;
 	}
+};
+var loadLevel = function(level) {
+	DTD.player = Crafty.e("Wolf");
+    DTD.skills = [];
+    DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
+	DTD.selectedSkill == "ThrowingAxeSkill";
+	DTD.inGame = true;
+	rounds[level]();
 };
 
 var currentRound;
@@ -74,9 +83,9 @@ Crafty.c("Round", {
 		$("#levelNumber span").html(this._roundId);
 	}
 });
-
-var RoundOne = function() {
-	round = Crafty.e("Round");
+var rounds = [];
+rounds[1] = function() {
+	var round = Crafty.e("Round");
 	round.create(1);
 	round.addWave("!!!!!p",1);
 	round.addWave("!!!!p!",3);

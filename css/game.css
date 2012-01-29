@@ -146,7 +146,7 @@
 #progressBar {
   top: 47px;
   left: 234px;
-  width: 265px;
+  width: 0;
   height: 26px;
   position: fixed;
   background: url("../img/progress-bar-over.png") top left no-repeat;
@@ -154,13 +154,12 @@
 }
 
 #levelNumber {
-  text-shadow: 0px 0px 1px #000000, 0px 0px 1px #000000, 0px 0px 1px #000000;
   top: 22px;
   left: 234px;
   width: 468px;
   position: fixed;
   z-index: 15;
   text-align: center;
-  color: #fff;
-  font: bold 13px sans-serif;
+  color: #4f6d7c;
+  font: 18px 'Bangers', cursive;
 }
