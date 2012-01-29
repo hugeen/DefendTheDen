@@ -71,6 +71,11 @@ Crafty.c("ThrowingAxe", {
             h: 42,
             z: 25
         });
+        this._damagesBase = {
+        	min: 45,
+        	max: 65
+        };
+        this._damagesModifier = 1;
         this.origin("center");
         this.bind("EnterFrame", function() {
             this.attr({
@@ -80,7 +85,7 @@ Crafty.c("ThrowingAxe", {
         });
 
         this.onHit("Pig", function(o) {
-            o[0].obj.takeDamage(Crafty.randRange(45, 75));
+            o[0].obj.takeDamage(Crafty.randRange(this._damagesBase.min*this._damagesModifier, this._damagesBase.max*this._damagesModifier));
             this.destroy();
         });
         this.bind("EnterFrame", function() {
