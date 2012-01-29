@@ -34,9 +34,14 @@ Crafty.c("PlayerLife", {
         }
         this._actualLife = this._actualLife - damages;
         $("#lifeBarProgress").width(130 - ((this._fullLife - this._actualLife) * (130 / this._fullLife)));
-        /*if(this._actualLife <= 0) {
-         this.trigger("dead");
-         }*/
+        if(this._actualLife <= 0) {
+        	youLoose();
+			this.delay(function() {
+				$(".youWin").remove();
+				removeUI();
+				loadScene("loose");
+			},2000);
+        }
     }
 });
 

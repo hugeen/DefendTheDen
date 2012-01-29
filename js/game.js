@@ -50,6 +50,16 @@ window.onload = (function() {
 			loadCutScene();
         });
     });
+    
+    Crafty.scene("skillShop", function() {
+
+        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
+            /*buildUI();
+            makeBattlefield();
+			loadCutScene();*/
+			console.log("skillshop");
+        });
+    });
 
     Crafty.scene("titleScreen");
 });

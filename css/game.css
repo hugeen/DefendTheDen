@@ -216,3 +216,13 @@
   font-family: 'Eater', cursive;
   font-size: 19px;
 }
+
+.youWin {
+  font-size: 40px;
+  width: 710px;
+  position: fixed;
+  text-align: center;
+  font-family: 'Bangers', cursive;
+  color: #fff;
+  top: 230px;
+}

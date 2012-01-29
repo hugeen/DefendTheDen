@@ -20,6 +20,7 @@ Crafty.c("NewGameMenuItem", {
         });
         this.bind("Click", function() {
             this.css("background-position", "-480px 0");
+            storage.level.set(1);
             loadScene(storage.level.get());
         });
     }

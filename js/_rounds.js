@@ -4,8 +4,11 @@ var loadScene = function(scene) {
 			resetStorage();
 			Crafty.scene("storyLevel");
 			break;
+		case "loose":
+			console.log("loose");
+			break;
 		default:
-			Crafty.scene("skillshop");
+			Crafty.scene("skillShop");
 			break;
 	}
 };
@@ -17,6 +20,14 @@ var loadLevel = function(level) {
 	DTD.inGame = true;
 	rounds[level]();
 };
+
+var youWin = function() {
+	$("body").append('<div class="youWin">You WIN !</div>');
+}
+
+var youLoose = function() {
+	$("body").append('<div class="youWin">You LOOSE !</div>');
+}
 
 var currentRound;
 Crafty.c("Round", {
@@ -54,7 +65,13 @@ Crafty.c("Round", {
 					if(this._monsterCount == this._monstersDied) {
 						this._played = false;
 						this.trigger("Ended");
-						console.log("finished");
+						youWin();
+						this.delay(function() {
+							$(".youWin").remove();
+							removeUI();
+							storage.level.set(storage.level.get()+1);
+							loadScene(storage.level.get());
+						},2000);
 					}
 				}
 			};
