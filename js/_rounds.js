@@ -56,6 +56,7 @@ Crafty.c("Round", {
 		this._duration = lastWave.at*1000
 		this._startAt = parseInt(new Date().getTime(), 10);
 		this._endAt = this._startAt+this._duration;
+		$("#levelNumber span").html(this._roundId);
 	}
 });
 

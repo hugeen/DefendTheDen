@@ -25,7 +25,7 @@ var makeBattlefield = function() {
 
 };
 var buildUI = function() {
-    $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL 15</div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
+    $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>15</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
 };
 
 Crafty.c("GrassField", {
