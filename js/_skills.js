@@ -5,22 +5,13 @@ var throwingAxeSkill = function() {
             DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
             setTimeout(function() {
                 throwAxe();
-
+				
             }, 20 * 20 * 0.9);
+            setTimeout(function() {
+            	DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+            }, 20 * 20 * 1.5);
+            
         }
-    });
-};
-var bearTrapSkill = function() {
-    return new SkillButton(2, "BearTrap", {
-        cooldown: 5,
-        action: function() {
-            DTD.skillBoundToMouse = DTD.bindSkillToMouse(Crafty.e("BearTrap").attr({
-                x: DTD.player.x,
-                y: DTD.player.y
-            }));
-        },
-        keyBind: 2,
-        sprite: 'bearTrapSkill'
     });
 };
 
@@ -128,13 +119,6 @@ function throwAxe() {
     });
 }
 
-function bearTrap() {
-    Crafty.e("BearTrap").attr({
-        x: DTD.player.x,
-        y: DTD.player.y
-    });
-}
-
 function SkillButton(position, skillName, options) {
     this.position = position || 1;
     this.skillName = skillName || "";
@@ -200,11 +184,7 @@ function SkillButton(position, skillName, options) {
                 this.cdon = true;
             }
         },
-        bindWolf: function(wolf) {
-            this._wolf = wolf;
-        },
         action: function() {
-            DTD.skillChange();
             DTD.selectedSkill = that.skillName + "Skill";
             this.trigger("action");
             options.action();

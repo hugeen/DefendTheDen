@@ -9,6 +9,12 @@ storage.axeThrowed = new LocalStore('axe_trhowed', {
 storage.goldCoins = new LocalStore('gold_coins', {
     defaultVal: 0
 });
+storage.level = new LocalStore('level', {
+    defaultVal: 1
+});
+storage.axeSkill = new LocalStore('axe_skill', {
+    defaultVal: 1
+});
 
 var DTD = {
     KeyBoardType: "QWERTY",
@@ -17,7 +23,8 @@ var DTD = {
         h: 580
     },
     sound: 1,
-    music: 1
+    music: 1,
+    inGame: false
 };
 
 window.onload = (function() {
@@ -57,27 +64,11 @@ window.onload = (function() {
             buildUI();
             makeBattlefield();
 
-            DTD.skillChange = function() {
-                if(DTD.skillBoundToMouse !== undefined) {
-                    DTD.skillBoundToMouse.destroy();
-                }
-            };
-            DTD.bindSkillToMouse = function(skill) {
-                if(DTD.skillBoundToMouse !== undefined) {
-                    DTD.skillBoundToMouse.destroy();
-                }
-                return skill;
-            };
-
             DTD.player = Crafty.e("Wolf");
-            DTD.player.attachSprite(Crafty.e("WolfSprite"));
-
-            DTD.player.attachWagon(Crafty.e("Wagon"));
-
             DTD.skills = [];
             DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
-            //DTD.skills["bearTrapSkill"] = bearTrapSkill();
-
+			DTD.selectedSkill == "ThrowingAxeSkill";
+			DTD.inGame = true;
             allowPlayerMoves();
             RoundOne();
         });

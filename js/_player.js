@@ -1,10 +1,12 @@
 var allowPlayerMoves = function() {
     $(document).mousemove(function(e) {
-        if(!DTD.player._paused) {
-            if(e.pageY >= 90 && e.pageY <= 480) {
-                DTD.player.attr({
-                    y: e.pageY
-                });
+        if(DTD.player != undefined) {
+            if(!DTD.player._paused) {
+                if(e.pageY >= 90 && e.pageY <= 480) {
+                    DTD.player.attr({
+                        y: e.pageY
+                    });
+                }
             }
         }
     });
@@ -78,6 +80,8 @@ Crafty.c("Wolf", {
                 });
             }
         });
+        this.attachSprite(Crafty.e("WolfSprite"));
+        this.attachWagon(Crafty.e("Wagon"));
     },
     throwAxe: function() {
         Crafty.e("ThrowingAxeSkill").attr({
