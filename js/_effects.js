@@ -28,6 +28,8 @@ Crafty.c("DyingBleed", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, dyingBleed");
         this.attr({
+        	x: -115,
+        	y: -115,
             w: 115,
             h: 115,
             z: 36

@@ -88,7 +88,6 @@ Crafty.c("BearTrap", {
             w: 65,
             h: 65
         });
-        //this.origin("center");
         this.bind("EnterFrame", function() {
 
         });
@@ -98,9 +97,7 @@ Crafty.c("BearTrap", {
 });
 
 function throwAxe() {
-	
 	storage.axeThrowed.set(storage.axeThrowed.get()+1);
-    
     Crafty.e("ThrowingAxe").attr({
         x: DTD.player.x,
         y: DTD.player.y-30

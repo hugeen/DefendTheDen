@@ -19,11 +19,10 @@ Crafty.c("PlayerLife", {
 				break;
 		}
 		this._actualLife = this._actualLife-damages;
-		var barSize = 180-((this._fullLife-this._actualLife)*(130/this._fullLife));
-		$("#lifeBarProgress").width(barSize);
-		if(this._actualLife <= 0) {
+		$("#lifeBarProgress").width(130-((this._fullLife-this._actualLife)*(130/this._fullLife)));
+		/*if(this._actualLife <= 0) {
 			this.trigger("dead");
-		}
+		}*/
 	}
 });
 
