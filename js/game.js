@@ -22,78 +22,23 @@ var DTD = {
 var debugMode = true;
 
 var makeBattlefield = function() {
+    Crafty.e("GrassField");
+    Crafty.e("UnderRails");
+    Crafty.e("SideRails");
+    Crafty.e("EarthBackground");
+    Crafty.e("SkyBackground");
+    Crafty.e("Wires");
+    grassLine(1);
+    grassLine(2);
+    grassLine(3);
+    grassLine(4);
+    grassLine(5);
+    grassLine(6);
 
 };
 var buildUI = function() {
     $("body").append(+'' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>15</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '');
 };
-
-Crafty.c("GrassField", {
-    init: function() {
-        this.addComponent("2D, Canvas, Image");
-        this.attr({
-            w: DTD.viewPort.w,
-            h: DTD.viewPort.h,
-            x: 0,
-            y: 0,
-            z: 0
-        });
-        this.image("img/bg-lines.png", "no-repeat");
-    }
-});
-
-Crafty.c("SideRails", {
-    init: function() {
-        this.addComponent("2D, Canvas, Sprite, rails");
-        this.attr({
-            w: 74,
-            h: 580,
-            x: 0,
-            y: 0,
-            z: 0
-        });
-    }
-});
-
-Crafty.c("EarthBackground", {
-    init: function() {
-        this.addComponent("2D, Canvas, Image");
-        this.attr({
-            w: DTD.viewPort.w,
-            h: DTD.viewPort.h,
-            x: 0,
-            y: 0,
-            z: 13
-        });
-        this.image("img/background-earth.png", "no-repeat");
-    }
-});
-
-Crafty.c("SkyBackground", {
-    init: function() {
-        this.addComponent("2D, Canvas, Image");
-        this.attr({
-            w: DTD.viewPort.w,
-            h: DTD.viewPort.h,
-            x: 0,
-            y: 0,
-            z: 0
-        });
-        this.image("img/background-sky.png", "no-repeat");
-    }
-});
-
-Crafty.c("GrassLine", {
-    init: function() {
-        this.addComponent("2D, Canvas, Sprite");
-        this.attr({
-            w: 157,
-            h: 157
-        });
-
-    }
-});
-
 var grassLine = function(line) {
     var component = "grassLight";
     var yBase = 125;
@@ -175,26 +120,8 @@ window.onload = (function() {
 
         Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
             buildUI();
-            Crafty.e("GrassField");
-            Crafty.e("UnderRails");
-            Crafty.e("SideRails");
-            Crafty.e("EarthBackground");
-            Crafty.e("SkyBackground");
-            
-            Crafty.e("Wires");
-            grassLine(1);
-            grassLine(2);
-            grassLine(3);
-            grassLine(4);
-            grassLine(5);
-            grassLine(6);
+			makeBattlefield();
 
-            var denWall = {
-                left: Crafty.e("DenWallLeft"),
-                right: Crafty.e("DenWallRight"),
-                top: Crafty.e("DenWallTop"),
-                bottom: Crafty.e("DenWallBottom")
-            };
             DTD.skillChange = function() {
                 if(DTD.skillBoundToMouse !== undefined) {
                     DTD.skillBoundToMouse.destroy();
@@ -239,7 +166,7 @@ window.onload = (function() {
 
             $(document).mousemove(function(e) {
                 if(!DTD.player._paused) {
-                    if(e.pageY >= denWall.top._y - 15 && e.pageY <= denWall.bottom._y - 30) {
+                    if(e.pageY >= 90 && e.pageY <= 480) {
                         DTD.player.attr({
                             y: e.pageY
                         });
@@ -247,9 +174,9 @@ window.onload = (function() {
                 }
             });
             $("#menu").on('click', function() {
-				Crafty.pause();
-			});
-			RoundOne.play();
+                Crafty.pause();
+            });
+            RoundOne.play();
         });
     });
 
