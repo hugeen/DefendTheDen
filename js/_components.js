@@ -256,7 +256,6 @@ Crafty.c("AttachSprite", {
     },
     attachSprite: function(spriteComponent) {
         this._spriteComponent = spriteComponent;
-        console.log(this._zIndex);
         if(this._zIndex) {
         	this._spriteComponent.attr({z : this._zIndex});
         }
