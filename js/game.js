@@ -34,6 +34,9 @@ window.onload = (function() {
             }).css("background", "url(img/floor.png)").css("z-index", "0");
 
             Crafty.e("NewGameMenuItem");
+            if(storage.level.get() > 1) {
+            	Crafty.e("ContinueMenuItem");
+            }
         });
     };
 
@@ -43,7 +46,7 @@ window.onload = (function() {
 
     Crafty.scene("storyLevel", function() {
 
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
+        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
             buildUI();
             makeBattlefield();
 			loadCutScene();
@@ -53,10 +56,7 @@ window.onload = (function() {
     Crafty.scene("skillShop", function() {
 
         Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
-            /*buildUI();
-            makeBattlefield();
-			loadCutScene();*/
-			console.log("skillshop");
+            buildSkillShopUI();
         });
     });
 

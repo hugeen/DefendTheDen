@@ -1,17 +1,24 @@
 
-Crafty.c("NewGameMenuItem", {
-    init: function() {
+Crafty.c("MenuItem", {
+	init: function() {
         this.addComponent("2D, DOM, Mouse");
         this.attr({
             w: 240,
             h: 54,
-            x: 237,
-            y: 316
+            x: 237
         });
         this.css("background", "url(img/menu-sprites.png)");
-        this.css("background-position", "0 0");
         this.css("z-index", "0");
         this.css("cursor", "pointer");
+    }
+});
+Crafty.c("NewGameMenuItem", {
+    init: function() {
+        this.addComponent("MenuItem");
+        this.attr({
+            y: 316
+        });
+        this.css("background-position", "0 0");
         this.bind("MouseOver", function() {
             this.css("background-position", "-240px 0");
         });
@@ -21,6 +28,26 @@ Crafty.c("NewGameMenuItem", {
         this.bind("Click", function() {
             this.css("background-position", "-480px 0");
             storage.level.set(1);
+            loadScene(storage.level.get());
+        });
+    }
+});
+
+Crafty.c("ContinueMenuItem", {
+    init: function() {
+        this.addComponent("MenuItem");
+        this.attr({
+            y: 370
+        });
+        this.css("background-position", "0 54px");
+        this.bind("MouseOver", function() {
+            this.css("background-position", "-240px 54px");
+        });
+        this.bind("MouseOut", function() {
+            this.css("background-position", "0 54px");
+        });
+        this.bind("Click", function() {
+            this.css("background-position", "-480px 54px");
             loadScene(storage.level.get());
         });
     }

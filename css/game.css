@@ -250,3 +250,12 @@
   left: 25px;
   z-index: 35;
 }
+
+#skillShop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 710px;
+  height: 580px;
+  background: url("../img/background-skillshop.png") top left no-repeat;
+}
