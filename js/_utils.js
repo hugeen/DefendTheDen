@@ -78,3 +78,9 @@ var rolling = function(percent) {
 var pauseGame = function() {
 	/*Crafty.stop();*/
 };
+
+
+var createKeyHelper = function(component, keyBind) {
+	$("body").append('<div id="keyHelper'+keyBind+'" class="keyHelper battleFieldUI">'+keyBind+'</div>');
+	$('#keyHelper'+keyBind).css("top", component._y).css("left", component._x);
+};

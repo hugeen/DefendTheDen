@@ -1,5 +1,4 @@
 
-
 var DTD = {
     KeyBoardType: "QWERTY",
     viewPort: {

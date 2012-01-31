@@ -15,14 +15,14 @@ var makeBattlefield = function() {
 };
 
 var buildUI = function() {
-    $("body").append(+'<div id="battleField>"' + '<a id="menu" href="#">' + '<span>Menu</span>' + '</a>' + '<div id="portrait">' + '<div id="lifeBar">' + '<div id="lifeBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="energyBar">' + '<div id="energyBarProgress"></div>' + '<span></span>' + '</div>' + '<div id="goldCount">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin"></div>' + '</div>' + '<div id="levelNumber">LEVEL <span>~</span></div>' + '<div id="progressBarBelow">' + '<div id="progressBar"></div>' + '</div>' + '</div>');
+    $("body").append(+'' + '<a id="menu" href="#" class="battleFieldUI">' + '<span class="battleFieldUI">Menu</span>' + '</a>' + '<div id="portrait" class="battleFieldUI">' + '<div id="lifeBar" class="battleFieldUI">' + '<div id="lifeBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="energyBar" class="battleFieldUI">' + '<div id="energyBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="goldCount" class="battleFieldUI">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin" class="battleFieldUI"></div>' + '</div>' + '<div id="levelNumber" class="battleFieldUI">LEVEL <span class="battleFieldUI">~</span></div>' + '<div id="progressBarBelow" class="battleFieldUI">' + '<div id="progressBar" class="battleFieldUI"></div>' + '</div>' + '</div>');
     $("#menu").on('click', function() {
         Crafty.pause();
     });
 };
 
 var removeUI = function() {
-	$("#battleField").remove();
+	$(".battleFieldUI").remove();
 };
 
 var grassLine = function(line) {

@@ -43,7 +43,7 @@ cutscenes[1] = function() {
 	setTimeout(function() {
 		$(".wolfSpeech").hide();
 		$(".pigSpeech").show();
-		$(".pigSpeech").html("Revenge ! ! !");
+		$(".pigSpeech").html("It's time to <br/> Revenge ! ! !");
 	}, 8250);
 	
 	setTimeout(function() {
@@ -64,5 +64,18 @@ cutscenes[1] = function() {
 		$(".pigBig").remove();
 		loadLevel(storage.level.get());
 	}, 11000);
+	
+	setTimeout(function() {
+		$("body").append('<div class="didacticiel01a"></div><div class="didacticiel01b"></div><div class="didacticiel01c"></div>');
+		$(".didacticiel01a").html("To throw an Axe . . .");
+		$(".didacticiel01b").html(". . . Push Key '1'");
+		$(".didacticiel01c").html(". . . Click on an enmy");
+	}, 11250);
+	
+	setTimeout(function() {
+		$(".didacticiel01a").remove();
+		$(".didacticiel01b").remove();
+		$(".didacticiel01c").remove();
+	}, 16500);
 
 };

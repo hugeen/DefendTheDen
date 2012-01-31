@@ -164,6 +164,8 @@ function SkillButton(position, skillName, options) {
             this._keyPressSprite.attr({
                 x: this._x
             });
+            
+            createKeyHelper(this, options.keyBind);
         },
         checkAction: function() {
             if(!this.cdon) {

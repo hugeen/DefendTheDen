@@ -23,11 +23,11 @@ var loadLevel = function(level) {
 
 var youWin = function() {
 	$("body").append('<div class="youWin">You WIN !</div>');
-}
+};
 
 var youLoose = function() {
 	$("body").append('<div class="youWin">You LOOSE !</div>');
-}
+};
 
 var currentRound;
 Crafty.c("Round", {
