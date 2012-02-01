@@ -177,10 +177,7 @@ Crafty.c("Gold", {
         this.bind("MouseOver", function() {
             this.destroy();
             updateGolds();
-            new Sound(soundResources.goldCoin, {
-                volume: 65,
-                destroyIn: 2000
-            }).play();
+           	Crafty.audio.play("goldCoin");
         });
     }
 });

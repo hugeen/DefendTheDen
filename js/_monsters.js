@@ -76,9 +76,7 @@ Crafty.c("Enemy", {
 
         this.bind("dead", function() {
             this._state = "dead";
-            new Sound(soundResources.pigDie, {
-                destroyIn: 1000
-            }).play();
+            Crafty.audio.play("pigDie");
 
             currentRound._monstersDied++;
             storage.pigDied.set(storage.pigDied.get() + 1);
@@ -125,9 +123,7 @@ Crafty.c("Enemy", {
     },
     takeDamage: function(damages) {
         if(this._state != "dead") {
-            new Sound(soundResources.wound, {
-                destroyIn: 1000
-            }).play();
+            Crafty.audio.play("wound");
 
             if(this.bleed !== undefined) {
                 this.bleed.destroy();

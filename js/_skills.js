@@ -93,10 +93,7 @@ Crafty.c("ThrowingAxe", {
                 this.destroy();
             }
         });
-        new Sound(soundResources.throwing, {
-            volume: 40,
-            destroyIn: 1000
-        }).play();
+        Crafty.audio.play("throwing");
     }
 });
 

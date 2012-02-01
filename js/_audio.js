@@ -7,6 +7,20 @@ var soundResources = {
 	throwing: "spin_jump_Brandino480_2020916281.ogg",
 	goldCoin: "Metal_Reflect_SoundBible.ogg"
 };
+/*
+Crafty.audio.add({
+	throwing: "audio/spin_jump_Brandino480_2020916281.ogg",
+    wound: "audio/Vampire_Bite_SoundBible.ogg",
+    pigDie: "audio/Whip_SoundBible.ogg"
+});
+*/
+Crafty.audio.add("titleScreen", "audio/462638_Travels_of_Vagabonds.ogg");
+Crafty.audio.add("wound", "audio/Vampire_Bite_SoundBible.ogg");
+Crafty.audio.add("pigDie", "audio/Whip_SoundBible.ogg");
+Crafty.audio.add("howl", "audio/Werewolf_Howl_SoundBible.ogg");
+Crafty.audio.add("breath", "audio/Breathing_Weird_SoundBible.ogg");
+Crafty.audio.add("throwing", "audio/spin_jump_Brandino480_2020916281.ogg");
+Crafty.audio.add("goldCoin", "audio/Metal_Reflect_SoundBible.ogg");
 
 var maxVolume = 80;
 var soundManager = [];
