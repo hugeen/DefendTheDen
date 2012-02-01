@@ -84,8 +84,8 @@ Crafty.c("Enemy", {
             storage.pigDied.set(storage.pigDied.get() + 1);
             if(rolling(this._coinDropRate)) {
 	            Crafty.e("Gold").attr({
-	                x: Crafty.randRange(this.x - 10, this.x + this.w + 10),
-	                y: Crafty.randRange(this.y - 10, this.y + this.h + 10),
+	                x: Crafty.math.randomInt(this.x - 10, this.x + this.w + 10),
+	                y: Crafty.math.randomInt(this.y - 10, this.y + this.h + 10),
 	                z: 20
 	            });
 			}

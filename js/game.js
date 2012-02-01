@@ -10,6 +10,66 @@ var DTD = {
     inGame: false
 };
 
+DTD.skillList = [];
+DTD.skillList["ThrowingAxe"] = {
+	name: "Throwing Axe",
+	key: 1,
+	stats: [{
+		damageMin: 45,
+		damangeMax: 65,
+		coolDown: 0.725,
+		energyCost: 0,
+		goldCost: 0
+	},{
+		damageMin: 65,
+		damangeMax: 85,
+		coolDown: 0.625,
+		energyCost: 0,
+		goldCost: 10
+	},{
+		damageMin: 85,
+		damangeMax: 105,
+		coolDown: 0.525,
+		energyCost: 0,
+		goldCost: 20
+	},]
+};
+DTD.skillList["ThrowingBrick"] = {
+	name: "Throwing Brick",
+	key: 1,
+	stats: [{
+		damageMin: 30,
+		damangeMax: 50,
+		coolDown: 2.00,
+		energyCost: 15,
+		goldCost: 0
+	},{
+		damageMin: 40,
+		damangeMax: 60,
+		coolDown: 1.725,
+		energyCost: 15,
+		goldCost: 15
+	},{
+		damageMin: 60,
+		damangeMax: 70,
+		coolDown: 1.500,
+		energyCost: 15,
+		goldCost: 25
+	},]
+};
+
+var sceneMaker = function() {
+	var sceneName = "storyLevel"+(new Date().getTime());
+	Crafty.scene(sceneName, function() {
+        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
+            buildUI();
+            makeBattlefield();
+			loadCutScene();
+        });
+    });
+    Crafty.scene(sceneName);
+};
+
 window.onload = (function() {
 
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
@@ -44,21 +104,27 @@ window.onload = (function() {
         renderGameTitle();
     });
 
-    Crafty.scene("storyLevel", function() {
-
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
-            buildUI();
-            makeBattlefield();
-			loadCutScene();
-        });
-    });
+    
     
     Crafty.scene("skillShop", function() {
 
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/background-game.png", "img/axe-sprite.png"], function() {
+        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
             buildSkillShopUI();
         });
+        
     });
 
     Crafty.scene("titleScreen");
+    
+        $("#skillShopPlay").live("click", function() {
+    	console.log("playScene");
+    	removeSkillShopUI();
+    	//Crafty.scene("storyLevel");
+    	sceneMaker();
+    });
+    
+    $("#skillShopBack").live("click", function() {
+    	removeSkillShopUI();
+    	Crafty.scene("titleScreen");
+    });
 });

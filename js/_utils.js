@@ -69,7 +69,7 @@ var monsterCount = function(waves) {
 
 
 var rolling = function(percent) {
-	if(Crafty.randRange(1, 100) > 100-percent) {
+	if(Crafty.math.randomInt(1, 100) > 100-percent) {
 		return true;
 	} else {
 		return false;

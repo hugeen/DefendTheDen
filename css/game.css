@@ -259,3 +259,69 @@
   height: 580px;
   background: url("../img/background-skillshop.png") top left no-repeat;
 }
+#skillShopLines {
+  position: fixed;
+  top: 115px;
+  background: #fff;
+}
+.skillLine {}
+#skillShopGolds {
+  border: 1px solid #6c777c;
+  border-radius : 8px;
+  top: 30px;
+  left: 490px;
+  width: 190px;
+  height: 45px;
+  position: fixed;
+  background: url("../img/bg-gold.png") top left repeat-x;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+}
+#skillShopGolds div {
+  padding: 5px 0 0 0;
+}
+#skillShopPlay {
+  display: block;
+  top: 500px;
+  left: 510px;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 32px;
+  color: #fff;
+  width: 180px;
+  height: 60px;
+  position: fixed;
+  background: url("../img/bg-play.png") 0 0 no-repeat;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+#skillShopPlay:hover{
+  background-position: -180px 0;
+}
+#skillShopPlay span {
+  display: block;
+  padding: 10px 0 0 0;
+  
+}
+#skillShopBack {
+  display: block;
+  top: 500px;
+  left: 30px;
+  position: fixed;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 32px;
+}
+
+#skillShopBack:hover{
+  color: #000;
+}
+
+#skillShopPlay span {
+  display: block;
+  padding: 10px 0 0 0;
+}

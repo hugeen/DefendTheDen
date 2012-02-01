@@ -2,7 +2,8 @@ var loadScene = function(scene) {
 	switch(scene) {
 		case 1: 
 			resetStorage();
-			Crafty.scene("storyLevel");
+			//Crafty.scene("storyLevel");
+			sceneMaker();
 			break;
 		case "loose":
 			loadScene(storage.level.get());
@@ -108,10 +109,43 @@ rounds[1] = function() {
 	round.addWave("!!!!p!",3);
 	round.addWave("!!!p!!",5);
 	round.addWave("!!p!!!",7);
-	round.addWave("!!p!p!",12);
+	/*round.addWave("!!p!p!",12);
 	round.addWave("p!ppp!",18);
 	round.addWave("p!ppp!",25);
-	round.addWave("!pp!!!",27);
+	round.addWave("!pp!!!",27);*/
+	round.play();
+	return round;
+};
+
+rounds[2] = function() {
+	var round = Crafty.e("Round");
+	round.create(2);
+	round.addWave("!p!!!p",1);
+	round.addWave("!p!!p!",3);
+	round.addWave("p!!p!!",5);
+	round.addWave("!!p!p!",7);
+	/*round.addWave("!!p!p!",12);
+	round.addWave("p!!pp!",18);
+	round.addWave("p!ppp!",25);
+	round.addWave("!pp!p!",27);
+	round.addWave("!!p!p!",33);
+	round.addWave("!!p!p!",38);
+	round.addWave("p!!pp!",45);*/
+	round.play();
+	return round;
+};
+
+rounds[3] = function() {
+	var round = Crafty.e("Round");
+	round.create(1);
+	round.addWave("!!!!!p",1);
+	round.addWave("!!!!p!",3);
+	round.addWave("!!!p!!",5);
+	round.addWave("!!p!!!",7);
+	/*round.addWave("!!p!p!",12);
+	round.addWave("p!ppp!",18);
+	round.addWave("p!ppp!",25);
+	round.addWave("!pp!!!",27);*/
 	round.play();
 	return round;
 };

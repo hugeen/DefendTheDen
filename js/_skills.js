@@ -85,7 +85,7 @@ Crafty.c("ThrowingAxe", {
         });
 
         this.onHit("Pig", function(o) {
-            o[0].obj.takeDamage(Crafty.randRange(this._damagesBase.min*this._damagesModifier, this._damagesBase.max*this._damagesModifier));
+            o[0].obj.takeDamage(Crafty.math.randomInt(this._damagesBase.min*this._damagesModifier, this._damagesBase.max*this._damagesModifier));
             this.destroy();
         });
         this.bind("EnterFrame", function() {
