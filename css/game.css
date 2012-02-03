@@ -152,15 +152,23 @@
   top: 328px;
   left: -198px;
 }
-.pigBig {
+.pigBig, .riddingBig {
   width: 199px;
   height: 276px;
-  background: url("../img/pig-big.png") top left no-repeat;
   z-index: 35;
   position: fixed;
   top: 328px;
   right: -199px;
 }
+
+.pigBig {
+  background: url("../img/pig-big.png") top left no-repeat;
+}
+
+.riddingBig {
+  background: url("../img/ridding-big.png") top left no-repeat;
+}
+
 .wolfSpeech {
   padding: 5px;
   background-color: #fff;
@@ -176,7 +184,7 @@
   text-align: center;
   font-size: 19px;
 }
-.pigSpeech {
+.pigSpeech, .riddingSpeech {
   padding: 5px;
   background-color: #fff;
   border: 2px solid #000;
@@ -187,9 +195,15 @@
   text-align: center;
   top: 305px;
   right: 170px;
-  font-family: 'Eater', cursive;
   font-size: 19px;
 }
+.pigSpeech {
+  font-family: 'Eater', cursive;
+}
+.riddingSpeech {
+  font-family: 'Over the Rainbow', cursive;
+}
+
 .youWin {
   font-size: 40px;
   width: 710px;

@@ -1,8 +1,11 @@
 var loadCutScene = function() {
 	switch(storage.level.get()) {
-		/*case 1: 
+		case 1: 
 			cutscenes[1]();
-			break;*/
+			break;
+		case 3: 
+			cutscenes[3]();
+			break;
 		default:
 			loadLevel(storage.level.get());
 			break;
@@ -77,5 +80,62 @@ cutscenes[1] = function() {
 		$(".didacticiel01b").remove();
 		$(".didacticiel01c").remove();
 	}, 16500);
+
+};
+
+cutscenes[3] = function() {
+	$("body").append('<div class="wolfBig"></div><div class="riddingBig"></div><div class="wolfSpeech"></div><div class="riddingSpeech"></div>');
+	$(".riddingSpeech").hide();
+	$(".wolfSpeech").hide();
+	$(".wolfBig").animate({
+		left: 0
+	}, 1000);
+	$(".riddingBig").animate({
+		right: -10
+	}, 1000);
+	setTimeout(function() {
+		$(".riddingSpeech").show();
+		$(".riddingSpeech").html("Hey YOU !");
+	}, 1250);
+	setTimeout(function() {
+		$(".riddingSpeech").hide();
+		$(".wolfSpeech").show();
+		$(".wolfSpeech").html(" . . . WTF !?");
+	}, 2750);
+	setTimeout(function() {
+		
+		$(".wolfSpeech").hide();
+		$(".riddingSpeech").show();
+		$(".riddingSpeech").html("You Try to EAT my Grand'Ma");
+	}, 4250);
+	setTimeout(function() {
+		$(".riddingSpeech").hide();
+		$(".wolfSpeech").show();
+		$(".wolfSpeech").html(" . . . !");
+	}, 6000);
+	setTimeout(function() {
+		$(".wolfSpeech").hide();
+		$(".riddingSpeech").show();
+		$(".riddingSpeech").html("It's time to <br/> Revenge ! ! !");
+	}, 8250);
+	
+	setTimeout(function() {
+		$(".wolfSpeech").hide();
+		$(".riddingSpeech").hide();
+		$(".wolfBig").animate({
+			left: -300
+		}, 1000);
+		$(".riddingBig").animate({
+			right: -300
+		}, 1000);
+	}, 10000);
+	
+	setTimeout(function() {
+		$(".wolfSpeech").remove();
+		$(".riddingSpeech").remove();
+		$(".wolfBig").remove();
+		$(".riddingBig").remove();
+		loadLevel(storage.level.get());
+	}, 11000);
 
 };
