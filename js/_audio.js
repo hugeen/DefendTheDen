@@ -28,6 +28,7 @@ var soundIds = 0;
 
 // preload audio files
 $(document).ready(function() {
+	/*
 	_.each(soundResources, function(item, key){ 
 		var audioElement = document.createElement('audio');
 		audioElement.setAttribute('src', 'audio/'+item);
@@ -35,6 +36,7 @@ $(document).ready(function() {
 		audioElement.setAttribute('preload', 'auto');
 		$("body").append(audioElement);
 	});	
+	*/
 });
 
 var changeGlobalVolume = function(volume) {

@@ -105,8 +105,8 @@ var rounds = [];
 rounds[1] = function() {
 	var round = Crafty.e("Round");
 	round.create(1);
-	round.addWave("!!!!!p",1);
-	round.addWave("!!!!p!",3);
+	round.addWave("!r!!!p",1);
+	round.addWave("!r!!p!",3);
 	round.addWave("!!!p!!",5);
 	round.addWave("!!p!!!",7);
 	/*round.addWave("!!p!p!",12);

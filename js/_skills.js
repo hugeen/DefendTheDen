@@ -84,7 +84,7 @@ Crafty.c("ThrowingAxe", {
             this.move("e", 12);
         });
 
-        this.onHit("Pig", function(o) {
+        this.onHit("Enemy", function(o) {
             o[0].obj.takeDamage(Crafty.math.randomInt(this._damagesBase.min*this._damagesModifier, this._damagesBase.max*this._damagesModifier));
             this.destroy();
         });

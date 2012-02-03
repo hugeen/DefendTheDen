@@ -43,6 +43,9 @@ var waveParser = function(waveString) {
 			case 'p':
 				enemy = "Pig";
 				break;
+			case 'r':
+				enemy = "Ridding";
+				break;
 			case '!':
 				enemy = "Nobody";
 				break;

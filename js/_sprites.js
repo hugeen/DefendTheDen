@@ -2,6 +2,11 @@ Crafty.sprite(115, "img/piggy-sprite.png", {
     pig: [0, 0, 1, 1]
 });
 
+Crafty.sprite(115, "img/ridding-sprite.png", {
+    ridding: [0, 0, 1, 1]
+});
+
+
 Crafty.sprite(135, "img/wolf-sprite-2.png", {
     wolf: [0, 0, 1, 1]
 });

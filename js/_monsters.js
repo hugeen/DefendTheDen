@@ -24,7 +24,40 @@ Crafty.c("PigSprite", {
     }
 });
 
+
+Crafty.c("RiddingSprite", {
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, ridding");
+        this.attr({
+            x: -150,
+            y: -90,
+            w: 115,
+            h: 115,
+            z: 1
+        });
+        this._mainComponentAttr = {
+            x: 30,
+            y: 20
+        };
+        this.animate("walk", 0, 0, 3);
+        this.animate("walk", 38, 1);
+
+        this.bind("EnterFrame", function() {
+            if(this._frame.frame == 4) {
+                this._frame.current = 0;
+                this._frame.frame = 0;
+            }
+        });
+    }
+});
+
 Crafty.c("Pig", {
+    init: function() {
+        this.addComponent("Enemy");
+    }
+});
+
+Crafty.c("Ridding", {
     init: function() {
         this.addComponent("Enemy");
     }
