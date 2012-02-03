@@ -54,12 +54,16 @@ Crafty.c("RiddingSprite", {
 Crafty.c("Pig", {
     init: function() {
         this.addComponent("Enemy");
+        
     }
 });
 
 Crafty.c("Ridding", {
     init: function() {
         this.addComponent("Enemy");
+        this._movingSpeed = 0.65;
+        this._coinDropRate = 65;
+        this._hitPoints = 80;
     }
 });
 

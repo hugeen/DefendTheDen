@@ -33,7 +33,6 @@ cutscenes[1] = function() {
 		$(".wolfSpeech").html(". . . ?");
 	}, 2750);
 	setTimeout(function() {
-		
 		$(".wolfSpeech").hide();
 		$(".pigSpeech").show();
 		$(".pigSpeech").html("You breath on my HOUSE !");
