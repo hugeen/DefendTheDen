@@ -16,7 +16,12 @@ var makeBattlefield = function() {
 };
 
 var buildUI = function() {
-    $("body").append(+'' + '<a id="menu" href="#" class="battleFieldUI">' + '<span class="battleFieldUI">Menu</span>' + '</a>' + '<div id="portrait" class="battleFieldUI">' + '<div id="lifeBar" class="battleFieldUI">' + '<div id="lifeBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="energyBar" class="battleFieldUI">' + '<div id="energyBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="goldCount" class="battleFieldUI">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin" class="battleFieldUI"></div>' + '</div>' + '<div id="levelNumber" class="battleFieldUI">LEVEL <span class="battleFieldUI">~</span></div>' + '<div id="progressBarBelow" class="battleFieldUI">' + '<div id="progressBar" class="battleFieldUI"></div>' + '</div>' + '</div>');
+    $("body").append('' + '<div id="pause" class="battleFieldUI"></div><a id="menu" href="#" class="battleFieldUI">' + '<span class="battleFieldUI">Menu</span>' + '</a>' + '<div id="portrait" class="battleFieldUI">' + '<div id="lifeBar" class="battleFieldUI">' + '<div id="lifeBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="energyBar" class="battleFieldUI">' + '<div id="energyBarProgress" class="battleFieldUI"></div>' + '<span class="battleFieldUI"></span>' + '</div>' + '<div id="goldCount" class="battleFieldUI">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin" class="battleFieldUI"></div>' + '</div>' + '<div id="levelNumber" class="battleFieldUI">LEVEL <span class="battleFieldUI">~</span></div>' + '<div id="progressBarBelow" class="battleFieldUI">' + '<div id="progressBar" class="battleFieldUI"></div>' + '</div>' + '</div>');
+    $("#pause").hide();
+    $("#pause").html(''
+    	+'<a id="menuPauseResume">Resume game</a>'
+    	+'<a id="menuPauseBackToMain">Back to main menu</a>'
+    +'');
     $("#menu").on('click', function() {
         Crafty.pause();
     });

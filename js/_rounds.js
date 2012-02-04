@@ -24,7 +24,7 @@ var loadLevel = function(level) {
 	if(level > 3) {
 		DTD.skills["rockSkill"] = rockSkill();
 	}
-	DTD.inGame = true;
+	
 	rounds[level]();
 };
 

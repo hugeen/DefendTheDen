@@ -72,8 +72,28 @@ var sceneMaker = function() {
 };
 
 window.onload = (function() {
-
+	$("#menuPauseResume").live("click", function() {
+		Crafty.pause();
+	});
+	$("#menuPauseBackToMain").live("click", function() {
+		Crafty.pause();
+		$(".youWin").remove();
+		removeUI();
+		Crafty.scene("titleScreen");
+	});
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
+    Crafty.bind("Pause", function() {
+    	if(DTD.inGame) {
+    		DTD.paused = true;
+    		$("#pause").show();
+    	}
+    });
+    Crafty.bind("Unpause", function() {
+    	if(DTD.inGame) {
+    		DTD.paused = false;
+    		$("#pause").hide();
+    	}
+    });
 	allowPlayerMoves();
     var renderGameTitle = function() {
         Crafty.load(["img/background.png", "img/clouds.png", "img/floor.png", "img/menu-sprites.png"], function() {
@@ -106,6 +126,10 @@ window.onload = (function() {
 
     Crafty.scene("titleScreen", function() {
         renderGameTitle();
+    }, function() {
+    	DTD.inGame = true;
+    }, function() {
+    	DTD.inGame = false;
     });
     
     Crafty.scene("skillShop", function() {

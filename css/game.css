@@ -339,3 +339,29 @@
   display: block;
   padding: 10px 0 0 0;
 }
+
+#pause {
+	border-radius: 5px;
+	top: 100px;
+	left: 255px;
+	opacity: 0.85;
+	width: 200px;
+	margin: 0 auto;
+	background: #000;
+	position: fixed;
+}
+
+#menuPauseBackToMain, #menuPauseResume {
+	padding: 10px;
+	text-align: center;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-family: 'IM Fell DW Pica SC', serif;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#menuPauseBackToMain:hover, #menuPauseResume:hover {
+	text-decoration: underline;
+}

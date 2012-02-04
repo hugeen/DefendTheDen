@@ -58,6 +58,7 @@ Crafty.c("PlayerEnergy", {
 				$("#energyBarProgress").width(129 - ((this._fullEnergy - this._actualEnergy) * (129 / this._fullEnergy)));
 			}
         });
+        
     },
     consumeEnergy: function(type) {
         var cost = 0;
@@ -99,7 +100,7 @@ Crafty.c("WolfSprite", {
 
 Crafty.c("Wolf", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, AttachSprite, PlayerLife, PlayerEnergy");
+        this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, PlayerLife, PlayerEnergy");
 
         this.attr({
             x: 9,
@@ -119,6 +120,11 @@ Crafty.c("Wolf", {
         });
         this.attachSprite(Crafty.e("WolfSprite"));
         this.attachWagon(Crafty.e("Wagon"));
+        this.bind('KeyUp', function(e) {
+			if(e.keyCode === Crafty.keys["ESC"]) {
+				Crafty.pause();
+			}
+		});
     },
     attachWagon: function(wagon) {
         this._wagon = wagon;
