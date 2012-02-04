@@ -12,18 +12,38 @@ Crafty.c("MenuItem", {
         this.css("cursor", "pointer");
     }
 });
+
+
+Crafty.c("GameTitle", {
+	init: function() {
+        this.addComponent("2D, DOM, Text");
+        this.attr({
+        	w: DTD.viewPort.w,
+            x: 0,
+            y: 175
+        });
+        this.text("Defend The Den");
+        this.css("text-shadow", "0 0 1px #000, 0 0 1px #000");
+        this.css("font-family", "'IM Fell DW Pica SC', serif");
+        this.css("color", "#fff");
+        this.css("font-size", "42px");
+        this.css("text-align", "center");
+        this.css("cursor", "default");
+    }
+});
+
 Crafty.c("NewGameMenuItem", {
     init: function() {
         this.addComponent("MenuItem");
         this.attr({
             y: 316
         });
-        this.css("background-position", "0 0");
+        this.css("background-position", "-240px 0");
         this.bind("MouseOver", function() {
-            this.css("background-position", "-240px 0");
+            this.css("background-position", "0 0");
         });
         this.bind("MouseOut", function() {
-            this.css("background-position", "0 0");
+            this.css("background-position", "-240px 0");
         });
         this.bind("Click", function() {
             this.css("background-position", "-480px 0");
@@ -39,12 +59,12 @@ Crafty.c("ContinueMenuItem", {
         this.attr({
             y: 370
         });
-        this.css("background-position", "0 54px");
+        this.css("background-position", "-240px 54px");
         this.bind("MouseOver", function() {
-            this.css("background-position", "-240px 54px");
+            this.css("background-position", "0 54px");
         });
         this.bind("MouseOut", function() {
-            this.css("background-position", "0 54px");
+            this.css("background-position", "-240px 54px");
         });
         this.bind("Click", function() {
             this.css("background-position", "-480px 54px");

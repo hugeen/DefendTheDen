@@ -93,8 +93,11 @@ window.onload = (function() {
                 x: 0,
                 y: DTD.viewPort.h - 309
             }).css("background", "url(img/floor.png)").css("z-index", "0");
-
+            
+			Crafty.e("GameTitle");
+			
             Crafty.e("NewGameMenuItem");
+            
             if(storage.level.get() > 1) {
             	Crafty.e("ContinueMenuItem");
             }
