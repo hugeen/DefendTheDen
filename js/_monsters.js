@@ -54,7 +54,9 @@ Crafty.c("RiddingSprite", {
 Crafty.c("Pig", {
     init: function() {
         this.addComponent("Enemy");
-        
+        this._movingSpeed = 0.45;
+        this._coinDropRate = 35;
+        this._hitPoints = 120;
     }
 });
 
@@ -69,8 +71,9 @@ Crafty.c("Ridding", {
 
 Crafty.c("Enemy", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite");
+        this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite, Gravity");
         this._state = "free";
+        this._bumped = false;
         this._hitPoints = 100;
         this._movingSpeed = 0.45;
         this._coinDropRate = 50;
@@ -84,8 +87,10 @@ Crafty.c("Enemy", {
 
         this.bind("EnterFrame", function() {
             if(!this.hit("Wires")) {
-                if(this._state == "free" && !this._paused) {
+                if(this._state == "free") {
                     this.move("w", this._movingSpeed);
+                } else if(this._state == "bumped") {
+                	this.move("e", this._movingSpeed*6);
                 }
             } else {
                 if(this._state != "dead") {
@@ -129,6 +134,14 @@ Crafty.c("Enemy", {
                 this.destroy();
             }, 75);
         });
+    },
+    bump: function() {
+    	if(!this._bumped) {
+    		this._state = "bumped";
+    		this.delay(function() {
+    			this._state = "free";
+    		}, 750);
+    	}
     },
     setToLine: function(line) {
         if(line == 6)

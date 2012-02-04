@@ -5,6 +5,7 @@ var makeBattlefield = function() {
     Crafty.e("EarthBackground");
     Crafty.e("SkyBackground");
     Crafty.e("Wires");
+    Crafty.e("WindGravity");
     grassLine(1);
     grassLine(2);
     grassLine(3);
@@ -70,6 +71,19 @@ var grassLine = function(line) {
     }
 
 };
+
+Crafty.c("WindGravity", {
+    init: function() {
+        this.addComponent("2D, Canvas");
+        this.attr({
+            w: 1,
+            h: DTD.viewPort.h,
+            x: DTD.viewPort.w,
+            y: 0,
+            z: 0
+        });
+    }
+});
 
 Crafty.c("GrassField", {
     init: function() {

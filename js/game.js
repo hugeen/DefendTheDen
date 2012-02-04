@@ -7,7 +7,8 @@ var DTD = {
     },
     sound: 1,
     music: 1,
-    inGame: false
+    inGame: false,
+    paused: false
 };
 
 DTD.skillList = [];
@@ -103,8 +104,6 @@ window.onload = (function() {
     Crafty.scene("titleScreen", function() {
         renderGameTitle();
     });
-
-    
     
     Crafty.scene("skillShop", function() {
 
@@ -117,9 +116,7 @@ window.onload = (function() {
     Crafty.scene("titleScreen");
     
         $("#skillShopPlay").live("click", function() {
-    	console.log("playScene");
     	removeSkillShopUI();
-    	//Crafty.scene("storyLevel");
     	sceneMaker();
     });
     

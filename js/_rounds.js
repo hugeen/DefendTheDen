@@ -18,6 +18,8 @@ var loadLevel = function(level) {
     DTD.skills = [];
     DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
 	DTD.selectedSkill == "ThrowingAxeSkill";
+	DTD.skills["breathSkill"] = breathSkill();
+	DTD.selectedSkill == "BreathSkill";
 	DTD.inGame = true;
 	rounds[level]();
 };
@@ -105,14 +107,16 @@ var rounds = [];
 rounds[1] = function() {
 	var round = Crafty.e("Round");
 	round.create(1);
-	round.addWave("!r!!!p",1);
-	round.addWave("!r!!p!",3);
+	round.addWave("!!!!!p",1);
+	round.addWave("!!!!p!",3);
 	round.addWave("!!!p!!",5);
 	round.addWave("!!p!!!",7);
-	/*round.addWave("!!p!p!",12);
+	round.addWave("!!p!p!",12);
 	round.addWave("p!ppp!",18);
 	round.addWave("p!ppp!",25);
-	round.addWave("!pp!!!",27);*/
+	round.addWave("!pp!!!",27);
+	round.addWave("pppppp",32);
+	round.addWave("!!p!!!",35);
 	round.play();
 	return round;
 };
@@ -138,14 +142,14 @@ rounds[2] = function() {
 rounds[3] = function() {
 	var round = Crafty.e("Round");
 	round.create(1);
-	round.addWave("!!!!!p",1);
-	round.addWave("!!!!p!",3);
-	round.addWave("!!!p!!",5);
-	round.addWave("!!p!!!",7);
-	/*round.addWave("!!p!p!",12);
-	round.addWave("p!ppp!",18);
-	round.addWave("p!ppp!",25);
-	round.addWave("!pp!!!",27);*/
+	round.addWave("!!!!!r",1);
+	round.addWave("!!!!r!",3);
+	round.addWave("!!!r!!",5);
+	round.addWave("!!r!!!",7);
+	round.addWave("!!r!p!",12);
+	round.addWave("r!prp!",18);
+	round.addWave("p!rpr!",25);
+	round.addWave("!pp!r!",27);
 	round.play();
 	return round;
 };

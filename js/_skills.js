@@ -15,6 +15,17 @@ var throwingAxeSkill = function() {
     });
 };
 
+var breathSkill = function() {
+    return new SkillButton(2, "Breath", {
+    	sprite: "breath",
+    	keyBind: 2,
+        cooldown: 2,
+        action: function() {
+        	breath();
+        }
+    });
+};
+
 Crafty.c("SkillButton", {
     init: function() {
         this.addComponent("2D, Canvas, Mouse, KeyBoard, Sprite, skill");
@@ -97,9 +108,51 @@ Crafty.c("ThrowingAxe", {
     }
 });
 
+
+Crafty.c("Breath", {
+    init: function() {
+        this._used = false;
+        this.addComponent("2D, Canvas, Collision, SpriteAnimation, breath");
+        this.attr({
+            x: 32,
+            y: 32,
+            w: 70,
+            h: 70,
+            z: 25
+        });
+        this._damagesBase = {
+        	min: 45,
+        	max: 65
+        };
+        this.animate("breath", 0, 0, 3);
+        this.animate("breath", 40, -1);
+        this._damagesModifier = 1;
+        this.origin("center");
+        this.bind("EnterFrame", function() {
+            this.move("e", 6.5);
+        });
+        this.onHit("Enemy", function(o) {
+            o[0].obj.bump();
+        });
+        
+        this.bind("EnterFrame", function() {
+            if(!isInViewPort(this)) {
+                this.destroy();
+            }
+        });
+    }
+});
+
 function throwAxe() {
     storage.axeThrowed.set(storage.axeThrowed.get() + 1);
     Crafty.e("ThrowingAxe").attr({
+        x: DTD.player.x,
+        y: DTD.player.y - 30
+    });
+}
+
+function breath() {
+    Crafty.e("Breath").attr({
         x: DTD.player.x,
         y: DTD.player.y - 30
     });
