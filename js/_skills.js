@@ -178,6 +178,9 @@ Crafty.c("Rock", {
 		this.origin("center");
 		this.bind("EnterFrame", function() {
 			if(!this._stopMove) {
+				this.attr({
+					rotation : this.rotation + 7
+				});
 				this.move("e", 6.5);
 			}
 		});

@@ -159,3 +159,21 @@ cutscenes[3] = function() {
 	}, 11000);
 
 };
+
+
+
+cutscenes[4] = function() {
+	loadLevel(storage.level.get());
+	setTimeout(function() {
+		$("body").append('<div class="didacticiel01a"></div><div class="didacticiel01b"></div><div class="didacticiel01c"></div>');
+		$(".didacticiel01a").html(" To throw a Rock . . .");
+		$(".didacticiel01b").html(" . . . Push Key '3'");
+	}, 250);
+	
+	setTimeout(function() {
+		$(".didacticiel01a").remove();
+		$(".didacticiel01b").remove();
+		$(".didacticiel01c").remove();
+	}, 4250);
+
+};
