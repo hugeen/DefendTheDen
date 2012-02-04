@@ -89,5 +89,6 @@ Crafty.c("AttachSprite", {
         if(this._zIndex) {
         	this._spriteComponent.attr({z : this._zIndex});
         }
+        this.trigger("SpriteAttached");
     }
 });

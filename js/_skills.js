@@ -124,6 +124,43 @@ Crafty.c("ThrowingAxe", {
 	}
 });
 
+Crafty.c("RiddingPie", {
+	init : function() {
+		this._used = false;
+		this.addComponent("2D, Canvas, Collision, pie");
+		this.attr({
+			x : 16,
+			y : 16,
+			w : 16,
+			h : 16,
+			z : 25
+		});
+		this._damagesBase = {
+			min : 7,
+			max : 12
+		};
+		this._damagesModifier = 1;
+		this.origin("center");
+		this.bind("EnterFrame", function() {
+			this.attr({
+				rotation : this.rotation + 10
+			});
+			this.move("w", 5);
+		});
+
+		this.onHit("Player", function(o) {
+			//o[0].obj.takeDamage(Crafty.math.randomInt(this._damagesBase.min * this._damagesModifier, this._damagesBase.max * this._damagesModifier));
+			this.destroy();
+		});
+		this.bind("EnterFrame", function() {
+			if(!isInViewPort(this)) {
+				this.destroy();
+			}
+		});
+		//Crafty.audio.play("throwing");
+	}
+});
+
 Crafty.c("Breath", {
 	init : function() {
 		this._used = false;

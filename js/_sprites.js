@@ -15,6 +15,10 @@ Crafty.sprite(42, "img/axe-sprite.png", {
     axe: [0, 0, 1, 1]
 });
 
+Crafty.sprite(16, "img/pie-sprite.png", {
+    pie: [0, 0, 1, 1]
+});
+
 Crafty.sprite(70, "img/wind-sprite.png", {
     breath: [0, 0, 1, 1]
 });
