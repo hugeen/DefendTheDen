@@ -3,6 +3,9 @@ var loadCutScene = function() {
 		case 1: 
 			cutscenes[1]();
 			break;
+		case 2: 
+			cutscenes[2]();
+			break;
 		case 3: 
 			cutscenes[3]();
 			break;
@@ -79,6 +82,24 @@ cutscenes[1] = function() {
 		$(".didacticiel01b").remove();
 		$(".didacticiel01c").remove();
 	}, 16500);
+
+};
+
+
+cutscenes[2] = function() {
+	loadLevel(storage.level.get());
+	setTimeout(function() {
+		$("body").append('<div class="didacticiel01a"></div><div class="didacticiel01b"></div><div class="didacticiel01c"></div>');
+		$(".didacticiel01a").html(" To blow on the enemy . . .");
+		$(".didacticiel01b").html(" . . . Push Key '2'");
+		$(".didacticiel01c").html(" . . .Be careful, it costs energy");
+	}, 250);
+	
+	setTimeout(function() {
+		$(".didacticiel01a").remove();
+		$(".didacticiel01b").remove();
+		$(".didacticiel01c").remove();
+	}, 4250);
 
 };
 
