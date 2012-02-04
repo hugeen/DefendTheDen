@@ -76,23 +76,32 @@ Crafty.c("Ridding", {
 				}
 			}
 		});
+		this.timeoutThrowPie = function() {};
+		this.timeoutThrowPieEnd = function() {};
+		this.bind("Remove", function() {
+			clearTimeout(this.timeoutThrowPie);
+			clearTimeout(this.timeoutThrowPieEnd);
+		});
 	},
 	throwPie : function() {
 		if(!this._throwPie) {
 			this._state = "stay";
 			this._throwPie = true;
 			this._spriteComponent.stop().animate("throwPie", 40, 0);
-			this.delay(function() {
+			var self = this;
+			this.timeoutThrowPie = setTimeout(function(){
 				Crafty.e("RiddingPie").attr({
-					x : this.x-30,
-					y : this.y+20
+					x : self.x-30,
+					y : self.y+20
 				});
-			}, 900);
-			this.delay(function() {
-				this._spriteComponent.stop().animate("walk", 38, 1);
-				this._state = "free";
-				this._throwPie = false;
-			}, 1250);
+			},900);
+			
+			this.timeoutThrowPieEnd = setTimeout(function(){
+				self._spriteComponent.stop().animate("walk", 38, 1);
+				self._state = "free";
+				self._throwPie = false;
+			},1250);
+
 		}
 	}
 });
