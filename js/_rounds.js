@@ -21,6 +21,9 @@ var loadLevel = function(level) {
 	if(level > 1) {
 		DTD.skills["breathSkill"] = breathSkill();
 	}
+	if(level > 3) {
+		DTD.skills["rockSkill"] = rockSkill();
+	}
 	DTD.inGame = true;
 	rounds[level]();
 };

@@ -102,7 +102,7 @@ Crafty.c("Enemy", {
 
         this.bind("MouseOver", function() {
             if(DTD.selectedSkill == "ThrowingAxeSkill") {
-                $("body").css("cursor", "url(img/axe-sprite.png),auto");
+                $("body").css("cursor", "url(img/attack-cursor.png),auto");
             }
         });
 

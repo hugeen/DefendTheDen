@@ -65,6 +65,9 @@ Crafty.c("PlayerEnergy", {
             case "breath":
                 cost = 25;
                 break;
+            case "rock":
+                cost = 35;
+                break;
             default:
                 cost = 0;
                 break;

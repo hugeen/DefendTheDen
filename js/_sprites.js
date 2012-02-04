@@ -19,6 +19,11 @@ Crafty.sprite(70, "img/wind-sprite.png", {
     breath: [0, 0, 1, 1]
 });
 
+Crafty.sprite(140, "img/rock-sprite.png", {
+    rock: [0, 0, 1, 1]
+});
+
+
 Crafty.sprite(42, "img/wires-sprite.png", {
     wires: [0, 0, 1, 10]
 });
@@ -54,6 +59,14 @@ Crafty.sprite(52, "img/skill-button-below.png", {
 
 Crafty.sprite(52, "img/skill-button-cooldown.png", {
     skillCooldown: [0, 0, 1, 1]
+});
+
+Crafty.sprite(52, "img/rock-skill.png", {
+    rockSkill: [0, 0, 1, 1]
+});
+
+Crafty.sprite(52, "img/wind-skill.png", {
+    windSkill: [0, 0, 1, 1]
 });
 
 Crafty.sprite(52, "img/skill-button-pushed.png", {

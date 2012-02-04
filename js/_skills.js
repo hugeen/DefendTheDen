@@ -14,14 +14,27 @@ var throwingAxeSkill = function() {
 };
 var breathSkill = function() {
 	return new SkillButton(2, "Breath", {
-		sprite : "breath",
+		sprite : "windSkill",
 		keyBind : 2,
 		cooldown : 5,
 		action : function() {
 			breath();
-		}
+		},
+		energyCost: 15
 	});
 };
+
+var rockSkill = function() {
+	return new SkillButton(3, "Rock", {
+		sprite : "rockSkill",
+		keyBind : 3,
+		cooldown : 10,
+		action : function() {
+			rock();
+		},
+		energyCost: 25
+	});
+}
 
 Crafty.c("SkillButton", {
 	init : function() {
@@ -33,6 +46,7 @@ Crafty.c("SkillButton", {
 			h : 52,
 			z : 16
 		});
+		this._energyCost = 0;
 		this.cooldown = 0.5;
 		this.coolDownStart = 0;
 		this.coolDownFinish = 0;
@@ -52,6 +66,11 @@ Crafty.c("SkillButton", {
 			z : 17
 		});
 		this.bind("EnterFrame", function() {
+			if(DTD.player._actualEnergy < this._energyCost) {
+				this.sprite(1, 0, 1, 1);
+			} else {
+				this.sprite(0, 0, 1, 1);
+			}
 			if(this.cdon) {
 				var newH = (this.coolDownFinish - parseInt(new Date().getTime(), 10)) * 44 / (1000 * this.cooldown);
 				var newY = this.y + (52 - newH) / 2;
@@ -116,10 +135,6 @@ Crafty.c("Breath", {
 			h : 70,
 			z : 25
 		});
-		this._damagesBase = {
-			min : 45,
-			max : 65
-		};
 		this.animate("breath", 0, 0, 3);
 		this.animate("breath", 40, -1);
 		this._damagesModifier = 1;
@@ -129,6 +144,61 @@ Crafty.c("Breath", {
 		});
 		this.onHit("Enemy", function(o) {
 			o[0].obj.bump();
+		});
+
+		this.bind("EnterFrame", function() {
+			if(!isInViewPort(this)) {
+				this.destroy();
+			}
+		});
+	}
+});
+
+
+Crafty.c("Rock", {
+	init : function() {
+		this._used = false;
+		this._enemyHit = false;
+		this._stopMove = false;
+		this._enemyWounded = false;
+		this.addComponent("2D, Canvas, Collision, SpriteAnimation, rock");
+		this.attr({
+			x : 32,
+			y : 32,
+			w : 140,
+			h : 140,
+			z : 25
+		});
+		this._damagesBase = {
+			min : 45,
+			max : 65
+		};
+		this.animate("rock", 0, 0, 10);
+		this._damagesModifier = 1;
+		this.origin("center");
+		this.bind("EnterFrame", function() {
+			if(!this._stopMove) {
+				this.move("e", 6.5);
+			}
+		});
+		this.onHit("Enemy", function(o) {
+			if(!this._enemyHit) {
+				this._enemyHit = true;
+				this.delay(function() {
+					this._stopMove = true;
+					this.animate("rock", 20, 0);
+				}, 250);
+			}
+			if(this._stopMove && !this._enemyWounded) {
+				this._enemyWounded = true;
+				this.delay(function() {
+					var that = this;
+					_.each(o, function(item, key) {
+						item.obj.takeDamage(Crafty.math.randomInt(that._damagesBase.min * that._damagesModifier, that._damagesBase.max * that._damagesModifier));
+					});
+					this.destroy();
+				},350);
+			}
 		});
 
 		this.bind("EnterFrame", function() {
@@ -157,7 +227,15 @@ function breath() {
 	}
 
 }
-
+function rock() {
+	if(DTD.player._actualEnergy >= 25) {
+		DTD.player.consumeEnergy("rock");
+		Crafty.e("Rock").attr({
+			x : DTD.player.x,
+			y : DTD.player.y - 60
+		});
+	}
+}
 function SkillButton(position, skillName, options) {
 	this.position = position || 1;
 	this.skillName = skillName || "";
@@ -167,12 +245,15 @@ function SkillButton(position, skillName, options) {
 		cooldown : 1.5,
 		action : function() {
 
-		}
+		},
+		energyCost: 0
 	});
 	var that = this;
 	this.c = Crafty.c(that.skillName + "Skill", {
 		init : function() {
+			
 			this.addComponent("SkillButton");
+			this._energyCost = options.energyCost;
 			this.attr({
 				x : this._x + ((this._x + this._w) * position) - this._w
 			});
