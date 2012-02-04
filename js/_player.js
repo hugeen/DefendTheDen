@@ -28,6 +28,9 @@ Crafty.c("PlayerLife", {
             case "wallReached":
                 damages = 25;
                 break;
+            case "riddingPie":
+            	damages = 12;
+            	break;
             default:
                 damages = 0;
                 break;

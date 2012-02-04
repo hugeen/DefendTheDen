@@ -148,8 +148,8 @@ Crafty.c("RiddingPie", {
 			this.move("w", 5);
 		});
 
-		this.onHit("Player", function(o) {
-			//o[0].obj.takeDamage(Crafty.math.randomInt(this._damagesBase.min * this._damagesModifier, this._damagesBase.max * this._damagesModifier));
+		this.onHit("Wolf", function(o) {
+			DTD.player.takeDamage("riddingPie");
 			this.destroy();
 		});
 		this.bind("EnterFrame", function() {

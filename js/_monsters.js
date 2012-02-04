@@ -66,31 +66,34 @@ Crafty.c("Ridding", {
 		this._coinDropRate = 65;
 		this._hitPoints = 80;
 		this._throwPie = false;
-		this.delay(function() {
-			this.throwPie();
-		}, 1750);
 		this.bind("SpriteAttached", function() {
 			this._spriteComponent.animate("throwPie", 4, 0, 8);
 		});
+		this.bind("EnterFrame", function() {
+			if(rolling(35)) {
+				if(rolling(1)) {
+					this.throwPie();
+				}
+			}
+		});
 	},
 	throwPie : function() {
-		this._state = "stay";
-		this._throwPie = true;
-		this._spriteComponent.stop().animate("throwPie", 40, 0);
-		this.delay(function() {
-			Crafty.e("RiddingPie").attr({
-				x : this.x-30,
-				y : this.y+20
-			});
-		}, 900);
-		this.delay(function() {
-			this._spriteComponent.stop().animate("walk", 38, 1);
-			this._state = "free";
-			this._throwPie = false;
+		if(!this._throwPie) {
+			this._state = "stay";
+			this._throwPie = true;
+			this._spriteComponent.stop().animate("throwPie", 40, 0);
 			this.delay(function() {
-				this.throwPie();
-			}, 1750)
-		}, 1250);
+				Crafty.e("RiddingPie").attr({
+					x : this.x-30,
+					y : this.y+20
+				});
+			}, 900);
+			this.delay(function() {
+				this._spriteComponent.stop().animate("walk", 38, 1);
+				this._state = "free";
+				this._throwPie = false;
+			}, 1250);
+		}
 	}
 });
 
