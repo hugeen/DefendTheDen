@@ -45,6 +45,35 @@ Crafty.c("PlayerLife", {
     }
 });
 
+
+Crafty.c("PlayerEnergy", {
+    init: function() {
+        this._baseEnergy = 100;
+        this._modifier = 1;
+        this._fullEnergy = this._baseEnergy * this._modifier;
+        this._actualEnergy = this._fullEnergy;
+        this.bind("EnterFrame", function() {
+			if(this._actualEnergy+1 < this._fullEnergy) {
+				this._actualEnergy = this._actualEnergy+0.1;
+				$("#energyBarProgress").width(129 - ((this._fullEnergy - this._actualEnergy) * (129 / this._fullEnergy)));
+			}
+        });
+    },
+    consumeEnergy: function(type) {
+        var cost = 0;
+        switch(type) {
+            case "breath":
+                cost = 25;
+                break;
+            default:
+                cost = 0;
+                break;
+        }
+        this._actualEnergy = this._actualEnergy - cost;
+        $("#energyBarProgress").width(129 - ((this._fullEnergy - this._actualEnergy) * (129 / this._fullEnergy)));
+    }
+});
+
 Crafty.c("WolfSprite", {
     init: function() {
         this.addComponent("2D, Canvas, SpriteAnimation, wolf");
@@ -67,7 +96,7 @@ Crafty.c("WolfSprite", {
 
 Crafty.c("Wolf", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, AttachSprite, PlayerLife");
+        this.addComponent("2D, Canvas, Collision, AttachSprite, PlayerLife, PlayerEnergy");
 
         this.attr({
             x: 9,
@@ -87,12 +116,6 @@ Crafty.c("Wolf", {
         });
         this.attachSprite(Crafty.e("WolfSprite"));
         this.attachWagon(Crafty.e("Wagon"));
-    },
-    throwAxe: function() {
-        Crafty.e("ThrowingAxeSkill").attr({
-            x: this.x,
-            y: this.y
-        });
     },
     attachWagon: function(wagon) {
         this._wagon = wagon;

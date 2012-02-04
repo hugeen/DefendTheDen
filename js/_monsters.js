@@ -90,7 +90,7 @@ Crafty.c("Enemy", {
                 if(this._state == "free") {
                     this.move("w", this._movingSpeed);
                 } else if(this._state == "bumped") {
-                	this.move("e", this._movingSpeed*6);
+                	this.move("e", 4.5);
                 }
             } else {
                 if(this._state != "dead") {
