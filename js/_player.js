@@ -97,6 +97,7 @@ Crafty.c("WolfSprite", {
         };
         this.animate("walkWolf", 0, 0, 1);
         this.animate("throwAxe", 1, 0, 3);
+        this.animate("blow", 4, 0, 7);
         this._walking = false;
     }
 });

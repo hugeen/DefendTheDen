@@ -18,7 +18,13 @@ var breathSkill = function() {
 		keyBind : 2,
 		cooldown : 5,
 		action : function() {
-			breath();
+			DTD.player._spriteComponent.stop().animate("blow", 18, 0);
+			setTimeout(function() {
+				breath();
+			}, 20 * 20 * 0.9);
+			setTimeout(function() {
+				DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+			}, 20 * 20 * 1.5);
 		},
 		energyCost: 15
 	});
@@ -262,7 +268,7 @@ function breath() {
 		DTD.player.consumeEnergy("breath");
 		Crafty.e("Breath").attr({
 			x : DTD.player.x,
-			y : DTD.player.y - 30
+			y : DTD.player.y - 55
 		});
 	}
 
