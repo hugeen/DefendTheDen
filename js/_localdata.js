@@ -15,9 +15,16 @@ storage.level = new LocalStore('level', {
 storage.axeSkill = new LocalStore('axe_skill', {
     defaultVal: 0
 });
-
+storage.blowSkill = new LocalStore('blow_skill', {
+    defaultVal: 0
+});
+storage.rockSkill = new LocalStore('rock_skill', {
+    defaultVal: 0
+});
 var resetStorage = function() {
 	storage.goldCoins.set(0);
 	storage.level.set(1);
 	storage.axeSkill.set(0);
+	storage.blowSkill.set(0);
+	storage.rockSkill.set(0);
 };

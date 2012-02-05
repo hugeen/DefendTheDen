@@ -34,7 +34,7 @@ var rockSkill = function() {
 	return new SkillButton(3, "Rock", {
 		sprite : "rockSkill",
 		keyBind : 3,
-		cooldown : 10,
+		cooldown : DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].coolDown,
 		action : function() {
 			rock();
 		},
