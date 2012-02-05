@@ -38,7 +38,7 @@ cutscenes[1] = function() {
 	setTimeout(function() {
 		$(".wolfSpeech").hide();
 		$(".pigSpeech").show();
-		$(".pigSpeech").html("You breath on my HOUSE !");
+		$(".pigSpeech").html("You blew in my house !");
 	}, 4250);
 	setTimeout(function() {
 		$(".pigSpeech").hide();
@@ -73,8 +73,8 @@ cutscenes[1] = function() {
 	setTimeout(function() {
 		$("body").append('<div class="didacticiel01a"></div><div class="didacticiel01b"></div><div class="didacticiel01c"></div>');
 		$(".didacticiel01a").html("To throw an Axe . . .");
-		$(".didacticiel01b").html(". . . Push Key '1'");
-		$(".didacticiel01c").html(". . . Click on an enmy");
+		$(".didacticiel01b").html(" . . . Push Key '1'");
+		$(".didacticiel01c").html(" . . . Click on an enmy");
 	}, 11250);
 	
 	setTimeout(function() {
@@ -92,7 +92,7 @@ cutscenes[2] = function() {
 		$("body").append('<div class="didacticiel01a"></div><div class="didacticiel01b"></div><div class="didacticiel01c"></div>');
 		$(".didacticiel01a").html(" To blow on the enemy . . .");
 		$(".didacticiel01b").html(" . . . Push Key '2'");
-		$(".didacticiel01c").html(" . . .Be careful, it costs energy");
+		$(".didacticiel01c").html(" . . . Be careful, it costs energy");
 	}, 250);
 	
 	setTimeout(function() {
@@ -126,7 +126,7 @@ cutscenes[3] = function() {
 		
 		$(".wolfSpeech").hide();
 		$(".riddingSpeech").show();
-		$(".riddingSpeech").html("You Try to EAT my Grand'Ma");
+		$(".riddingSpeech").html("You ate my Grand'ma !");
 	}, 4250);
 	setTimeout(function() {
 		$(".riddingSpeech").hide();

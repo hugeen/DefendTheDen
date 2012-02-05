@@ -189,9 +189,12 @@ Crafty.c("Gold", {
             h: 16,
             z: 1
         });
-        this.delay(function() {
+        this.timeout = setTimeout(function() {
             this.destroy();
         }, 2500);
+        this.bind("Remove", function() {
+        	clearTimeout(this.timeout);
+        })
         this.bind("MouseOver", function() {
         	Crafty.e("GoldFade").attr({ 
         		x: this.x,
