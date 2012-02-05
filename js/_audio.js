@@ -22,12 +22,14 @@ Crafty.audio.add("breath", "audio/Breathing_Weird_SoundBible.ogg");
 Crafty.audio.add("throwing", "audio/spin_jump_Brandino480_2020916281.ogg");
 Crafty.audio.add("goldCoin", "audio/Metal_Reflect_SoundBible.ogg");
 */
+
+/*
 Crafty.audio.add("grandMaFire", "audio/_grandma_fire.ogg");
 Crafty.audio.add("money", "audio/_money.ogg");
 Crafty.audio.add("throwAxe", "audio/_throwAxe.ogg");
 Crafty.audio.add("wound", "audio/_wound.ogg");
 Crafty.audio.MAX_CHANNELS=1;
-
+*/
 var maxVolume = 80;
 var soundManager = [];
 var soundIds = 0;

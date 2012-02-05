@@ -199,7 +199,7 @@ Crafty.c("Gold", {
         	});
             this.destroy();
             updateGolds();
-           	Crafty.audio.play("money");
+           	//Crafty.audio.play("money");
         });
     }
 });

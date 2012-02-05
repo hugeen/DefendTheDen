@@ -120,7 +120,7 @@ Crafty.c("ThrowingAxe", {
 				this.destroy();
 			}
 		});
-		Crafty.audio.play("throwAxe");
+		//Crafty.audio.play("throwAxe");
 	}
 });
 
