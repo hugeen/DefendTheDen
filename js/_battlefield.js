@@ -183,21 +183,40 @@ Crafty.c("Wires", {
 
 Crafty.c("Gold", {
     init: function() {
-        this.addComponent("2D, Canvas, SpriteAnimation, Mouse, gold");
+        this.addComponent("2D, Canvas, Mouse, gold");
         this.attr({
             w: 16,
             h: 16,
             z: 1
         });
-        this.animate("tusk", 0, 0, 1);
         this.delay(function() {
             this.destroy();
         }, 2500);
         this.bind("MouseOver", function() {
+        	Crafty.e("GoldFade").attr({ 
+        		x: this.x,
+        		y: this.y
+        	});
             this.destroy();
             updateGolds();
-           	Crafty.audio.play("goldCoin");
+           	Crafty.audio.play("money");
         });
+    }
+});
+
+Crafty.c("GoldFade", {
+    init: function() {
+        this.addComponent("2D, Canvas, SpriteAnimation, Mouse, goldFade");
+        this.attr({
+            w: 16,
+            h: 16,
+            z: 1
+        });
+        this.animate("goldFade", 0, 0, 3);
+        this.animate("goldFade", 35, 0);
+        this.delay(function() {
+            this.destroy();
+        }, 750);
     }
 });
 

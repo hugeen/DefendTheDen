@@ -54,7 +54,7 @@ Crafty.c("Pig", {
 	init : function() {
 		this.addComponent("Enemy");
 		this._movingSpeed = 0.45;
-		this._coinDropRate = 35;
+		this._coinDropRate = 100;
 		this._hitPoints = 120;
 	}
 });
@@ -63,7 +63,7 @@ Crafty.c("Ridding", {
 	init : function() {
 		this.addComponent("Enemy");
 		this._movingSpeed = 0.65;
-		this._coinDropRate = 65;
+		this._coinDropRate = 100;
 		this._hitPoints = 80;
 		this._throwPie = false;
 		this.bind("SpriteAttached", function() {
@@ -156,7 +156,7 @@ Crafty.c("Enemy", {
 
 		this.bind("dead", function() {
 			this._state = "dead";
-			Crafty.audio.play("pigDie");
+			Crafty.audio.play("grandMaFire");
 
 			currentRound._monstersDied++;
 			storage.pigDied.set(storage.pigDied.get() + 1);
