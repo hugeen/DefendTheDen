@@ -13,11 +13,11 @@ storage.level = new LocalStore('level', {
     defaultVal: 1
 });
 storage.axeSkill = new LocalStore('axe_skill', {
-    defaultVal: 1
+    defaultVal: 0
 });
 
 var resetStorage = function() {
 	storage.goldCoins.set(0);
 	storage.level.set(1);
-	storage.axeSkill.set(1);
+	storage.axeSkill.set(0);
 };

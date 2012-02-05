@@ -187,14 +187,15 @@ Crafty.c("Gold", {
         this.attr({
             w: 16,
             h: 16,
-            z: 1
+            z: 35
         });
         this.timeout = setTimeout(function() {
             this.destroy();
         }, 2500);
         this.bind("Remove", function() {
+        	console.log("Remove");
         	clearTimeout(this.timeout);
-        })
+        });
         this.bind("MouseOver", function() {
         	Crafty.e("GoldFade").attr({ 
         		x: this.x,
@@ -213,7 +214,7 @@ Crafty.c("GoldFade", {
         this.attr({
             w: 16,
             h: 16,
-            z: 1
+            z: 35
         });
         this.animate("goldFade", 0, 0, 3);
         this.animate("goldFade", 35, 0);

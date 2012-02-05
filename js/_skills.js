@@ -1,6 +1,6 @@
 var throwingAxeSkill = function() {
 	return new SkillButton(1, "ThrowingAxe", {
-		cooldown : 1,
+		cooldown : DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].coolDown,
 		action : function() {
 			DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
 			setTimeout(function() {
@@ -104,11 +104,6 @@ Crafty.c("ThrowingAxe", {
 			h : 42,
 			z : 25
 		});
-		this._damagesBase = {
-			min : 45,
-			max : 65
-		};
-		this._damagesModifier = 1;
 		this.origin("center");
 		this.bind("EnterFrame", function() {
 			this.attr({
@@ -118,7 +113,9 @@ Crafty.c("ThrowingAxe", {
 		});
 
 		this.onHit("Enemy", function(o) {
-			o[0].obj.takeDamage(Crafty.math.randomInt(this._damagesBase.min * this._damagesModifier, this._damagesBase.max * this._damagesModifier));
+			var dmgMin = parseInt(DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].damageMin,10);
+			var dmgMax = parseInt(DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].damageMax,10);
+			o[0].obj.takeDamage(Crafty.math.randomInt(dmgMin, dmgMax));
 			this.destroy();
 		});
 		this.bind("EnterFrame", function() {
@@ -295,6 +292,7 @@ function SkillButton(position, skillName, options) {
 		energyCost: 0
 	});
 	var that = this;
+	console.log(options.cooldown);
 	this.c = Crafty.c(that.skillName + "Skill", {
 		init : function() {
 			

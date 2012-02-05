@@ -17,20 +17,20 @@ DTD.skillList["ThrowingAxe"] = {
 	key: 1,
 	stats: [{
 		damageMin: 45,
-		damangeMax: 65,
-		coolDown: 0.725,
+		damageMax: 75,
+		coolDown: 0.825,
 		energyCost: 0,
 		goldCost: 0
 	},{
-		damageMin: 65,
-		damangeMax: 85,
-		coolDown: 0.625,
+		damageMin: 55,
+		damageMax: 95,
+		coolDown: 0.725,
 		energyCost: 0,
 		goldCost: 10
 	},{
-		damageMin: 85,
-		damangeMax: 105,
-		coolDown: 0.525,
+		damageMin: 65,
+		damageMax: 125,
+		coolDown: 0.625,
 		energyCost: 0,
 		goldCost: 20
 	},]
