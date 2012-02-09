@@ -67,10 +67,10 @@ Crafty.c("PlayerEnergy", {
         var cost = 0;
         switch(type) {
             case "breath":
-                cost = 25;
+                cost = DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost;
                 break;
             case "rock":
-                cost = 35;
+                cost = DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost;
                 break;
             default:
                 cost = 0;

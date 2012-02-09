@@ -110,35 +110,27 @@ Crafty.c("Round", {
 var rounds = [];
 rounds[1] = function() {
 	var round = Crafty.e("Round");
+	var lastWave = 0;
 	round.create(1);
-	round.addWave("!!!!!p",1);
-	//round.addWave("!!!!p!",3);
-	round.addWave("!!!p!!",5);
-	//round.addWave("!!p!!!",7);
-	/*round.addWave("!!p!p!",12);
-	//round.addWave("p!ppp!",18);
-	round.addWave("p!ppp!",25);
-	//round.addWave("!pp!!!",27);
-	round.addWave("pppppp",32);
-	//round.addWave("!!p!!!",35);*/
+	round.addWave("!!!!!p",lastWave++);
+	round.addWave("!!!p!!",lastWave=lastWave+3);
+	round.addWave("!p!p!!",lastWave=lastWave+3);
+	round.addWave("p!!!p!",lastWave=lastWave+4);
+	round.addWave("!p!p!!",lastWave=lastWave+4);
+	round.addWave("!!p!!!",lastWave=lastWave+2);
+	round.addWave("!!!!!p",lastWave=lastWave+1);
 	round.play();
 	return round;
 };
 
 rounds[2] = function() {
 	var round = Crafty.e("Round");
+	var lastWave = 0;
 	round.create(2);
-	round.addWave("!p!!!p",1);
-	round.addWave("!p!!p!",3);
-	/*round.addWave("p!!p!!",5);
-	round.addWave("!!p!p!",7);*/
-	/*round.addWave("!!p!p!",12);
-	round.addWave("p!!pp!",18);
-	round.addWave("p!ppp!",25);
-	round.addWave("!pp!p!",27);
-	round.addWave("!!p!p!",33);
-	round.addWave("!!p!p!",38);
-	round.addWave("p!!pp!",45);*/
+	round.addWave("!!p!p!",lastWave++);
+	round.addWave("!p!p!!",lastWave=lastWave+4);
+	round.addWave("!p!p!p",lastWave=lastWave+4);
+	round.addWave("p!!!p!",lastWave=lastWave+6);
 	round.play();
 	return round;
 };

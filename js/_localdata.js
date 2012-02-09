@@ -6,6 +6,15 @@ storage.pigDied = new LocalStore('pig_died', {
 storage.axeThrowed = new LocalStore('axe_trhowed', {
     defaultVal: 0
 });
+storage.blows = new LocalStore('blows', {
+    defaultVal: 0
+});
+storage.rocks = new LocalStore('rocks', {
+    defaultVal: 0
+});
+storage.axeThrowed = new LocalStore('axe_trhowed', {
+    defaultVal: 0
+});
 storage.goldCoins = new LocalStore('gold_coins', {
     defaultVal: 0
 });

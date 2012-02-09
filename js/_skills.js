@@ -4,10 +4,14 @@ var throwingAxeSkill = function() {
 		action : function() {
 			DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
 			setTimeout(function() {
-				throwAxe();
+				if(DTD.inGame) {
+					throwAxe();
+				}
 			}, 20 * 20 * 0.9);
 			setTimeout(function() {
-				DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+				if(DTD.inGame) {
+					DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+				}
 			}, 20 * 20 * 1.5);
 		}
 	});
@@ -16,17 +20,21 @@ var breathSkill = function() {
 	return new SkillButton(2, "Breath", {
 		sprite : "windSkill",
 		keyBind : 2,
-		cooldown : 5,
+		cooldown : DTD.skillList["Blow"].stats[storage.axeSkill.get()].coolDown,
 		action : function() {
 			DTD.player._spriteComponent.stop().animate("blow", 18, 0);
 			setTimeout(function() {
-				breath();
+				if(DTD.inGame) {
+					breath();
+				}
 			}, 20 * 20 * 0.9);
 			setTimeout(function() {
-				DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+				if(DTD.inGame) {
+					DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
+				}
 			}, 20 * 20 * 1.5);
 		},
-		energyCost: 15
+		energyCost: DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost
 	});
 };
 
@@ -34,12 +42,44 @@ var rockSkill = function() {
 	return new SkillButton(3, "Rock", {
 		sprite : "rockSkill",
 		keyBind : 3,
-		cooldown : DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].coolDown,
+		cooldown : DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].coolDown,
 		action : function() {
-			rock();
+			if(DTD.inGame) {
+				rock();
+			}
 		},
-		energyCost: 25
+		energyCost: DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost
 	});
+}
+
+function throwAxe() {
+	storage.axeThrowed.set(storage.axeThrowed.get() + 1);
+	Crafty.e("ThrowingAxe").attr({
+		x : DTD.player.x,
+		y : DTD.player.y - 30
+	});
+}
+
+function breath() {
+	storage.blows.set(storage.blows.get() + 1);
+	if(DTD.player._actualEnergy >= DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost) {
+		DTD.player.consumeEnergy("breath");
+		Crafty.e("Breath").attr({
+			x : DTD.player.x,
+			y : DTD.player.y - 55
+		});
+	}
+
+}
+function rock() {
+	storage.rocks.set(storage.rocks.get() + 1);
+	if(DTD.player._actualEnergy >= 25) {
+		DTD.player.consumeEnergy("rock");
+		Crafty.e("Rock").attr({
+			x : DTD.player.x,
+			y : DTD.player.y - 60
+		});
+	}
 }
 
 Crafty.c("SkillButton", {
@@ -176,7 +216,7 @@ Crafty.c("Breath", {
 			z : 25
 		});
 		this.animate("breath", 0, 0, 3);
-		this.animate("breath", 40, -1);
+		this.animate("breath", 65, 0);
 		this._damagesModifier = 1;
 		this.origin("center");
 		this.bind("EnterFrame", function() {
@@ -209,12 +249,7 @@ Crafty.c("Rock", {
 			h : 140,
 			z : 25
 		});
-		this._damagesBase = {
-			min : 45,
-			max : 65
-		};
-		this.animate("rock", 0, 0, 10);
-		this._damagesModifier = 1;
+		this.animate("rock", 0, 0, 5);
 		this.origin("center");
 		this.bind("EnterFrame", function() {
 			if(!this._stopMove) {
@@ -237,7 +272,9 @@ Crafty.c("Rock", {
 				this.delay(function() {
 					var that = this;
 					_.each(o, function(item, key) {
-						item.obj.takeDamage(Crafty.math.randomInt(that._damagesBase.min * that._damagesModifier, that._damagesBase.max * that._damagesModifier));
+						var dmgMin = parseInt(DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].damageMin,10);
+						var dmgMax = parseInt(DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].damageMax,10);
+						item.obj.takeDamage(Crafty.math.randomInt(dmgMin, dmgMax));
 					});
 					this.destroy();
 				},350);
@@ -252,33 +289,7 @@ Crafty.c("Rock", {
 	}
 });
 
-function throwAxe() {
-	storage.axeThrowed.set(storage.axeThrowed.get() + 1);
-	Crafty.e("ThrowingAxe").attr({
-		x : DTD.player.x,
-		y : DTD.player.y - 30
-	});
-}
 
-function breath() {
-	if(DTD.player._actualEnergy >= 25) {
-		DTD.player.consumeEnergy("breath");
-		Crafty.e("Breath").attr({
-			x : DTD.player.x,
-			y : DTD.player.y - 55
-		});
-	}
-
-}
-function rock() {
-	if(DTD.player._actualEnergy >= 25) {
-		DTD.player.consumeEnergy("rock");
-		Crafty.e("Rock").attr({
-			x : DTD.player.x,
-			y : DTD.player.y - 60
-		});
-	}
-}
 function SkillButton(position, skillName, options) {
 	this.position = position || 1;
 	this.skillName = skillName || "";

@@ -183,18 +183,14 @@ Crafty.c("Wires", {
 
 Crafty.c("Gold", {
     init: function() {
-        this.addComponent("2D, Canvas, Mouse, gold");
+        this.addComponent("2D, Canvas, Mouse, RealDelay, gold");
         this.attr({
             w: 16,
             h: 16,
             z: 35
         });
-        this.timeout = setTimeout(function() {
-            this.destroy();
-        }, 2500);
         this.bind("Remove", function() {
-        	console.log("Remove");
-        	clearTimeout(this.timeout);
+
         });
         this.bind("MouseOver", function() {
         	Crafty.e("GoldFade").attr({ 
@@ -205,6 +201,9 @@ Crafty.c("Gold", {
             updateGolds();
            	//Crafty.audio.play("money");
         });
+        this.realDelay(function() {
+        	this.destroy();
+        },2500);
     }
 });
 
