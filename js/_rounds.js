@@ -39,6 +39,7 @@ var youLoose = function() {
 var currentRound;
 Crafty.c("Round", {
 	init: function() {
+		this.addComponent("RealDelay");
 		this._start = 0;
 		this.waves = [];
 		this._monsterCount = 0;
@@ -52,6 +53,7 @@ Crafty.c("Round", {
 				var newProgressBarW = (this._endAt - parseInt(new Date().getTime(), 10)) * (468 / this._duration);
 				
 				if(this._endAt+1000 > now) {
+	
 					//$("#progressBar").width(468 - newProgressBarW);
 					_.each(this.waves, function(item, key) {
 						if(item.at*1000 < now-start) {
@@ -104,6 +106,11 @@ Crafty.c("Round", {
 		this._duration = lastWave.at*1000;
 		this._startAt = parseInt(new Date().getTime(), 10);
 		this._endAt = this._startAt+this._duration;
+		for (var i = 1; i <= 20; i++) {
+			this.realDelay(function() {
+				$("#progressBar .empty").last().removeClass("empty").addClass("full");
+			}, (this._duration/20)*i);
+		}
 		$("#levelNumber span").html(this._roundId);
 	}
 });

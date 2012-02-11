@@ -89,13 +89,21 @@
   z-index: 15;
 }
 #progressBar {
-  top: 47px;
-  left: 234px;
-  width: 0;
-  height: 26px;
+  top: 50px;
+  left: 248px;
   position: fixed;
-  background: url("../img/progress-bar-over.png") top left no-repeat;
   z-index: 15;
+}
+#progressBar div {
+  width: 22px;
+  display: block;
+  float: left;
+  height: 18px;
+  z-index: 15;
+  background: url("../img/progress-empty.png") 0 0 no-repeat;
+}
+#progressBar .full {
+	background: url("../img/progress-full.png") 0 0 no-repeat;
 }
 #levelNumber {
   top: 22px;

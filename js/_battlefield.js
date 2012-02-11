@@ -18,11 +18,14 @@ var makeBattlefield = function() {
 var buildUI = function() {
     $("body").append('' + '<div id="pause" class="battleFieldUI"></div><a id="menu" href="#" class="battleFieldUI">' + '<span class="battleFieldUI">Menu</span>' + '</a>' + '<div id="portrait" class="battleFieldUI">' + '<div id="lifeBar" class="battleFieldUI">' + '</div>' + '<div id="energyBar" class="battleFieldUI">' + '</div>' + '<div id="goldCount" class="battleFieldUI">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin" class="battleFieldUI"></div>' + '</div>' + '<div id="levelNumber" class="battleFieldUI">LEVEL <span class="battleFieldUI">~</span></div>' + '<div id="progressBarBelow" class="battleFieldUI">' + '<div id="progressBar" class="battleFieldUI"></div>' + '</div>' + '</div>');
 
-    for(var i=0; i<=6; i++) {
-    	$("#lifeBar").append("<div class='full'></div>");
-    	$("#energyBar").append("<div class='full'></div>");
+    for(var i=0; i<7; i++) {
+    	$("#lifeBar").append("<div class='full' class='battleFieldUI'></div>");
+    	$("#energyBar").append("<div class='full' class='battleFieldUI'></div>");
     }
-
+	for(var i=0; i<20; i++) {
+    	$("#progressBar").append("<div class='empty' class='battleFieldUI'></div>");
+    }
+    		
     $("#pause").hide();
     $("#pause").html(''
     	+'<a id="menuPauseResume">Resume game</a>'
