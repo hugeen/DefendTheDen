@@ -303,7 +303,6 @@ function SkillButton(position, skillName, options) {
 		energyCost: 0
 	});
 	var that = this;
-	console.log(options.cooldown);
 	this.c = Crafty.c(that.skillName + "Skill", {
 		init : function() {
 			

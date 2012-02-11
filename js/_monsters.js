@@ -76,39 +76,33 @@ Crafty.c("Ridding", {
 				}
 			}
 		});
-		this.timeoutThrowPie = function() {};
-		this.timeoutThrowPieEnd = function() {};
-		this.bind("Remove", function() {
-			clearTimeout(this.timeoutThrowPie);
-			clearTimeout(this.timeoutThrowPieEnd);
-		});
 	},
 	throwPie : function() {
 		if(!this._throwPie) {
 			this._state = "stay";
 			this._throwPie = true;
 			this._spriteComponent.stop().animate("throwPie", 40, 0);
-			var self = this;
-			this.timeoutThrowPie = setTimeout(function(){
-				Crafty.e("RiddingPie").attr({
-					x : self.x-30,
-					y : self.y+20
-				});
-			},900);
-			
-			this.timeoutThrowPieEnd = setTimeout(function(){
-				self._spriteComponent.stop().animate("walk", 38, 1);
-				self._state = "free";
-				self._throwPie = false;
-			},1250);
 
+			this.realDelay(function() {
+				Crafty.e("RiddingPie").attr({
+					x : this.x - 30,
+					y : this.y + 20
+				});
+			}, 800);
+			
+			this.realDelay(function() {
+				this._spriteComponent.stop().animate("walk", 38, 1);
+				this._state = "free";
+				this._throwPie = false;
+			}, 1250);
+			
 		}
 	}
 });
 
 Crafty.c("Enemy", {
 	init : function() {
-		this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite, Gravity");
+		this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite, RealDelay");
 		this._state = "free";
 		this._bumped = false;
 		this._hitPoints = 100;
@@ -136,16 +130,6 @@ Crafty.c("Enemy", {
 					DTD.player.takeDamage("wallReached");
 				}
 			}
-		});
-
-		this.bind("MouseOver", function() {
-			if(DTD.selectedSkill == "ThrowingAxeSkill") {
-				$("body").css("cursor", "url(img/attack-cursor.png),auto");
-			}
-		});
-
-		this.bind("MouseOut", function() {
-			$("body").css("cursor", "auto");
 		});
 
 		this.bind("Click", function() {
@@ -211,7 +195,6 @@ Crafty.c("Enemy", {
 	},
 	takeDamage : function(damages) {
 		if(this._state != "dead") {
-			console.log(damages);
 			//Crafty.audio.play("wound");
 
 			if(this.bleed !== undefined) {
