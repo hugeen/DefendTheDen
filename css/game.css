@@ -23,54 +23,18 @@
   width: 130px;
   height: 17px;
   position: fixed;
-  background: url("../img/life-bar.png") top left no-repeat;
   z-index: 15;
 }
-#lifeBarProgress {
-  top: 14px;
-  left: 90px;
-  width: 130px;
-  height: 17px;
-  position: fixed;
-  background: url("../img/life-bar-filled.png") top left no-repeat;
-  z-index: 15;
-}
-#lifeBar span {
-  top: 16px;
-  left: 194px;
-  width: 21px;
-  height: 12px;
-  position: fixed;
-  background: url("../img/life-text.png") top left no-repeat;
-  z-index: 15;
-}
+
 #energyBar {
   top: 34px;
   left: 91px;
   width: 129px;
   height: 17px;
   position: fixed;
-  background: url("../img/energy-bar.png") top left no-repeat;
   z-index: 15;
 }
-#energyBarProgress {
-  top: 34px;
-  left: 91px;
-  width: 129px;
-  height: 17px;
-  position: fixed;
-  background: url("../img/energy-bar-filled.png") top left no-repeat;
-  z-index: 15;
-}
-#energyBar span {
-  top: 36px;
-  left: 179px;
-  width: 37px;
-  height: 11px;
-  position: fixed;
-  background: url("../img/energy-text.png") top left no-repeat;
-  z-index: 15;
-}
+
 #goldCoin {
   top: 53px;
   left: 201px;
@@ -365,3 +329,36 @@
 #menuPauseBackToMain:hover, #menuPauseResume:hover {
 	text-decoration: underline;
 }
+
+#lifeBar div {
+	display: block;
+	float: left;
+	width: 18px; 
+	height: 16px;
+	background: url("../img/hearth-empty.png") 0 0 no-repeat;
+}
+
+#lifeBar .regen {
+	background: url("../img/hearth-regen.png") 0 0 no-repeat !important;
+}
+
+#lifeBar .full {
+	background: url("../img/hearth-full.png") 0 0 no-repeat;
+}
+
+#energyBar div {
+	display: block;
+	float: left;
+	width: 18px; 
+	height: 16px;
+	background: url("../img/energy-empty.png") 0 0 no-repeat;
+}
+
+#energyBar .regen {
+	background: url("../img/energy-regen.png") 0 0 no-repeat !important;
+}
+
+#energyBar .full {
+	background: url("../img/energy-full.png") 0 0 no-repeat;
+}
+

@@ -52,7 +52,7 @@ Crafty.c("Round", {
 				var newProgressBarW = (this._endAt - parseInt(new Date().getTime(), 10)) * (468 / this._duration);
 				
 				if(this._endAt+1000 > now) {
-					$("#progressBar").width(468 - newProgressBarW);
+					//$("#progressBar").width(468 - newProgressBarW);
 					_.each(this.waves, function(item, key) {
 						if(item.at*1000 < now-start) {
 							if(!item.played) {
@@ -137,7 +137,7 @@ rounds[2] = function() {
 
 rounds[3] = function() {
 	var round = Crafty.e("Round");
-	round.create(1);
+	round.create(3);
 	round.addWave("!!!!!r",1);
 	round.addWave("!!!!r!",3);
 	round.addWave("!!!r!!",5);
@@ -152,7 +152,7 @@ rounds[3] = function() {
 
 rounds[4] = function() {
 	var round = Crafty.e("Round");
-	round.create(1);
+	round.create(4);
 	round.addWave("!!!!!r",1);
 	round.addWave("!!!!r!",3);
 	round.addWave("!!!r!!",5);
@@ -167,7 +167,7 @@ rounds[4] = function() {
 
 rounds[5] = function() {
 	var round = Crafty.e("Round");
-	round.create(1);
+	round.create(5);
 	round.addWave("!!!!!r",1);
 	round.addWave("!!!!r!",3);
 	round.addWave("!!!r!!",5);

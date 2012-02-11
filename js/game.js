@@ -19,19 +19,19 @@ DTD.skillList["ThrowingAxe"] = {
 		damageMin: 45,
 		damageMax: 75,
 		coolDown: 0.825,
-		energyCost: 0,
+		energyCost: 1,
 		goldCost: 0
 	},{
 		damageMin: 55,
 		damageMax: 95,
 		coolDown: 0.725,
-		energyCost: 0,
+		energyCost: 1,
 		goldCost: 10
 	},{
 		damageMin: 65,
 		damageMax: 125,
 		coolDown: 0.625,
-		energyCost: 0,
+		energyCost: 1,
 		goldCost: 20
 	},]
 };
@@ -42,19 +42,19 @@ DTD.skillList["ThrowingBrick"] = {
 		damageMin: 25,
 		damangeMax: 45,
 		coolDown: 12,
-		energyCost: 30,
+		energyCost: 1,
 		goldCost: 0
 	},{
 		damageMin: 35,
 		damangeMax: 55,
 		coolDown: 10,
-		energyCost: 25,
+		energyCost: 1,
 		goldCost: 15
 	},{
 		damageMin: 40,
 		damangeMax: 65,
 		coolDown: 8,
-		energyCost: 20,
+		energyCost: 1,
 		goldCost: 25
 	},]
 };
@@ -64,15 +64,15 @@ DTD.skillList["Blow"] = {
 	key: 2,
 	stats: [{
 		coolDown: 6,
-		energyCost: 25,
+		energyCost: 1,
 		goldCost: 0
 	},{
 		coolDown: 5,
-		energyCost: 20,
+		energyCost: 1,
 		goldCost: 15
 	},{
 		coolDown: 4,
-		energyCost: 15,
+		energyCost: 1,
 		goldCost: 25
 	},]
 };

@@ -14,29 +14,20 @@ var allowPlayerMoves = function() {
 
 Crafty.c("PlayerLife", {
     init: function() {
-        this._baseLife = 100;
-        this._modifier = 1;
-        this._fullLife = this._baseLife * this._modifier;
+        this._fullLife = 7;
         this._actualLife = this._fullLife;
-        this.bind("EnterFrame", function() {
-
-        });
     },
     takeDamage: function(type) {
         var damages = 0;
         switch(type) {
-            case "wallReached":
-                damages = 25;
-                break;
-            case "riddingPie":
-            	damages = 12;
-            	break;
             default:
-                damages = 0;
+                damages = 1;
                 break;
         }
         this._actualLife = this._actualLife - damages;
-        $("#lifeBarProgress").width(130 - ((this._fullLife - this._actualLife) * (130 / this._fullLife)));
+        for(var i=0; i < damages; i++) {
+        	$("#lifeBar .full").last().removeClass("full");
+        }
         if(this._actualLife <= 0) {
         	youLoose();
 			this.delay(function() {
@@ -51,17 +42,22 @@ Crafty.c("PlayerLife", {
 
 Crafty.c("PlayerEnergy", {
     init: function() {
-        this._baseEnergy = 100;
-        this._modifier = 1;
-        this._fullEnergy = this._baseEnergy * this._modifier;
+        this._fullEnergy = 7;
         this._actualEnergy = this._fullEnergy;
-        this.bind("EnterFrame", function() {
-			if(this._actualEnergy+1 < this._fullEnergy) {
-				this._actualEnergy = this._actualEnergy+0.1;
-				$("#energyBarProgress").width(129 - ((this._fullEnergy - this._actualEnergy) * (129 / this._fullEnergy)));
+        this.generateEnergy();
+		
+    },
+    generateEnergy: function() {
+    	this.realDelay(function() {
+    		if(this._actualEnergy < 7) {
+    			this._actualEnergy++;
+				$("#energyBar .empty").first().removeClass("empty").addClass("full regen");
+				this.realDelay(function() {
+					$("#energyBar .regen").removeClass("regen");
+				}, 500);
 			}
-        });
-        
+			this.generateEnergy();
+		}, 5000);
     },
     consumeEnergy: function(type) {
         var cost = 0;
@@ -73,12 +69,14 @@ Crafty.c("PlayerEnergy", {
                 cost = DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost;
                 break;
             default:
-                cost = 0;
+                cost = 1;
                 break;
         }
+        for(var i=0; i < cost; i++) {
+        	$("#energyBar .full").last().removeClass("full").addClass("empty");
+        }
         this._actualEnergy = this._actualEnergy - cost;
-        $("#energyBarProgress").width(129 - ((this._fullEnergy - this._actualEnergy) * (129 / this._fullEnergy)));
-    }
+	}
 });
 
 Crafty.c("WolfSprite", {
@@ -104,7 +102,7 @@ Crafty.c("WolfSprite", {
 
 Crafty.c("Wolf", {
     init: function() {
-        this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, PlayerLife, PlayerEnergy");
+        this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, RealDelay, PlayerLife, PlayerEnergy");
 
         this.attr({
             x: 20,
