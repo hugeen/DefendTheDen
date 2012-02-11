@@ -2,7 +2,7 @@ var allowPlayerMoves = function() {
     $(document).mousemove(function(e) {
         if(DTD.player != undefined) {
             if(!DTD.player._paused) {
-                if(e.pageY >= 90 && e.pageY <= 480) {
+                if(e.pageY >= 65 && e.pageY <= 450) {
                     DTD.player.attr({
                         y: e.pageY
                     });
@@ -92,8 +92,8 @@ Crafty.c("WolfSprite", {
             z: 17
         });
         this._mainComponentAttr = {
-            x: 40,
-            y: 60
+            x: 50,
+            y: 20
         };
         this.animate("walkWolf", 0, 0, 1);
         this.animate("throwAxe", 1, 0, 3);
@@ -107,21 +107,22 @@ Crafty.c("Wolf", {
         this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, PlayerLife, PlayerEnergy");
 
         this.attr({
-            x: 9,
+            x: 20,
             y: 90,
-            w: 40,
-            h: 40,
+            w: 50,
+            h: 90,
             z: 14
         });
 
         this.bind("EnterFrame", function() {
             if(this._wagon !== undefined) {
                 this._wagon.attr({
-                    x: this.x - 13,
-                    y: this.y
+                    x: this.x - 23,
+                    y: this.y + 35
                 });
             }
         });
+
         this.attachSprite(Crafty.e("WolfSprite"));
         this.attachWagon(Crafty.e("Wagon"));
         this.bind('KeyUp', function(e) {

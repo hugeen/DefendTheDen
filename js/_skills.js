@@ -56,7 +56,7 @@ function throwAxe() {
 	storage.axeThrowed.set(storage.axeThrowed.get() + 1);
 	Crafty.e("ThrowingAxe").attr({
 		x : DTD.player.x,
-		y : DTD.player.y - 30
+		y : DTD.player.y - 10
 	});
 }
 
@@ -66,18 +66,18 @@ function breath() {
 		DTD.player.consumeEnergy("breath");
 		Crafty.e("Breath").attr({
 			x : DTD.player.x,
-			y : DTD.player.y - 55
+			y : DTD.player.y - 35
 		});
 	}
-
 }
+
 function rock() {
 	storage.rocks.set(storage.rocks.get() + 1);
 	if(DTD.player._actualEnergy >= 25) {
 		DTD.player.consumeEnergy("rock");
 		Crafty.e("Rock").attr({
 			x : DTD.player.x,
-			y : DTD.player.y - 60
+			y : DTD.player.y - 40
 		});
 	}
 }
