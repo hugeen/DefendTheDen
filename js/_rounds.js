@@ -112,7 +112,7 @@ rounds[1] = function() {
 	var round = Crafty.e("Round");
 	var lastWave = 0;
 	round.create(1);
-	round.addWave("!!!!!p",lastWave++);
+	round.addWave("g!!!!!",lastWave++);
 	round.addWave("!!!p!!",lastWave=lastWave+3);
 	round.addWave("!p!p!!",lastWave=lastWave+3);
 	round.addWave("p!!!p!",lastWave=lastWave+4);

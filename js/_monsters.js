@@ -6,7 +6,6 @@ Crafty.c("PigSprite", {
 			y : -90,
 			w : 115,
 			h : 115,
-			z : 1
 		});
 		this._mainComponentAttr = {
 			x : 30,
@@ -32,7 +31,6 @@ Crafty.c("RiddingSprite", {
 			y : -90,
 			w : 115,
 			h : 115,
-			z : 1
 		});
 		this._mainComponentAttr = {
 			x : 30,
@@ -40,13 +38,32 @@ Crafty.c("RiddingSprite", {
 		};
 		this.animate("walk", 0, 0, 3);
 		this.animate("walk", 38, 1);
+	}
+});
 
-		this.bind("EnterFrame", function() {
-			if(this._frame.frame == 4) {
-				this._frame.current = 0;
-				this._frame.frame = 0;
-			}
+Crafty.c("GrannySprite", {
+	init : function() {
+		this.addComponent("2D, Canvas, SpriteAnimation, granny");
+		this.attr({
+			x : -150,
+			y : -90,
+			w : 200,
+			h : 200,
 		});
+		this._mainComponentAttr = {
+			x : 0,
+			y : 100
+		};
+		this.animate("walk", 0, 0, 3);
+		this.animate("startFire", 4, 0, 6);
+		this.animate("fire", 6, 0, 7);
+		this.animate("walk", 8, -1);
+	}
+});
+
+Crafty.c("Granny", {
+	init : function() {
+		this.addComponent("Enemy");
 	}
 });
 
