@@ -46,6 +46,8 @@ Crafty.c("NewGameMenuItem", {
             this.css("background-position", "-240px 0");
         });
         this.bind("Click", function() {
+        	//Crafty.audio.play("howl");
+        	audioManager.playSound('howl');
             this.css("background-position", "-480px 0");
             storage.level.set(1);
             loadScene(storage.level.get());

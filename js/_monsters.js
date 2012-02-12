@@ -212,8 +212,7 @@ Crafty.c("Enemy", {
 	},
 	takeDamage : function(damages) {
 		if(this._state != "dead") {
-			Crafty.audio.play("wound");
-
+			audioManager.playSound('wound');
 			if(this.bleed !== undefined) {
 				this.bleed.destroy();
 			}

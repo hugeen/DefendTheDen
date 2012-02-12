@@ -163,7 +163,7 @@ Crafty.c("ThrowingAxe", {
 				this.destroy();
 			}
 		});
-		Crafty.audio.play("throwAxe");
+		audioManager.playSound('throwAxe');
 	}
 });
 

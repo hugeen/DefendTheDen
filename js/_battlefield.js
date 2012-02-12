@@ -208,7 +208,7 @@ Crafty.c("Gold", {
         	});
             this.destroy();
             updateGolds();
-           	Crafty.audio.play("money");
+           	audioManager.playSound('money');
         });
         this.realDelay(function() {
         	this.destroy();
