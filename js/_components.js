@@ -10,6 +10,9 @@ Crafty.c("MenuItem", {
         this.css("background", "url(img/menu-sprites.png)");
         this.css("z-index", "0");
         this.css("cursor", "pointer");
+        this.bind("Click", function() {
+        	audioManager.playSound('click');
+        });
     }
 });
 
@@ -46,7 +49,6 @@ Crafty.c("NewGameMenuItem", {
             this.css("background-position", "-240px 0");
         });
         this.bind("Click", function() {
-        	//Crafty.audio.play("howl");
         	audioManager.playSound('howl');
             this.css("background-position", "-480px 0");
             storage.level.set(1);

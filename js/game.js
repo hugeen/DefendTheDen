@@ -91,9 +91,11 @@ var sceneMaker = function() {
 
 window.onload = (function() {
 	$("#menuPauseResume").live("click", function() {
+		audioManager.playSound('click');
 		Crafty.pause();
 	});
 	$("#menuPauseBackToMain").live("click", function() {
+		audioManager.playSound('click');
 		Crafty.pause();
 		$(".youWin").remove();
 		removeUI();
@@ -160,12 +162,14 @@ window.onload = (function() {
 
     Crafty.scene("titleScreen");
     
-        $("#skillShopPlay").live("click", function() {
+    $("#skillShopPlay").live("click", function() {
+    	audioManager.playSound('click');
     	removeSkillShopUI();
     	sceneMaker();
     });
     
     $("#skillShopBack").live("click", function() {
+    	audioManager.playSound('click');
     	removeSkillShopUI();
     	Crafty.scene("titleScreen");
     });
