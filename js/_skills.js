@@ -16,7 +16,7 @@ var throwingAxeSkill = function() {
 		}
 	});
 };
-var breathSkill = function() {
+var blowSkill = function() {
 	return new SkillButton(2, "Breath", {
 		sprite : "windSkill",
 		keyBind : 2,
@@ -25,7 +25,7 @@ var breathSkill = function() {
 			DTD.player._spriteComponent.stop().animate("blow", 18, 0);
 			setTimeout(function() {
 				if(DTD.inGame) {
-					breath();
+					blow();
 				}
 			}, 20 * 20 * 0.9);
 			setTimeout(function() {
@@ -60,11 +60,11 @@ function throwAxe() {
 	});
 }
 
-function breath() {
+function blow() {
 	storage.blows.set(storage.blows.get() + 1);
 	if(DTD.player._actualEnergy >= DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost) {
-		DTD.player.consumeEnergy("breath");
-		Crafty.e("Breath").attr({
+		DTD.player.consumeEnergy("blow");
+		Crafty.e("Blow").attr({
 			x : DTD.player.x,
 			y : DTD.player.y - 35
 		});
@@ -73,7 +73,7 @@ function breath() {
 
 function rock() {
 	storage.rocks.set(storage.rocks.get() + 1);
-	if(DTD.player._actualEnergy >= 25) {
+	if(DTD.player._actualEnergy >= DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost) {
 		DTD.player.consumeEnergy("rock");
 		Crafty.e("Rock").attr({
 			x : DTD.player.x,
@@ -203,10 +203,10 @@ Crafty.c("RiddingPie", {
 	}
 });
 
-Crafty.c("Breath", {
+Crafty.c("Blow", {
 	init : function() {
 		this._used = false;
-		this.addComponent("2D, Canvas, Collision, SpriteAnimation, breath");
+		this.addComponent("2D, Canvas, Collision, SpriteAnimation, blow");
 		this.attr({
 			x : 32,
 			y : 32,
@@ -214,8 +214,8 @@ Crafty.c("Breath", {
 			h : 70,
 			z : 25
 		});
-		this.animate("breath", 0, 0, 3);
-		this.animate("breath", 65, 0);
+		this.animate("blow", 0, 0, 3);
+		this.animate("blow", 65, 0);
 		this._damagesModifier = 1;
 		this.origin("center");
 		this.bind("EnterFrame", function() {
@@ -224,7 +224,6 @@ Crafty.c("Breath", {
 		this.onHit("Enemy", function(o) {
 			o[0].obj.bump();
 		});
-
 		this.bind("EnterFrame", function() {
 			if(!isInViewPort(this)) {
 				this.destroy();
@@ -240,7 +239,7 @@ Crafty.c("Rock", {
 		this._enemyHit = false;
 		this._stopMove = false;
 		this._enemyWounded = false;
-		this.addComponent("2D, Canvas, Collision, SpriteAnimation, rock");
+		this.addComponent("2D, Canvas, Collision, SpriteAnimation, RealDelay, rock");
 		this.attr({
 			x : 32,
 			y : 32,
@@ -261,14 +260,14 @@ Crafty.c("Rock", {
 		this.onHit("Enemy", function(o) {
 			if(!this._enemyHit) {
 				this._enemyHit = true;
-				this.delay(function() {
+				this.realDelay(function() {
 					this._stopMove = true;
 					this.animate("rock", 20, 0);
 				}, 250);
 			}
 			if(this._stopMove && !this._enemyWounded) {
 				this._enemyWounded = true;
-				this.delay(function() {
+				this.realDelay(function() {
 					var that = this;
 					_.each(o, function(item, key) {
 						var dmgMin = parseInt(DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].damageMin,10);

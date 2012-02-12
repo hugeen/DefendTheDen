@@ -33,9 +33,10 @@ Crafty.c("RiddingSprite", {
 			h : 115,
 		});
 		this._mainComponentAttr = {
-			x : 30,
+			x : 40,
 			y : 20
 		};
+		this.animate("throwPie", 4, 0, 7);
 		this.animate("walk", 0, 0, 3);
 		this.animate("walk", 38, 1);
 	}
@@ -83,16 +84,9 @@ Crafty.c("Ridding", {
 		this._coinDropRate = 75;
 		this._hitPoints = 60;
 		this._throwPie = false;
-		this.bind("SpriteAttached", function() {
-			this._spriteComponent.animate("throwPie", 4, 0, 8);
-		});
-		this.bind("EnterFrame", function() {
-			if(rolling(35)) {
-				if(rolling(1)) {
-					this.throwPie();
-				}
-			}
-		});
+		this.realDelay(function() {
+			this.throwPie();
+		}, Crafty.math.randomInt(1500, 4500));
 	},
 	throwPie : function() {
 		if(!this._throwPie) {
@@ -113,6 +107,9 @@ Crafty.c("Ridding", {
 				this._throwPie = false;
 			}, 1250);
 			
+			this.realDelay(function() {
+				this.throwPie();
+			}, Crafty.math.randomInt(3000, 9500));
 		}
 	}
 });
@@ -139,7 +136,7 @@ Crafty.c("Enemy", {
 				if(this._state == "free") {
 					this.move("w", this._movingSpeed);
 				} else if(this._state == "bumped") {
-					this.move("e", 4.5);
+					this.move("e", 3.0);
 				}
 			} else {
 				if(this._state != "dead") {

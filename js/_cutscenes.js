@@ -1,8 +1,8 @@
 var loadCutScene = function() {
 	switch(storage.level.get()) {
-		/*case 1: 
+		case 1: 
 			cutscenes[1]();
-			break;*/
+			break;
 		case 2: 
 			cutscenes[2]();
 			break;

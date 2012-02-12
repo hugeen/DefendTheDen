@@ -40,19 +40,19 @@ DTD.skillList["ThrowingBrick"] = {
 	key: 3,
 	stats: [{
 		damageMin: 25,
-		damangeMax: 45,
+		damageMin: 45,
 		coolDown: 12,
 		energyCost: 1,
 		goldCost: 0
 	},{
 		damageMin: 35,
-		damangeMax: 55,
+		damageMin: 55,
 		coolDown: 10,
 		energyCost: 1,
 		goldCost: 15
 	},{
 		damageMin: 40,
-		damangeMax: 65,
+		damageMin: 65,
 		coolDown: 8,
 		energyCost: 1,
 		goldCost: 25
