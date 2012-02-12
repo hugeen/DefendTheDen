@@ -163,7 +163,7 @@ Crafty.c("ThrowingAxe", {
 				this.destroy();
 			}
 		});
-		//Crafty.audio.play("throwAxe");
+		Crafty.audio.play("throwAxe");
 	}
 });
 
@@ -200,7 +200,6 @@ Crafty.c("RiddingPie", {
 				this.destroy();
 			}
 		});
-		//Crafty.audio.play("throwing");
 	}
 });
 
