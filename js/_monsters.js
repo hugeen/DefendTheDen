@@ -150,15 +150,11 @@ Crafty.c("Enemy", {
 		});
 
 		this.bind("Click", function() {
-			if(DTD.selectedSkill == "ThrowingAxeSkill") {
-				DTD.skills.throwingAxeSkill.e.checkAction();
-			}
+			DTD.skills.throwingAxeSkill.e.checkAction();
 		});
 
 		this.bind("dead", function() {
 			this._state = "dead";
-			//Crafty.audio.play("grandMaFire");
-
 			currentRound._monstersDied++;
 			storage.pigDied.set(storage.pigDied.get() + 1);
 			if(rolling(this._coinDropRate)) {

@@ -45,18 +45,24 @@ Crafty.c("Round", {
 		this._monsterCount = 0;
 		this._monstersDied = 0;
 		this._played = false;
+		this._roundPauseBuffer = 0;
+		this._roundPause = 0;
+		this.bind("Pause", function() {
+			this._roundPauseBuffer = new Date().getTime();
+		});
+		this.bind("Unpause", function() {
+			this._roundPause += (new Date().getTime())-this._roundPauseBuffer;
+		});
 		this.bind("EnterFrame", function() {
 			
 			if(this._played) {		
 				var now = parseInt(new Date().getTime(), 10);
 				var start = this._startAt;
-				var newProgressBarW = (this._endAt - parseInt(new Date().getTime(), 10)) * (468 / this._duration);
-				
-				if(this._endAt+1000 > now) {
-	
-					//$("#progressBar").width(468 - newProgressBarW);
+
+				if(this._endAt+1000+this._roundPause  > now) {
+					var self = this;
 					_.each(this.waves, function(item, key) {
-						if(item.at*1000 < now-start) {
+						if((item.at*1000)+self._roundPause < now-start) {
 							if(!item.played) {
 								item.played = true;
 								var wave = waveParser(item.wave);
