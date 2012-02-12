@@ -21,7 +21,7 @@ var loadLevel = function(level) {
 		DTD.skills["blowSkill"] = blowSkill();
 	}
 	if(level > 3) {
-		DTD.skills["rockSkill"] = rockSkill();
+		//DTD.skills["rockSkill"] = rockSkill();
 	}
 	
 	rounds[level]();
@@ -155,11 +155,16 @@ rounds[3] = function() {
 	var lastWave = 0;
 	round.create(3);
 	round.addWave("!!!!!r",lastWave++);
-	round.addWave("!!!!r!",lastWave+=2);
-	round.addWave("!!!r!!",lastWave+=2);
-	round.addWave("!!r!!!",lastWave+=2);
-	round.addWave("!r!!!!",lastWave+=2);
-	round.addWave("r!!!!!",lastWave+=2);
+	round.addWave("!!!!r!",lastWave+=1.5);
+	round.addWave("!!!r!!",lastWave+=1.5);
+	round.addWave("!!r!!!",lastWave+=1.5);
+	round.addWave("!r!!!!",lastWave+=1.5);
+	round.addWave("r!!!!!",lastWave+=1.5);
+	round.addWave("p!!!!r",lastWave+=1.5);
+	round.addWave("p!!!!r",lastWave+=3);
+	round.addWave("!p!!r!",lastWave+=3);
+	round.addWave("!!pr!!",lastWave+=3);
+	round.addWave("prprpr",lastWave+=3);
 	round.play();
 	return round;
 };
@@ -174,21 +179,27 @@ rounds[4] = function() {
 	round.addWave("!!r!!!",lastWave+=1.5);
 	round.addWave("!r!!!!",lastWave+=1.5);
 	round.addWave("r!!!!!",lastWave+=1.5);
+	round.addWave("p!!!!r",lastWave+=1.5);
+	round.addWave("p!!!!r",lastWave+=3);
+	round.addWave("!p!!r!",lastWave+=3);
+	round.addWave("!!pr!!",lastWave+=3);
+	round.addWave("prprpr",lastWave+=3);
 	round.play();
 	return round;
 };
 
 rounds[5] = function() {
 	var round = Crafty.e("Round");
+	var lastWave = 0;
 	round.create(5);
-	round.addWave("!!!!!r",1);
-	round.addWave("!!!!r!",3);
-	round.addWave("!!!r!!",5);
-	/*round.addWave("!!r!!!",7);
-	round.addWave("!!r!p!",12);
-	round.addWave("r!prp!",18);
-	round.addWave("p!rpr!",25);
-	round.addWave("!pp!r!",27);*/
+	round.addWave("!!!g!!",1);
+	round.addWave("!p!!p!",lastWave+=7);
+	round.addWave("!!r!!!",lastWave+=3);
+	round.addWave("!!!!r!",lastWave+=1.5);
+	round.addWave("!p!!!!",lastWave+=1.5);
+	round.addWave("!!!r!p",lastWave+=1.5);
+	round.addWave("p!!!p!",lastWave+=3);
+	round.addWave("pppppp",lastWave+=3);
 	round.play();
 	return round;
 };

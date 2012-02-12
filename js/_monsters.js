@@ -52,19 +52,80 @@ Crafty.c("GrannySprite", {
 			h : 200,
 		});
 		this._mainComponentAttr = {
-			x : 0,
-			y : 100
+			x : 55,
+			y : 50
 		};
 		this.animate("walk", 0, 0, 3);
 		this.animate("startFire", 4, 0, 6);
 		this.animate("fire", 6, 0, 7);
-		this.animate("walk", 8, -1);
+		this.animate("walk", 15, -1);
 	}
 });
 
 Crafty.c("Granny", {
 	init : function() {
 		this.addComponent("Enemy");
+		this._movingSpeed = 0.30;
+		this._coinDropRate = 100;
+		this._hitPoints = 500;
+		this.realDelay(function() {
+			this.shotgun();
+		}, 2000);
+		this._lineMargin = -30;
+		this.attr({
+			w: 55,
+			h: 100
+		});
+	},
+	shotgun : function() {
+		if(!this._shot) {
+			this._state = "stay";
+			this._shot = true;
+			this._spriteComponent.stop().animate("startFire", 20, 0);
+			
+			this.realDelay(function() {
+				this._spriteComponent.stop().animate("fire", 7, -1);
+			}, 750);
+			
+			this.realDelay(function() {
+				Crafty.e("GrannyBolt").attr({
+					x : this.x - 30,
+					y : this.y + 10
+				});
+			}, 800);
+			
+			this.realDelay(function() {
+				Crafty.e("GrannyBolt").attr({
+					x : this.x - 10,
+					y : this.y + 23
+				});
+			}, 1200);
+			
+			this.realDelay(function() {
+				Crafty.e("GrannyBolt").attr({
+					x : this.x - 10,
+					y : this.y + 50
+				});
+			}, 1600);
+			
+			this.realDelay(function() {
+				Crafty.e("GrannyBolt").attr({
+					x : this.x - 30,
+					y : this.y + 37
+				});
+			}, 2000);
+			
+			this.realDelay(function() {
+				this._spriteComponent.stop().animate("walk", 38, -1);
+				this._state = "free";
+				this._shot = false;
+			}, 2200);
+			
+			this.realDelay(function() {
+				this.shotgun();
+			}, Crafty.math.randomInt(2000, 5000));
+			
+		}
 	}
 });
 
@@ -102,7 +163,7 @@ Crafty.c("Ridding", {
 			}, 800);
 			
 			this.realDelay(function() {
-				this._spriteComponent.stop().animate("walk", 38, 1);
+				this._spriteComponent.stop().animate("walk", 38, -1);
 				this._state = "free";
 				this._throwPie = false;
 			}, 1250);
@@ -122,6 +183,7 @@ Crafty.c("Enemy", {
 		this._hitPoints = 100;
 		this._movingSpeed = 0.45;
 		this._coinDropRate = 50;
+		this._lineMargin = 0;
 
 		this.attr({
 			x : 650,
@@ -200,7 +262,7 @@ Crafty.c("Enemy", {
 		}
 		this._zIndex = zIndex;
 		this.attr({
-			y : (90 + (line * 70) - 70) - 25
+			y : (90 + (line * 70) - 70) - 25 + this._lineMargin
 		});
 	},
 	takeDamage : function(damages) {

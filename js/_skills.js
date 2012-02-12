@@ -167,6 +167,36 @@ Crafty.c("ThrowingAxe", {
 	}
 });
 
+Crafty.c("GrannyBolt", {
+	init : function() {
+		this._used = false;
+		this.addComponent("2D, Canvas, Collision, SpriteAnimation, fireball");
+		this.attr({
+			x : -30,
+			y : -30,
+			w : 30,
+			h : 30,
+			z : 25
+		});
+		this.animate("fireball", 0, 0, 3)
+		this.animate("fireball", 15, -1)
+		this.origin("center");
+		this.bind("EnterFrame", function() {
+			this.move("w", 7);
+		});
+
+		this.onHit("Wolf", function(o) {
+			DTD.player.takeDamage("fireBolt");
+			this.destroy();
+		});
+		this.bind("EnterFrame", function() {
+			if(!isInViewPort(this)) {
+				this.destroy();
+			}
+		});
+	}
+});
+
 Crafty.c("RiddingPie", {
 	init : function() {
 		this._used = false;

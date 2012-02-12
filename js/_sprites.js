@@ -4,6 +4,7 @@ Crafty.sprite(200, 	"img/sprite-granny.png", 		{ granny: 			[0, 0, 1, 1] });
 Crafty.sprite(135, 	"img/wolf-sprite-2.png", 		{ wolf: 			[0, 0, 1, 1] });
 Crafty.sprite(42, 	"img/axe-sprite.png", 			{ axe: 				[0, 0, 1, 1] });
 Crafty.sprite(16, 	"img/pie-sprite.png", 			{ pie: 				[0, 0, 1, 1] });
+Crafty.sprite(30, 	"img/fireball-sprite.png", 		{ fireball: 		[0, 0, 1, 1] });
 Crafty.sprite(70, 	"img/wind-sprite.png",			{ blow: 			[0, 0, 1, 1] });
 Crafty.sprite(140, 	"img/rock-sprite.png", 			{ rock: 			[0, 0, 1, 1] });
 Crafty.sprite(42, 	"img/wires-sprite.png", 		{ wires: 			[0, 0, 1, 10] });
