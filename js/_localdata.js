@@ -32,7 +32,7 @@ storage.rockSkill = new LocalStore('rock_skill', {
 });
 var resetStorage = function() {
 	storage.goldCoins.set(0);
-	storage.level.set(5);
+	storage.level.set(1);
 	storage.axeSkill.set(0);
 	storage.blowSkill.set(0);
 	storage.rockSkill.set(0);
