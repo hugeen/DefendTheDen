@@ -36,9 +36,11 @@ Crafty.c("PlayerLife", {
 				if(DTD.gameType == "story") {
 				    loadScene("loose");
 				} else {
-				    // endless Loose;
+				    if(currentRound._score > storage.endlessScore.get()) {
+				        storage.endlessScore.set(currentRound._score);
+				    }
+				    Crafty.scene("titleScreen");
 				}
-				
 			},2000);
         }
     }

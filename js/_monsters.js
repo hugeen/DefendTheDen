@@ -76,6 +76,11 @@ Crafty.c("Granny", {
 			w: 55,
 			h: 100
 		});
+		this.bind("dead", function() {
+           if(DTD.gameType == "endless") {
+               currentRound.score(23);
+           }
+        });
 	},
 	shotgun : function() {
 		if(!this._shot) {
@@ -135,6 +140,11 @@ Crafty.c("Pig", {
 		this._movingSpeed = 0.45;
 		this._coinDropRate = 50;
 		this._hitPoints = 120;
+		this.bind("dead", function() {
+           if(DTD.gameType == "endless") {
+               currentRound.score(7);
+           } 
+        });
 	}
 });
 
@@ -148,6 +158,11 @@ Crafty.c("Ridding", {
 		this.realDelay(function() {
 			this.throwPie();
 		}, Crafty.math.randomInt(1500, 4500));
+		this.bind("dead", function() {
+		   if(DTD.gameType == "endless") {
+		       currentRound.score(9);
+		   } 
+		});
 	},
 	throwPie : function() {
 		if(!this._throwPie) {

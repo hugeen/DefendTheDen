@@ -79,6 +79,15 @@
   font: bold 11px sans-serif;
   text-transform: uppercase;
 }
+#endlessInGameScore {
+  top: 47px;
+  left: 234px;
+  width: 468px;
+  height: 26px;
+  position: fixed;
+  text-align: center;
+  z-index: 15;
+}
 #progressBarBelow {
   top: 47px;
   left: 234px;

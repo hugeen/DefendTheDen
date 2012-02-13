@@ -18,6 +18,8 @@ var loadLevel = function(level) {
     DTD.skills["throwingAxeSkill"] = throwingAxeSkill();
     DTD.selectedSkill == "ThrowingAxeSkill";
     if(!level) {
+        $("#progressBar .empty, #progressBar, #progressBarBelow").remove();
+        $("body").append("<div id='endlessInGameScore' class='battleFieldUI'>0</div>")
         DTD.skills["blowSkill"] = blowSkill();
         DTD.skills["rockSkill"] = rockSkill();
         Crafty.e("Endless");
@@ -124,6 +126,7 @@ Crafty.c("Round", {
 
 Crafty.c("Endless", {
     init : function() {
+        this._score = 0;
         this.addComponent("RealDelay");
         this.pigChance = 101;
         this.riddingChance = 101;
@@ -133,6 +136,10 @@ Crafty.c("Endless", {
         $("#levelNumber").html("Endless !");
         this.upgradeDifficulty();
         this.generateMonster();
+    },
+    score: function(score) {
+        this._score += score;
+        $("#endlessInGameScore").html(this._score);
     },
     upgradeDifficulty: function() {
         if(this.pigChance >= 50) {
