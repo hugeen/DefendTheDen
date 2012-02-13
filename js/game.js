@@ -111,7 +111,7 @@ var sceneMaker = function(endless) {
             buildUI();
             makeBattlefield();
             if(endless) {
-                loadEndless();
+                loadLevel(false);
             } else {
                 loadCutScene();
             }
