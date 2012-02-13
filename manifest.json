@@ -6,6 +6,5 @@
    "icon-29x29": "img/icon-29x29.png",
    "icon-42x42": "img/icon-42x42.png",
    "description": "A HTML5 Tower defense",
-   "popup": "popup.html",
-   "background_page": "background.html"
+   "popup": "popup.html"
 }
