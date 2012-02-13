@@ -78,8 +78,9 @@ DTD.skillList["Blow"] = {
 	},]
 };
 
-var sceneMaker = function() {
-	var sceneName = "storyLevel"+(new Date().getTime());
+var sceneMaker = function(endless) {
+    var endless = endless || false;
+	var sceneName = (endless) ? "endless" : "storyLevel"+(new Date().getTime());
 	Crafty.scene(sceneName, function() {
         Crafty.load(["img/piggy-sprite.png",
 		"img/ridding-sprite.png",
@@ -109,7 +110,12 @@ var sceneMaker = function() {
 		"img/grass-piece-dark.png"], function() {
             buildUI();
             makeBattlefield();
-			loadCutScene();
+            if(endless) {
+                loadEndless();
+            } else {
+                loadCutScene();
+            }
+			
         });
     });
     Crafty.scene(sceneName);
@@ -165,12 +171,19 @@ window.onload = (function() {
             }).css("background", "url(img/floor.png)").css("z-index", "0");
             
 			Crafty.e("GameTitle");
-			
             Crafty.e("NewGameMenuItem");
             
             if(storage.level.get() > 1) {
-            	Crafty.e("ContinueMenuItem");
+                Crafty.e("ContinueMenuItem");
             }
+            
+            if(storage.endless.get()) {
+                Crafty.e("EndlessMenuItem");
+                if(storage.endlessScore.get()) {
+                    Crafty.e("EndlessScore");
+                }
+            }
+
         });
     };
 
@@ -181,6 +194,15 @@ window.onload = (function() {
     }, function() {
     	DTD.inGame = false;
     });
+    
+    Crafty.scene("endless", function() {
+        renderGameTitle();
+    }, function() {
+        DTD.inGame = true;
+    }, function() {
+        DTD.inGame = false;
+    });
+    
     
     Crafty.scene("skillShop", function() {
 

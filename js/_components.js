@@ -35,6 +35,53 @@ Crafty.c("GameTitle", {
     }
 });
 
+
+Crafty.c("EndlessMenuItem", {
+    init: function() {
+        this.addComponent("2D, DOM, Text, Mouse");
+        this.attr({
+            w: 140,
+            h: 90,
+            x: DTD.viewPort.w-160,
+            y: 40
+        });
+        this.text("Endless!");
+        this.css("font-family", "'Bangers', cursive");
+        this.css("text-shadow", "0 0 1px #000, 0 0 1px #000");
+        this.textColor('#90c93c');
+        this.css("font-size", "42px");
+        this.css("text-align", "center");
+        this.css("cursor", "pointer");
+        this.bind("MouseOver", function() {
+            this.textColor('#FFFFFF');
+        });
+        this.bind("MouseOut", function() {
+            this.textColor('#90c93c');
+        });
+        this.bind("Click", function() {
+            sceneMaker(true);
+        });
+    }
+});
+
+Crafty.c("EndlessScore", {
+    init: function() {
+        this.addComponent("2D, DOM, Text");
+        this.attr({
+            w: 140,
+            h: 90,
+            x: DTD.viewPort.w-160,
+            y: 40+40
+        });
+        this.text(storage.endlessScore.get());
+        this.css("font-family", "'Over the Rainbow', cursive");
+        this.textColor('#FFFFFF');
+        this.css("font-size", "28px");
+        this.css("text-align", "center");
+        this.css("cursor", "default");
+    }
+});
+
 Crafty.c("NewGameMenuItem", {
     init: function() {
         this.addComponent("MenuItem");
