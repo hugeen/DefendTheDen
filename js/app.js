@@ -13,12 +13,7 @@ var App = function() {
         
     // Kick off what needs to be done whenever the popup is about to be shown
     this.onPopupShowing = function() {    
-    	if(DTD.inGame) {
-    		if(!DTD.paused) {
-    			Crafty.pause();
-    		}
-    	}
-    	audioManager.pauseAllMusic();
+    	
     };
     
     // Kick off what needs to be done when the popup is shown
@@ -60,6 +55,12 @@ var App = function() {
     
     // Kick off what needs to be done when the popup is hidden
     this.onPopupHidden = function() {
+        if(DTD.inGame) {
+            if(!DTD.paused) {
+                Crafty.pause();
+            }
+        }
+        audioManager.pauseAllMusic();
     };
     
     // Use this to store anything needed to restore state when the user opens the Pokki again
