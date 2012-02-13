@@ -136,18 +136,21 @@ Crafty.c("Endless", {
     },
     upgradeDifficulty: function() {
         if(this.pigChance >= 50) {
+            console.log("pigChance>"+this.pigChance);
             this.pigChance--;
         } else {
             if(this.riddingChance >= 75) {
+                console.log("riddingChance>"+this.riddingChance);
                 this.riddingChance--;
             }
         }
         if(this.nextTimeout >= 750) {
+            console.log(">>>>>"+this.nextTimeout);
             this.nextTimeout -= 10;
         }
         this.realDelay(function() {
             this.upgradeDifficulty();
-        },1500);
+        },3000);
     },
     generateMonster: function() {
         if(rolling(this.pigChance)) {

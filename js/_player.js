@@ -33,7 +33,12 @@ Crafty.c("PlayerLife", {
 			this.delay(function() {
 				$(".youWin").remove();
 				removeUI();
-				loadScene("loose");
+				if(DTD.gameType == "story") {
+				    loadScene("loose");
+				} else {
+				    // endless Loose;
+				}
+				
 			},2000);
         }
     }
@@ -54,7 +59,7 @@ Crafty.c("PlayerEnergy", {
 				$("#energyBar .empty").first().removeClass("empty").addClass("full regen");
 				this.realDelay(function() {
 					$("#energyBar .regen").removeClass("regen");
-				}, 500);
+				}, 4000);
 			}
 			this.generateEnergy();
 		}, 5000);

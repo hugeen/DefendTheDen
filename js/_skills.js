@@ -1,6 +1,7 @@
 var throwingAxeSkill = function() {
+    var skillLevel = (DTD.gameType == "endless") ? 2 : storage.axeSkill.get();
 	return new SkillButton(1, "ThrowingAxe", {
-		cooldown : DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].coolDown,
+		cooldown : DTD.skillList["ThrowingAxe"].stats[skillLevel].coolDown,
 		action : function() {
 			DTD.player._spriteComponent.stop().animate("throwAxe", 18, 0);
 			setTimeout(function() {
@@ -17,10 +18,11 @@ var throwingAxeSkill = function() {
 	});
 };
 var blowSkill = function() {
+    var skillLevel = (DTD.gameType == "endless") ? 2 : storage.blowSkill.get();
 	return new SkillButton(2, "Breath", {
 		sprite : "windSkill",
 		keyBind : 2,
-		cooldown : DTD.skillList["Blow"].stats[storage.axeSkill.get()].coolDown,
+		cooldown : DTD.skillList["Blow"].stats[skillLevel].coolDown,
 		action : function() {
 			DTD.player._spriteComponent.stop().animate("blow", 18, 0);
 			setTimeout(function() {
@@ -34,21 +36,22 @@ var blowSkill = function() {
 				}
 			}, 20 * 20 * 1.5);
 		},
-		energyCost: DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost
+		energyCost: DTD.skillList["Blow"].stats[skillLevel].energyCost
 	});
 };
 
 var rockSkill = function() {
+    var skillLevel = (DTD.gameType == "endless") ? 2 : storage.rockSkill.get();
 	return new SkillButton(3, "Rock", {
 		sprite : "rockSkill",
 		keyBind : 3,
-		cooldown : DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].coolDown,
+		cooldown : DTD.skillList["ThrowingBrick"].stats[skillLevel].coolDown,
 		action : function() {
 			if(DTD.inGame) {
 				rock();
 			}
 		},
-		energyCost: DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost
+		energyCost: DTD.skillList["ThrowingBrick"].stats[skillLevel].energyCost
 	});
 }
 
@@ -300,9 +303,7 @@ Crafty.c("Rock", {
 				this.realDelay(function() {
 					var that = this;
 					_.each(o, function(item, key) {
-						var dmgMin = parseInt(DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].damageMin,10);
-						var dmgMax = parseInt(DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].damageMax,10);
-						item.obj.takeDamage(Crafty.math.randomInt(dmgMin, dmgMax));
+						item.obj.takeDamage(Crafty.math.randomInt(40, 50));
 					});
 					this.destroy();
 				},350);

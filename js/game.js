@@ -9,7 +9,8 @@ var DTD = {
     music: 1,
     inGame: false,
     paused: false,
-    playingCutscene: false
+    playingCutscene: false,
+    gameType: "story",
 };
 
 DTD.skillList = [];
@@ -111,8 +112,10 @@ var sceneMaker = function(endless) {
             buildUI();
             makeBattlefield();
             if(endless) {
+                DTD.gameType="endless";
                 loadLevel(false);
             } else {
+                DTD.gameType="story";
                 loadCutScene();
             }
 			
