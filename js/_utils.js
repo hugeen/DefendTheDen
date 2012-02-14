@@ -105,16 +105,15 @@ var monsterCount = function(waves) {
 	});
 	return monsterCount;
 };
+
 var rolling = function(percent) {
-	if(Crafty.math.randomInt(1, 100) > 100 - percent) {
-		return true;
-	} else {
-		return false;
-	}
+	return Crafty.math.randomInt(1, 100) > 100 - percent;
 };
+
 var pauseGame = function() {
 	/*Crafty.stop();*/
 };
+
 var createKeyHelper = function(component, keyBind) {
 	$("body").append('<div id="keyHelper' + keyBind + '" class="keyHelper battleFieldUI">' + keyBind + '</div>');
 	$('#keyHelper' + keyBind).css("top", component._y).css("left", component._x);
@@ -140,7 +139,5 @@ function damagesFor(skillName) {
     
     var dmgMin = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[level].damageMin : DTD.skillList[skillName].stats[2].damageMin;
     var dmgMax = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[level].damageMax : DTD.skillList[skillName].stats[2].damageMax;
-    var dmg = Crafty.math.randomInt(dmgMin,dmgMax);
-    console.log(dmg +"="+dmgMin+ " "+ dmgMax);
-    return dmg;
+    return Crafty.math.randomInt(dmgMin,dmgMax);
 }

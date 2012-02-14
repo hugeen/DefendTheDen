@@ -17,6 +17,7 @@ var throwingAxeSkill = function() {
 		}
 	});
 };
+
 var blowSkill = function() {
     var skillLevel = (DTD.gameType == "endless") ? 2 : storage.blowSkill.get();
 	return new SkillButton(2, "Breath", {
