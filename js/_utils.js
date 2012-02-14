@@ -122,8 +122,24 @@ var createKeyHelper = function(component, keyBind) {
 
 
 function damagesFor(skillName) {
-    var dmgMin = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[0].damageMin : DTD.skillList[skillName].stats[2].damageMin;
-    var dmgMax = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[0].damageMax : DTD.skillList[skillName].stats[2].damageMax;
+    var level;
+    
+    switch(skillName) {
+        case "ThrowingAxe":
+            level = storage.axeSkill.get(); 
+            break;
+            
+        case "ThrowingBtrick":
+            level = storage.rockSkill.get(); 
+            break;
+            
+        default:
+            level = 0;
+            break;
+    }
+    
+    var dmgMin = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[level].damageMin : DTD.skillList[skillName].stats[2].damageMin;
+    var dmgMax = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[level].damageMax : DTD.skillList[skillName].stats[2].damageMax;
     var dmg = Crafty.math.randomInt(dmgMin,dmgMax);
     console.log(dmg +"="+dmgMin+ " "+ dmgMax);
     return dmg;
