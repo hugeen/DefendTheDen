@@ -18,65 +18,62 @@ DTD.skillList["ThrowingAxe"] = {
 	name: "Throwing Axe",
 	key: 1,
 	stats: [{
-		damageMin: 45,
-		damageMax: 75,
-		coolDown: 0.825,
-		energyCost: 1,
+		damageMin: 10,
+		damageMax: 20,
+		coolDown: 1.250,
 		goldCost: 0
 	},{
-		damageMin: 55,
-		damageMax: 95,
-		coolDown: 0.725,
-		energyCost: 1,
+		damageMin: 14,
+		damageMax: 24,
+		coolDown: 1.0,
 		goldCost: 10
 	},{
-		damageMin: 65,
-		damageMax: 125,
-		coolDown: 0.625,
-		energyCost: 1,
+		damageMin: 18,
+		damageMax: 28,
+		coolDown: 0.725,
 		goldCost: 20
-	},]
+	}]
 };
 DTD.skillList["ThrowingBrick"] = {
 	name: "Throwing Brick",
 	key: 3,
 	stats: [{
-		damageMin: 25,
-		damageMin: 45,
-		coolDown: 12,
+		damageMin: 9,
+		damageMax: 19,
+		coolDown: 5,
 		energyCost: 1,
 		goldCost: 0
 	},{
-		damageMin: 35,
-		damageMin: 55,
-		coolDown: 10,
+		damageMin: 13,
+		damageMax: 23,
+		coolDown: 4.5,
 		energyCost: 1,
 		goldCost: 15
 	},{
-		damageMin: 40,
-		damageMin: 65,
-		coolDown: 8,
+		damageMin: 17,
+		damageMax: 27,
+		coolDown: 3,
 		energyCost: 1,
 		goldCost: 25
-	},]
+	}]
 };
 
 DTD.skillList["Blow"] = {
 	name: "Blow",
 	key: 2,
 	stats: [{
-		coolDown: 6,
+		coolDown: 12,
 		energyCost: 1,
 		goldCost: 0
 	},{
-		coolDown: 5,
+		coolDown: 10,
 		energyCost: 1,
 		goldCost: 15
 	},{
-		coolDown: 4,
+		coolDown: 8,
 		energyCost: 1,
 		goldCost: 25
-	},]
+	}]
 };
 
 var sceneMaker = function(endless) {

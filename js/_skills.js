@@ -156,9 +156,7 @@ Crafty.c("ThrowingAxe", {
 		});
 
 		this.onHit("Enemy", function(o) {
-			var dmgMin = parseInt(DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].damageMin,10);
-			var dmgMax = parseInt(DTD.skillList["ThrowingAxe"].stats[storage.axeSkill.get()].damageMax,10);
-			o[0].obj.takeDamage(Crafty.math.randomInt(dmgMin, dmgMax));
+			o[0].obj.takeDamage(damagesFor("ThrowingAxe"));
 			this.destroy();
 		});
 		this.bind("EnterFrame", function() {
@@ -185,7 +183,7 @@ Crafty.c("GrannyBolt", {
 		this.animate("fireball", 15, -1)
 		this.origin("center");
 		this.bind("EnterFrame", function() {
-			this.move("w", 7);
+			this.move("w", 5.5);
 		});
 
 		this.onHit("Wolf", function(o) {
@@ -221,7 +219,7 @@ Crafty.c("RiddingPie", {
 			this.attr({
 				rotation : this.rotation + 10
 			});
-			this.move("w", 5);
+			this.move("w", 4.5);
 		});
 
 		this.onHit("Wolf", function(o) {
@@ -296,14 +294,14 @@ Crafty.c("Rock", {
 				this.realDelay(function() {
 					this._stopMove = true;
 					this.animate("rock", 20, 0);
-				}, 250);
+				}, 350);
 			}
 			if(this._stopMove && !this._enemyWounded) {
 				this._enemyWounded = true;
 				this.realDelay(function() {
 					var that = this;
 					_.each(o, function(item, key) {
-						item.obj.takeDamage(Crafty.math.randomInt(40, 50));
+						item.obj.takeDamage(damagesFor("ThrowingBrick"));
 					});
 					this.destroy();
 				},350);

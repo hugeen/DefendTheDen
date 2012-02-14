@@ -65,9 +65,9 @@ Crafty.c("GrannySprite", {
 Crafty.c("Granny", {
 	init : function() {
 		this.addComponent("Enemy");
-		this._movingSpeed = 0.30;
+		this._movingSpeed = 0.25;
 		this._coinDropRate = 100;
-		this._hitPoints = 500;
+		this._hitPoints = 94;
 		this.realDelay(function() {
 			this.shotgun();
 		}, 2000);
@@ -138,8 +138,8 @@ Crafty.c("Pig", {
 	init : function() {
 		this.addComponent("Enemy");
 		this._movingSpeed = 0.45;
-		this._coinDropRate = 50;
-		this._hitPoints = 120;
+		this._coinDropRate = 65;
+		this._hitPoints = 31;
 		this.bind("dead", function() {
            if(DTD.gameType == "endless") {
                currentRound.score(7);
@@ -152,8 +152,8 @@ Crafty.c("Ridding", {
 	init : function() {
 		this.addComponent("Enemy");
 		this._movingSpeed = 0.65;
-		this._coinDropRate = 75;
-		this._hitPoints = 60;
+		this._coinDropRate = 85;
+		this._hitPoints = 19;
 		this._throwPie = false;
 		this.realDelay(function() {
 			this.throwPie();

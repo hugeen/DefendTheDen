@@ -119,3 +119,12 @@ var createKeyHelper = function(component, keyBind) {
 	$("body").append('<div id="keyHelper' + keyBind + '" class="keyHelper battleFieldUI">' + keyBind + '</div>');
 	$('#keyHelper' + keyBind).css("top", component._y).css("left", component._x);
 };
+
+
+function damagesFor(skillName) {
+    var dmgMin = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[0].damageMin : DTD.skillList[skillName].stats[2].damageMin;
+    var dmgMax = (DTD.gameType == "story") ? DTD.skillList[skillName].stats[0].damageMax : DTD.skillList[skillName].stats[2].damageMax;
+    var dmg = Crafty.math.randomInt(dmgMin,dmgMax);
+    console.log(dmg +"="+dmgMin+ " "+ dmgMax);
+    return dmg;
+}

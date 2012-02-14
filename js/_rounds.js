@@ -28,7 +28,7 @@ var loadLevel = function(level) {
             DTD.skills["blowSkill"] = blowSkill();
         }
         if(level > 3) {
-            //DTD.skills["rockSkill"] = rockSkill();
+            DTD.skills["rockSkill"] = rockSkill();
         }
         rounds[level]();
     }
