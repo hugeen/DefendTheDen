@@ -9,6 +9,12 @@ var loadCutScene = function() {
 		case 3: 
 			cutscenes[3]();
 			break;
+	    case 4: 
+            cutscenes[4]();
+            break;
+        case 5: 
+            cutscenes[5]();
+            break;
 		default:
 			loadLevel(storage.level.get());
 			break;
@@ -77,15 +83,13 @@ cutscenes[1] = function() {
 		loadLevel(storage.level.get());
 	}, 11000);
 	cut.realDelay(function() {
-		$("body").append('<div class="didacticiel01a cutscene"></div><div class="didacticiel01b cutscene"></div><div class="didacticiel01c cutscene"></div>');
+		$("body").append('<div class="didacticiel01a cutscene"></div><div class="didacticiel01b cutscene"></div>');
 		$(".didacticiel01a").html("To throw an Axe . . .");
 		$(".didacticiel01b").html(" . . . Push Key '1'");
-		$(".didacticiel01c").html(" . . . Click on an enmy");
 	}, 11250);
 	cut.realDelay(function() {
 		$(".didacticiel01a").remove();
 		$(".didacticiel01b").remove();
-		$(".didacticiel01c").remove();
 	}, 16500);
 
 };
@@ -155,7 +159,7 @@ cutscenes[3] = function() {
 	cut.realDelay(function() {
 		$(".wolfSpeech").hide();
 		$(".riddingSpeech").show();
-		$(".riddingSpeech").html("It's time to <br/> Revenge ! ! !");
+		$(".riddingSpeech").html("It's time to <br/> Revenge !");
 	}, 8250);
 	
 	cut.realDelay(function() {
@@ -189,7 +193,7 @@ cutscenes[4] = function() {
 	DTD.playingCutscene = cut;
 	loadLevel(storage.level.get());
 	cut.realDelay(function() {
-		$("body").append('<div class="didacticiel01a cutscene"></div><div class="didacticiel01b cutscene"></div><div class="didacticiel01c cutscene"></div>');
+		$("body").append('<div class="didacticiel01a cutscene"></div><div class="didacticiel01b cutscene"></div>');
 		$(".didacticiel01a").html(" To throw a Rock . . .");
 		$(".didacticiel01b").html(" . . . Push Key '3'");
 	}, 250);
@@ -199,5 +203,69 @@ cutscenes[4] = function() {
 		$(".didacticiel01b").remove();
 		$(".didacticiel01c").remove();
 	}, 4250);
+
+};
+
+
+cutscenes[5] = function() {
+    if(DTD.playingCutscene) {
+        $(".cutscene").remove();
+        DTD.playingCutscene.destroy();
+        DTD.playingCutscene = false;
+    }
+    var cut = Crafty.e("RealDelay");
+    DTD.playingCutscene = cut;
+    $("body").append('<div class="wolfBig cutscene"></div><div class="grannyBig cutscene"></div><div class="wolfSpeech cutscene"></div><div class="grannySpeech cutscene"></div>');
+    $(".grannySpeech").hide();
+    $(".wolfSpeech").hide();
+    $(".wolfBig").animate({
+        left: 0
+    }, 1000);
+    $(".grannyBig").animate({
+        right: -10
+    }, 1000);
+    cut.realDelay(function() {
+        $(".grannySpeech").show();
+        $(".grannySpeech").html(" Hello wolfy ! ");
+    }, 1250);
+    cut.realDelay(function() {
+        $(".grannySpeech").hide();
+        $(".wolfSpeech").show();
+        $(".wolfSpeech").html(" Unbelievable ... ");
+    }, 3000);
+    cut.realDelay(function() {
+        $(".wolfSpeech").hide();
+        $(".grannySpeech").show();
+        $(".grannySpeech").html(" What big teeth you have! ");
+    }, 4500);
+    cut.realDelay(function() {
+        $(".grannySpeech").hide();
+        $(".wolfSpeech").show();
+        $(".wolfSpeech").html(" What do you want Granny ?");
+    }, 7000);
+    cut.realDelay(function() {
+        $(".wolfSpeech").hide();
+        $(".grannySpeech").show();
+        $(".grannySpeech").html(" I want you dead ! ");
+    }, 10000);
+    
+    cut.realDelay(function() {
+        $(".wolfSpeech").hide();
+        $(".grannySpeech").hide();
+        $(".wolfBig").animate({
+            left: -300
+        }, 1000);
+        $(".grannyBig").animate({
+            right: -300
+        }, 1000);
+    }, 12000);
+    
+    cut.realDelay(function() {
+        $(".wolfSpeech").remove();
+        $(".grannySpeech").remove();
+        $(".wolfBig").remove();
+        $(".grannyBig").remove();
+        loadLevel(storage.level.get());
+    }, 13000);
 
 };

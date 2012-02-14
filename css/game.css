@@ -133,7 +133,7 @@
   top: 328px;
   left: -198px;
 }
-.pigBig, .riddingBig {
+.pigBig, .riddingBig, .grannyBig {
   width: 199px;
   height: 276px;
   z-index: 35;
@@ -148,6 +148,10 @@
 
 .riddingBig {
   background: url("../img/ridding-big.png") top left no-repeat;
+}
+
+.grannyBig {
+  background: url("../img/granny-big.png") top left no-repeat;
 }
 
 .wolfSpeech {
@@ -165,7 +169,7 @@
   text-align: center;
   font-size: 19px;
 }
-.pigSpeech, .riddingSpeech {
+.pigSpeech, .riddingSpeech, .grannySpeech {
   padding: 5px;
   background-color: #fff;
   border: 2px solid #000;
@@ -181,7 +185,10 @@
 .pigSpeech {
   font-family: 'Eater', cursive;
 }
-.riddingSpeech {
+.pigSpeech {
+  font-family: 'Eater', cursive;
+}
+.grannySpeech {
   font-family: 'Over the Rainbow', cursive;
 }
 
