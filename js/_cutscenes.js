@@ -94,7 +94,6 @@ cutscenes[1] = function() {
 
 };
 
-
 cutscenes[2] = function() {
 	if(DTD.playingCutscene) {
 		$(".cutscene").remove();
@@ -205,7 +204,6 @@ cutscenes[4] = function() {
 	}, 4250);
 
 };
-
 
 cutscenes[5] = function() {
     if(DTD.playingCutscene) {

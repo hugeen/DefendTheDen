@@ -42,6 +42,7 @@ var youLoose = function() {
 var currentRound;
 Crafty.c("Round", {
     init : function() {
+        currentRound = this;
         this.addComponent("RealDelay");
         this._start = 0;
         this.waves = [];
@@ -93,7 +94,6 @@ Crafty.c("Round", {
                     }
                 }
             };
-            currentRound = this;
         });
     },
     create : function(id) {
@@ -126,13 +126,13 @@ Crafty.c("Round", {
 
 Crafty.c("Endless", {
     init : function() {
+        currentRound = this;
         this._score = 0;
         this.addComponent("RealDelay");
         this.pigChance = 101;
         this.riddingChance = 101;
         this.lastEnemy = 1;
         this.nextTimeout = 3250;
-        currentRound = this;
         $("#levelNumber").html("Endless !");
         this.upgradeDifficulty();
         this.generateMonster();
@@ -143,16 +143,13 @@ Crafty.c("Endless", {
     },
     upgradeDifficulty: function() {
         if(this.pigChance >= 50) {
-            console.log("pigChance>"+this.pigChance);
             this.pigChance--;
         } else {
             if(this.riddingChance >= 75) {
-                console.log("riddingChance>"+this.riddingChance);
                 this.riddingChance--;
             }
         }
         if(this.nextTimeout >= 750) {
-            console.log(">>>>>"+this.nextTimeout);
             this.nextTimeout -= 10;
         }
         this.realDelay(function() {
