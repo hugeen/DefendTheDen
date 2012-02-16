@@ -136,6 +136,12 @@ Crafty.c("Endless", {
         $("#levelNumber").html("Endless !");
         this.upgradeDifficulty();
         this.generateMonster();
+        this.bind("EnterFrame", function() {
+            console.log(DTD.inGame);
+            if(!DTD.inGame) {
+                this.detroy();
+            }
+        });
     },
     score: function(score) {
         this._score += score;

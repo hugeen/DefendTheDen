@@ -123,17 +123,16 @@ var sceneMaker = function(endless) {
 
 window.onload = (function() {
 	$("#menuPauseResume").live("click", function() {
-		audioManager.playSound('click');
 		Crafty.pause();
 	});
 	$("#menuPauseBackToMain").live("click", function() {
-		audioManager.playSound('click');
 		Crafty.pause();
 		$(".youWin").remove();
 		removeUI();
 		Crafty.scene("titleScreen");
 	});
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
+    Crafty.audio
     Crafty.bind("Pause", function() {
     	if(DTD.inGame) {
     		DTD.paused = true;
@@ -193,16 +192,7 @@ window.onload = (function() {
     	DTD.inGame = true;
     }, function() {
     	DTD.inGame = false;
-    });
-    
-    Crafty.scene("endless", function() {
-        renderGameTitle();
-    }, function() {
-        DTD.inGame = true;
-    }, function() {
-        DTD.inGame = false;
-    });
-    
+    });    
     
     Crafty.scene("skillShop", function() {
 
@@ -215,13 +205,11 @@ window.onload = (function() {
     Crafty.scene("titleScreen");
     
     $("#skillShopPlay").live("click", function() {
-    	audioManager.playSound('click');
     	removeSkillShopUI();
     	sceneMaker();
     });
     
     $("#skillShopBack").live("click", function() {
-    	audioManager.playSound('click');
     	removeSkillShopUI();
     	Crafty.scene("titleScreen");
     });

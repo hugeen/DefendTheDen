@@ -60,7 +60,6 @@ var App = function() {
                 Crafty.pause();
             }
         }
-        audioManager.pauseAllMusic();
     };
     
     // Use this to store anything needed to restore state when the user opens the Pokki again

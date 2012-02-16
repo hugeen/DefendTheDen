@@ -202,7 +202,6 @@ Crafty.c("Gold", {
             });
             this.destroy();
             updateGolds();
-            audioManager.playSound('money');
         });
         this.realDelay(function() {
             if(DTD.gameType == "endless") {

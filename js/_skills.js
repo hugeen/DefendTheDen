@@ -165,7 +165,6 @@ Crafty.c("ThrowingAxe", {
 				this.destroy();
 			}
 		});
-		audioManager.playSound('throwAxe');
 	}
 });
 
