@@ -1,0 +1,1 @@
+Crafty.audio.add("theme", "audio/music_ekeynox.ogg");

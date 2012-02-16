@@ -132,7 +132,7 @@ window.onload = (function() {
 		Crafty.scene("titleScreen");
 	});
     Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
-    Crafty.audio
+    Crafty.audio.play("theme", -1);
     Crafty.bind("Pause", function() {
     	if(DTD.inGame) {
     		DTD.paused = true;
