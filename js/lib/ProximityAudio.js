@@ -38,14 +38,10 @@ if (typeof Proximity.AudioManager === 'undefined') {
 
 		this.soundFiles = {
 			// WARNING: I've heard rumors that 8 is the max number of audio files before Chrome starts bugging out.
-			'click': 'audio/_click.ogg',
-			'howl': 'audio/_howl.ogg',
-			'throwAxe': 'audio/_throwAxe.ogg',
-			'money': 'audio/_money.ogg',
-			'wound': 'audio/_wound.ogg',
+			'howl': 'audio/_howl.ogg'
 		};
 		this.musicFiles = {
-			'titleScreen': 'audio/titleScreen.ogg'
+			'music_ekeynox': 'audio/music_ekeynox.ogg'
 		};
 
 		// Caches actual Audio objects.

@@ -1,1 +1,7 @@
-Crafty.audio.add("theme", "audio/music_ekeynox.ogg");
+
+ProximityApp = {
+    config : {
+        sfxEnabled : true
+    }
+};
+var audioManager = new Proximity.AudioManager();

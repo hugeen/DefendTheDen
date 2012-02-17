@@ -307,7 +307,7 @@
   padding: 10px 0 0 0;
   
 }
-#skillShopBack {
+#skillShopBack, #creditsBack {
   display: block;
   top: 500px;
   left: 30px;
@@ -319,7 +319,9 @@
   font-size: 32px;
 }
 
-#skillShopBack:hover{
+
+
+#skillShopBack:hover, #creditsBack:hover{
   color: #000;
 }
 
@@ -386,3 +388,34 @@
 	background: url("../img/energy-full.png") 0 0 no-repeat;
 }
 
+#credits {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+#credits .wrapper {
+	margin: 50px;
+	padding: 15px;
+	text-align: center;
+	background: rgba(255,255,255,0.1);
+	border-radius: 15px;
+	color: #fff;
+}
+
+#credits h1 {
+	color: #bce0e7;
+	padding: 25px 0 5px 0;
+	font-size: 2.5em;
+}
+
+#credits a {
+	color: #bce7c6;
+	text-decoration: none;
+}
+
+#credits a:hover {
+	color: #fff;
+	text-decoration: underline;
+}

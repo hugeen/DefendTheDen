@@ -61,6 +61,35 @@ Crafty.c("EndlessMenuItem", {
     }
 });
 
+
+Crafty.c("CreditsMenuItem", {
+    init: function() {
+        this.addComponent("2D, DOM, Text, Mouse");
+        this.attr({
+            w: 140,
+            h: 90,
+            x: 30,
+            y: 40
+        });
+        this.text("Credits");
+        this.css("font-family", "'Bangers', cursive");
+        this.css("text-shadow", "0 0 1px #000, 0 0 1px #000");
+        this.textColor('#90c93c');
+        this.css("font-size", "36px");
+        this.css("text-align", "left");
+        this.css("cursor", "pointer");
+        this.bind("MouseOver", function() {
+            this.textColor('#FFFFFF');
+        });
+        this.bind("MouseOut", function() {
+            this.textColor('#90c93c');
+        });
+        this.bind("Click", function() {
+            Crafty.scene("credits");
+        });
+    }
+});
+
 Crafty.c("EndlessScore", {
     init: function() {
         this.addComponent("2D, DOM, Text");

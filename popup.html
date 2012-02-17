@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/animation.css" type="text/css" />
     <link rel="stylesheet" href="css/game.css" type="text/css" />
     <link rel="stylesheet" href="css/south-street/jquery-ui-1.8.17.custom.css" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Fontdiner+Swanky|Bangers|Love+Ya+Like+A+Sister|Sue+Ellen+Francisco|IM+Fell+DW+Pica+SC|Over+the+Rainbow|Eater' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/lib/PokkiBrowser.js"></script>
     <script type="text/javascript" src="js/lib/GAPokki.js"></script>
     <script type="text/javascript" src="js/lib/LocalStore.js"></script>
@@ -14,20 +15,7 @@
     <script type="text/javascript" src="js/lib/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery-ui-1.8.17.custom.min.js"></script>
     <script type="text/javascript" src="js/lib/crafty.js"></script>
-    <script type="text/javascript">
-        WebFontConfig = {
-            google: {
-                families: ['Rock+Salt::latin', 'Fontdiner+Swanky::latin', 'Mountains+of+Christmas::latin', 'Bangers::latin', 'Love+Ya+Like+A+Sister::latin', 'Sue+Ellen+Francisco::latin', 'IM+Fell+DW+Pica+SC::latin', 'Amatic+SC::latin', 'Over+the+Rainbow::latin', 'Irish+Grover::latin', 'Fredericka+the+Great::latin', 'Flavors::latin', 'Eater::latin']
-            }
-        }; (function() {
-            var wf = document.createElement('script');
-            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-        })();
-    </script>
+    <script type="text/javascript" src="js/lib/ProximityAudio.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/popup.js"></script>
     <script type="text/javascript" src="js/_localdata.js"></script>
@@ -43,9 +31,20 @@
     <script type="text/javascript" src="js/_effects.js"></script>
     <script type="text/javascript" src="js/_audio.js"></script>
     <script type="text/javascript" src="js/_rounds.js"></script>
+    <script type="text/javascript" src="js/_credits.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
   </head>
   <body>
+  	<div style="position: fixed; top: -100px;">
+  		<div style="font-family: 'Rock Salt', cursive;">preload font</div>
+  		<div style="font-family: 'Fontdiner Swanky', cursive;">preload font</div>
+  		<div style="font-family: 'Bangers', cursive;">preload font</div>
+  		<div style="font-family: 'Love Ya Like A Sister', cursive;">preload font</div>
+  		<div style="font-family: 'Sue Ellen Francisco', cursive;">preload font</div>
+  		<div style="font-family: 'IM Fell DW Pica SC', serif;">preload font</div>
+  		<div style="font-family: 'Over the Rainbow', cursive;">preload font</div>
+  		<div style="font-family: 'Eater', cursive;">preload font</div>
+  	</div>
     <div id="wrapper">
       <a id="minimize" href="#"></a>
       <div id="content"></div>
