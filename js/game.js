@@ -79,7 +79,7 @@ var sceneMaker = function(endless) {
     var endless = endless || false;
     var sceneName = (endless) ? "endless" : "storyLevel" + (new Date().getTime());
     Crafty.scene(sceneName, function() {
-        Crafty.load(["img/piggy-sprite.png", "img/ridding-sprite.png", "img/sprite-granny.png", "img/wolf-sprite-2.png", "img/axe-sprite.png", "img/pie-sprite.png", "img/fireball-sprite.png", "img/wind-sprite.png", "img/rock-sprite.png", "img/wires-sprite.png", "img/under-rails.png", "img/blood-sprite.png", "img/blood-sprite-die.png", "img/gold-coin-drop.png", "img/gold-coin.png", "img/rails-sprite.png", "img/wagon.png", "img/skill-button-below.png", "img/skill-button-cooldown.png", "img/rock-skill.png", "img/wind-skill.png", "img/skill-button-pushed.png", "img/beartrap-skill.png", "img/beartrap-sprite.png", "img/grass-piece-light.png", "img/grass-piece-dark.png"], function() {
+        Crafty.load(["img/piggy-sprite.png", "img/ridding-sprite.png", "img/sprite-granny.png", "img/wolf-sprite-2.png", "img/axe-sprite.png", "img/pie-sprite.png", "img/fireball-sprite.png", "img/wind-sprite.png", "img/rock-sprite.png", "img/wires-sprite.png", "img/under-rails.png", "img/blood-sprite.png", "img/blood-sprite-die.png", "img/gold-coin-drop.png", "img/gold-coin.png", "img/rails-sprite.png", "img/wagon.png", "img/skill-button-below.png", "img/skill-button-cooldown.png", "img/rock-skill.png", "img/wind-skill.png", "img/skill-button-pushed.png", "img/beartrap-sprite.png", "img/grass-piece-light.png", "img/grass-piece-dark.png"], function() {
             buildUI();
             makeBattlefield();
             if(endless) {
@@ -104,7 +104,28 @@ window.onload = (function() {
         DTD.music.volume = 0;
         $("#sound").css("background-image", "url(img/sound-speaker-off.png)");
     }
-    
+    $(".upgradeSkill").live("click", function() {
+        var skillLevel = 0;
+        switch($(this).attr("type")) {
+            case 'ThrowingAxe':
+                skillLevel = storage.axeSkill;
+                break;
+            case 'Blow':
+                skillLevel = storage.blowSkill;
+                break;
+            case 'ThrowingBrick':
+                skillLevel = storage.rockSkill;
+                break;
+        }
+        if(skillLevel.get() < 2) {
+            if(DTD.skillList[$(this).attr("type")].stats[skillLevel.get()+1].goldCost < storage.goldCoins.get()) {
+                storage.goldCoins.set(storage.goldCoins.get()-DTD.skillList[$(this).attr("type")].stats[skillLevel.get()+1].goldCost);
+                skillLevel.set(skillLevel.get()+1);
+                removeSkillShopUI();
+                Crafty.scene("skillShop");
+            }
+        }
+    });
     $("#sound").live("click", function() {
         if(storage.sound.get()) {
             DTD.music.volume = 0;

@@ -20,7 +20,6 @@ Crafty.sprite(52, 	"img/skill-button-cooldown.png",{ skillCooldown:	[0, 0, 1, 1]
 Crafty.sprite(52, 	"img/rock-skill.png", 			{ rockSkill: 		[0, 0, 1, 1] });
 Crafty.sprite(52, 	"img/wind-skill.png", 			{ windSkill: 		[0, 0, 1, 1] });
 Crafty.sprite(52, 	"img/skill-button-pushed.png", 	{ skillKeyPress:	[0, 0, 1, 1] });
-Crafty.sprite(32, 	"img/beartrap-skill.png", 		{ bearTrapSkill:	[0, 0, 1, 1] });
 Crafty.sprite(65, 	"img/beartrap-sprite.png", 		{ bearTrap: 		[0, 0, 1, 1] });
 Crafty.sprite(157, 	"img/grass-piece-light.png", 	{ grassLight: 		[0, 0, 1, 1] });
 Crafty.sprite(157, 	"img/grass-piece-dark.png", 	{ grassDark: 		[0, 0, 1, 1] });

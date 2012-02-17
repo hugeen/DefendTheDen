@@ -263,10 +263,58 @@
 }
 #skillShopLines {
   position: fixed;
-  top: 115px;
-  background: #fff;
+  top: 130px;
+  left: 30px;
 }
-.skillLine {}
+
+.skillLine {
+	clear: left;
+}
+.actualSkill {
+	width: 294px;
+	height: 64px;
+	background: url("../img/bg-skill-actual.png") top left no-repeat;
+	float: left;
+}
+.arrowUpgradeSkill {
+	width: 30px;
+	height: 59px;
+	margin: 3px 17px 0 17px;
+	background: url("../img/arrow-upgrade-skill.png") top left no-repeat;
+	float: left;
+}
+.upgradeSkill {
+	width: 294px;
+	height: 64px;
+	background: url("../img/bg-skill-upgrade.png") top left no-repeat;
+	float: left;
+	cursor: pointer;
+}
+
+.skillPreview {
+	width: 60px;
+	height: 60px;
+	float: left;
+	background: url("../img/bg-skill-button.png") 5px 5px no-repeat;
+}
+
+.skillPreview div {
+	padding: 8px 0 0 8px;
+}
+
+.skillPreview div img {
+	width: 42px;
+	height: 42px;
+}
+
+.skillStats {
+	float: left;
+	padding: 5px;
+	font-size: 11px;
+}
+.actualSkill .skillStats span {
+	color: #35271e;
+}
 #skillShopGolds {
   border: 1px solid #6c777c;
   border-radius : 8px;
