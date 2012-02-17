@@ -244,25 +244,17 @@ window.onload = (function() {
     });
 
     Crafty.scene("skillShop", function() {
-
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
-            buildSkillShopUI();
-        });
+        buildSkillShopUI();
     });
 
     Crafty.scene("credits", function() {
-
-        Crafty.load(["img/blood-sprite-die.png", "img/rails.png", "img/axe-sprite.png"], function() {
-
-            Crafty.e("2D, DOM").attr({
-                w : DTD.viewPort.w,
-                h : DTD.viewPort.h,
-                x : 0,
-                y : 0
-            }).css("background", "url(img/background.png)").css("z-index", "0");
-            buildCreditsUI();
-
-        });
+        Crafty.e("2D, DOM").attr({
+            w : DTD.viewPort.w,
+            h : DTD.viewPort.h,
+            x : 0,
+            y : 0
+        }).css("background", "url(img/background.png)").css("z-index", "0");
+        buildCreditsUI();
     });
 
     Crafty.scene("titleScreen");
