@@ -2,7 +2,7 @@ function buildCreditsUI() {
     $("body").append('<a id="creditsBack" class="creditsUI"><span class="creditsUI">Back to main screen</span></a>');
     $("body").append('<div id="credits" class="creditsUI"></div>');
     var endlessUnlock = '';
-    if(storage.level.get() > 6) {
+    if(storage.endless.get()) {
         endlessUnlock = ''
             +'<h1 class="creditsUI">Thanks for playing</h1>'
             +'<div class="creditsUI">Now you can give a try to Endless Mode</div>';

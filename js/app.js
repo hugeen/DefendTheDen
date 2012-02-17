@@ -12,8 +12,10 @@ var App = function() {
     
         
     // Kick off what needs to be done whenever the popup is about to be shown
-    this.onPopupShowing = function() {    
-    	DTD.music.play();
+    this.onPopupShowing = function() {
+        if(DTD.music != 1)  {
+            DTD.music.play();
+        }
     };
     
     // Kick off what needs to be done when the popup is shown

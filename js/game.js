@@ -106,6 +106,7 @@ window.onload = (function() {
     }
     $(".upgradeSkill").live("click", function() {
         var skillLevel = 0;
+        
         switch($(this).attr("type")) {
             case 'ThrowingAxe':
                 skillLevel = storage.axeSkill;
@@ -117,8 +118,11 @@ window.onload = (function() {
                 skillLevel = storage.rockSkill;
                 break;
         }
+        
         if(skillLevel.get() < 2) {
-            if(DTD.skillList[$(this).attr("type")].stats[skillLevel.get()+1].goldCost < storage.goldCoins.get()) {
+
+            if(DTD.skillList[$(this).attr("type")].stats[skillLevel.get()+1].goldCost <= storage.goldCoins.get()) {
+                
                 storage.goldCoins.set(storage.goldCoins.get()-DTD.skillList[$(this).attr("type")].stats[skillLevel.get()+1].goldCost);
                 skillLevel.set(skillLevel.get()+1);
                 removeSkillShopUI();

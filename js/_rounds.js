@@ -89,6 +89,8 @@ Crafty.c("Round", {
                             $(".youWin").remove();
                             removeUI();
                             if(storage.level.get() > 6) {
+                                storage.level.set(1);
+                                storage.endless.set(true);
                                 Crafty.scene("credits");
                             } else {
                                 storage.level.set(storage.level.get() + 1);

@@ -1,5 +1,5 @@
 var storage = {
-    endless     : new LocalStore('endless',         { defaultVal : true }),
+    endless     : new LocalStore('endless',         { defaultVal : false }),
     endlessScore: new LocalStore('endlessScore',    { defaultVal : 0 }),
     pigDied     : new LocalStore('pig_died',        { defaultVal : 0 }),
     axeThrowed  : new LocalStore('axe_trhowed',     { defaultVal : 0 }),
