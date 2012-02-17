@@ -173,7 +173,21 @@ Crafty.c("UnderRails", {
 
 Crafty.c("Wires", {
     init : function() {
-        this.addComponent("2D, Canvas, Sprite, Collision, wires");
+        this.addComponent("2D, Canvas, Collision");
+        this.attr({
+            w : 22,
+            h : 420,
+            x : 70,
+            y : 85,
+            z : 16
+        });
+        Crafty.e("WiresSprite");
+    }
+});
+
+Crafty.c("WiresSprite", {
+    init : function() {
+        this.addComponent("2D, Canvas, Sprite, wires");
         this.attr({
             w : 42,
             h : 420,

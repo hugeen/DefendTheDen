@@ -9,7 +9,7 @@ var DTD = {
     inGame : false,
     paused : false,
     playingCutscene : false,
-    gameType : "story",
+    gameType : "story"
 };
 
 DTD.skillList = [];
@@ -229,6 +229,10 @@ window.onload = (function() {
     };
 
     Crafty.scene("titleScreen", function() {
+        if(currentRound !== false) {
+            currentRound.destroy();
+        }
+        currentRound = false;
         renderGameTitle();
     }, function() {
         DTD.inGame = true;

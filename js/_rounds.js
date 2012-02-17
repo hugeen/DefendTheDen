@@ -39,7 +39,7 @@ var youWin = function() {
 var youLoose = function() {
     $("body").append('<div class="youWin">You LOOSE !</div>');
 };
-var currentRound;
+var currentRound = false;
 Crafty.c("Round", {
     init : function() {
         currentRound = this;
@@ -143,7 +143,6 @@ Crafty.c("Endless", {
         this.upgradeDifficulty();
         this.generateMonster();
         this.bind("EnterFrame", function() {
-            console.log(DTD.inGame);
             if(!DTD.inGame) {
                 this.detroy();
             }
@@ -169,22 +168,31 @@ Crafty.c("Endless", {
         },3000);
     },
     generateMonster: function() {
-        if(rolling(this.pigChance)) {
-            var newEnemy = Crafty.e("Pig");
-            newEnemy.setToLine(Crafty.math.randomInt(1,6));
-            newEnemy.attachSprite(Crafty.e("PigSprite"));
-        } else if(rolling(this.riddingChance)) {
-            var newEnemy = Crafty.e("Ridding");
-            newEnemy.setToLine(Crafty.math.randomInt(1,6));
-            newEnemy.attachSprite(Crafty.e("RiddingSprite"));
+        if(DTD.gameType == "endless") {
+            
+            if(rolling(this.pigChance)) {
+                var newEnemy = Crafty.e("Pig");
+                newEnemy.setToLine(Crafty.math.randomInt(1,6));
+                newEnemy.attachSprite(Crafty.e("PigSprite"));
+            } else if(rolling(this.riddingChance)) {
+                var newEnemy = Crafty.e("Ridding");
+                newEnemy.setToLine(Crafty.math.randomInt(1,6));
+                newEnemy.attachSprite(Crafty.e("RiddingSprite"));
+            } else {
+                var newEnemy = Crafty.e("Granny");
+                newEnemy.setToLine(Crafty.math.randomInt(1,6));
+                newEnemy.attachSprite(Crafty.e("GrannySprite"));
+            }
+            
+            
+            this.realDelay(function() {
+                this.generateMonster();
+            },this.nextTimeout);
+            
         } else {
-            var newEnemy = Crafty.e("Granny");
-            newEnemy.setToLine(Crafty.math.randomInt(1,6));
-            newEnemy.attachSprite(Crafty.e("GrannySprite"));
+            this.destroy();
         }
-        this.realDelay(function() {
-            this.generateMonster();
-        },this.nextTimeout);
+        
     }
 });
 
@@ -194,12 +202,12 @@ rounds[1] = function() {
     var lastWave = 0;
     round.create(1);
     round.addWave("!p!!p!", lastWave++);
-    round.addWave("!!!p!!", lastWave += 3);
+    /*round.addWave("!!!p!!", lastWave += 3);
     round.addWave("!p!p!!", lastWave += 3);
     round.addWave("p!!!p!", lastWave += 4);
     round.addWave("!p!p!!", lastWave += 4);
     round.addWave("!!p!!!", lastWave += 2);
-    round.addWave("!!!!!p", lastWave += 1);
+    round.addWave("!!!!!p", lastWave += 1);*/
     round.play();
     return round;
 };
@@ -208,12 +216,12 @@ rounds[2] = function() {
     var lastWave = 0;
     round.create(2);
     round.addWave("!!p!p!", lastWave++);
-    round.addWave("!p!p!!", lastWave += 4);
+    /*round.addWave("!p!p!!", lastWave += 4);
     round.addWave("!p!p!p", lastWave += 4);
     round.addWave("p!!!p!", lastWave += 6);
     round.addWave("p!p!p!", lastWave += 4);
     round.addWave("p!!!p!", lastWave += 6);
-    round.addWave("pp!!pp", lastWave += 4);
+    round.addWave("pp!!pp", lastWave += 4);*/
     round.play();
     return round;
 };
@@ -222,7 +230,7 @@ rounds[3] = function() {
     var lastWave = 0;
     round.create(3);
     round.addWave("!!!!!r", lastWave++);
-    round.addWave("!!!!r!", lastWave += 1.5);
+    /*round.addWave("!!!!r!", lastWave += 1.5);
     round.addWave("!!!r!!", lastWave += 1.5);
     round.addWave("!!r!!!", lastWave += 1.5);
     round.addWave("!r!!!!", lastWave += 1.5);
@@ -231,16 +239,16 @@ rounds[3] = function() {
     round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
     round.addWave("!!pr!!", lastWave += 3);
-    round.addWave("prprpr", lastWave += 3);
+    round.addWave("prprpr", lastWave += 3);*/
     round.play();
     return round;
 };
 rounds[4] = function() {
     var round = Crafty.e("Round");
     var lastWave = 0;
-    round.create(3);
+    round.create(4);
     round.addWave("!!!!!r", lastWave++);
-    round.addWave("p!!!!r", lastWave += 3);
+    /*round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
     round.addWave("!!pr!!", lastWave += 3);
     round.addWave("p!!!!r", lastWave += 3);
@@ -252,7 +260,7 @@ rounds[4] = function() {
     round.addWave("!!pr!!", lastWave += 3);
     round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
-    round.addWave("!!pr!!", lastWave += 3);
+    round.addWave("!!pr!!", lastWave += 3);*/
     round.play();
     return round;
 };
@@ -261,7 +269,7 @@ rounds[5] = function() {
     var lastWave = 0;
     round.create(5);
     round.addWave("!!!g!!", 1);
-    round.addWave("!p!!p!", lastWave += 7);
+    /*round.addWave("!p!!p!", lastWave += 7);
     round.addWave("!!r!!!", lastWave += 3);
     round.addWave("!p!!!!", lastWave += 1.5);
     round.addWave("!!!!r!", lastWave += 1.5);
@@ -270,7 +278,7 @@ rounds[5] = function() {
     round.addWave("p!!!p!", lastWave += 3);
     round.addWave("pppppp", lastWave += 3);
     round.addWave("prpprp", lastWave += 7);
-    round.addWave("!!!!g!", lastWave += 7);
+    round.addWave("!!!!g!", lastWave += 7);*/
     round.play();
     return round;
 };
@@ -280,7 +288,7 @@ rounds[6] = function() {
     var lastWave = 0;
     round.create(6);
     round.addWave("!!g!!!", 1);
-    round.addWave("!r!!r!", lastWave += 4);
+    /*round.addWave("!r!!r!", lastWave += 4);
     round.addWave("p!!!!p", lastWave += 3);
     round.addWave("!r!r!r", lastWave += 3);
     round.addWave("p!p!p!", lastWave += 5);
@@ -293,7 +301,7 @@ rounds[6] = function() {
     round.addWave("!g!!g!", lastWave += 6);
     round.addWave("!!!r!!", lastWave += 3);
     round.addWave("!g!!!!", lastWave += 2);
-    round.addWave("!!!!!p", lastWave += 7);
+    round.addWave("!!!!!p", lastWave += 7);*/
     round.play();
     return round;
 };
@@ -303,7 +311,7 @@ rounds[7] = function() {
     var lastWave = 0;
     round.create(7);
     round.addWave("!r!p!r", 1);
-    round.addWave("!p!!!p", lastWave += 7);
+    /*round.addWave("!p!!!p", lastWave += 7);
     round.addWave("!r!r!r", lastWave += 3);
     round.addWave("!g!!g!", lastWave += 7);
     round.addWave("!!g!!!", lastWave += 8);
@@ -319,7 +327,7 @@ rounds[7] = function() {
     round.addWave("p!p!p!", lastWave += 2);
     round.addWave("!!!r!!", lastWave += 6);
     round.addWave("!pppp!", lastWave += 2);
-    round.addWave("p!p!p!", lastWave += 7);
+    round.addWave("p!p!p!", lastWave += 7);*/
     round.play();
     return round;
 };

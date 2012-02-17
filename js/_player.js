@@ -18,6 +18,10 @@ Crafty.c("PlayerLife", {
         this._actualLife = this._fullLife;
     },
     takeDamage: function(type) {
+        if(this.bleed !== undefined) {
+            this.bleed.destroy();
+        }
+        this.bleed = Crafty.e("Bleed").attachCreature(this);
         var damages = 0;
         switch(type) {
             default:
