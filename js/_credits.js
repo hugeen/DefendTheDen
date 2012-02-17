@@ -1,7 +1,14 @@
 function buildCreditsUI() {
     $("body").append('<a id="creditsBack" class="creditsUI"><span class="creditsUI">Back to main screen</span></a>');
     $("body").append('<div id="credits" class="creditsUI"></div>');
+    var endlessUnlock = '';
+    if(storage.level.get() > 6) {
+        endlessUnlock = ''
+            +'<h1 class="creditsUI">Thanks for playing</h1>'
+            +'<div class="creditsUI">Now you can give a try to Endless Mode</div>';
+    }
     $("#credits").append('<div class="wrapper creditsUI">'
+        +endlessUnlock
         +'<h1 class="creditsUI">Development</h1>'
         +'<div class="creditsUI">by <a href="http://hugeen.tumblr.com/" class="extLink creditsUI">Cyrille Bogaert</a> from <b>Toxicode</b> (Hugeen)</div>'
         +'<h1 class="creditsUI">Sprites</h1>'

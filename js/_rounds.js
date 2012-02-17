@@ -88,8 +88,12 @@ Crafty.c("Round", {
                         this.delay(function() {
                             $(".youWin").remove();
                             removeUI();
-                            storage.level.set(storage.level.get() + 1);
-                            loadScene(storage.level.get());
+                            if(storage.level.get() > 6) {
+                                Crafty.scene("credits");
+                            } else {
+                                storage.level.set(storage.level.get() + 1);
+                                loadScene(storage.level.get()); 
+                            }
                         }, 2000);
                     }
                 }

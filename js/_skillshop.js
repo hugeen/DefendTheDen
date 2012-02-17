@@ -9,8 +9,12 @@ var buildSkillShopUI = function() {
     	+ '');
     
     buildSkillLine(DTD.skillList["ThrowingAxe"], storage.axeSkill.get());
-    buildSkillLine(DTD.skillList["Blow"], storage.blowSkill.get());
-    buildSkillLine(DTD.skillList["ThrowingBrick"], storage.rockSkill.get());
+    if(storage.level.get() > 2) {
+        buildSkillLine(DTD.skillList["Blow"], storage.blowSkill.get());
+    }
+    if(storage.level.get() > 4) {
+        buildSkillLine(DTD.skillList["ThrowingBrick"], storage.rockSkill.get());
+    }
 
 };
 
