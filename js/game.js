@@ -96,7 +96,26 @@ var sceneMaker = function(endless) {
 };
 
 window.onload = (function() {
-    audioManager.playMusic('music_ekeynox');
+    DTD.music = document.createElement('audio');
+    DTD.music.setAttribute('src', 'audio/music_ekeynox.ogg');
+    DTD.music.setAttribute('type', 'audio/ogg');
+    DTD.music.setAttribute('loop', 'loop');
+    if(!storage.sound.get()) {
+        DTD.music.volume = 0;
+        $("#sound").css("background-image", "url(img/sound-speaker-off.png)");
+    }
+    
+    $("#sound").live("click", function() {
+        if(storage.sound.get()) {
+            DTD.music.volume = 0;
+            $(this).css("background-image", "url(img/sound-speaker-off.png)");
+            storage.sound.set(false);
+        } else {
+            DTD.music.volume = 1;
+            $(this).css("background-image", "url(img/sound-speaker-on.png)");
+            storage.sound.set(true);
+        }
+    });
     $("#menuPauseResume").live("click", function() {
         Crafty.pause();
     });

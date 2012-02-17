@@ -10,7 +10,8 @@ var storage = {
     level       : new LocalStore('level',           { defaultVal : 1 }),
     axeSkill    : new LocalStore('axe_skill',       { defaultVal : 0 }),
     blowSkill   : new LocalStore('blow_skill',      { defaultVal : 0 }),
-    rockSkill   : new LocalStore('rock_skill',      { defaultVal : 0 })
+    rockSkill   : new LocalStore('rock_skill',      { defaultVal : 0 }),
+    sound       : new LocalStore('sound',           { defaultVal : true })
 };
 
 var resetStorage = function() {

@@ -13,7 +13,7 @@ var App = function() {
         
     // Kick off what needs to be done whenever the popup is about to be shown
     this.onPopupShowing = function() {    
-    	
+    	DTD.music.play();
     };
     
     // Kick off what needs to be done when the popup is shown
@@ -60,7 +60,7 @@ var App = function() {
                 Crafty.pause();
             }
         }
-        //audioManager.pauseAllMusic();
+        DTD.music.pause();
     };
     
     // Use this to store anything needed to restore state when the user opens the Pokki again

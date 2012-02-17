@@ -419,3 +419,22 @@
 	color: #fff;
 	text-decoration: underline;
 }
+
+#sound {
+	
+}
+a#sound {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1;
+    background: url(../img/sound-speaker-on.png) top left no-repeat;
+}
+a#sound:hover {
+	border-radius: 5px;
+	background-color: #555;
+}
