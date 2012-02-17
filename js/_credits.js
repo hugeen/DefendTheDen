@@ -5,14 +5,14 @@ function buildCreditsUI() {
     if(storage.endless.get()) {
         endlessUnlock = ''
             +'<h1 class="creditsUI">Thanks for playing</h1>'
-            +'<div class="creditsUI">Now you can give a try to Endless Mode</div>';
+            +'<div class="creditsUI">Now you can give a try to <a id="endlessFromCredits" href="#">Endless Mode</a></div>';
     }
     $("#credits").append('<div class="wrapper creditsUI">'
         +endlessUnlock
         +'<h1 class="creditsUI">Development</h1>'
         +'<div class="creditsUI">by <a href="http://hugeen.tumblr.com/" class="extLink creditsUI">Cyrille Bogaert</a> from <b>Toxicode</b> (Hugeen)</div>'
         +'<h1 class="creditsUI">Sprites</h1>'
-        +'<div class="creditsUI">by <a href="http://www.flickr.com/photos/75683839@N03/" class="extLink creditsUI">Lakmé Mosnier</a> (Muneen)</div>'
+        +'<div class="creditsUI">by <a href="http://www.flickr.com/photos/75683839@N03/" class="extLink creditsUI">Lou Mosnier</a> (Muneen)</div>'
         +'<h1 class="creditsUI">Music Theme</h1>'
         +'<div class="creditsUI">by <a href="http://www.toxicode.fr/" class="extLink creditsUI">Pierre Lancien</a> from <b>Toxicode</b> (Ekeynox)</div>'
         +'<h1 class="creditsUI">HTML5 Framework</h1>'

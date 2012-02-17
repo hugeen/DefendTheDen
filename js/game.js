@@ -155,7 +155,10 @@ window.onload = (function() {
         pokki.openURLInDefaultBrowser($(this).attr("href"));
         return false;
     });
-
+    $("#endlessFromCredits").live("click", function() {
+        removeCreditsUI();
+        sceneMaker(true);
+    });
     $("#skillShopPlay").live("click", function() {
         removeSkillShopUI();
         sceneMaker();

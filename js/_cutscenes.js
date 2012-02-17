@@ -43,7 +43,7 @@ cutscenes[1] = function() {
 	},200);
 	cut.realDelay(function() {
 		$(".pigSpeech").show();
-		$(".pigSpeech").html("Hey YOU !");
+		$(".pigSpeech").html("Hey you!");
 	}, 1250);
 	cut.realDelay(function() {
 		$(".pigSpeech").hide();
@@ -53,7 +53,7 @@ cutscenes[1] = function() {
 	cut.realDelay(function() {
 		$(".wolfSpeech").hide();
 		$(".pigSpeech").show();
-		$(".pigSpeech").html("You blew in my house !");
+		$(".pigSpeech").html("You blew on my house !");
 	}, 4250);
 	cut.realDelay(function() {
 		$(".pigSpeech").hide();
@@ -63,7 +63,7 @@ cutscenes[1] = function() {
 	cut.realDelay(function() {
 		$(".wolfSpeech").hide();
 		$(".pigSpeech").show();
-		$(".pigSpeech").html("It's time to <br/> Revenge ! ! !");
+		$(".pigSpeech").html("You will pay for that !");
 	}, 8250);
 	cut.realDelay(function() {
 		$(".wolfSpeech").hide();
@@ -84,7 +84,7 @@ cutscenes[1] = function() {
 	}, 11000);
 	cut.realDelay(function() {
 		$("body").append('<div class="didacticiel01a cutscene"></div><div class="didacticiel01b cutscene"></div>');
-		$(".didacticiel01a").html("To throw an Axe . . .");
+		$(".didacticiel01a").html(" To throw an Axe . . .");
 		$(".didacticiel01b").html(" . . . Push Key '1'");
 	}, 11250);
 	cut.realDelay(function() {
@@ -137,7 +137,7 @@ cutscenes[3] = function() {
 	}, 1000);
 	cut.realDelay(function() {
 		$(".riddingSpeech").show();
-		$(".riddingSpeech").html("Hey YOU !");
+		$(".riddingSpeech").html(" Hey you!");
 	}, 1250);
 	cut.realDelay(function() {
 		$(".riddingSpeech").hide();
@@ -244,7 +244,7 @@ cutscenes[5] = function() {
     cut.realDelay(function() {
         $(".wolfSpeech").hide();
         $(".grannySpeech").show();
-        $(".grannySpeech").html(" I want you dead ! ");
+        $(".grannySpeech").html(" I want you dead! ");
     }, 10000);
     
     cut.realDelay(function() {
