@@ -202,12 +202,12 @@ rounds[1] = function() {
     var lastWave = 0;
     round.create(1);
     round.addWave("!p!!p!", lastWave++);
-    /*round.addWave("!!!p!!", lastWave += 3);
+    round.addWave("!!!p!!", lastWave += 3);
     round.addWave("!p!p!!", lastWave += 3);
     round.addWave("p!!!p!", lastWave += 4);
     round.addWave("!p!p!!", lastWave += 4);
     round.addWave("!!p!!!", lastWave += 2);
-    round.addWave("!!!!!p", lastWave += 1);*/
+    round.addWave("!!!!!p", lastWave += 1);
     round.play();
     return round;
 };
@@ -216,12 +216,12 @@ rounds[2] = function() {
     var lastWave = 0;
     round.create(2);
     round.addWave("!!p!p!", lastWave++);
-    /*round.addWave("!p!p!!", lastWave += 4);
+    round.addWave("!p!p!!", lastWave += 4);
     round.addWave("!p!p!p", lastWave += 4);
     round.addWave("p!!!p!", lastWave += 6);
     round.addWave("p!p!p!", lastWave += 4);
     round.addWave("p!!!p!", lastWave += 6);
-    round.addWave("pp!!pp", lastWave += 4);*/
+    round.addWave("pp!!pp", lastWave += 4);
     round.play();
     return round;
 };
@@ -230,7 +230,7 @@ rounds[3] = function() {
     var lastWave = 0;
     round.create(3);
     round.addWave("!!!!!r", lastWave++);
-    /*round.addWave("!!!!r!", lastWave += 1.5);
+    round.addWave("!!!!r!", lastWave += 1.5);
     round.addWave("!!!r!!", lastWave += 1.5);
     round.addWave("!!r!!!", lastWave += 1.5);
     round.addWave("!r!!!!", lastWave += 1.5);
@@ -239,7 +239,7 @@ rounds[3] = function() {
     round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
     round.addWave("!!pr!!", lastWave += 3);
-    round.addWave("prprpr", lastWave += 3);*/
+    round.addWave("prprpr", lastWave += 3);
     round.play();
     return round;
 };
@@ -248,7 +248,7 @@ rounds[4] = function() {
     var lastWave = 0;
     round.create(4);
     round.addWave("!!!!!r", lastWave++);
-    /*round.addWave("p!!!!r", lastWave += 3);
+    round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
     round.addWave("!!pr!!", lastWave += 3);
     round.addWave("p!!!!r", lastWave += 3);
@@ -260,7 +260,7 @@ rounds[4] = function() {
     round.addWave("!!pr!!", lastWave += 3);
     round.addWave("p!!!!r", lastWave += 3);
     round.addWave("!p!!r!", lastWave += 3);
-    round.addWave("!!pr!!", lastWave += 3);*/
+    round.addWave("!!pr!!", lastWave += 3);
     round.play();
     return round;
 };
@@ -269,7 +269,7 @@ rounds[5] = function() {
     var lastWave = 0;
     round.create(5);
     round.addWave("!!!g!!", 1);
-    /*round.addWave("!p!!p!", lastWave += 7);
+    round.addWave("!p!!p!", lastWave += 7);
     round.addWave("!!r!!!", lastWave += 3);
     round.addWave("!p!!!!", lastWave += 1.5);
     round.addWave("!!!!r!", lastWave += 1.5);
@@ -278,7 +278,7 @@ rounds[5] = function() {
     round.addWave("p!!!p!", lastWave += 3);
     round.addWave("pppppp", lastWave += 3);
     round.addWave("prpprp", lastWave += 7);
-    round.addWave("!!!!g!", lastWave += 7);*/
+    round.addWave("!!!!g!", lastWave += 7);
     round.play();
     return round;
 };
@@ -288,7 +288,7 @@ rounds[6] = function() {
     var lastWave = 0;
     round.create(6);
     round.addWave("!!g!!!", 1);
-    /*round.addWave("!r!!r!", lastWave += 4);
+    round.addWave("!r!!r!", lastWave += 4);
     round.addWave("p!!!!p", lastWave += 3);
     round.addWave("!r!r!r", lastWave += 3);
     round.addWave("p!p!p!", lastWave += 5);
@@ -301,7 +301,7 @@ rounds[6] = function() {
     round.addWave("!g!!g!", lastWave += 6);
     round.addWave("!!!r!!", lastWave += 3);
     round.addWave("!g!!!!", lastWave += 2);
-    round.addWave("!!!!!p", lastWave += 7);*/
+    round.addWave("!!!!!p", lastWave += 7);
     round.play();
     return round;
 };
@@ -311,7 +311,7 @@ rounds[7] = function() {
     var lastWave = 0;
     round.create(7);
     round.addWave("!r!p!r", 1);
-    /*round.addWave("!p!!!p", lastWave += 7);
+    round.addWave("!p!!!p", lastWave += 7);
     round.addWave("!r!r!r", lastWave += 3);
     round.addWave("!g!!g!", lastWave += 7);
     round.addWave("!!g!!!", lastWave += 8);
@@ -327,7 +327,7 @@ rounds[7] = function() {
     round.addWave("p!p!p!", lastWave += 2);
     round.addWave("!!!r!!", lastWave += 6);
     round.addWave("!pppp!", lastWave += 2);
-    round.addWave("p!p!p!", lastWave += 7);*/
+    round.addWave("p!p!p!", lastWave += 7);
     round.play();
     return round;
 };
