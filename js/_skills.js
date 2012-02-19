@@ -8,7 +8,7 @@ var throwingAxeSkill = function() {
 				if(DTD.inGame) {
 					throwAxe();
 				}
-			}, 20 * 20 * 0.9);
+			}, 20 * 20 * 0.5);
 			setTimeout(function() {
 				if(DTD.inGame) {
 					DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
@@ -30,7 +30,7 @@ var blowSkill = function() {
 				if(DTD.inGame) {
 					blow();
 				}
-			}, 20 * 20 * 0.9);
+			}, 20 * 20 * 0.01);
 			setTimeout(function() {
 				if(DTD.inGame) {
 					DTD.player._spriteComponent.stop().animate("walkWolf", 18, 0);
