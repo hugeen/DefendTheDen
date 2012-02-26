@@ -36,7 +36,7 @@
                 case 'Blow':
                     skillLevel = storage.blowSkill;
                     break;
-                case 'ThrowingBrick':
+                case 'DTD.ThrowingRock':
                     skillLevel = storage.rockSkill;
                     break;
             }

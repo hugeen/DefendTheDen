@@ -8,7 +8,7 @@
             DTD.buildSkillLine(DTD.skillList["Blow"], storage.blowSkill.get());
         }
         if(storage.level.get() > 4) {
-            DTD.buildSkillLine(DTD.skillList["ThrowingBrick"], storage.rockSkill.get());
+            DTD.buildSkillLine(DTD.skillList["DTD.ThrowingRock"], storage.rockSkill.get());
         }
 
     };
@@ -33,7 +33,7 @@
                 break;
             case "Throwing Brick":
                 skillImg = "rock-skill"
-                skillName = "ThrowingBrick";
+                skillName = "DTD.ThrowingRock";
                 break;
         }
         if(skill.stats[skillStorage].damageMin !== undefined) {

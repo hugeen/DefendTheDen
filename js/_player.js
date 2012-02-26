@@ -78,7 +78,7 @@
                     cost = DTD.skillList["Blow"].stats[storage.axeSkill.get()].energyCost;
                     break;
                 case "rock":
-                    cost = DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost;
+                    cost = DTD.skillList["DTD.ThrowingRock"].stats[storage.axeSkill.get()].energyCost;
                     break;
                 default:
                     cost = 1;

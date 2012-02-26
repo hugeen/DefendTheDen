@@ -20,7 +20,7 @@
             goldCost : 15
         }]
     };
-    DTD.skillList["ThrowingBrick"] = {
+    DTD.skillList["DTD.ThrowingRock"] = {
         name : "Throwing Brick",
         key : 3,
         stats : [{
@@ -107,15 +107,15 @@
     DTD.rockSkill = function() {
         var skillLevel = (DTD.gameType == "endless") ? 2 : storage.rockSkill.get();
         return new SkillButton(3, "Rock", {
-            sprite : "DTD.rockSkill",
+            sprite : "rockSkill",
             keyBind : 3,
-            cooldown : DTD.skillList["ThrowingBrick"].stats[skillLevel].coolDown,
+            cooldown : DTD.skillList["DTD.ThrowingRock"].stats[skillLevel].coolDown,
             action : function() {
                 if(DTD.inGame) {
                     DTD.rock();
                 }
             },
-            energyCost : DTD.skillList["ThrowingBrick"].stats[skillLevel].energyCost
+            energyCost : DTD.skillList["DTD.ThrowingRock"].stats[skillLevel].energyCost
         });
     };
     
@@ -140,7 +140,7 @@
 
     DTD.rock = function() {
         storage.rocks.set(storage.rocks.get() + 1);
-        if(DTD.player._actualEnergy >= DTD.skillList["ThrowingBrick"].stats[storage.axeSkill.get()].energyCost) {
+        if(DTD.player._actualEnergy >= DTD.skillList["DTD.ThrowingRock"].stats[storage.axeSkill.get()].energyCost) {
             DTD.player.consumeEnergy("rock");
             Crafty.e("Rock").attr({
                 x : DTD.player.x,
@@ -364,7 +364,7 @@
                     this.realDelay(function() {
                         var that = this;
                         _.each(o, function(item, key) {
-                            item.obj.takeDamage(DTD.damagesFor("ThrowingBrick"));
+                            item.obj.takeDamage(DTD.damagesFor("DTD.ThrowingRock"));
                         });
                         this.destroy();
                     }, 350);
