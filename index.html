@@ -2,8 +2,89 @@
 	<meta charset="utf-8">
 	<title>Defend The Den</title>
 	<meta name="description" content="">
+	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+	<style rel="stylesheet" type="text/css">
+		body {
+			color: #fff;
+			margin: 0;
+			padding: 0;
+			background: url(img/pinstriped_suit.png) top left repeat;
+			font-family: 'Coming Soon', cursive;
+		}
+		#background {
+			background: url(img/bg-website.png) top left repeat;
+			position: absolute;
+			top: 125px;
+			left: 50%;
+			margin-top: 0;
+			margin-left: -492px;
+			width: 985px;
+			height: 459px;
+		}
+		#game {
+			-webkit-box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+			-moz-box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+			box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+			position: absolute;
+			top: 25px;
+			left: 50%;
+			margin-top: 0;
+			margin-left: -355px;
+			width: 710px;
+			height: 580px;
+		}
+		#container {
+			top: 635px;
+			margin-left: -355px;
+			left: 50%;
+			position: absolute;
+			width: 710px;
+		}
+		h1 {
+			font-family: 'Marck Script', cursive;
+		}
+		iframe {
+			border: none;
+		}
+		a {
+			color: #17c1f2;
+		}
+		a:hover {
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
-	<iframe width="710" height="580" src="popup.html"></iframe>
+	<a href="https://github.com/hugeen/Defend-The-Den"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+	<div id="background"></div>
+	<div id="game">
+		<iframe width="710" height="580" src="popup.html"></iframe>
+	</div>
+	<div id="container">
+		<div style="text-align: center;">
+			<script type='text/javascript' src='http://cdn.pokki.com/embed/pokki_helper.js'></script>
+			<a class='pokki-download' onclick='return pokki_helper.download(this, "Defend the Den", "Pokki_Defend_the_Den");' href='http://www.pokki.com/download/?name=Defend+the+Den&etag=Pokki_Defend_the_Den'>Download Defend the Den for Pokki</a>
+		</div>
+		<div>
+			<h1>Defend The Den</h1>
+			<p>Exterminate the waves of enemies before they reach your character</p>
+			<h1>Controls:</h1>
+			<ul>
+				<li>Move the mouse to move the character vertically</li>
+				<li>Press the corresponding keys (1,2,3 ...) to activate the skills</li>
+			</ul>
+			<h1>Open source project</h1>
+			<p>Defend the den is now an open source project.</p>
+			<p>Feel free to collaborate.</p>
+			<p>
+				<a href="https://groups.google.com/forum/?hl=fr&fromgroups#!forum/defend-the-den">Forum</a> |
+				<a href="https://github.com/hugeen/Defend-The-Den">GitHub</a> |
+				<a href="https://twitter.com/#!/Hugeen">Twitter</a> |
+				<a href="http://hugeen.tumblr.com/">Owner Blog (fr)</a> |
+				<a href="http://craftyjs.com/">CraftyJS</a>
+			</p>
+		</div>
+	</div>
 </body>
 </html>
