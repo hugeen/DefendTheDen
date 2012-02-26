@@ -1,5 +1,5 @@
 (function() {
-    
+
     DTD.buildCreditsUI = function() {
         $("body").append('<a id="creditsBack" class="creditsUI"><span class="creditsUI">Back to main screen</span></a>');
         $("body").append('<div id="credits" class="creditsUI"></div>');
