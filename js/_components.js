@@ -56,7 +56,7 @@ Crafty.c("EndlessMenuItem", {
             this.textColor('#90c93c');
         });
         this.bind("Click", function() {
-            sceneMaker(true);
+            DTD.sceneMaker(true);
         });
     }
 });

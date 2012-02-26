@@ -2,7 +2,7 @@ function loadScene(scene) {
     switch(scene) {
         case 1:
             resetStorage();
-            sceneMaker();
+            DTD.sceneMaker();
             break;
         case "loose":
             loadScene(storage.level.get());
