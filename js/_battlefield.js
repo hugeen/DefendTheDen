@@ -8,15 +8,12 @@
         Crafty.e("SkyBackground");
         Crafty.e("Wires");
         Crafty.e("WindGravity");
-        DTD.grassLine(1);
-        DTD.grassLine(2);
-        DTD.grassLine(3);
-        DTD.grassLine(4);
-        DTD.grassLine(5);
-        DTD.grassLine(6);
+        for(var i = 1; i <= 6; i++) {
+            DTD.grassLine(i);
+        }
         DTD.makeMatrix();
     };
-    
+
     DTD.buildUI = function() {
         $("body").append('' + '<div id="pause" class="battleFieldUI"></div><a id="menu" href="#" class="battleFieldUI">' + '<span class="battleFieldUI">Menu</span>' + '</a>' + '<div id="portrait" class="battleFieldUI">' + '<div id="lifeBar" class="battleFieldUI">' + '</div>' + '<div id="energyBar" class="battleFieldUI">' + '</div>' + '<div id="goldCount" class="battleFieldUI">' + storage.goldCoins.get() + '</div>' + '<div id="goldCoin" class="battleFieldUI"></div>' + '</div>' + '<div id="levelNumber" class="battleFieldUI">LEVEL <span class="battleFieldUI">~</span></div>' + '<div id="progressBarBelow" class="battleFieldUI">' + '<div id="progressBar" class="battleFieldUI"></div>' + '</div>' + '</div>');
 
@@ -34,46 +31,21 @@
             Crafty.pause();
         });
     };
-    
+
     DTD.removeUI = function() {
         $(".battleFieldUI").remove();
     };
-    
+
     DTD.grassLine = function(line) {
         var component = "grassLight";
         var yBase = 125;
         var xBase = 75;
         var hBase = 70;
         var wBase = 157;
-
         var yNew = 125 + (70 * (line - 1));
 
-        switch(line) {
-            case 6:
-                zIndex = 12;
-                var component = "grassDark";
-                break;
-            case 5:
-                zIndex = 10;
-                var component = "grassLight";
-                break;
-            case 4:
-                zIndex = 8;
-                var component = "grassDark";
-                break;
-            case 3:
-                zIndex = 6;
-                var component = "grassLight";
-                break;
-            case 2:
-                zIndex = 4;
-                var component = "grassDark";
-                break;
-            case 1:
-                zIndex = 2;
-                var component = "grassLight";
-                break;
-        }
+        var zIndex = line * 2;
+        var component = (line % 2) ? "grassLight" : "grassDark";
 
         for(var i = 0; i <= 4; i++) {
             Crafty.e("DTD.grassLine").addComponent(component).attr({
@@ -160,7 +132,6 @@
                 w : 157,
                 h : 157
             });
-
         }
     });
 
@@ -255,12 +226,6 @@
                 h : 70,
                 z : 0
             });
-            this.bind("MouseOver", function() {
-
-            });
-            this.bind("MouseDown", function() {
-
-            });
         }
     });
 
@@ -296,5 +261,5 @@
             });
         }
     });
-    
+
 })();

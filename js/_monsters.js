@@ -255,8 +255,7 @@
             }
         },
         setToLine : function(line) {
-            if(line == 6)
-                var zIndex = 0;
+            var zIndex = 0;
             switch(line) {
                 case 6:
                     zIndex = 11;
@@ -295,7 +294,6 @@
                     this.bleed = Crafty.e("Bleed").attachCreature(this);
                 }
             }
-
         }
     });
     

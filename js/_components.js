@@ -1,5 +1,5 @@
 (function() {
-    
+
     Crafty.c("MenuItem", {
         init : function() {
             this.addComponent("2D, DOM, Mouse");
@@ -168,5 +168,5 @@
             this.trigger("SpriteAttached");
         }
     });
-    
+
 })();
