@@ -86,14 +86,14 @@ function ssc_init() {
 
 
 /************************************************
- * SCROLLING 
+ * SCDTD.rolling 
  ************************************************/
  
 var ssc_que = [];
 var ssc_pending = false;
 
 /**
- * Pushes scroll actions to the scrolling queue.
+ * Pushes scroll actions to the scDTD.rolling queue.
  */
 function ssc_scrollArray(elem, left, top, delay) {
     
@@ -138,7 +138,7 @@ function ssc_scrollArray(elem, left, top, delay) {
             var x = (item.x * position - item.lastX) >> 0;
             var y = (item.y * position - item.lastY) >> 0;
             
-            // add this to the total scrolling
+            // add this to the total scDTD.rolling
             scrollX += x;
             scrollY += y;            
             
@@ -347,7 +347,7 @@ function ssc_overflowingAncestor(el) {
         elems.push(el);
         if (ssc_rootScrollHeight === el.scrollHeight) {
             if (!ssc_frame || ssc_root.clientHeight + 10 < ssc_rootScrollHeight) {
-                return ssc_setCache(elems, document.body); // scrolling ssc_root in WebKit
+                return ssc_setCache(elems, document.body); // scDTD.rolling ssc_root in WebKit
             }
         } else if (el.clientHeight + 10 < el.scrollHeight) {
             overflow = getComputedStyle(el, "").getPropertyValue("overflow");
