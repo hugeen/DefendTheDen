@@ -3566,7 +3566,7 @@ Crafty.extend({
 				var meta = document.createElement("meta"),
 					head = document.getElementsByTagName("HEAD")[0];
 
-				//stop mobile zooming and scrolling
+				//stop mobile zooming and scDTD.rolling
 				meta.setAttribute("name", "viewport");
 				meta.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no");
 				head.appendChild(meta);
