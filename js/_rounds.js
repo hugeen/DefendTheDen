@@ -40,11 +40,11 @@
 
 
     DTD.youWin = function() {
-        $("body").append('<div class="DTD.youWin">You WIN !</div>');
+        $("body").append('<div class=".youWin">You WIN !</div>');
     };
 
     DTD.youLoose = function() {
-        $("body").append('<div class="DTD.youWin">You LOOSE !</div>');
+        $("body").append('<div class=".youWin">You LOOSE !</div>');
     };
     function Round() {
         this.waves = [];
@@ -164,7 +164,7 @@
             this.addComponent("RealDelay");
             this._start = 0;
             this.waves = [];
-            this._DTD.monsterCount = 0;
+            this._monsterCount = 0;
             this._monstersDied = 0;
             this._played = false;
             this._roundPauseBuffer = 0;
@@ -199,12 +199,12 @@
                             }
                         });
                     } else {
-                        if(this._DTD.monsterCount == this._monstersDied) {
+                        if(this._monsterCount == this._monstersDied) {
                             this._played = false;
                             this.trigger("Ended");
                             DTD.youWin();
                             this.delay(function() {
-                                $(".DTD.youWin").remove();
+                                $(".youWin").remove();
                                 DTD.removeUI();
                                 if(storage.level.get() > 6) {
                                     storage.level.set(1);
@@ -238,7 +238,7 @@
         play : function() {
             var that = this;
             var lastWave = _.last(this.waves);
-            this._DTD.monsterCount = DTD.monsterCount(this.waves);
+            this._monsterCount = DTD.monsterCount(this.waves);
             this._monstersDied = 0;
             this._played = true;
             this._duration = lastWave.at * 1000;

@@ -68,7 +68,7 @@
 
         $("#menuPauseBackToMain").live("click", function() {
             Crafty.pause();
-            $(".DTD.youWin").remove();
+            $(".youWin").remove();
             DTD.removeUI();
             Crafty.scene("titleScreen");
         });

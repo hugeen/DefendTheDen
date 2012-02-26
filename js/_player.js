@@ -37,7 +37,7 @@
             if(this._actualLife <= 0) {
                 DTD.youLoose();
                 this.delay(function() {
-                    $(".DTD.youWin").remove();
+                    $(".youWin").remove();
                     DTD.removeUI();
                     if(DTD.gameType == "story") {
                         DTD.loadScene("loose");

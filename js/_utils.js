@@ -110,7 +110,7 @@
                 }
             }
         });
-        return DTD.monsterCount;
+        return monsterCount;
     };
 
     DTD.rolling = function(percent) {
