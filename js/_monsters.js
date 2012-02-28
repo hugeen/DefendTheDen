@@ -16,12 +16,6 @@
             this.animate("walk", 0, 0, 3);
             this.animate("walk", 38, 1);
 
-            this.bind("EnterFrame", function() {
-                if(this._frame.frame == 4) {
-                    this._frame.current = 0;
-                    this._frame.frame = 0;
-                }
-            });
         }
     });
 
