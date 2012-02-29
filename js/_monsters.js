@@ -14,7 +14,7 @@
                 y : 20
             };
             this.animate("walk", 0, 0, 3);
-            this.animate("walk", 38, 1);
+            this.animate("walk", 38, -1);
 
         }
     });
@@ -34,7 +34,7 @@
             };
             this.animate("throwPie", 4, 0, 7);
             this.animate("walk", 0, 0, 3);
-            this.animate("walk", 38, 1);
+            this.animate("walk", 38, -1);
         }
     });
 

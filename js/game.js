@@ -32,6 +32,7 @@
         // Manage sound volume
         if(!storage.sound.get()) {
             DTD.music.volume = 0;
+            Crafty.audio.settings("music_ekeynox", {muted: true});
             $("#sound").css("background-image", "url(img/sound-speaker-off.png)");
         }
         
