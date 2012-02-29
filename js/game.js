@@ -4,7 +4,17 @@
 
         // Initialize Crafty
         Crafty.init(DTD.viewPort.w, DTD.viewPort.h);
-
+        
+        Crafty.audio.add("music_ekeynox", "audio/music_ekeynox.ogg");
+        Crafty.audio.add("click", "audio/_click.ogg");
+        Crafty.audio.add("howl", "audio/_howl.ogg");
+        Crafty.audio.add("money", "audio/_money.ogg");
+        Crafty.audio.add("throwAxe", "audio/_throwAxe.ogg");
+        Crafty.audio.add("wound", "audio/_wound.ogg");
+        
+        Crafty.audio.play("music_ekeynox");
+        Crafty.audio.settings("music_ekeynox", {loop: true});
+        
         // Crafty pause Handler
         Crafty.bind("Pause", function() {
             if(DTD.inGame) {
@@ -54,10 +64,12 @@
             if(storage.sound.get()) {
                 DTD.music.volume = 0;
                 $(this).css("background-image", "url(img/sound-speaker-off.png)");
+                Crafty.audio.settings("music_ekeynox", {muted: true});
                 storage.sound.set(false);
             } else {
                 DTD.music.volume = 1;
                 $(this).css("background-image", "url(img/sound-speaker-on.png)");
+                Crafty.audio.settings("music_ekeynox", {muted: false});
                 storage.sound.set(true);
             }
         });

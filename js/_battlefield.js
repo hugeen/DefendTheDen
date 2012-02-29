@@ -182,9 +182,6 @@
                 h : 16,
                 z : 35
             });
-            this.bind("Remove", function() {
-
-            });
             this.bind("MouseOver", function() {
                 Crafty.e("GoldFade").attr({
                     x : this.x,
@@ -192,6 +189,7 @@
                 });
                 this.destroy();
                 DTD.updateGolds();
+                Crafty.audio.play("money");
             });
             this.realDelay(function() {
                 if(DTD.gameType == "endless") {

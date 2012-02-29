@@ -11,6 +11,10 @@
             this.css("background", "url(img/menu-sprites.png)");
             this.css("z-index", "0");
             this.css("cursor", "pointer");
+            this.bind("Click", function() {
+               Crafty.audio.play("click");
+               Crafty.audio.play("howl");
+            });
         }
     });
 
@@ -56,7 +60,10 @@
             });
             this.bind("Click", function() {
                 DTD.sceneMaker(true);
+                Crafty.audio.play("click");
+                Crafty.audio.play("howl");
             });
+
         }
     });
 
@@ -84,6 +91,8 @@
             });
             this.bind("Click", function() {
                 Crafty.scene("credits");
+                Crafty.audio.play("click");
+                Crafty.audio.play("howl");
             });
         }
     });

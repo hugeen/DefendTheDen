@@ -120,6 +120,7 @@
     };
     
     DTD.throwAxe = function() {
+        Crafty.audio.play("throwAxe");
         storage.axeThrowed.set(storage.axeThrowed.get() + 1);
         Crafty.e("ThrowingAxe").attr({
             x : DTD.player.x,
@@ -139,6 +140,7 @@
     }
 
     DTD.rock = function() {
+        Crafty.audio.play("throwAxe");
         storage.rocks.set(storage.rocks.get() + 1);
         if(DTD.player._actualEnergy >= DTD.skillList["DTD.ThrowingRock"].stats[storage.axeSkill.get()].energyCost) {
             DTD.player.consumeEnergy("rock");

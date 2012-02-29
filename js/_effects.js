@@ -16,6 +16,7 @@
                     y : this._creature.y
                 });
             });
+            Crafty.audio.play("wound");
         },
         attachCreature : function(creature) {
             this._creature = creature;
@@ -45,6 +46,7 @@
                     y : this._creature.y - 30
                 });
             });
+            Crafty.audio.play("wound");
         },
         attachCreature : function(creature) {
             this._creature = creature;
