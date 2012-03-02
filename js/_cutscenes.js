@@ -32,7 +32,7 @@
     };
 
     Cutscene.prototype.play = function() {
-        this.e = Crafty.e("RealDelay");
+        this.e = Crafty.e("Delay");
         var that = this;
         DTD.playingCutscene = this.e;
         if(this.characters) {
@@ -45,7 +45,7 @@
         $(".cutscene").hide();
         
         _.each(this.timeline, function(timeline) {
-            that.e.realDelay(function() {
+            that.e.delay(function() {
                 switch(timeline.type) {
 
                     case 'characterAppear':

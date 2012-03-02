@@ -1,45 +1,5 @@
 (function() {
 
-    Crafty.c("RealDelay", {
-        init : function() {
-            this._realDelays = [];
-            this.bind("EnterFrame", function() {
-                var now = new Date().getTime();
-                for(var index in this._realDelays) {
-                    var item = this._realDelays[index];
-                    if(!item.triggered && item.start + item.delay + item.pause < now) {
-                        item.triggered = true;
-                        item.func.call(this);
-                    }
-                }
-            });
-            this.bind("Pause", function() {
-                var now = new Date().getTime();
-                for(var index in this._realDelays) {
-                    var item = this._realDelays[index];
-                    item.pauseBuffer = now;
-                }
-            });
-            this.bind("Unpause", function() {
-                var now = new Date().getTime();
-                for(var index in this._realDelays) {
-                    var item = this._realDelays[index];
-                    item.pause += now - item.pauseBuffer;
-                }
-            });
-        },
-        realDelay : function(func, delay) {
-            this._realDelays.push({
-                start : new Date().getTime(),
-                func : func,
-                delay : delay,
-                triggered : false,
-                pauseBuffer : 0,
-                pause : 0
-            });
-        }
-    });
-
     DTD.updateGolds = function(nb) {
         storage.goldCoins.set(storage.goldCoins.get() + 1);
         $('#goldCount').html(storage.goldCoins.get());

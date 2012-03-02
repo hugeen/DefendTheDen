@@ -161,7 +161,7 @@
     Crafty.c("Round", {
         init : function() {
             DTD.currentRound = this;
-            this.addComponent("RealDelay");
+            this.addComponent("Delay");
             this._start = 0;
             this.waves = [];
             this._monsterCount = 0;
@@ -203,7 +203,7 @@
                             this._played = false;
                             this.trigger("Ended");
                             DTD.youWin();
-                            this.delay(function() {
+                            this.timeout(function() {
                                 $(".youWin").remove();
                                 DTD.removeUI();
                                 if(storage.level.get() > 6) {
@@ -245,7 +245,7 @@
             this._startAt = parseInt(new Date().getTime(), 10);
             this._endAt = this._startAt + this._duration;
             for(var i = 1; i <= 20; i++) {
-                this.realDelay(function() {
+                this.delay(function() {
                     $("#progressBar .empty").last().removeClass("empty").addClass("full");
                 }, (this._duration / 20) * i);
             }
@@ -257,7 +257,7 @@
         init : function() {
             DTD.currentRound = this;
             this._score = 0;
-            this.addComponent("RealDelay");
+            this.addComponent("Delay");
             this.pigChance = 101;
             this.riddingChance = 101;
             this.lastEnemy = 1;
@@ -286,7 +286,7 @@
             if(this.nextTimeout >= 750) {
                 this.nextTimeout -= 10;
             }
-            this.realDelay(function() {
+            this.delay(function() {
                 this.upgradeDifficulty();
             }, 3000);
         },
@@ -307,7 +307,7 @@
                     newEnemy.attachSprite(Crafty.e("GrannySprite"));
                 }
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this.generateMonster();
                 }, this.nextTimeout);
 

@@ -64,7 +64,7 @@
             this._movingSpeed = 0.25;
             this._coinDropRate = 100;
             this._hitPoints = 94;
-            this.realDelay(function() {
+            this.delay(function() {
                 this.shotgun();
             }, 2000);
             this._lineMargin = -30;
@@ -84,45 +84,45 @@
                 this._shot = true;
                 this._spriteComponent.stop().animate("startFire", 20, 0);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this._spriteComponent.stop().animate("fire", 7, -1);
                 }, 750);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     Crafty.e("GrannyBolt").attr({
                         x : this.x - 30,
                         y : this.y + 10
                     });
                 }, 800);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     Crafty.e("GrannyBolt").attr({
                         x : this.x - 10,
                         y : this.y + 23
                     });
                 }, 1200);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     Crafty.e("GrannyBolt").attr({
                         x : this.x - 10,
                         y : this.y + 50
                     });
                 }, 1600);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     Crafty.e("GrannyBolt").attr({
                         x : this.x - 30,
                         y : this.y + 37
                     });
                 }, 2000);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this._spriteComponent.stop().animate("walk", 38, -1);
                     this._state = "free";
                     this._shot = false;
                 }, 2200);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this.shotgun();
                 }, Crafty.math.randomInt(2000, 5000));
 
@@ -151,7 +151,7 @@
             this._coinDropRate = 85;
             this._hitPoints = 19;
             this._throwPie = false;
-            this.realDelay(function() {
+            this.delay(function() {
                 this.throwPie();
             }, Crafty.math.randomInt(1500, 4500));
             this.bind("dead", function() {
@@ -166,20 +166,20 @@
                 this._throwPie = true;
                 this._spriteComponent.stop().animate("throwPie", 40, 0);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     Crafty.e("RiddingPie").attr({
                         x : this.x - 30,
                         y : this.y + 20
                     });
                 }, 800);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this._spriteComponent.stop().animate("walk", 38, -1);
                     this._state = "free";
                     this._throwPie = false;
                 }, 1250);
 
-                this.realDelay(function() {
+                this.delay(function() {
                     this.throwPie();
                 }, Crafty.math.randomInt(3000, 9500));
             }
@@ -188,7 +188,7 @@
 
     Crafty.c("Enemy", {
         init : function() {
-            this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite, RealDelay");
+            this.addComponent("2D, Canvas, Collision, Mouse, AttachSprite, Delay");
             this._state = "free";
             this._bumped = false;
             this._hitPoints = 100;
@@ -234,7 +234,7 @@
                         z : 20
                     });
                 }
-                this.delay(function() {
+                this.timeout(function() {
                     this._spriteComponent.destroy();
                     this.destroy();
                 }, 75);
@@ -243,7 +243,7 @@
         bump : function() {
             if(!this._bumped) {
                 this._state = "bumped";
-                this.delay(function() {
+                this.timeout(function() {
                     this._state = "free";
                 }, 750);
             }

@@ -36,7 +36,7 @@
             }
             if(this._actualLife <= 0) {
                 DTD.youLoose();
-                this.delay(function() {
+                this.timeout(function() {
                     $(".youWin").remove();
                     DTD.removeUI();
                     if(DTD.gameType == "story") {
@@ -60,11 +60,11 @@
 
         },
         generateEnergy : function() {
-            this.realDelay(function() {
+            this.delay(function() {
                 if(this._actualEnergy < 7) {
                     this._actualEnergy++;
                     $("#energyBar .empty").first().removeClass("empty").addClass("full regen");
-                    this.realDelay(function() {
+                    this.delay(function() {
                         $("#energyBar .regen").removeClass("regen");
                     }, 4000);
                 }
@@ -114,7 +114,7 @@
 
     Crafty.c("Wolf", {
         init : function() {
-            this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, RealDelay, PlayerLife, PlayerEnergy");
+            this.addComponent("2D, Canvas, Collision, AttachSprite, Keyboard, Delay, PlayerLife, PlayerEnergy");
 
             this.attr({
                 x : 20,

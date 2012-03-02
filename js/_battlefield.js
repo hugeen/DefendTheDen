@@ -176,7 +176,7 @@
 
     Crafty.c("Gold", {
         init : function() {
-            this.addComponent("2D, Canvas, Mouse, RealDelay, gold");
+            this.addComponent("2D, Canvas, Mouse, Delay, gold");
             this.attr({
                 w : 16,
                 h : 16,
@@ -191,7 +191,7 @@
                 DTD.updateGolds();
                 Crafty.audio.play("money");
             });
-            this.realDelay(function() {
+            this.delay(function() {
                 if(DTD.gameType == "endless") {
                     DTD.currentRound.score(4);
                 }
@@ -210,7 +210,7 @@
             });
             this.animate("goldFade", 0, 0, 3);
             this.animate("goldFade", 35, 0);
-            this.delay(function() {
+            this.timeout(function() {
                 this.destroy();
             }, 750);
         }

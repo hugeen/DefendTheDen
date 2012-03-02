@@ -335,7 +335,7 @@
             this._enemyHit = false;
             this._stopMove = false;
             this._enemyWounded = false;
-            this.addComponent("2D, Canvas, Collision, SpriteAnimation, RealDelay, rock");
+            this.addComponent("2D, Canvas, Collision, SpriteAnimation, Delay, rock");
             this.attr({
                 x : 32,
                 y : 32,
@@ -356,14 +356,14 @@
             this.onHit("Enemy", function(o) {
                 if(!this._enemyHit) {
                     this._enemyHit = true;
-                    this.realDelay(function() {
+                    this.delay(function() {
                         this._stopMove = true;
                         this.animate("rock", 20, 0);
                     }, 350);
                 }
                 if(this._stopMove && !this._enemyWounded) {
                     this._enemyWounded = true;
-                    this.realDelay(function() {
+                    this.delay(function() {
                         var that = this;
                         _.each(o, function(item, key) {
                             item.obj.takeDamage(DTD.damagesFor("DTD.ThrowingRock"));

@@ -2,7 +2,7 @@
     Crafty.c("Bleed", {
 
         init : function() {
-            this.addComponent("2D, Canvas, SpriteAnimation, RealDelay, bleed");
+            this.addComponent("2D, Canvas, SpriteAnimation, Delay, bleed");
             this.attr({
                 w : 55,
                 h : 55,
@@ -21,7 +21,7 @@
         attachCreature : function(creature) {
             this._creature = creature;
             this.animate("bleed", 10);
-            this.realDelay(function() {
+            this.delay(function() {
                 this.destroy();
             }, 500);
         }
@@ -30,7 +30,7 @@
     Crafty.c("DyingBleed", {
 
         init : function() {
-            this.addComponent("2D, Canvas, SpriteAnimation, RealDelay, dyingBleed");
+            this.addComponent("2D, Canvas, SpriteAnimation, Delay, dyingBleed");
             this.attr({
                 x : -115,
                 y : -115,
@@ -51,7 +51,7 @@
         attachCreature : function(creature) {
             this._creature = creature;
             this.animate("bleed", 10);
-            this.realDelay(function() {
+            this.delay(function() {
                 this.destroy();
             }, 500);
         }
