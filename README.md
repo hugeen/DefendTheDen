@@ -13,7 +13,12 @@ Exterminate the waves of enemies before they reach your character
 
 ### Change Log ###
 
-#### 2012 02 24 - v1.1
+
+#### 2012 03 02 - v0.02
+
+* Update Crafty to 0.4.6
+
+#### 2012 02 24 - v0.01
 
 * Created Website (http://www.defendtheden.com)
 
