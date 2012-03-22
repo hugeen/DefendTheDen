@@ -139,7 +139,7 @@
     cutscenes[1].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "pig",
-        text : "You blew on my house !"
+        text : "You blew down my house!"
     });
     cutscenes[1].addSequence("speech", 2.5, {
         hideOthers : true,
@@ -149,7 +149,7 @@
     cutscenes[1].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "pig",
-        text : "You will pay for that !"
+        text : "You'll pay for that!"
     });
     cutscenes[1].addSequence("characterDisappear", 2.5, {
         direction : "left",
@@ -185,7 +185,7 @@
     });
     cutscenes[2].addSequence("didacticiel", 1.5, {
         didacticiel : "c",
-        text : "  . . . Be careful, it costs energy"
+        text : ". . . Be careful, it costs energy"
     });
     cutscenes[2].addSequence("clearCutscene", 2.5);
 
@@ -204,17 +204,17 @@
     cutscenes[3].addSequence("speech", 1, {
         hideOthers : true,
         character : "ridding",
-        text : " Hey you!"
+        text : "Hey you!"
     });
     cutscenes[3].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "wolf",
-        text : " . . . WTF !?"
+        text : ". . . WTF?!"
     });
     cutscenes[3].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "ridding",
-        text : "You ate my Grand'ma !"
+        text : "You ate my Grandma!"
     });
     cutscenes[3].addSequence("speech", 2.5, {
         hideOthers : true,
@@ -224,7 +224,7 @@
     cutscenes[3].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "ridding",
-        text : "It's time to <br/> Revenge !"
+        text : "It's time for <br/> Revenge !"
     });
     cutscenes[3].addSequence("characterDisappear", 2.5, {
         direction : "left",
@@ -244,11 +244,11 @@
     cutscenes[4].addSequence("launchGame", 0.2);
     cutscenes[4].addSequence("didacticiel", 0.5, {
         didacticiel : "a",
-        text : " To throw a Rock . . ."
+        text : "To throw a Rock . . ."
     });
     cutscenes[4].addSequence("didacticiel", 1.5, {
         didacticiel : "b",
-        text : " . . . Push Key '3'"
+        text : ". . . Push Key '3'"
     });
     cutscenes[4].addSequence("clearCutscene", 2.5);
 
@@ -272,22 +272,22 @@
     cutscenes[5].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "wolf",
-        text : " Unbelievable ... "
+        text : "Unbelievable..."
     });
     cutscenes[5].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "granny",
-        text : " What big teeth you have! "
+        text : "What big teeth you have!"
     });
     cutscenes[5].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "wolf",
-        text : " What do you want Granny ?"
+        text : "What do you want, Granny?"
     });
     cutscenes[5].addSequence("speech", 2.5, {
         hideOthers : true,
         character : "granny",
-        text : " I want you dead! "
+        text : "I want you dead!"
     });
     cutscenes[5].addSequence("characterDisappear", 2.5, {
         direction : "left",
