@@ -16,15 +16,15 @@ Exterminate the waves of enemies before they reach your character
 
 #### 2012 04 01 - v0.03
 
-* Adjusted english for proper spelling and grammar [buzzedword](https://github.com/buzzedword)
+* Adjusted english for proper spelling and grammar - [buzzedword](https://github.com/buzzedword)
 
 #### 2012 03 02 - v0.02
 
-* Update Crafty to 0.4.6
+* Update Crafty to 0.4.6 - [hugeen](https://github.com/hugeen)
 
 #### 2012 02 24 - v0.01
 
-* Created Website (http://www.defendtheden.com)
+* Created Website (http://www.defendtheden.com) - [hugeen](https://github.com/hugeen)
 
 ### ToDo ###
 
