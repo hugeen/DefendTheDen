@@ -14,6 +14,10 @@ Exterminate the waves of enemies before they reach your character
 ### Change Log ###
 
 
+#### 2012 04 01 - v0.03
+
+* Adjusted english for proper spelling and grammar [buzzedword](https://github.com/buzzedword)
+
 #### 2012 03 02 - v0.02
 
 * Update Crafty to 0.4.6
