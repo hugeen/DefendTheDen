@@ -62,12 +62,9 @@
             if(storage.level.get() > 1) {
                 Crafty.e("ContinueMenuItem");
             }
-            if(storage.endless.get()) {
-                Crafty.e("EndlessMenuItem");
-                if(storage.endlessScore.get()) {
-                    Crafty.e("EndlessScore");
-                }
-            }
+
+            Crafty.e("EndlessMenuItem");
+            Crafty.e("EndlessScore");
             Crafty.e("CreditsMenuItem");
 
         });
