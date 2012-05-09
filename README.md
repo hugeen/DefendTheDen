@@ -18,6 +18,7 @@ Exterminate the waves of enemies before they reach your character
 #### 2012 05 08 - v0.10a
 
 * Full refactor initialized - [hugeen](https://github.com/hugeen)
+* Hitbox added on wolf
 
 #### 2012 04 01 - v0.03
 
@@ -34,6 +35,8 @@ Exterminate the waves of enemies before they reach your character
 ### ToDo ###
 
 * Gameplay enhancement
+* Add polygonal hitboxes
+* Particle generator (for hit effects)
 
 #### Links ####
 
