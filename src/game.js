@@ -8,7 +8,7 @@ window.onload = function() {
 	} else {
 		version = gameContainer.gameVersion;
 	};
-    
+
 	Crafty.init(710, 580);
 	Crafty.canvas.init();
 	
@@ -44,15 +44,11 @@ window.onload = function() {
 
 			Crafty.load(sprites.getPaths(), function() {
                 var elements = [
-                    "src/components/MouseHover.js?v="+version+"",
-                    "src/components/Background.js?v="+version+"",
-                    "src/components/Floor.js?v="+version+"",
-                    "src/components/Clouds.js?v="+version+"",
-                    "src/components/Sky.js?v="+version+"",
-                    "src/components/Earth.js?v="+version+"",
-                    "src/components/Lines.js?v="+version+"",
-                    "src/components/MenuItem.js?v="+version+"",
-                    "src/components/Wolf.js?v="+version+"",
+                    "src/components/Utils.js?v="+version+"",
+                    "src/components/Interface.js?v="+version+"",
+                    "src/components/characters/Wolf.js?v="+version+"",
+                    "src/components/skills/Bullet.js?v="+version+"",
+                    "src/components/skills/Axe.js?v="+version+"",
                     "src/entities/base/BaseEntity.js?v="+version+""
 	    		];
 

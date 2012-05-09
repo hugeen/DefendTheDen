@@ -1,7 +1,7 @@
 var Config = Backbone.Model.extend({
     defaults: {
         'renderType': 'Canvas',
-        'keyboardType': 'azerty'
+        'keyboardType': 'qwerty'
     },
     initialize: function() {
        

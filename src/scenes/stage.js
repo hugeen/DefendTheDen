@@ -2,18 +2,24 @@ Crafty.scene("stage", function() {
 
 	var elements = [
         "src/entities/skoll.js",
-        "src/interfaces/background.js",
-        "src/interfaces/lines.js",
-        "src/interfaces/sky.js",
-        "src/interfaces/earth.js"
+        "src/entities/angleIndicator.js",
+        "src/interfaces/battleground.js",
 	];
 	
-	require(elements, function() {	   
+	require(elements, function() {
+	    new Battleground();
+	    
 		sc['skoll'] = new Skoll();
-		infc['background'] = new Background();
-		infc['lines'] = new Lines();
-		infc['sky'] = new Sky();
-		infc['earth'] = new Earth();
-	});
+		sc['angleIndicator'] = new AngleIndicator({parent : sc['skoll'].getEntity()});
+        Crafty.bind("GlobalClick", function(position) {
+            var from = {
+                x: sc['skoll'].getEntity()._x,
+                y: sc['skoll'].getEntity()._y
+            };
+            var by = sc['angleIndicator'].getEntity().moveByRatio;
+            var options = { speed : 8 };
+            var axe = Crafty.e("Axe").fire(from, by, options);
+        });
 
+	});	
 });

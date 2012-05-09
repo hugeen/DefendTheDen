@@ -62,6 +62,14 @@ var Sprites = Backbone.Model.extend({
                  'elements': {
                      'wagon': [0, 0]
                  }
+            },
+            'axe': {
+                  'file': 'web/images/axe.png',
+                  'tile': 42
+                  ,
+                  'elements': {
+                      'axe': [0, 0]
+                  }
             }
         }
     },
@@ -69,6 +77,7 @@ var Sprites = Backbone.Model.extend({
         
     },
     create: function(key){
+        var element;
         if(key != undefined){
             element = this.get('static_images')[key];
             if(element['tileh'] == undefined)
