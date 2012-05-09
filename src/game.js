@@ -1,7 +1,8 @@
 window.onload = function() {
         
     var version = null,
-    	today = new Date();
+    	today = new Date(),
+    	debug = true;
 
     if(gameContainer.env == 'dev') {
 		version = today.getDay()+"_"+ today.getHours() +"_"+today.getSeconds();
@@ -14,7 +15,7 @@ window.onload = function() {
 	
 	require([
 	         "src/sprites.js?v="+version+"",
-	         "src/config.js?v="+version+"",
+	         "src/config.js?v="+version+""
 	], function() {
 	    // Mouse Event
     	Crafty.mousePosition = {
@@ -44,6 +45,7 @@ window.onload = function() {
 
 			Crafty.load(sprites.getPaths(), function() {
                 var elements = [
+                    "src/components/Hitbox.js?v="+version+"",
                     "src/components/Utils.js?v="+version+"",
                     "src/components/Interface.js?v="+version+"",
                     "src/components/characters/Wolf.js?v="+version+"",

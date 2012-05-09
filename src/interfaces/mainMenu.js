@@ -1,4 +1,4 @@
-var MainMenu"" = BaseEntity.extend({
+var MainMenu = BaseEntity.extend({
     initialize: function(){
         
     	Crafty.e("Background");
