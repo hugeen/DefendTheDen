@@ -56,6 +56,13 @@ var Sprites = Backbone.Model.extend({
                      'skoll': [0, 0]
                  }
             },
+            'piggy': {
+                 'file': 'web/images/piggy.png',
+                 'tile': 115,
+                 'elements': {
+                     'piggy': [0, 0]
+                 }
+            },
             'wagon': {
                  'file': 'web/images/wagon.png',
                  'tile': 81,

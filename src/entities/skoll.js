@@ -24,8 +24,7 @@ var Skoll = BaseEntity.extend({
         skoll.bind('Click', function(){
             
         });
-        
-        skoll.origin(skoll.w/2, skoll.h/2);
+
         
     	this.set({'entity' : skoll });
     	

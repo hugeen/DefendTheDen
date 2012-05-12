@@ -14,11 +14,13 @@ Exterminate the waves of enemies before they reach your character
 
 ### Change Log ###
 
+#### 2012 05 13 - v0.10.2
+* Pig added with hitbox - [hugeen](https://github.com/hugeen)
 
-#### 2012 05 08 - v0.10a
+#### 2012 05 08 - v0.10.1
 
 * Full refactor initialized - [hugeen](https://github.com/hugeen)
-* Hitbox added on wolf
+* Hitbox added on wolf - [hugeen](https://github.com/hugeen)
 
 #### 2012 04 01 - v0.03
 
@@ -36,7 +38,9 @@ Exterminate the waves of enemies before they reach your character
 
 * Gameplay enhancement
 * Add polygonal hitboxes
-* Particle generator (for hit effects)
+* Particle generator width gravity (for hit effects)
+* Protection skill (energy shield)
+* Skill tree
 
 #### Links ####
 
