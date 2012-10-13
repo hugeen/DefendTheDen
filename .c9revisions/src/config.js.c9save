@@ -1,0 +1,1 @@
+{"ts":1348493636675,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"var Config = Backbone.Model.extend({\n    defaults: {\n        'renderType': 'Canvas',\n        'keyboardType': 'qwerty'\n    },\n    initialize: function() {\n       \n    },\n    \n});"]],"start1":0,"start2":0,"length1":0,"length2":177}]],"length":177}
