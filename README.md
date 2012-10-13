@@ -14,6 +14,9 @@ Exterminate the waves of enemies before they reach your character
 
 ### Change Log ###
 
+#### 2012 10 13 - v1.0.1
+* Renitialize Game
+
 #### 2012 05 13 - v0.10.2
 * Pig added with hitbox - [hugeen](https://github.com/hugeen)
 
