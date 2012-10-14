@@ -1,0 +1,5 @@
+{"ts":1350163851025,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1350163942510,"patch":[[{"diffs":[[1,"require([\"jquery\"], function($) {\n    $(function() {\n        console.log(\"jquery loaded\");\n    });\n});"]],"start1":0,"start2":0,"length1":0,"length2":102}]],"length":102,"saved":false}
+{"ts":1350164175621,"patch":[[{"diffs":[[0,"\"jquery\""],[1,", \"lib/external/crafty\""],[0,"], funct"]],"start1":9,"start2":9,"length1":16,"length2":39}]],"length":125,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1350196146195,"patch":[[{"diffs":[[0,"\", \""],[-1,"lib"],[1,".."],[0,"/ext"]],"start1":16,"start2":16,"length1":11,"length2":10}]],"length":124,"saved":false}
+{"ts":1350197029231,"patch":[[{"diffs":[[-1,"require([\"jquery\", \"../external/crafty\"], function($) {\n    $(function() {\n        console.log(\"jquery loaded\");\n    });\n});"]],"start1":0,"start2":0,"length1":124,"length2":0}]],"length":0,"saved":false}
