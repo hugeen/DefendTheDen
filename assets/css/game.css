@@ -1,0 +1,488 @@
+#cr-stage {
+  z-index: 0;
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0, rgb(19,23,28)),
+  color-stop(1, rgb(36,45,56))
+  );
+}
+#portrait {
+  top: 9px;
+  left: 8px;
+  width: 218px;
+  height: 64px;
+  position: fixed;
+  background: url("../img/portrait.png") top left no-repeat;
+  z-index: 15;
+}
+#lifeBar {
+  top: 14px;
+  left: 90px;
+  width: 130px;
+  height: 17px;
+  position: fixed;
+  z-index: 15;
+}
+
+#energyBar {
+  top: 34px;
+  left: 91px;
+  width: 129px;
+  height: 17px;
+  position: fixed;
+  z-index: 15;
+}
+
+#goldCoin {
+  top: 53px;
+  left: 201px;
+  width: 16px;
+  height: 16px;
+  position: fixed;
+  background: url("../img/gold-coin.png") top left no-repeat;
+  z-index: 15;
+}
+#goldCount {
+  top: 54px;
+  left: 93px;
+  width: 105px;
+  font: bold 11px sans-serif;
+  color: #62727b;
+  z-index: 15;
+  text-align: right;
+  position: fixed;
+}
+#menu {
+  top: 0;
+  left: 598px;
+  width: 84px;
+  height: 27px;
+  text-align: center;
+  position: fixed;
+  background: url("../img/menu-button.png") top left no-repeat;
+  z-index: 15;
+  cursor: pointer;
+  text-decoration: none;
+  color: #62727b;
+}
+#menu:hover {
+  color: #000;
+}
+#menu span {
+  top: 4px;
+  left: 598px;
+  width: 84px;
+  position: fixed;
+  text-align: center;
+  font: bold 11px sans-serif;
+  text-transform: uppercase;
+}
+#endlessInGameScore {
+  top: 47px;
+  left: 234px;
+  width: 468px;
+  height: 26px;
+  position: fixed;
+  text-align: center;
+  z-index: 15;
+}
+#progressBarBelow {
+  top: 47px;
+  left: 234px;
+  width: 468px;
+  height: 26px;
+  position: fixed;
+  background: url("../img/progress-bar-below.png") top left no-repeat;
+  z-index: 15;
+}
+#progressBar {
+  top: 50px;
+  left: 248px;
+  position: fixed;
+  z-index: 15;
+}
+#progressBar div {
+  width: 22px;
+  display: block;
+  float: left;
+  height: 18px;
+  z-index: 15;
+  background: url("../img/progress-empty.png") 0 0 no-repeat;
+}
+#progressBar .full {
+	background: url("../img/progress-full.png") 0 0 no-repeat;
+}
+#levelNumber {
+  top: 22px;
+  left: 234px;
+  width: 468px;
+  position: fixed;
+  z-index: 15;
+  text-align: center;
+  color: #4f6d7c;
+  font: 18px 'Bangers', cursive;
+}
+.wolfBig {
+  width: 198px;
+  height: 279px;
+  background: url("../img/wolf-big.png") top left no-repeat;
+  z-index: 35;
+  position: fixed;
+  top: 328px;
+  left: -198px;
+}
+.pigBig, .riddingBig, .grannyBig {
+  width: 199px;
+  height: 276px;
+  z-index: 35;
+  position: fixed;
+  top: 328px;
+  right: -199px;
+}
+
+.pigBig {
+  background: url("../img/pig-big.png") top left no-repeat;
+}
+
+.riddingBig {
+  background: url("../img/ridding-big.png") top left no-repeat;
+}
+
+.grannyBig {
+  background: url("../img/granny-big.png") top left no-repeat;
+}
+
+.wolfSpeech {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 2px solid #000;
+  z-index: 35;
+  position: fixed;
+  width: 160px;
+  text-align: left;
+  top: 305px;
+  left: 170px;
+  font-family: 'Bangers', cursive;
+  text-align: center;
+  font-size: 19px;
+}
+.pigSpeech, .riddingSpeech, .grannySpeech {
+  padding: 5px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 30px;
+  z-index: 35;
+  position: fixed;
+  width: 160px;
+  text-align: center;
+  top: 305px;
+  right: 170px;
+  font-size: 19px;
+}
+.pigSpeech {
+  font-family: 'Eater', cursive;
+}
+.pigSpeech {
+  font-family: 'Eater', cursive;
+}
+.grannySpeech {
+  font-family: 'Over the Rainbow', cursive;
+}
+
+.youWin {
+  font-size: 40px;
+  width: 710px;
+  position: fixed;
+  text-align: center;
+  font-family: 'Bangers', cursive;
+  color: #fff;
+  top: 230px;
+  z-index: 35;
+}
+.keyHelper {
+  font-size: 20px;
+  position: fixed;
+  text-align: right;
+  font-family: 'IM Fell DW Pica SC', serif;
+  color: #000;
+  z-index: 36;
+  width: 45px;
+  
+}
+
+.didacticiel01a {
+  font-size: 35px;
+  width: 710px;
+  position: fixed;
+  text-align: center;
+  font-family: 'Bangers', cursive;
+  color: #fff;
+  top: 230px;
+  z-index: 35;
+}
+
+.didacticiel01c {
+  font-size: 20px;
+  width: 150px;
+  position: fixed;
+  text-align: right;
+  font-family: 'Bangers', cursive;
+  color: #000;
+  background: #fff;
+  top: 300px;
+  border: 2px solid #000;
+  right: 100px;
+  z-index: 35;
+}
+
+.didacticiel01b {
+  border: 2px solid #000;
+  font-size: 20px;
+  width: 710px;
+  width: 150px;
+  position: fixed;
+  text-align: left;
+  font-family: 'Bangers', cursive;
+  color: #000;
+  bottom: 75px;
+  background: #fff;
+  left: 25px;
+  z-index: 35;
+}
+
+#skillShop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 710px;
+  height: 580px;
+  background: url("../img/background-skillshop.png") top left no-repeat;
+}
+#skillShopLines {
+  position: fixed;
+  top: 130px;
+  left: 30px;
+}
+
+.skillLine {
+	clear: left;
+}
+.actualSkill {
+	width: 294px;
+	height: 64px;
+	background: url("../img/bg-skill-actual.png") top left no-repeat;
+	float: left;
+}
+.arrowUpgradeSkill {
+	width: 30px;
+	height: 59px;
+	margin: 3px 17px 0 17px;
+	background: url("../img/arrow-upgrade-skill.png") top left no-repeat;
+	float: left;
+}
+.upgradeSkill {
+	width: 294px;
+	height: 64px;
+	background: url("../img/bg-skill-upgrade.png") top left no-repeat;
+	float: left;
+	cursor: pointer;
+}
+
+.skillPreview {
+	width: 60px;
+	height: 60px;
+	float: left;
+	background: url("../img/bg-skill-button.png") 5px 5px no-repeat;
+}
+
+.skillPreview div {
+	padding: 8px 0 0 8px;
+}
+
+.skillPreview div img {
+	width: 42px;
+	height: 42px;
+}
+
+.skillStats {
+	float: left;
+	padding: 5px;
+	font-size: 11px;
+}
+.actualSkill .skillStats span {
+	color: #35271e;
+}
+#skillShopGolds {
+  border: 1px solid #6c777c;
+  border-radius : 8px;
+  top: 30px;
+  left: 490px;
+  width: 190px;
+  height: 45px;
+  position: fixed;
+  background: url("../img/bg-gold.png") top left repeat-x;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+}
+#skillShopGolds div {
+  padding: 5px 0 0 0;
+}
+#skillShopPlay {
+  display: block;
+  top: 500px;
+  left: 510px;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 32px;
+  color: #fff;
+  width: 180px;
+  height: 60px;
+  position: fixed;
+  background: url("../img/bg-play.png") 0 0 no-repeat;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+#skillShopPlay:hover{
+  background-position: -180px 0;
+}
+#skillShopPlay span {
+  display: block;
+  padding: 10px 0 0 0;
+  
+}
+#skillShopBack, #creditsBack {
+  display: block;
+  top: 500px;
+  left: 30px;
+  position: fixed;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 32px;
+}
+
+
+
+#skillShopBack:hover, #creditsBack:hover{
+  color: #000;
+}
+
+#skillShopPlay span {
+  display: block;
+  padding: 10px 0 0 0;
+}
+
+#pause {
+	border-radius: 5px;
+	top: 100px;
+	left: 255px;
+	opacity: 0.85;
+	width: 200px;
+	margin: 0 auto;
+	background: #000;
+	position: fixed;
+}
+
+#menuPauseBackToMain, #menuPauseResume {
+	padding: 10px;
+	text-align: center;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-family: 'IM Fell DW Pica SC', serif;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#menuPauseBackToMain:hover, #menuPauseResume:hover {
+	text-decoration: underline;
+}
+
+#lifeBar div {
+	display: block;
+	float: left;
+	width: 18px; 
+	height: 16px;
+	background: url("../img/hearth-empty.png") 0 0 no-repeat;
+}
+
+#lifeBar .regen {
+	background: url("../img/hearth-regen.png") 0 0 no-repeat !important;
+}
+
+#lifeBar .full {
+	background: url("../img/hearth-full.png") 0 0 no-repeat;
+}
+
+#energyBar div {
+	display: block;
+	float: left;
+	width: 18px; 
+	height: 16px;
+	background: url("../img/energy-empty.png") 0 0 no-repeat;
+}
+
+#energyBar .regen {
+	background: url("../img/energy-regen.png") 0 0 no-repeat !important;
+}
+
+#energyBar .full {
+	background: url("../img/energy-full.png") 0 0 no-repeat;
+}
+
+#credits {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+#credits .wrapper {
+	margin: 30px;
+	padding: 10px;
+	text-align: center;
+	background: rgba(255,255,255,0.1);
+	border-radius: 15px;
+	color: #fff;
+}
+
+#credits h1 {
+	color: #bce0e7;
+	padding: 25px 0 5px 0;
+	font-size: 2.5em;
+}
+
+#credits a {
+	color: #bce7c6;
+	text-decoration: none;
+}
+
+#credits a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#sound {
+	
+}
+a#sound {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1;
+    background: url(../img/sound-speaker-on.png) top left no-repeat;
+}
+a#sound:hover {
+	border-radius: 5px;
+	background-color: #555;
+}
