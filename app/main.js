@@ -4,12 +4,17 @@ require.config({
         jQuery: '../libs/jquery/jquery',
         Underscore: '../libs/underscore/underscore',
         Backbone: '../libs/backbone/backbone',
+        Bootstrap: '../libs/bootstrap/bootstrap',
         Crafty: '../libs/crafty/crafty',
         templates: '../templates',
         game: '../game'
     }
 });
 
-require(['app'], function(App) {
+require([
+    'app',
+], function(App, config) {
+
     App.initialize();
+    
 });
