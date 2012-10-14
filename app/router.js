@@ -8,14 +8,30 @@ define([
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '/levels': 'showLevels',
-            '*actions': 'defaultAction'
+            '/levels': 'indexLevels',
+            '/levels/:id': 'showLevel',
+            '/survival': 'survival',
+            '/credits': 'credits',
+            '/skillshop': 'skillshop',
+            '*actions': 'home'
         },
-        showLevels: function() {
-            levelsListView.render();
-        },
-        defaultAction: function(actions) {
+        home: function(actions) {
             mainHomeView.render();
+        },
+        credits: function() {
+            
+        },
+        skillshop: function() {
+            
+        },
+        survival: function() {
+            
+        },
+        showLevel: function(id) {
+            console.log(id);
+        },
+        indexLevels: function() {
+            levelsListView.render();
         }
     });
 
