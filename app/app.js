@@ -1,17 +1,16 @@
-
 define([
-  'jQuery', 
-  'Underscore', 
-  'Backbone',
-  'router',
-], function($, _, Backbone, Router){
-    
-  var initialize = function(){
-    Router.initialize();
-  };
+    'jQuery',
+    'Underscore',
+    'Backbone',
+    'router'
+], function($, _, Backbone, Router) {
 
-  return { 
-    initialize: initialize
-  };
-  
+    var initialize = function() {
+        Router.initialize();
+    };
+
+    return {
+        initialize: initialize
+    };
+
 });
