@@ -14,6 +14,8 @@ html, body {
 }
 
 #cr-stage, #wrapper, #inner_background {
+  width: 710px;
+  height: 580px;
   position: fixed !important;
   top: 50%;
   left: 50%;
