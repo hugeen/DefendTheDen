@@ -2,16 +2,17 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'models/level'
-], function($, _, Backbone, LevelModel) {
+    'models/level',
+    'game/levels'
+], function($, _, Backbone, Level, levelsData) {
 
-    var LevelsCollection = Backbone.Collection.extend({
-        model: LevelModel,
+    var Levels = Backbone.Collection.extend({
+        model: Level,
         initialize: function() {
 
         }
     });
     
-    return new LevelsCollection;
+    return new Levels(levelsData);
     
 });

@@ -3,20 +3,21 @@ define([
     'Underscore',
     'Backbone',
     'views/home/main',
-    'views/levels/list'
-], function($, _, Backbone, mainHomeView, levelsListView) {
+    'views/levels/index',
+    'views/levels/show'
+], function($, _, Backbone, home, levels, level) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '/levels': 'indexLevels',
-            '/levels/:id': 'showLevel',
+            '/levels': 'levels',
+            '/levels/:id': 'level',
             '/survival': 'survival',
             '/credits': 'credits',
             '/skillshop': 'skillshop',
             '*actions': 'home'
         },
         home: function(actions) {
-            mainHomeView.render();
+            home.render();
         },
         credits: function() {
             
@@ -27,11 +28,11 @@ define([
         survival: function() {
             
         },
-        showLevel: function(id) {
-            console.log(id);
+        level: function(id) {
+            level.render(id);
         },
-        indexLevels: function() {
-            levelsListView.render();
+        levels: function() {
+            levels.render();
         }
     });
 

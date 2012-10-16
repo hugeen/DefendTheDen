@@ -7,8 +7,8 @@ define([
     return function(name, callbacks) {
         
         _.defaults(callbacks, {
-            loadingProgress: function(e) {},
-            loadingError: function(e) {}
+            onProgress: function(e) {},
+            onError: function(e) {}
         });
         var assetBundle = _.reject(assetsBundles[name], function(asset){ return asset.loaded === true; });
         var assetsPath = _.map(bunlde, function(asset){ return asset.path(); });
@@ -16,13 +16,13 @@ define([
         Crafty.load(assetsPath,
             function() {
                 _.invoke(assetsBundles[name], 'setLoaded');
-                callbacks.loaded();
+                callbacks.onLoad();
             },
             function(e) {
-              callbacks.loadingProgress();
+                callbacks.onProgress();
             },
             function(e) {
-              callbacks.loadingError();
+                callbacks.onError();
             }
         );
         
