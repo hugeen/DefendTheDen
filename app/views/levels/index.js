@@ -7,7 +7,7 @@ define([
 ], function($, _, Backbone, levels, _index) {
 
     var Index = Backbone.View.extend({
-        el: $("#main"),
+        el: $("#wrapper"),
         initialize: function() {
 
         },

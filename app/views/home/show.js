@@ -6,7 +6,7 @@ define([
 ], function($, _, Backbone, _show) {
 
     var Show = Backbone.View.extend({
-        el: $("#main"),
+        el: $("#wrapper"),
         render: function() {
             this.el.html(_show);
         }

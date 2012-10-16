@@ -1,27 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Finger+Paint|Marcellus+SC|Underdog|Sofadi+One);
+
 html, body {
   width: 100%;
   height: 100%;
 }
 
+body {
+  background: url("../images/pinstriped_suit.png") repeat scroll left top transparent;
+}
 
-
+.title_font { font-family: 'Finger Paint', cursive; }
+.menu_font { font-family: 'Marcellus SC', serif; }
+.dialog_font { font-family: 'Underdog', cursive; }
+.dialog_alt_font { font-family: 'Sofadi One', cursive; }
 
 #outer_background {
-
 }
 
 #cr-stage, #wrapper, #inner_background {
-
+  width: 710px;
+  height: 580px;
 }
 
-#inner_background { z-index: -1; }
+#inner_background {
+  background: url(../images/background.png) top left no-repeat;
+  z-index: 0;
+}
 
-#cr-stage { z-index: 0; }
+#cr-stage {
+  z-index: 1;
+}
 
-#wrapper { z-index: 1; }
+#wrapper {
+  z-index: 2;
+}
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-    width: 710px;
+  width: 710px;
 }
 
 .placeFixed {
@@ -38,4 +53,87 @@ html, body {
   left: 50%;
   margin-top: 0;
   margin-left: -355px;
+}
+
+.floor {
+  position: absolute;
+  background: url("../images/floor.png") repeat scroll 0% 0% transparent;
+  width: 710px;
+  height: 309px;
+  bottom: 0;
+}
+
+.clouds {
+  position: absolute;
+  background: url("../images/clouds.png") repeat scroll -50px 0px transparent;
+  width: 710px;
+  height: 114px;
+  top: 0;
+}
+
+.defend_the_den {
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 2em;
+  font-size: 3em;
+  top: 250px;
+  left: 0;
+  margin-top: -1.5em;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+
+.menu_link {
+  position: absolute;
+  color: rgba(88,54,0,0.95);
+  width: 12em;
+  height: 2.1em;
+  font-size: 2.1em;
+  left: 50%;
+  margin-left: -6em;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -ms-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.menu_link:hover {
+  text-shadow: 0 0 2px rgba(255,255,255,0.5);
+  color: black;
+}
+
+.survival_link {
+  position: absolute;
+  color: rgba(144,201,60,0.95);
+  font-size: 2.1em;
+  right: 1.5em;
+  top: 3em;
+  cursor: pointer;
+  text-shadow: 0 0 1px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.7);
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -ms-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+  -moz-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+
+.survival_link:hover {
+  color: rgba(203,241,147,0.9);
+}
+
+.new_game {
+  top: 330px;
+}
+
+.continue_game {
+  top: 390px;
 }
