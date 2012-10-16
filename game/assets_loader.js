@@ -11,7 +11,7 @@ define([
             onError: function(e) {}
         });
         var assetBundle = _.reject(assetsBundles[name], function(asset){ return asset.loaded === true; });
-        var assetsPath = _.map(bunlde, function(asset){ return asset.path(); });
+        var assetsPath = _.map(assetBundle, function(asset){ return asset.path(); });
         
         Crafty.load(assetsPath,
             function() {

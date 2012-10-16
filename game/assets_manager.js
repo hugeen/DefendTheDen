@@ -8,7 +8,7 @@ define([
         object.path = function() {
             return "assets/"+object.type+"/"+object.name+"."+object.ext;
         };
-        object.onLoad = function() {
+        object.setLoaded = function() {
             this.loaded = true;  
         };
     }
@@ -18,7 +18,7 @@ define([
             type: "images",
             ext: "png"
         });
-        addAssetCapabilities(this);
+        addAssetCapabilities(object);
     }
     
     function addAudioCapabilities(object) {
@@ -26,7 +26,7 @@ define([
             type: "audio",
             ext: "ogg"
         });
-        addAssetCapabilities(this);
+        addAssetCapabilities(object);
     }
 
     return {
@@ -36,23 +36,23 @@ define([
             
         },
         Sprite: function(sprite) {
-            
-            addImageCapabilities(this);
-            
-            _.defaults(this, {
-                size: 16,
+
+            _.extend(this, {
+                size: 32,
                 padding: {
                     x: 0,
                     y: 0
                 },
                 maps: {}
-            });
+            }, sprite);
+            
+            addImageCapabilities(this);
             
             var maps = {};
             
             function addMap(mapObject) {
                 
-                _.defaults(mapObject.coords, { x: 0, y: 0, w: 1, h: 1 });
+                _.defaults(mapObject, { coords: { x: 0, y: 0, w: 1, h: 1 } });
                 
                 return maps[mapObject.name] = [
                     mapObject.coords.x,
@@ -64,13 +64,13 @@ define([
             }
             
             if(_.isEmpty(this.maps)) {
-                addMap(this.name);
+                addMap({ name: this.name });
             } else {
                 _.each(this.maps, function(mapObject) {
                     addMap(mapObject.name, mapObject.coords);
                 });
             }
-            
+
             Crafty.sprite(this.size, this.path(), maps, this.padding.x, this.padding.y);
             
         },

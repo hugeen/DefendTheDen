@@ -5,14 +5,16 @@ define([
     'Crafty'
 ], function($, _, Backbone, Crafty) {
     
-    var entityName = "wolf";
-    
-    Crafty.addEntityFactory(entityName, function() {
-        return Crafty.e('2D, Canvas');
-    });
-    
-    return function() {
-        return Crafty.newFactoryEntity(entityName);
+    return {
+        spawnEntity: function() {
+            Crafty.e("2D, Canvas, SpriteAnimation, wolf").attr({
+                x : 0,
+                y : 0,
+                w : 135,
+                h : 135,
+                z : 1
+            });
+        }
     };
 
 });

@@ -2,16 +2,19 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'Crafty'
-], function($, _, Backbone, Crafty) {
-    
+    'Crafty',
+    'game/entities/wolf'
+], function($, _, Backbone, Crafty, wolf) {
+    console.log(wolf)
     var sceneName = "level"
-    Crafty.scene(sceneName, function () {
-
+    Crafty.scene(sceneName, function() {
+        wolf.spawnEntity();
     });
     
-    return function() {
-        Crafty.scene(sceneName);
+    return {
+        load: function() {
+            Crafty.scene(sceneName)
+        }
     };
 
 });

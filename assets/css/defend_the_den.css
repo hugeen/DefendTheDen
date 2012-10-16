@@ -85,6 +85,8 @@ body {
 }
 
 .menu_link {
+  text-decoration: none !important;
+  display: block;
   position: absolute;
   color: rgba(88,54,0,0.95);
   width: 12em;
