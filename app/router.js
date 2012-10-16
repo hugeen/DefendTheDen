@@ -2,7 +2,7 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
-    'views/home/main',
+    'views/home/show',
     'views/levels/index',
     'views/levels/show'
 ], function($, _, Backbone, home, levels, level) {
@@ -36,13 +36,13 @@ define([
         }
     });
 
-    var initialize = function() {
-        var app_router = new AppRouter;
-        Backbone.history.start();
-    };
-
     return {
-        initialize: initialize
+        
+        initialize: function() {
+            new AppRouter;
+            Backbone.history.start();
+        }
+        
     };
 
 });

@@ -3,13 +3,13 @@ define([
     'Backbone'
 ], function(_, Backbone) {
     
-    var LevelModel = Backbone.Model.extend({
+    var Level = Backbone.Model.extend({
         defaults: {},
         initialize: function() {
             
         }
     });
     
-    return LevelModel;
+    return Level;
     
 });

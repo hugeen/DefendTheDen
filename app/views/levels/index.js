@@ -7,13 +7,13 @@ define([
 ], function($, _, Backbone, levels, _index) {
 
     var Index = Backbone.View.extend({
-        el: $("#page"),
+        el: $("#main"),
         initialize: function() {
 
         },
         render: function() {
             var data = { levels: levels.models, _: _ };
-            $("#page").html(_.template(_index, data));
+            this.el.html(_.template(_index, data));
         }
     });
 
