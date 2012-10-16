@@ -4,9 +4,7 @@ define([
 ], function(_, Backbone) {
     
     var LevelModel = Backbone.Model.extend({
-        defaults: {
-            score: 10
-        },
+        defaults: {},
         initialize: function() {
             
         }

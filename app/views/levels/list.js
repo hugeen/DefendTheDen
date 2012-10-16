@@ -9,17 +9,15 @@ define([
     var LevelListView = Backbone.View.extend({
         el: $("#page"),
         initialize: function() {
-            this.collection = levelsCollection;
-            this.collection.bind("add", this.exampleBind);
-            this.collection = levelsCollection.add({
-                name: "Twitter"
+            //levelsCollection.bind("add", this.exampleBind);
+            levelsCollection.add({
+                name: "Level 1"
             });
-            this.collection = levelsCollection.add({
-                name: "Facebook"
+            levelsCollection.add({
+                name: "Level 2"
             });
-            this.collection = levelsCollection.add({
-                name: "Myspace",
-                score: 20
+            levelsCollection.add({
+                name: "Level 3"
             });
         },
         exampleBind: function(model) {
@@ -27,7 +25,7 @@ define([
         },
         render: function() {
             var data = {
-                levels: this.collection.models,
+                levels: levelsCollection.models,
                 _: _
             };
             var compiledTemplate = _.template(levelListTemplate, data);
