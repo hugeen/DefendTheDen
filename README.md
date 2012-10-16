@@ -7,10 +7,10 @@ Exterminate the waves of enemies before they reach your character
 
 #### Contributors ####
 
-* Cyrille Bogaert (Development)
+* Cyrille Bogaert (Development) - [hugeen](https://github.com/hugeen)
 * Lou Mosnier (Sprites)
-* Pierre Lancien (Music)
-* Daniel Garcia (Spelling and grammar)
+* Pierre Lancien (Music) [plancien](https://github.com/plancien)
+* Daniel Garcia (Spelling and grammar) - [buzzedword](https://github.com/buzzedword)
 
 ### Change Log ###
 
