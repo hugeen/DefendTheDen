@@ -5,7 +5,7 @@ define([
     'Crafty',
     'game/entities/wolf'
 ], function($, _, Backbone, Crafty, wolf) {
-    console.log(wolf)
+
     var sceneName = "level"
     Crafty.scene(sceneName, function() {
         wolf.spawnEntity();

@@ -14,10 +14,6 @@ define([
             assetsLoader("levels", {
                 onLoad: function() {
                     levelScene.load();
-                    Crafty.scene("level", function() {
-                        
-                    });
-                    Crafty.scene("level");
                 }
             });
             var data = { level: levels.at(parseInt(id,10)-1), _: _ };
