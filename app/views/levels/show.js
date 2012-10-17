@@ -18,6 +18,9 @@ define([
             });
             var data = { level: levels.at(parseInt(id,10)-1), _: _ };
             this.el.html(_.template(_show, data));
+            $("#ig_menu button").click(function() {
+               window.location.replace("#"); 
+            });
         }
     });
 
