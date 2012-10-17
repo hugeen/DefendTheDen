@@ -6,7 +6,8 @@ define([
     
     return {
         levels: [
-            assets.wolf
+            assets.wolf,
+            assets.pig
         ]
     };
 
