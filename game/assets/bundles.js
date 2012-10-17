@@ -1,7 +1,7 @@
 define([
     'Crafty',
     'Underscore',
-    'game/assets'
+    'game/assets/list'
 ], function(Crafty, _, assets) {
     
     return {

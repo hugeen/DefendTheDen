@@ -42,7 +42,7 @@ body {
 }
 
 #inner_background {
-  background: url(../images/background.png) top left no-repeat;
+  background: url("../images/background.png") top left repeat-x;
   z-index: 0;
 }
 

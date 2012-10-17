@@ -4,7 +4,7 @@ define([
     'Backbone',
     'collections/levels',
     'text!templates/levels/show.html',
-    'game/assets_loader',
+    'game/assets/loader',
     'game/scenes/level'
 ], function($, _, Backbone, levels, _show, assetsLoader, levelScene) {
 

@@ -1,7 +1,7 @@
 define([
     'Crafty',
     'Underscore',
-    'game/assets_manager'
+    'game/assets/manager'
 ], function(Crafty, _, assetsManager) {
 
     return {
