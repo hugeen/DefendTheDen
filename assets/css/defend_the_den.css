@@ -15,6 +15,25 @@ body {
 .dialog_alt_font { font-family: 'Sofadi One', cursive; }
 
 #outer_background {
+  width: 985px;
+  height: 459px;
+  background: url(../images/bg-website.png) top left no-repeat;
+}
+
+.outer_fixed {
+  left: 50%;
+  margin-left: -492px;
+  margin-top: -230px;
+  position: fixed;
+  top: 50%;
+}
+
+.outer_absolute {
+  left: 50%;
+  margin-left: -492px;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
 }
 
 #cr-stage, #wrapper, #inner_background {
@@ -33,13 +52,15 @@ body {
 
 #wrapper {
   z-index: 2;
+  -webkit-box-shadow:  0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 30px 20px rgba(0, 0, 0, 0.5);
 }
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
   width: 710px;
 }
 
-.placeFixed {
+.viewport_fixed {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -47,7 +68,7 @@ body {
   margin-left: -355px;
 }
 
-.placeAbsolute {
+.viewport_absolute {
   position: absolute;
   top: 0;
   left: 50%;

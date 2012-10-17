@@ -13,11 +13,14 @@ define([
         (function initializeViewport() {
             
             var $viewport = $("#cr-stage, #wrapper, #inner_background");
+            var $outer = $("#outer_background");
             function replaceViewport() {
                 if(config.viewport.height > $("body").height()) {
-                    $viewport.removeClass("placeFixed").addClass("placeAbsolute");                
+                    $viewport.removeClass("viewport_fixed").addClass("viewport_absolute");
+                    $outer.removeClass("outer_fixed").addClass("outer_absolute");
                 } else {
-                    $viewport.removeClass("placeAbsolute").addClass("placeFixed");
+                    $viewport.removeClass("viewport_absolute").addClass("viewport_fixed");
+                    $outer.removeClass("outer_absolute").addClass("outer_fixed");
                 }
             };
 
