@@ -14,8 +14,14 @@ Exterminate the waves of enemies before they reach your character
 
 ### Change Log ###
 
+#### 2012 10 18 - v1.0.2
+* Major module reorganization - [hugeen](https://github.com/hugeen)
+* Backbone updated to v0.9.2 - [hugeen](https://github.com/hugeen)
+* jQuery updated to v1.8.2 - [hugeen](https://github.com/hugeen)
+* Underscore updated to v1.4.2 - [hugeen](https://github.com/hugeen)
+
 #### 2012 10 13 - v1.0.1
-* Renitialize Game
+* Renitialize Game - [hugeen](https://github.com/hugeen)
 
 #### 2012 05 13 - v0.10.2
 * Pig added with hitbox - [hugeen](https://github.com/hugeen)
