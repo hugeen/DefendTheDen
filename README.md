@@ -14,13 +14,7 @@ Exterminate the waves of enemies before they reach your character
 
 #### [Change Log](https://github.com/hugeen/Defend-The-Den/wiki/Change-log/) ####
 
-### ToDo ###
-
-* Gameplay enhancement
-* Add polygonal hitboxes
-* Particle generator width gravity (for hit effects)
-* Protection skill (energy shield)
-* Skill tree
+#### [Todo](https://github.com/hugeen/Defend-The-Den/wiki/Todo/) ####
 
 #### Links ####
 
