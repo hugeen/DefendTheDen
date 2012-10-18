@@ -12,7 +12,7 @@ Exterminate the waves of enemies before they reach your character
 * Pierre Lancien (Music) - [plancien](https://github.com/plancien)
 * Daniel Garcia (Spelling and grammar) - [buzzedword](https://github.com/buzzedword)
 
-[Change Log](https://github.com/hugeen/Defend-The-Den/wiki/Change-log/)
+#### [Change Log](https://github.com/hugeen/Defend-The-Den/wiki/Change-log/) ####
 
 ### ToDo ###
 
