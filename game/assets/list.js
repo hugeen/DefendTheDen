@@ -1,12 +1,8 @@
-define([
-    'Crafty',
-    'Underscore',
-    'game/assets/manager'
-], function(Crafty, _, assetsManager) {
+define(function() {
 
-    return {
-        wolf: new assetsManager.Sprite({ name: "wolf", size: 135 }),
-        pig: new assetsManager.Sprite({ name: "pig", size: 115 })
-    }
-
+    return [
+        { type: "sprites", name: "wolf", size: 135, scenes: ["level"] },
+        { type: "sprites", name: "pig", size: 115, scenes: ["level"] }
+    ];
+    
 });

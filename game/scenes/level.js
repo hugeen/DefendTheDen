@@ -1,19 +1,11 @@
 define([
-    'jQuery',
-    'Underscore',
-    'Backbone',
-    'Crafty',
-    'game/entities/wolf'
-], function($, _, Backbone, Crafty, wolf) {
-
-    var sceneName = "level"
-    Crafty.scene(sceneName, function() {
-        wolf.spawnEntity();
-    });
+    'Underscore'
+], function(_) {
     
     return {
-        load: function() {
-            Crafty.scene(sceneName)
+        name: "level",
+        init: function() {
+            console.log("init");
         }
     };
 

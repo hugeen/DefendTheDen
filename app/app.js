@@ -2,13 +2,15 @@ define([
     'jQuery',
     'Underscore',
     'Backbone',
+    'Crafty',
     'router',
     'config'
-], function($, _, Backbone, Router, config) {
+], function($, _, Backbone, Crafty, Router, config) {
 
     var initialize = function() {
         
         Crafty.init(config.viewport.width, config.viewport.height);
+        Router.initialize();
         
         (function initializeViewport() {
             
@@ -28,8 +30,6 @@ define([
             $(window).resize(function() { replaceViewport(); });
             
         })();
-
-        Router.initialize();
         
     };
 

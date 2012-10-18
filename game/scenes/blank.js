@@ -1,17 +1,7 @@
-define([
-    'jQuery',
-    'Underscore',
-    'Backbone',
-    'Crafty'
-], function($, _, Backbone, Crafty, wolf) {
+define(function() {
 
-    var sceneName = "blank"
-    Crafty.scene(sceneName, function() {});
-    
     return {
-        load: function() {
-            Crafty.scene(sceneName)
-        }
+        name: "blank"
     };
 
 });

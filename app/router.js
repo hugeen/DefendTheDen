@@ -9,24 +9,11 @@ define([
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '/levels': 'levels',
-            '/levels/:id': 'level',
-            '/survival': 'survival',
-            '/credits': 'credits',
-            '/skillshop': 'skillshop',
-            '*actions': 'home'
+            '': 'home',
+            'levels/:id': 'level'
         },
-        home: function(actions) {
+        home: function() {
             home.render();
-        },
-        credits: function() {
-            
-        },
-        skillshop: function() {
-            
-        },
-        survival: function() {
-            
         },
         level: function(id) {
             level.render(id);
@@ -39,7 +26,7 @@ define([
     return {
         
         initialize: function() {
-            new AppRouter;
+            var router = new AppRouter;
             Backbone.history.start();
         }
         

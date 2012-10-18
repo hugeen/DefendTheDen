@@ -10,10 +10,4 @@ require.config({
     }
 });
 
-require([
-    'app',
-], function(App, config) {
-
-    App.initialize();
-    
-});
+require(['app'], function(App) { App.initialize(); });

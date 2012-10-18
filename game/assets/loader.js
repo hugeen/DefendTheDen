@@ -1,9 +1,8 @@
 define([
     'Crafty',
-    'Underscore',
-    'game/assets/bundles'
-], function(Crafty, _, assetsBundles) {
-    
+    'Underscore'
+], function(Crafty, _) {
+    /*
     return function(name, callbacks) {
         
         _.defaults(callbacks, {
@@ -26,6 +25,8 @@ define([
             }
         );
         
-    }
+    }*/
+    
+    return function() {};
 
 });
