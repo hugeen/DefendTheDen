@@ -12,36 +12,7 @@ Exterminate the waves of enemies before they reach your character
 * Pierre Lancien (Music) - [plancien](https://github.com/plancien)
 * Daniel Garcia (Spelling and grammar) - [buzzedword](https://github.com/buzzedword)
 
-### Change Log ###
-
-#### 2012 10 18 - v1.0.2
-* Major module reorganization - [hugeen](https://github.com/hugeen)
-* Backbone updated to v0.9.2 - [hugeen](https://github.com/hugeen)
-* jQuery updated to v1.8.2 - [hugeen](https://github.com/hugeen)
-* Underscore updated to v1.4.2 - [hugeen](https://github.com/hugeen)
-
-#### 2012 10 13 - v1.0.1
-* Renitialize Game - [hugeen](https://github.com/hugeen)
-
-#### 2012 05 13 - v0.10.2
-* Pig added with hitbox - [hugeen](https://github.com/hugeen)
-
-#### 2012 05 08 - v0.10.1
-
-* Full refactor initialized - [hugeen](https://github.com/hugeen)
-* Hitbox added on wolf - [hugeen](https://github.com/hugeen)
-
-#### 2012 04 01 - v0.03
-
-* Adjusted english for proper spelling and grammar - [buzzedword](https://github.com/buzzedword)
-
-#### 2012 03 02 - v0.02
-
-* Update Crafty to 0.4.6 - [hugeen](https://github.com/hugeen)
-
-#### 2012 02 24 - v0.01
-
-* Website created (http://www.defendtheden.com) - [hugeen](https://github.com/hugeen)
+[Change Log](https://github.com/hugeen/Defend-The-Den/wiki/Change-log/)
 
 ### ToDo ###
 
@@ -54,11 +25,10 @@ Exterminate the waves of enemies before they reach your character
 #### Links ####
 
 * Defend The Den Website (http://www.defendtheden.com)
-* Forum (https://groups.google.com/forum/?hl=fr&fromgroups#!forum/defend-the-den)
 * Twitter (https://twitter.com/#!/Hugeen)
 * Crafty (http://craftyjs.com/)
 
 ### Copyright ###
 
-* Music is under Copyright 2012 - Pierre Lancien
+* Music is under Copyright 2012 - [Pierre Lancien](https://github.com/plancien)
 * Sprites are under Copyright 2012 - Lou Mosnier
