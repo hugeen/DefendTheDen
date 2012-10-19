@@ -4,7 +4,7 @@ define([
     'Backbone',
     'views/home/show',
     'views/levels/show'
-], function($, _, Backbone, home, levels, level) {
+], function($, _, Backbone, home, level) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
