@@ -2,19 +2,20 @@ define([
     'Crafty',
     'Underscore'
 ], function(Crafty, _) {
-    /*
-    return function(name, callbacks) {
+
+    return function(assets, callback) {
         
-        _.defaults(callbacks, {
+        var callbacks = {
+            onLoad: callback || function() {},
             onProgress: function(e) {},
             onError: function(e) {}
-        });
-        var assetBundle = _.reject(assetsBundles[name], function(asset){ return asset.loaded === true; });
-        var assetsPath = _.map(assetBundle, function(asset){ return asset.path(); });
+        }
+
+        var assetsPath = _.map(assets, function(asset){ return asset.path(); });
         
         Crafty.load(assetsPath,
             function() {
-                _.invoke(assetsBundles[name], 'setLoaded');
+                _.invoke(assets, 'onLoaded');
                 callbacks.onLoad();
             },
             function(e) {
@@ -25,8 +26,6 @@ define([
             }
         );
         
-    }*/
-    
-    return function() {};
+    };
 
 });
