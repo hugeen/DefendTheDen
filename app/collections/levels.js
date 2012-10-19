@@ -3,7 +3,7 @@ define([
     'Underscore',
     'Backbone',
     'models/level',
-    'game/levels/list'
+    'game/levels'
 ], function($, _, Backbone, Level, levelsData) {
 
     var Levels = Backbone.Collection.extend({
