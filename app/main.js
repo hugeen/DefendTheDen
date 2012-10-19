@@ -10,4 +10,4 @@ require.config({
     }
 });
 
-require(['app'], function(App) { App.initialize(); });
+require(['app', 'game/components'], function(App) { App.initialize(); });
