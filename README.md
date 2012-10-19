@@ -3,7 +3,7 @@ Defend The Den
 
 #### Open Source HTML5 Game ####
 
-Exterminate the waves of enemies before they reach your character
+Exterminate the waves of enemies before they reach your character. _Defend then den_ is a defense game with a touch of wittiness.
 
 #### Contributors ####
 
