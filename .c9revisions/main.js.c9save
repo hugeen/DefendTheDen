@@ -1,2 +1,0 @@
-{"ts":1350197011324,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1350197024031,"patch":[[{"diffs":[[1,"require([\"jquery\", \"lib/external/crafty\"], function($) {\n    $(function() {\n        console.log(\"jquery loaded\");\n    });\n});"]],"start1":0,"start2":0,"length1":0,"length2":125}]],"length":125,"saved":false}

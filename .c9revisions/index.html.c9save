@@ -1,2 +1,0 @@
-{"ts":1350163800004,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1350163841247,"patch":[[{"diffs":[[1,"<!DOCTYPE html>\n<html>\n    <head>\n        <title>Defend The Den</title>\n        <script data-main=\"lib/game/main\" src=\"lib/external/require-jquery.js\"></script>\n    </head>\n    <body>\n        <h1>Defend The Den</h1>\n    </body>\n</html>\n"]],"start1":0,"start2":0,"length1":0,"length2":236}]],"length":236,"saved":false}
