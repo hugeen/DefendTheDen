@@ -1,10 +1,9 @@
 define([
     'jQuery',
-    'Underscore',
     'Backbone',
     'collections/scenes',
     'text!templates/home/show.html'
-], function($, _, Backbone, scenes, _show) {
+], function($, Backbone, scenes, _show) {
 
     var Show = Backbone.View.extend({
         el: $("#wrapper"),

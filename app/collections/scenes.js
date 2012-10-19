@@ -1,9 +1,8 @@
 define([
-    'Underscore',
     'Backbone',
     'models/scene',
     'game/scenes/list'
-], function(_, Backbone, Scene, scenesData) {
+], function(Backbone, Scene, scenesData) {
 
     var Scenes = Backbone.Collection.extend({
         model: Scene,

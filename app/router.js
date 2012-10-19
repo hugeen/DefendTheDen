@@ -3,7 +3,6 @@ define([
     'Underscore',
     'Backbone',
     'views/home/show',
-    'views/levels/index',
     'views/levels/show'
 ], function($, _, Backbone, home, levels, level) {
 
@@ -17,9 +16,6 @@ define([
         },
         level: function(id) {
             level.render(id);
-        },
-        levels: function() {
-            levels.render();
         }
     });
 

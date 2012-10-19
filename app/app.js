@@ -1,11 +1,8 @@
 define([
     'jQuery',
-    'Underscore',
-    'Backbone',
-    'Crafty',
     'router',
     'config'
-], function($, _, Backbone, Crafty, Router, config) {
+], function($, Router, config) {
 
     var initialize = function() {
         

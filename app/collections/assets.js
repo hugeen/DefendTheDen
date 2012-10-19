@@ -1,10 +1,9 @@
 define([
-    'jQuery',
     'Underscore',
     'Backbone',
     'models/asset',
     'game/assets'
-], function($, _, Backbone, Asset, assetsData) {
+], function(_, Backbone, Asset, assetsData) {
 
     var Assets = Backbone.Collection.extend({
         model: Asset,

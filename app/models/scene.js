@@ -1,12 +1,10 @@
 define([
-    'Underscore',
     'Backbone',
     'Crafty'
-], function(_, Backbone, Crafty) {
+], function(Backbone, Crafty) {
     
     var Scene = Backbone.Model.extend({
         defaults: {
-            current: false,
             init: function() {},
             uninit: function() {}
         },
