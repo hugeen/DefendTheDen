@@ -1,7 +1,8 @@
 define([
     'Backbone',
-    'Crafty'
-], function(Backbone, Crafty) {
+    'Crafty',
+    'collections/assets'
+], function(Backbone, Crafty, assets) {
     
     var Scene = Backbone.Model.extend({
         defaults: {
@@ -12,7 +13,10 @@ define([
             return Crafty.scene(this.get("name"), this.get("init"), this.get("uninit"));
         },
         load: function() {
-            return Crafty.scene(this.get("name"));
+            var sceneName = this.get("name");
+            assets.loadByScene(sceneName, function() {
+               Crafty.scene(sceneName);
+            });
         }
     });
     
