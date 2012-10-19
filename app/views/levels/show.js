@@ -10,7 +10,7 @@ define([
         el: $("#wrapper"),
         render: function(id) {
             
-            scenes.findByName("level").load();
+            scenes.findByName("level").load({level: id});
             
             this.$el.html(_.template(_show));
             $("#ig_menu button").click(function() {

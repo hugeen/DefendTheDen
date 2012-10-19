@@ -5,8 +5,8 @@ define(function(require) {
 
     return {
         name: "level",
-        init: function() {
-            console.log("Level loaded");
+        init: function(options) {
+            console.log("Level loaded", options);
             player.create();
         }
     };

@@ -6,17 +6,30 @@ define([
     
     var Scene = Backbone.Model.extend({
         defaults: {
+            optionsBuffer: {},
             init: function() {},
             uninit: function() {}
         },
         initialize: function() {
-            return Crafty.scene(this.get("name"), this.get("init"), this.get("uninit"));
+
+            var init = this.get("init");
+            var scene = this;
+            
+            return Crafty.scene(this.get("name"), function() {
+                init(scene.optionsBuffer);
+            }, this.get("uninit"));
+            
         },
-        load: function() {
+        load: function(options) {
+            
+            this.optionsBuffer = options || {};
+            
             var sceneName = this.get("name");
             assets.loadByScene(sceneName, function() {
                Crafty.scene(sceneName);
+               this.optionsBuffer = {};
             });
+
         }
     });
     
