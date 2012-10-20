@@ -9,5 +9,6 @@ define(function(require) {
     require('game/components/playable_character');
     require('game/components/skill');
     require('game/components/state');
+    require('game/components/wires');
     require('game/components/wolf');
 });

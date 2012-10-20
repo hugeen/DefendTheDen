@@ -5,22 +5,21 @@ define([
     
     Crafty.c("Pig", {
         init : function() {
-
-            this.addComponent("2D, Canvas, SpriteAnimation, pig");
+            
+            this.addComponent("SpriteAnimation, pig");
             
             this.attr({
-                x : -150,
-                y : -90,
                 w : 115,
                 h : 115,
             });
-            this._mainComponentAttr = {
-                x : 30,
-                y : 20
-            };
+            
+            this.walkSpeed = 5;
+            
             this.animate("walk", 0, 0, 3);
-            this.animate("walk", 38, -1);
+            this.animate("walk", 55, -1);
     
+            this.walk();
+            
         }
     });
 

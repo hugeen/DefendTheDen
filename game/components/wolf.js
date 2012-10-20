@@ -6,7 +6,7 @@ define([
     Crafty.c("Wolf", {
         init : function() {
 
-            this.addComponent("2D, Canvas, SpriteAnimation, wolf");
+            this.addComponent("SpriteAnimation, wolf");
             
             this.attr({
                 x : 0,

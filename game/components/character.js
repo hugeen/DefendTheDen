@@ -5,7 +5,7 @@ define([
     
     Crafty.c("Character", {
         init: function() {
-            
+            this.addComponent("2D, Canvas");
         }
     });
 
