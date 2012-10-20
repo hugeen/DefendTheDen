@@ -8,6 +8,7 @@ define(function(require) {
         init: function(options) {
             player.create();
             monster.create("Pig");
+            Crafty.e("Skill");
         }
     };
 
