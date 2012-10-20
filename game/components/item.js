@@ -3,9 +3,9 @@ define([
     'Crafty'
 ], function(_, Crafty) {
     
-    Crafty.c("PlayableCharacter", {
+    Crafty.c("Item", {
         init: function() {
-            this.addComponent("Character");
+            
         }
     });
 

@@ -3,7 +3,7 @@ define([
     'Crafty'
 ], function(_, Crafty) {
     
-    Crafty.c("PlayableCharacter", {
+    Crafty.c("NonPlayableCharacter", {
         init: function() {
             this.addComponent("Character");
         }

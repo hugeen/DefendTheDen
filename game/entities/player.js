@@ -5,7 +5,10 @@ define([
 
     return {
         create: function() {
-            return Crafty.e("PlayableCharacter");
+            
+            var player = Crafty.e("PlayableCharacter, Wolf")
+            
+            return player;
         }
     };
 
