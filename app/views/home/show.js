@@ -10,8 +10,7 @@ define([
         render: function() {
             $("#inner_background").html("");
             scenes.findByName("blank").load();
-            this.$el.html(_show);
-            
+            this.$el.html(_show);   
         }
     });
 
