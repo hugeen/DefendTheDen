@@ -8,6 +8,7 @@ define(function(require) {
         init: function(options) {
             console.log("Level loaded", options);
             player.create();
+            Crafty.e("Wolf");
         }
     };
 
