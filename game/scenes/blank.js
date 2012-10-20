@@ -1,7 +1,8 @@
 define(function() {
 
     return {
-        name: "blank"
+        name: "blank",
+        init: function() {}
     };
 
 });

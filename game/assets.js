@@ -1,8 +1,9 @@
 define(function() {
-Crafty.sprite(42, 	"img/wires-sprite.png", 		{ wires: 			[0, 0, 1, 10] });
+
     return [
         { type: "sprites", name: "wolf", size: 135, scenes: ["level"] },
         { type: "sprites", name: "pig", size: 115, scenes: ["level"] },
+        { type: "sprites", name: "wagon", size: 81, scenes: ["level"] },
         {
             type: "sprites",
             name: "wires",

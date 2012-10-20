@@ -21,9 +21,12 @@ define([
                 onProgress: function(e) {},
                 onError: function(e) {}
             }
-
+            
             var assetsPath = _.map(assets, function(asset){ return asset.path(); });
 
+            if(_.isEmpty(assetsPath)) {
+                return callbacks.onLoad();
+            }
             Crafty.load(assetsPath,
                 function() {
                     _.invoke(assets, 'onLoaded');
