@@ -6,7 +6,7 @@ define([
     return {
         create: function() {
             
-            var player = Crafty.e("PlayableCharacter, Wolf")
+            var player = Crafty.e("PlayableCharacter, PlayerMove, Wolf")
             
             return player;
         }

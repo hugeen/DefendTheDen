@@ -25,9 +25,11 @@ define([
             this.optionsBuffer = options || {};
             
             var sceneName = this.get("name");
+            
             assets.loadByScene(sceneName, function() {
-               Crafty.scene(sceneName);
-               this.optionsBuffer = {};
+
+                Crafty.scene(sceneName);
+                this.optionsBuffer = {};
             });
 
         }

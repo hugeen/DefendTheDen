@@ -7,7 +7,7 @@ define([
         init: function() {
             this.addComponent("Character");
             this.attr({
-                x : 650,
+                x : 600,
                 y : 50
             });
             this.walkSpeed = 1;

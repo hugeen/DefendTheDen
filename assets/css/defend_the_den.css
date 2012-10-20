@@ -165,24 +165,43 @@ body {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
-  z-index: 1;
+  z-index: 2;
 }
 
 #sky {
+  z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;
   background: url(../images/sky.png) top left no-repeat;
 }
+
 #earth {
+  z-index: 3;
   position: absolute;
   width: 100%;
   height: 100%;
   background: url(../images/earth.png) top left no-repeat;
 }
+
 #battlefield {
   position: absolute;
   width: 100%;
   height: 100%;
   background: url(../images/battlefield.png) top left no-repeat;
+}
+
+#under_rails {
+  position: absolute;
+  top: 33px;
+  width: 167px;
+  height: 668px;
+  background: url(../images/under-rails.png) top left no-repeat;
+}
+
+#side_rails {
+  position: absolute;
+  width: 74px;
+  height: 580px;
+  background: url(../images/rails-sprite.png) top left no-repeat;
 }

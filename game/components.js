@@ -9,6 +9,7 @@ define(function(require) {
     require('game/components/cooldown');
     require('game/components/item');
     require('game/components/life');
+    require('game/components/player_move');
     require('game/components/skill');
     require('game/components/state');
 });
