@@ -6,8 +6,17 @@ define([
     Crafty.c("Skill", {
         init: function() {
             this.addComponent("Keyboard, Cooldown");
-            this.keyBind = "A";
-            this.initCooldown(1);
+            
+            var options = {
+                key: "A",
+                cooldown: 1
+            };
+
+            this.initSkill = function(_options) {
+                _.extend(options, _options);
+                this.initCooldown(options.cooldown);
+            };
+
             this.bind("CooldownEnded", function() {
                 console.log("end");
             });
@@ -15,7 +24,9 @@ define([
                 
             });
             this.bind("KeyDown", function() {
-                this.startCooldown();
+                if(this.isDown(options.key)) {
+                    this.startCooldown();
+                }
             });
             
         }

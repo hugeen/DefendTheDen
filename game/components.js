@@ -1,4 +1,5 @@
 define(function(require) {
+    require('game/components/bullet');
     require('game/components/character');
     require('game/components/cooldown');
     require('game/components/item');
