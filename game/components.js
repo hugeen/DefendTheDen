@@ -1,14 +1,14 @@
 define(function(require) {
+    require('game/components/battlefield/wires');
     require('game/components/bullet');
-    require('game/components/character');
+    require('game/components/characters/character');
+    require('game/components/characters/non_playable_character');
+    require('game/components/characters/pig');
+    require('game/components/characters/playable_character');
+    require('game/components/characters/wolf');
     require('game/components/cooldown');
     require('game/components/item');
     require('game/components/life');
-    require('game/components/non_playable_character');
-    require('game/components/pig');
-    require('game/components/playable_character');
     require('game/components/skill');
     require('game/components/state');
-    require('game/components/wires');
-    require('game/components/wolf');
 });
