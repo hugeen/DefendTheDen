@@ -13,5 +13,6 @@ define(function(require) {
     require('game/components/life');
     require('game/components/player_move');
     require('game/components/skill');
+    require('game/components/skills/attack');
     require('game/components/state');
 });

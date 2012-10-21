@@ -7,8 +7,7 @@ define([
     Crafty.c("Bullet", {
         init: function() {
             
-            this.addComponent("2D, Canvas, Color");
-            this.color("#000000");
+            this.addComponent("2D, Canvas");
             
             this.attr({
                 w: 20,

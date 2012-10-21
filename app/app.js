@@ -28,6 +28,8 @@ define([
                     $viewport.removeClass("viewport_absolute").addClass("viewport_fixed");
                     $outer.removeClass("outer_absolute").addClass("outer_fixed");
                 }
+                
+                config.offset = $("#cr-stage").offset()
             };
 
             $(replaceViewport());

@@ -21,8 +21,8 @@ define([
     
             this.walk();
 
-            this.onHit("Bullet", function(target) {
-                target[0].obj.destroy();
+            this.onHit("Bullet", function() {
+                console.log("hit")
                 Crafty.e("Blood").spawnAt({ x: this.x+40, y: this.y+55 });
             });
             
