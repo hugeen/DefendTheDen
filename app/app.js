@@ -6,13 +6,8 @@ define([
 
     var initialize = function() {
 
-        var gx=0;
-        var gy=10;
-        var ptm_ratio=32;
-        var doSleep=true;
-        
         Crafty.init(config.viewport.width, config.viewport.height);
-        Crafty.box2D.init(gx, gy, ptm_ratio, doSleep);
+        Crafty.box2D.init(config.box2d.gravity.x, config.box2d.gravity.x, config.box2d.pixelToMeter, config.box2d.sleep);
         
         Router.initialize();
         

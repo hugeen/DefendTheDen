@@ -28,10 +28,6 @@ define([
                     this.rotation += 15;
                 });
                 
-                this.onHit("NonPlayableCharacter", function() {
-                    this.destroy();
-                });
-                
                 this.fire(from, to, this.speed);
                 
             }

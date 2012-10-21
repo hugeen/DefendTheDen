@@ -21,9 +21,14 @@ define([
     
             this.walk();
 
-            this.onHit("Bullet", function() {
-                console.log("hit")
-                Crafty.e("Blood").spawnAt({ x: this.x+40, y: this.y+55 });
+            this.onHit("Bullet", function(others) {
+                others[0].obj.destroy();
+                this.takeDamages(50);
+                this.bleed({x: 40, y: 55});
+            });
+            
+            this.bind("Death", function() {
+               this.destroy();
             });
             
         }

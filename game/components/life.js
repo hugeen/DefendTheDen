@@ -9,7 +9,7 @@ define([
             this.takeDamages = function(damages, opponent) {
                 this.life -= damages;
                 if(this.life <= 0) {
-                    this.trigger("Dead", damages, opponent);
+                    this.trigger("Death", damages, opponent);
                 }
             };
         }
