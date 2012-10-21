@@ -31,5 +31,12 @@ define([
             
         }
     });
+    
+    Crafty.c("Attack", {
+        init: function() {
+            
+            
+        }
+    });
 
 });

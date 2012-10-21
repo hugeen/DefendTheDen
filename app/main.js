@@ -6,7 +6,8 @@ require.config({
         Backbone: '../libs/backbone/backbone',
         Crafty: '../libs/crafty/crafty',
         templates: '../templates',
-        game: '../game'
+        game: '../game',
+        libs: '../libs'
     }
 });
 

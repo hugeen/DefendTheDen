@@ -20,6 +20,11 @@ define([
             this.animate("walk", 55, -1);
     
             this.walk();
+
+            this.onHit("Bullet", function(target) {
+                target[0].obj.destroy();
+                Crafty.e("Blood").spawnAt({ x: this.x+40, y: this.y+55 });
+            });
             
         }
     });
