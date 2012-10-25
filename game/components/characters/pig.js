@@ -5,13 +5,13 @@ define([
     
     Crafty.c("Pig", {
         init : function() {
-            this.addComponent("SpriteAnimation, pig, Collision");
+            this.addComponent("SpriteAnimation, SpriteColor, pig, Collision");
             
             this.attr({
                 w : 115,
                 h : 115,
             });
-            
+
             this.collision(new Crafty.polygon([35,20],[30,40],[40,100],[75,100],[75,40],[35,20]));
             
             this.walkSpeed = 0.45;

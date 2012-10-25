@@ -1,8 +1,9 @@
 define([
+    'jQuery',
     'Underscore',
     'config',
     'libs/box2d/box2d'
-], function(_, config, Box2D) {
+], function($, _, config, Box2D) {
 
     return {
         entityParser: function(code) {
@@ -38,6 +39,24 @@ define([
 			PrismaticJointDef: Box2D.Dynamics.Joints.b2PrismaticJointDef,
 			ContactListener: Box2D.Dynamics.b2ContactListener,
 			FilterData: Box2D.Dynamics.b2FilterData
+        },
+        initializeViewport: function() {
+            var $viewport = $("#cr-stage, #wrapper, #inner_background");
+            var $outer = $("#outer_background");
+            function replaceViewport() {
+                if(config.viewport.height > $("body").height()) {
+                    $viewport.removeClass("viewport_fixed").addClass("viewport_absolute");
+                    $outer.removeClass("outer_fixed").addClass("outer_absolute");
+                } else {
+                    $viewport.removeClass("viewport_absolute").addClass("viewport_fixed");
+                    $outer.removeClass("outer_absolute").addClass("outer_fixed");
+                }
+            
+                config.offset = $("#cr-stage").offset()
+            };
+            
+            $(replaceViewport());
+            $(window).resize(function() { replaceViewport(); });
         }
     };
 
