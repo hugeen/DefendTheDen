@@ -10,7 +10,7 @@ define([
             
             this.speed = 15;
 
-            this.attack = function(player, mouse) {
+            this.attack = function(player) {
                 
                 var from = {
                     x: player.x,

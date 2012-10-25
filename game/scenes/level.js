@@ -2,8 +2,9 @@ define([
     "jQuery",
     "Crafty",
     "game/entities/player",
-    "game/entities/monster"
-], function($, Crafty, PlayerEntity, MonsterEntity) {
+    "game/entities/monster",
+    "game/entities/attack"
+], function($, Crafty, PlayerEntity, MonsterEntity, AttackEntity) {
     
     return {
         name: "level",
@@ -14,14 +15,14 @@ define([
             MonsterEntity.create("Pig");
             Crafty.e("Wires");
             
-            $("body").on("click", "#wrapper", function(e) {
-                Crafty.e("Attack").attack(player, e);
+            $("body").on("click", "#wrapper", function() {
+                AttackEntity.create(player);
             });
             
             var attackSkill = Crafty.e("Skill");
-            attackSkill.initSkill(); 
+            attackSkill.initSkill({ key: "D", cooldown: 0.5 }); 
             attackSkill.bind("SkillTriggered", function() {
-                Crafty.e("Attack").attack(player);
+                AttackEntity.create(player);
             });
 
         },
