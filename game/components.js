@@ -1,18 +1,22 @@
-define(function(require) {
-    require('game/components/battlefield/wires');
-    require('game/components/box2d');
-    require('game/components/bullet');
-    require('game/components/characters/character');
-    require('game/components/characters/non_playable_character');
-    require('game/components/characters/pig');
-    require('game/components/characters/playable_character');
-    require('game/components/characters/wolf');
-    require('game/components/cooldown');
-    require('game/components/effects/blood');
-    require('game/components/item');
-    require('game/components/life');
-    require('game/components/player_move');
-    require('game/components/skill');
-    require('game/components/skills/attack');
-    require('game/components/state');
+define([
+    'game/components/battlefield/wires',
+    'game/components/box2d',
+    'game/components/bullet',
+    'game/components/characters/character',
+    'game/components/characters/non_playable_character',
+    'game/components/characters/pig',
+    'game/components/characters/playable_character',
+    'game/components/characters/wolf',
+    'game/components/cooldown',
+    'game/components/effects/blood',
+    'game/components/item',
+    'game/components/life',
+    'game/components/player_move',
+    'game/components/skill',
+    'game/components/skills/attack',
+    'game/components/state'
+],function() {
+    
+    return true;
+    
 });
