@@ -11,6 +11,10 @@ define(function() {
             },
             pixelToMeter: 32,
             sleep: true
+        },
+        mouse: {
+            absolute: { x: 0, y: 0 },
+            relative: { x: 0, y: 0 }
         }
     };
 

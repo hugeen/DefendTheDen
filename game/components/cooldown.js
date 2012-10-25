@@ -34,6 +34,7 @@ define([
                 if(cooldown.initialized && cooldown.ready) {
                     cooldown.start = new Date().getTime();
                     cooldown.ready = false;
+                    this.trigger("CooldownStarted", cooldown);
                     return true;
                 } else {
                     this.trigger("CooldownNotReady", cooldown);

@@ -43,6 +43,7 @@ define([
         initializeViewport: function() {
             var $viewport = $("#cr-stage, #wrapper, #inner_background");
             var $outer = $("#outer_background");
+            
             function replaceViewport() {
                 if(config.viewport.height > $("body").height()) {
                     $viewport.removeClass("viewport_fixed").addClass("viewport_absolute");
@@ -51,12 +52,29 @@ define([
                     $viewport.removeClass("viewport_absolute").addClass("viewport_fixed");
                     $outer.removeClass("outer_absolute").addClass("outer_fixed");
                 }
-            
                 config.offset = $("#cr-stage").offset()
             };
             
             $(replaceViewport());
             $(window).resize(function() { replaceViewport(); });
+        },
+        initializeMouseHandler: function() {
+            
+            $(document).mousemove(function(e) {
+                config.mouse.absolute = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                config.mouse.relative = {
+                    x: e.clientX-config.offset.left,
+                    y: e.clientY-config.offset.top
+                };
+            });
+            
+            $("#wrapper").click(function() {
+                // trigger clic
+            });
+            
         }
     };
 

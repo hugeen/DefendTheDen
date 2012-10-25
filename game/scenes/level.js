@@ -1,10 +1,9 @@
-define(function(require) {
-    
-    
-    var $ = require("jQuery");
-    var Crafty = require("Crafty");
-    var PlayerEntity = require("game/entities/player");
-    var MonsterEntity = require("game/entities/monster");
+define([
+    "jQuery",
+    "Crafty",
+    "game/entities/player",
+    "game/entities/monster"
+], function($, Crafty, PlayerEntity, MonsterEntity) {
     
     return {
         name: "level",
@@ -18,11 +17,13 @@ define(function(require) {
             $("body").on("click", "#wrapper", function(e) {
                 Crafty.e("Attack").attack(player, e);
             });
+            
+            var attackSkill = Crafty.e("Skill");
+            attackSkill.initSkill(); 
+            attackSkill.bind("SkillTriggered", function() {
+                Crafty.e("Attack").attack(player);
+            });
 
-            /*
-            Crafty.e("Skill").initSkill();   
-            Crafty.e("Bullet").fire({x: 5, y: 5}, {x: 50, y: 50}, 5);
-            */
         },
         uninit: function() {
             $("body").off("click", "#wrapper")

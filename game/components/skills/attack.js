@@ -9,7 +9,7 @@ define([
             this.addComponent("Bullet, axe, Collision");
             
             this.speed = 15;
-            
+
             this.attack = function(player, mouse) {
                 
                 var from = {
@@ -18,8 +18,8 @@ define([
                 }
                 
                 var to = {
-                    x: mouse.clientX-config.offset.left,
-                    y: mouse.clientY-config.offset.top
+                    x: config.mouse.relative.x,
+                    y: config.mouse.relative.y
                 }
                 
                 this.origin("center");

@@ -18,23 +18,21 @@ define([
             };
 
             this.bind("CooldownEnded", function() {
-                console.log("end");
+                
             });
+            
             this.bind("CooldownOn", function() {
                 
+            });
+            
+            this.bind("CooldownStarted", function(cooldown) {
+                this.trigger("SkillTriggered");
             });
             this.bind("KeyDown", function() {
                 if(this.isDown(options.key)) {
                     this.startCooldown();
                 }
             });
-            
-        }
-    });
-    
-    Crafty.c("Attack", {
-        init: function() {
-            
             
         }
     });
