@@ -5,6 +5,8 @@ require.config({
         Underscore: '../libs/underscore/underscore',
         Backbone: '../libs/backbone/backbone',
         Crafty: '../libs/crafty/crafty',
+        EventEmitter: '../libs/eventemitter2/eventemitter2',
+        Burst: '../libs/burst/burst',
         templates: '../templates',
         game: '../game',
         libs: '../libs'
