@@ -1,10 +1,13 @@
 define([
     "jQuery",
     "Crafty",
+    "Burst",
     "game/entities/player",
     "game/entities/monster",
-    "game/entities/attack"
-], function($, Crafty, PlayerEntity, MonsterEntity, AttackEntity) {
+    "game/entities/attack",
+], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity) {
+
+    console.log(Burst);
     
     return {
         name: "level",
