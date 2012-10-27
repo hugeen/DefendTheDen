@@ -14,7 +14,9 @@ Exterminate the waves of enemies before they reach your character. _Defend then 
 
 #### [Change Log](https://github.com/hugeen/Defend-The-Den/wiki/Change-log/) ####
 
-#### [Todo](https://github.com/hugeen/Defend-The-Den/wiki/Todo/) ####
+#### [Todos](https://github.com/hugeen/Defend-The-Den/wiki/Todos/) ####
+
+#### [How to contribute ?](https://github.com/hugeen/Defend-The-Den/wiki/) ####
 
 #### Links ####
 
