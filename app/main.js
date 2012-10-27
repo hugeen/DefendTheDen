@@ -5,12 +5,12 @@ require.config({
         Underscore: '../libs/underscore/underscore',
         Backbone: '../libs/backbone/backbone',
         Crafty: '../libs/crafty/crafty',
+        Caman: '../libs/caman/caman',
         EventEmitter: '../libs/eventemitter2/eventemitter2',
         Burst: '../libs/burst/burst',
         MouseTrap: '../libs/mousetrap/mousetrap',
         Color: '../libs/color/color',
         Store: '../libs/store/store',
-        Pixastic: '../libs/pixastic/pixastic',
         templates: '../templates',
         game: '../game',
         libs: '../libs'
