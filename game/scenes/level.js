@@ -15,7 +15,8 @@ define([
             
             var player = PlayerEntity.create();
             
-            MonsterEntity.create("Pig");
+            var monster = MonsterEntity.create("Octocat");
+            
             Crafty.e("Wires");
             
             $("body").on("click", "#wrapper", function() {

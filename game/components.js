@@ -4,6 +4,7 @@ define([
     'game/components/bullet',
     'game/components/characters/character',
     'game/components/characters/non_playable_character',
+    'game/components/characters/octocat',
     'game/components/characters/pig',
     'game/components/characters/playable_character',
     'game/components/characters/wolf',
