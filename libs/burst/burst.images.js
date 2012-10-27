@@ -7,11 +7,8 @@ define([
     return {
         manipulateImage: function(image) {
             
-            Caman("#cr-stage", function() {
-                this.brightness(5).render();
-            });
-            
-            return /* canvas.*/toDataURL();
+            //Caman("#", function() {});
+            //return canvas.toDataURL();
             
         }
     };

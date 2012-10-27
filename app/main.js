@@ -3,29 +3,23 @@ require.config({
     paths: {
         underscore: '../libs/underscore/underscore-min',
         backbone: '../libs/backbone/backbone-min',
-        crafty: '../libs/crafty/crafty-src',
+        crafty: '../libs/crafty/crafty-min',
         caman: '../libs/caman/caman-min',
+        mouseTrap: '../libs/mousetrap/mousetrap-min',
+        store: '../libs/store/store-min',
         eventEmitter: '../libs/eventemitter2/eventemitter2',
         burst: '../libs/burst/burst',
-        mouseTrap: '../libs/mousetrap/mousetrap',
-        store: '../libs/store/store',
         templates: '../templates',
         game: '../game',
         libs: '../libs'
     },
     shim: {
-        underscore: {
-            exports: '_'
-        },
+        underscore: { exports: '_' },
+        caman: { exports: "Caman" },
+        crafty: { exports: "Crafty" },
         backbone: {
             deps: ['underscore'],
             exports: "Backbone"
-        },
-        caman: {
-            exports: "Caman"
-        },
-        crafty: {
-            exports: "Crafty"
         }
     }
 });
