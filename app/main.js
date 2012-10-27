@@ -7,6 +7,10 @@ require.config({
         Crafty: '../libs/crafty/crafty',
         EventEmitter: '../libs/eventemitter2/eventemitter2',
         Burst: '../libs/burst/burst',
+        MouseTrap: '../libs/mousetrap/mousetrap',
+        Color: '../libs/color/color',
+        Store: '../libs/store/store',
+        Pixastic: '../libs/pixastic/pixastic',
         templates: '../templates',
         game: '../game',
         libs: '../libs'
