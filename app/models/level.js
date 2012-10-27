@@ -1,5 +1,5 @@
 define([
-    'Backbone'
+    'backbone'
 ], function(Backbone) {
     
     var Level = Backbone.Model.extend({

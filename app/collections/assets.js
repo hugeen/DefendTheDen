@@ -1,6 +1,6 @@
 define([
-    'Underscore',
-    'Backbone',
+    'underscore',
+    'backbone',
     'models/asset',
     'game/assets'
 ], function(_, Backbone, Asset, assetsData) {

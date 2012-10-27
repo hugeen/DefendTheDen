@@ -1,5 +1,5 @@
 define([
-    'Crafty',
+    'crafty',
     'libs/box2d/box2d'
 ], function(Crafty, Box2D) {
     

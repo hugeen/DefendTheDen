@@ -1,5 +1,5 @@
 define([
-    'Backbone',
+    'backbone',
     'models/scene',
     'game/scenes'
 ], function(Backbone, Scene, scenesData) {

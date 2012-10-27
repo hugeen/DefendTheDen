@@ -1,9 +1,10 @@
 define([
-    'jQuery',
+    'jquery',
+    'crafty',
     'router',
     'config',
     'game/utils'
-], function($, Router, config, utils) {
+], function($, Crafty, Router, config, utils) {
 
     var initialize = function() {
         Crafty.init(config.viewport.width, config.viewport.height);

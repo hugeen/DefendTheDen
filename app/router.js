@@ -1,7 +1,7 @@
 define([
-    'jQuery',
-    'Underscore',
-    'Backbone',
+    'jquery',
+    'underscore',
+    'backbone',
     'views/home/show',
     'views/levels/show',
     'views/box2d/show'

@@ -1,6 +1,6 @@
 define([
-    'jQuery',
-    'Backbone',
+    'jquery',
+    'backbone',
     'collections/scenes',
     'text!templates/box2d/show.html'
 ], function($, Backbone, scenes, _show) {

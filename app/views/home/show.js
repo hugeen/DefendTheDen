@@ -1,6 +1,6 @@
 define([
-    'jQuery',
-    'Backbone',
+    'jquery',
+    'backbone',
     'collections/scenes',
     'text!templates/home/show.html'
 ], function($, Backbone, scenes, _show) {

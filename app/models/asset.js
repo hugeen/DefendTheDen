@@ -1,7 +1,7 @@
 define([
-    'Underscore',
-    'Backbone',
-    'Crafty'
+    'underscore',
+    'backbone',
+    'crafty'
 ], function(_, Backbone, Crafty) {
     
     var Asset = Backbone.Model.extend({

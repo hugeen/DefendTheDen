@@ -1,6 +1,6 @@
 define([
-    'Underscore',
-    'Crafty',
+    'underscore',
+    'crafty',
     'config'
 ], function(_, Crafty, config) {
     

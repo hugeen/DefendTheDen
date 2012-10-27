@@ -1,6 +1,6 @@
 define([
-    'jQuery',
-    'Underscore',
+    'jquery',
+    'underscore',
     'config',
     'libs/box2d/box2d'
 ], function($, _, config, Box2D) {

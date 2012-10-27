@@ -1,5 +1,5 @@
 define([
-    'Backbone',
+    'backbone',
     'models/level',
     'game/levels'
 ], function(Backbone, Level, levelsData) {

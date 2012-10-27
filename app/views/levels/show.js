@@ -1,7 +1,7 @@
 define([
-    'jQuery',
-    'Underscore',
-    'Backbone',
+    'jquery',
+    'underscore',
+    'backbone',
     'collections/scenes',
     'text!templates/layouts/battlefield.html',
     'text!templates/levels/show.html',

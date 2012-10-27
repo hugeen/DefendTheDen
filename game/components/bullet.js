@@ -1,6 +1,6 @@
 define([
-    'Underscore',
-    'Crafty',
+    'underscore',
+    'crafty',
     'game/utils'
 ], function(_, Crafty, utils) {
     

@@ -1,7 +1,7 @@
 define([
-    "jQuery",
-    "Crafty",
-    "Burst",
+    "jquery",
+    "crafty",
+    "burst",
     "game/entities/player",
     "game/entities/monster",
     "game/entities/attack",

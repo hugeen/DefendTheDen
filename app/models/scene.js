@@ -1,6 +1,6 @@
 define([
-    'Backbone',
-    'Crafty',
+    'backbone',
+    'crafty',
     'collections/assets'
 ], function(Backbone, Crafty, assets) {
     

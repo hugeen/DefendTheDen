@@ -1,6 +1,6 @@
 define([
-    'Underscore',
-    'Crafty'
+    'underscore',
+    'crafty'
 ], function(_, Crafty) {
     
     Crafty.c("Wagon", {

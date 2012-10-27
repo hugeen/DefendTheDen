@@ -1,6 +1,6 @@
 define([
-    'Underscore',
-    'EventEmitter',
+    'underscore',
+    'eventEmitter',
     'libs/burst/burst.images'
 ], function(_, EventEmitter, burstImages) {
     
@@ -15,7 +15,7 @@ define([
     var burstEventBus = new EventEmitter({ wildcard: true });
     
     Burst.extend(burstEventBus, burstImages);
-    
+
     return Burst;
 
 });
