@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Defend the Den</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../libs/mocha/mocha.js"></script>
+    <script src="../libs/mocha/chai.js"></script>
+    <script src="../libs/mocha/sinon-chai.js"></script>
+    <!--<script src="../libs/mocha/chai-as-promised.js"></script>-->
+    <!--<script src="../libs/mocha/chai-backbone.js"></script>-->
+    <!--<script src="../libs/mocha/chai-jquery.js"></script>-->
+    <script>
+      
+      // http://visionmedia.github.com/mocha/
+      // http://chaijs.com/
+      // https://github.com/domenic/sinon-chai
+      // https://github.com/domenic/chai-as-promised
+      // https://github.com/matthijsgroen/chai-backbone
+      // https://github.com/chaijs/chai-jquery
+    
+      mocha.setup('bdd');
+      var expect = chai.expect;
+
+      describe('Array', function(){
+        
+        describe('.push()', function(){
+          
+          it('should append a value', function(){
+            var arr = [];
+            arr.push('foo');
+            arr.push('bar');
+            expect(arr[0]).to.equal('foo');
+            expect(arr[1]).to.equal('bar');
+          });
+          
+        });
+        
+      });
+
+      mocha.run();
+    </script>
+  </body>
+</html>
