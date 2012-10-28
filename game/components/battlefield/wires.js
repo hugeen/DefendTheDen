@@ -18,7 +18,7 @@ define([
             this.collision(new Crafty.polygon([0,0],[0,410],[30,410],[30,0]));
             this.onHit("NonPlayableCharacter", function(entities) {
                 _.each(entities, function(entity) {
-                    entity.obj.destroy();
+                    entity.obj.trigger("Death");
                 });
             });
             

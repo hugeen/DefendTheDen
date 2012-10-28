@@ -14,7 +14,7 @@ define([
 
             this.collision(new Crafty.polygon([29,17],[23,41],[34,54],[42,75],[61,74],[45,45],[74,25]));
             
-            this.walkSpeed = 0.45;
+            this.walkSpeed = 0.65;
             
             this.animate("walk", 0, 0, 7);
             this.animate("walk", 45, -1);
@@ -28,7 +28,8 @@ define([
             });
             
             this.bind("Death", function() {
-               this.destroy();
+                this.bleed({x: 40, y: 55});
+                this.destroy();
             });
             
         }

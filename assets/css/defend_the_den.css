@@ -194,7 +194,7 @@ body {
 #under_rails {
   position: absolute;
   top: 33px;
-  width: 167px;
+  width: 75px;
   height: 547px;
   background: url(../images/under-rails.png) top left no-repeat;
 }
