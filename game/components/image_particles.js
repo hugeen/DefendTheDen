@@ -32,7 +32,7 @@ define([
 
     		ctx = c.getContext('2d');
 
-    		this._Particles.init(options);
+    		this._Particles.init(options, image);
 
     		// Clean up the DOM when this component is removed
     		this.bind('Remove', function () {
@@ -69,7 +69,7 @@ define([
     			this._Particles.update();
 
     			//This renders the updated particles
-    			this._Particles.render(ctx, image);
+    			this._Particles.render(ctx);
     		});
     		return this;
     	},
@@ -114,7 +114,17 @@ define([
     		},
 
 
-    		init: function (options) {
+    		init: function (options, image) {
+    		    
+    		    this.imageSprite = {
+    		        el: image,
+    		        size: image.height,
+		            frames: image.width/image.height,
+		            randomFrame: function() {
+		                return Math.floor(Math.random()*this.frames)*this.size;
+		            }
+		        };
+    		    
     			this.position = this.vectorHelpers.create(0, 0);
     			if (typeof options == 'undefined') var options = {};
 
@@ -148,6 +158,7 @@ define([
     		initParticle: function (particle) {
     			particle.position.x = this.position.x + this.positionRandom.x * this.RANDM1TO1();
     			particle.position.y = this.position.y + this.positionRandom.y * this.RANDM1TO1();
+                particle.frame = this.imageSprite.randomFrame();
 
     			var newAngle = (this.angle + this.angleRandom * this.RANDM1TO1()) * (Math.PI / 180); // convert to radians
     			var vector = this.vectorHelpers.create(Math.sin(newAngle), -Math.cos(newAngle)); // Could move to lookup for speed
@@ -259,7 +270,7 @@ define([
     			this.emitCounter = 0;
     		},
 
-    		render: function (context, image) {
+    		render: function (context) {
 
     			for (var i = 0, j = this.particleCount; i < j; i++) {
     				var particle = this.particles[i];
@@ -287,13 +298,12 @@ define([
     				}
     				context.fillRect(x, y, size, size);*/
     				//context.drawImage(github, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-    				size = image.height;
-    				var frames = image.width/size;
-    				var rdm = Math.floor(Math.random()*frames)*size;
-    				context.drawImage(image, rdm, 0, size, size, x, y, size, size);
+
+    				context.drawImage(this.imageSprite.el, particle.frame, 0, size, size, x, y, size, size);
+    				
     			}
     		},
-    		particle: function (vectorHelpers) {
+    		particle: function (vectorHelpers, image) {
     			this.position = vectorHelpers.create(0, 0);
     			this.direction = vectorHelpers.create(0, 0);
     			this.size = 0;

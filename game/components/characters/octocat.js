@@ -11,7 +11,9 @@ define([
                 w : 90,
                 h : 90
             });
-
+            
+            this.life = 300;
+            
             this.collision(new Crafty.polygon([29,17],[23,41],[34,54],[42,75],[61,74],[45,45],[74,25]));
             
             this.walkSpeed = 0.65;
@@ -24,11 +26,11 @@ define([
             this.onHit("Bullet", function(others) {
                 others[0].obj.destroy();
                 this.takeDamages(50);
-                this.git({x: 40, y: 55});
+                this.git({x: 35, y: 45});
             });
             
             this.bind("Death", function() {
-                this.git({x: 40, y: 55});
+                this.git({x: 35, y: 45});
                 this.destroy();
             });
             

@@ -15,13 +15,13 @@ define([
             });
             
             var options = {
-                maxParticles: 8,
+                maxParticles: 9,
                 size: 32,
                 sizeRandom: 0,
-                speed: 6,
+                speed: 5,
                 speedRandom: 2,
-                lifeSpan: 15,
-                lifeSpanRandom: 2,
+                lifeSpan: 20,
+                lifeSpanRandom: 5,
                 angle: 55,
                 angleRandom: 12,
                 startColour: [155, 5, 3, 0.9],
@@ -34,7 +34,7 @@ define([
                 duration: 10,
                 fastMode: false,
                 gravity: { x: 0, y: 0.2 },
-                jitter: 1
+                jitter: 2
             };
             
             this.spawnAt = function(coords) {
