@@ -4,10 +4,10 @@ define([
 ], function(_, Crafty) {
 
     return {
-        create: function(type) {
+        create: function(type, line) {
             
             var monster = Crafty.e("NonPlayableCharacter, "+type);
-            monster.moveToLine(2);
+            monster.moveToLine(line);
             return monster;
         }
     };

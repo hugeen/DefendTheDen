@@ -13,8 +13,8 @@ define([
             
             var player = PlayerEntity.create();
             
-            var monster = MonsterEntity.create("Octocat");
-            
+            var monster = MonsterEntity.create("Octocat", 1);
+            var monster = MonsterEntity.create("Octocat", 3);
             Crafty.e("Wires");
             
             $("body").on("click", "#wrapper", function() {

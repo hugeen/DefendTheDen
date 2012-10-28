@@ -39,7 +39,7 @@ define([
             
             this.spawnAt = function(coords) {
                 this.attr(coords);
-                this.particles(options, "assets/sprites/github.png");
+                this.particles(options, "assets/images/github.png");
                 this.delay(function() {
                          this.destroy();
                 }, 2000);
