@@ -7,8 +7,6 @@ define([
     "game/entities/attack",
 ], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity) {
 
-    console.log(Burst);
-    
     return {
         name: "level",
         init: function(options) {
@@ -29,6 +27,8 @@ define([
                 AttackEntity.create(player);
             });
 
+            
+            
         },
         uninit: function() {
             $("body").off("click", "#wrapper")

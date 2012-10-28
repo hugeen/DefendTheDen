@@ -24,11 +24,11 @@ define([
             this.onHit("Bullet", function(others) {
                 others[0].obj.destroy();
                 this.takeDamages(50);
-                this.bleed({x: 40, y: 55});
+                this.git({x: 40, y: 55});
             });
             
             this.bind("Death", function() {
-                this.bleed({x: 40, y: 55});
+                this.git({x: 40, y: 55});
                 this.destroy();
             });
             
