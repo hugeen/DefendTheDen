@@ -5,11 +5,14 @@ define([
     "game/entities/player",
     "game/entities/monster",
     "game/entities/attack",
-], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity) {
+    'text!templates/game_ui/skill.html'
+], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, _skill) {
 
     return {
         name: "level",
         init: function(options) {
+            
+            $("#wrapper").html(_.template(_skill));
             
             var player = PlayerEntity.create();
             
@@ -26,8 +29,6 @@ define([
             attackSkill.bind("SkillTriggered", function() {
                 AttackEntity.create(player);
             });
-
-            
             
         },
         uninit: function() {
