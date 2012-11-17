@@ -17,6 +17,7 @@ require.config({
         underscore: { exports: '_' },
         caman: { exports: "Caman" },
         crafty: { exports: "Crafty" },
+        mouseTrap: { exports: "Mousetrap" },
         backbone: {
             deps: ['underscore'],
             exports: "Backbone"
