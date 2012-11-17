@@ -3,8 +3,9 @@ define([
     'crafty',
     'router',
     'config',
-    'game/utils'
-], function($, Crafty, Router, config, utils) {
+    'game/utils',
+    'storage'
+], function($, Crafty, Router, config, utils, storage) {
 
     var initialize = function() {
         Crafty.init(config.viewport.width, config.viewport.height);
