@@ -3,34 +3,34 @@ define(function() {
     return {
         keybinds: {
             AZERTY: {
-                "0": "Q",
-                "1": "D",
-                "2": "A",
-                "3": "E",
-                "4": "R",
-                "5": "F",
-                "6": "T",
-                "7": "V"
+                "Shield": "Q",
+                "Attack": "D",
+                "Blow": "A",
+                "Stone": "E",
+                "Root": "R",
+                "Frost": "F",
+                "Hast": "T",
+                "Life": "V"
             },
             QWERTY: {
-                "0": "A",
-                "1": "D",
-                "2": "Q",
-                "3": "E",
-                "4": "R",
-                "5": "F",
-                "6": "T",
-                "7": "V"
+                "Shield": "A",
+                "Attack": "D",
+                "Blow": "Q",
+                "Stone": "E",
+                "Root": "R",
+                "Root": "F",
+                "Hast": "T",
+                "Life": "V"
             },
             QWERTZ: {
-                "0": "A",
-                "1": "D",
-                "2": "Q",
-                "3": "E",
-                "4": "R",
-                "5": "F",
-                "6": "T",
-                "8": "V"
+                "Shield": "A",
+                "Attack": "D",
+                "Blow": "Q",
+                "Stone": "E",
+                "Root": "R",
+                "Frost": "F",
+                "Hast": "T",
+                "Life": "V"
             }
         }
     }
