@@ -1,8 +1,8 @@
 define([
     'underscore',
     'crafty',
-    'config'
-], function(_, Crafty, config) {
+    'game/mouse'
+], function(_, Crafty, mouse) {
     
     Crafty.c("Attack", {
         init : function() {
@@ -18,8 +18,8 @@ define([
                 }
                 
                 var to = {
-                    x: config.mouse.relative.x,
-                    y: config.mouse.relative.y
+                    x: mouse.position.relative.x,
+                    y: mouse.position.relative.y
                 }
                 
                 this.origin("center");

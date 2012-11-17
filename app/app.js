@@ -1,18 +1,23 @@
 define([
-    'jquery',
     'crafty',
     'router',
-    'config',
-    'game/utils',
-    'storage'
-], function($, Crafty, Router, config, utils, storage) {
+    'game/config',
+    'game/viewport',
+    'game/mouse'
+], function(Crafty, router, gameConfig, viewport, mouse) {
 
     var initialize = function() {
-        Crafty.init(config.viewport.width, config.viewport.height);
-        Crafty.box2D.init(config.box2d.gravity.x, config.box2d.gravity.x, config.box2d.pixelToMeter, config.box2d.sleep);
-        utils.initializeViewport();
-        utils.initializeMouseHandler();
-        Router.initialize();
+        Crafty.init(viewport.width, viewport.height);
+        Crafty.box2D.init(
+            gameConfig.box2d.gravity.x,
+            gameConfig.box2d.gravity.x,
+            gameConfig.box2d.pixelToMeter,
+            gameConfig.box2d.sleep
+        );
+        
+        viewport.initialize();
+        mouse.initialize();
+        router.initialize();
     };
 
     return {
