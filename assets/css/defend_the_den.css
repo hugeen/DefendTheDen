@@ -205,3 +205,57 @@ body {
   height: 580px;
   background: url(../images/rails-sprite.png) top left no-repeat;
 }
+
+#skills {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.skill {
+  float: left;
+  border: 1px solid #0b0100;
+  width: 53px;
+  height: 53px;
+  -webkit-box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  -moz-box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  cursor: pointer;
+  background: #0d0302;
+  background-image: url(../images/skills.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.skill:hover {
+  -webkit-box-shadow: inset 0 0 8px 2px #2d2119;
+  -moz-box-shadow: inset 0 0 8px 2px #2d2119;
+  box-shadow: inset 0 0 8px 2px #2d2119;
+}
+
+.skill:active {
+  -webkit-box-shadow: inset 0 0 9px 3px black;
+  -moz-box-shadow: inset 0 0 9px 3px black;
+  box-shadow: inset 0 0 9px 3px black;
+}
+
+.skill_key {
+  font-size: 0.9em;
+  display: block;
+  color: white;
+  text-align: center;
+  background-color: #0d0302;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-left: 17px;
+}
+
+.skill:hover .skill_key {
+  background-color: #2d2119;
+}
+
+.skill:active .skill_key {
+  background-color: black;
+}

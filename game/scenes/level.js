@@ -5,15 +5,17 @@ define([
     "game/entities/player",
     "game/entities/monster",
     "game/entities/attack",
+    'text!templates/game_ui/skills.html',
     'text!templates/game_ui/skill.html'
-], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, _skill) {
+], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, _skills, _skill) {
 
     return {
         name: "level",
         init: function(options) {
             
-            $("#wrapper").html(_.template(_skill));
-            
+            $("#wrapper").append(_.template(_skills));
+            $("#skills").append(_.template(_skill));
+            $("#skills").append(_.template(_skill));
             var player = PlayerEntity.create();
             
             var monster = MonsterEntity.create("Octocat", 1);
