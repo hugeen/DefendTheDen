@@ -6,38 +6,41 @@ define([
     Crafty.c("Cooldown", {
         init: function() {
             
-            var cooldown = {
+            var options = {
                 value: 1,
                 start: 0,
                 ready: true,
                 initialized: false
             };
             
-            this.initCooldown = function(value) {
-                cooldown.value = value;
-                cooldown.initialized = true;
+            this.cooldown = function(value) {
+                _.extend(options, {
+                   value: value,
+                   initialized: true 
+                });
+
                 this.bind("EnterFrame", function() {
-                    if(!cooldown.ready) {
+                    if(!options.ready) {
                         var now = new Date().getTime();
-                        var finishAt = cooldown.start+(cooldown.value*1000);
+                        var finishAt = options.start+(options.value*1000);
                         if(finishAt > now) {
-                            this.trigger("CooldownOn", now, finishAt, cooldown);
+                            this.trigger("CooldownOn", now, finishAt, options);
                         } else {
-                            cooldown.ready = true;
-                            this.trigger("CooldownEnded", now, finishAt, cooldown);
+                            options.ready = true;
+                            this.trigger("CooldownEnded", now, finishAt, options);
                         }
                     }
                 });
             };
             
             this.startCooldown = function() {
-                if(cooldown.initialized && cooldown.ready) {
-                    cooldown.start = new Date().getTime();
-                    cooldown.ready = false;
-                    this.trigger("CooldownStarted", cooldown);
+                if(options.initialized && options.ready) {
+                    options.start = new Date().getTime();
+                    options.ready = false;
+                    this.trigger("CooldownStarted", options);
                     return true;
                 } else {
-                    this.trigger("CooldownNotReady", cooldown);
+                    this.trigger("CooldownNotReady", options);
                     return false;
                 }
             };

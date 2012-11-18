@@ -11,27 +11,26 @@ define([
                 key: "A",
                 cooldown: 1
             };
-
-            this.initSkill = function(_options) {
-                _.extend(options, _options);
-                this.initCooldown(options.cooldown);
+            
+            this.skill = function(custom) {
+                _.extend(options, custom);
+                this.cooldown(options.cooldown);
             };
 
             this.bind("CooldownEnded", function() {
-                
+                this.trigger("SkillReady");
             });
             
             this.bind("CooldownOn", function() {
-                
+                this.trigger("SkillLocked");
             });
             
             this.bind("CooldownStarted", function(cooldown) {
                 this.trigger("SkillTriggered");
             });
-            this.bind("KeyDown", function() {
-                if(this.isDown(options.key)) {
-                    this.startCooldown();
-                }
+
+            this.bind("SkillCastingAttempt", function() {
+                this.startCooldown();
             });
             
         }

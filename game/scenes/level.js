@@ -40,16 +40,16 @@ define([
             //var monster = MonsterEntity.create("Octocat", 3);
             Crafty.e("Wires");
             
-            $("body").on("click", "#wrapper", function() {
-                AttackEntity.create(player);
-            });
-            
             var attackSkill = Crafty.e("Skill");
-            attackSkill.initSkill({ key: "D", cooldown: 0.5 }); 
+            attackSkill.skill({ cooldown: 0.5 }); 
             attackSkill.bind("SkillTriggered", function() {
                 AttackEntity.create(player);
             });
             
+            $("body").on("click", "#wrapper", function() {
+                attackSkill.trigger("SkillCastingAttempt");
+            });
+
         },
         uninit: function() {
             $("body").off("click", "#wrapper")
