@@ -4,26 +4,33 @@ define([
     "burst",
     "game/entities/player",
     "game/entities/monster",
-    "game/entities/attack",
     'game/keyboard',
     'collections/skills',
     'text!templates/game_ui/skills.html',
     'text!templates/game_ui/skill.html',
-    'game/mouse'
-], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, keyboard, skills, _skills, _skill, mouse) {
+    'game/mouse',
+    'mouseTrap'
+], function($, Crafty, Burst, PlayerEntity, MonsterEntity, keyboard, skills, _skills, _skill, mouse, Mousetrap) {
 
     return {
         name: "level",
         init: function(options) {
             
             $("#wrapper").append(_.template(_skills));
-
+            
+            var player = PlayerEntity.create();
+            
             skills.each(function(skill) {
-                var keybind = keyboard.keybinds.AZERTY[skill.get("name")]
-                
-                /*Mousetrap.bind(keybind, function() {
-                    console.log(skill.get("name"));
-                });*/
+                var keybind = skill.keybind();
+                Mousetrap.bind(keybind, function() {
+                    skill.get("cast")({
+                        x: player.x,
+                        y: player.y
+                    }, {
+                        x: mouse.position.relative.x,
+                        y: mouse.position.relative.y
+                    });
+                });
                 
                 var compiledTemplate = _.template(_skill, {
                     key: keybind,
@@ -34,7 +41,7 @@ define([
                 
             });
             
-            var player = PlayerEntity.create();
+            
             
             //var monster = MonsterEntity.create("Octocat", 1);
             //var monster = MonsterEntity.create("Octocat", 3);

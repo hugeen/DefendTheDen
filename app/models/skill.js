@@ -1,22 +1,16 @@
 define([
     'backbone',
-    'crafty'
-], function(Backbone, Crafty) {
+    'crafty',
+    'game/keyboard'
+], function(Backbone, Crafty, keyboard) {
     
     var Skill = Backbone.Model.extend({
-        defaults: {},
-        addEntity: function() {
-            
-            return Crafty.e("Skill").skill({
-                cooldown: 0.5
-            }).bind("SkillTriggered", function() {
-                console.log("skill triggered")
-                //AttackEntity.create(player);
-            });
-            
+        defaults: {
+            player: false,
+            cast: function() {}
         },
-        fire: function() {
-            
+        keybind: function() {
+            return keyboard.keybinds.AZERTY[this.get("name")];
         }
     });
     
