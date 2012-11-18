@@ -9,8 +9,8 @@ define([
     'collections/skills',
     'text!templates/game_ui/skills.html',
     'text!templates/game_ui/skill.html',
-    'mouseTrap'
-], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, keyboard, skills, _skills, _skill, Mousetrap) {
+    'game/mouse'
+], function($, Crafty, Burst, PlayerEntity, MonsterEntity, AttackEntity, keyboard, skills, _skills, _skill, mouse) {
 
     return {
         name: "level",
@@ -21,9 +21,9 @@ define([
             skills.each(function(skill) {
                 var keybind = keyboard.keybinds.AZERTY[skill.get("name")]
                 
-                Mousetrap.bind(keybind, function() {
+                /*Mousetrap.bind(keybind, function() {
                     console.log(skill.get("name"));
-                });
+                });*/
                 
                 var compiledTemplate = _.template(_skill, {
                     key: keybind,
@@ -43,7 +43,13 @@ define([
             var attackSkill = Crafty.e("Skill");
             attackSkill.skill({ cooldown: 0.5 }); 
             attackSkill.bind("SkillTriggered", function() {
-                AttackEntity.create(player);
+                Crafty.e("Attack").attack({
+                    x: player.x,
+                    y: player.y
+                }, {
+                    x: mouse.position.relative.x,
+                    y: mouse.position.relative.y
+                });
             });
             
             $("body").on("click", "#wrapper", function() {

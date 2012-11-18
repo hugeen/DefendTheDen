@@ -1,8 +1,6 @@
 define([
-    'underscore',
-    'crafty',
-    'game/mouse'
-], function(_, Crafty, mouse) {
+    'crafty'
+], function(Crafty) {
     
     Crafty.c("Attack", {
         init : function() {
@@ -10,17 +8,7 @@ define([
             
             this.speed = 15;
 
-            this.attack = function(player) {
-                
-                var from = {
-                    x: player.x,
-                    y: player.y
-                }
-                
-                var to = {
-                    x: mouse.position.relative.x,
-                    y: mouse.position.relative.y
-                }
+            this.attack = function(from, to) {
                 
                 this.origin("center");
                 

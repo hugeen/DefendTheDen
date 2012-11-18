@@ -2,12 +2,15 @@ define([
     'underscore',
     'crafty'
 ], function(_, Crafty) {
-
+    
+    var player;
+    
     return {
         create: function() {
-            
-            var player = Crafty.e("PlayableCharacter, PlayerMove, Wolf")
-            
+            player = Crafty.e("PlayableCharacter, PlayerMove, Wolf");
+            return player;
+        },
+        get: function() {
             return player;
         }
     };
