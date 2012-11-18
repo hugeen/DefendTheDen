@@ -233,16 +233,22 @@ body {
   background-repeat: no-repeat;
 }
 
-.skill:hover {
+.skill:hover, .skill_hover {
   -webkit-box-shadow: inset 0 0 8px 2px #2d2119;
   -moz-box-shadow: inset 0 0 8px 2px #2d2119;
   box-shadow: inset 0 0 8px 2px #2d2119;
 }
 
-.skill:active {
+.skill:active, .skill_active {
   -webkit-box-shadow: inset 0 0 9px 3px black;
   -moz-box-shadow: inset 0 0 9px 3px black;
   box-shadow: inset 0 0 9px 3px black;
+}
+
+.skill_on_cooldown {
+  -webkit-box-shadow: inset 0 0 9px 3px red;
+  -moz-box-shadow: inset 0 0 9px 3px red;
+  box-shadow: inset 0 0 9px 3px red;
 }
 
 .skill_key {
@@ -258,10 +264,14 @@ body {
   margin-left: 17px;
 }
 
-.skill:hover .skill_key {
+.skill:hover .skill_key, .skill_hover .skill_key {
   background-color: #2d2119;
 }
 
-.skill:active .skill_key {
+.skill:active .skill_key, .skill_active .skill_key {
   background-color: black;
+}
+
+.skill_on_cooldown .skill_key {
+  background-color: red;
 }

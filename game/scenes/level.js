@@ -21,46 +21,17 @@ define([
             var player = PlayerEntity.create();
             
             skills.each(function(skill) {
-                var keybind = skill.keybind();
-                Mousetrap.bind(keybind, function() {
-                    skill.get("cast")({
-                        x: player.x,
-                        y: player.y
-                    }, {
-                        x: mouse.position.relative.x,
-                        y: mouse.position.relative.y
-                    });
-                });
-                
-                var compiledTemplate = _.template(_skill, {
-                    key: keybind,
-                    backgroundPosition: skill.get("backgroundPosition")
-                });
-                
+                skill.init();
+                var compiledTemplate = _.template(_skill, { skill: skill });
                 $("#skills").append(compiledTemplate);
-                
             });
-            
-            
             
             //var monster = MonsterEntity.create("Octocat", 1);
             //var monster = MonsterEntity.create("Octocat", 3);
             Crafty.e("Wires");
-            
-            var attackSkill = Crafty.e("Skill");
-            attackSkill.skill({ cooldown: 0.5 }); 
-            attackSkill.bind("SkillTriggered", function() {
-                Crafty.e("Attack").attack({
-                    x: player.x,
-                    y: player.y
-                }, {
-                    x: mouse.position.relative.x,
-                    y: mouse.position.relative.y
-                });
-            });
-            
+
             $("body").on("click", "#wrapper", function() {
-                attackSkill.trigger("SkillCastingAttempt");
+
             });
 
         },

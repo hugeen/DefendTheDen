@@ -1,16 +1,14 @@
 define([
     'underscore',
+    'jquery',
     'crafty'
-], function(_, Crafty) {
+], function(_, $, Crafty) {
     
     Crafty.c("Skill", {
         init: function() {
             this.addComponent("Keyboard, Cooldown");
             
-            var options = {
-                key: "A",
-                cooldown: 1
-            };
+            var options = {};
             
             this.skill = function(custom) {
                 _.extend(options, custom);
@@ -18,10 +16,12 @@ define([
             };
 
             this.bind("CooldownEnded", function() {
+                $('#skill_'+options.name).removeClass("skill_on_cooldown");
                 this.trigger("SkillReady");
             });
             
             this.bind("CooldownOn", function() {
+                $('#skill_'+options.name).addClass("skill_on_cooldown");
                 this.trigger("SkillLocked");
             });
             
@@ -31,6 +31,19 @@ define([
 
             this.bind("SkillCastingAttempt", function() {
                 this.startCooldown();
+            });
+
+            this.bind('KeyDown', function(e) {
+                if(e.key == Crafty.keys[options.key]) {
+                    $('#skill_'+options.name).addClass("skill_active");
+                    this.trigger("SkillCastingAttempt");
+                }
+            });
+            
+            this.bind('KeyUp', function(e) {
+                if(e.key == Crafty.keys[options.key]) {
+                    $('#skill_'+options.name).removeClass("skill_active");
+                }
             });
             
         }
