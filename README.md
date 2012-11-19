@@ -8,7 +8,7 @@ Exterminate the waves of enemies before they reach your character. _Defend then 
 #### Contributors ####
 
 * Cyrille Bogaert (Development) - [hugeen](https://github.com/hugeen)
-* Lou Mosnier (Sprites)
+* Lou Mosnier (Sprites) - [loupine](http://www.lalouvearayures.fr)
 * Pierre Lancien (Music) - [plancien](https://github.com/plancien)
 * Daniel Garcia (Spelling and grammar) - [buzzedword](https://github.com/buzzedword)
 
