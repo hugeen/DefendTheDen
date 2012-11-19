@@ -27,4 +27,4 @@ Exterminate the waves of enemies before they reach your character. _Defend then 
 ### Copyright ###
 
 * Music is under Copyright 2012 - [Pierre Lancien](https://github.com/plancien)
-* Sprites are under Copyright 2012 - Lou Mosnier
+* Sprites are under Copyright 2012 - [Lou Mosnier](http://www.lalouvearayures.fr)
