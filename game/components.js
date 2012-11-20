@@ -20,7 +20,8 @@ define([
     'game/components/skill',
     'game/components/skills/attack',
     'game/components/state',
-    'game/components/wave'
+    'game/components/wave',
+    'game/components/waves_manager'
 ],function() {
     
     return true;

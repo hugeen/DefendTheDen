@@ -16,8 +16,8 @@ define([
     return {
         name: "level",
         init: function(options) {
-            var waves = options.level.get("waves");
-            Crafty.e("Wave").start(waves[0]);
+            
+            Crafty.e("WavesManager").start(options.level.get("waves"));
             /*
             
             function Wave(wave) {
