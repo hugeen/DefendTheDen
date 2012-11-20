@@ -9,7 +9,7 @@ define([
             this.addComponent("SpriteAnimation, wolf, Collision");
             
             this.attr({
-                x : -19,
+                x : -24,
                 y : 90,
                 w : 135,
                 h : 135,
@@ -23,7 +23,7 @@ define([
             this.animate("blow", 4, 0, 7);
             
             var wagon = Crafty.e("Wagon");
-            wagon.attr({ x: this._x+15, y: this._y+50 })
+            wagon.attr({ x: this._x+20, y: this._y+50 })
             
             this.attach(wagon);
     
