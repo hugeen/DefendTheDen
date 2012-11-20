@@ -1,4 +1,5 @@
 define([
+    "underscore",
     "jquery",
     "crafty",
     "burst",
@@ -10,11 +11,11 @@ define([
     'text!templates/game_ui/skill.html',
     'game/mouse',
     'mouseTrap'
-], function($, Crafty, Burst, PlayerEntity, MonsterEntity, keyboard, skills, _skills, _skill, mouse, Mousetrap) {
+], function(_, $, Crafty, Burst, PlayerEntity, MonsterEntity, keyboard, skills, _skills, _skill, mouse, Mousetrap) {
 
     return {
         name: "level",
-        init: function(options) {
+        init: function(options) {            
             
             $("#wrapper").append(_.template(_skills));
             
