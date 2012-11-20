@@ -19,7 +19,8 @@ define([
     'game/components/player_move',
     'game/components/skill',
     'game/components/skills/attack',
-    'game/components/state'
+    'game/components/state',
+    'game/components/wave'
 ],function() {
     
     return true;

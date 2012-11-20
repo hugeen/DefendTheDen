@@ -15,9 +15,11 @@ define([
 
     return {
         name: "level",
-        init: function(options) {            
-            
+        init: function(options) {
             var waves = options.level.get("waves");
+            Crafty.e("Wave").start(waves[0]);
+            /*
+            
             function Wave(wave) {
                 var timer = false
                 var stepsCount = wave[1].length;
@@ -43,7 +45,7 @@ define([
             }
             var wave = new Wave(waves[0]);
             wave.start();
-            
+            */
             $("#wrapper").append(_.template(_skills));
             
             var player = PlayerEntity.create();
