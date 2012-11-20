@@ -21,9 +21,11 @@ define([
             var player = PlayerEntity.create();
             
             skills.each(function(skill) {
-                skill.init();
-                var compiledTemplate = _.template(_skill, { skill: skill });
-                $("#skills").append(compiledTemplate);
+                if(skill.get("availableAt") <= options.level) {
+                    skill.init();
+                    var compiledTemplate = _.template(_skill, { skill: skill });
+                    $("#skills").append(compiledTemplate);
+                }
             });
             
             var monster = MonsterEntity.create("Octocat", 1);
