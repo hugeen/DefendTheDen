@@ -32,10 +32,10 @@ define([
             
             
             this.bind("EnterFrame", function() {
-                if(this.movement.north) {
+                if(this.movement.north  && this._y >= 30) {
                     this.move("n", 10);
                 }
-                if(this.movement.south) {
+                if(this.movement.south  && this._y <= 370) {
                     this.move("s", 10);
                 }
             });

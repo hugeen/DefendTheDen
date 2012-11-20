@@ -18,8 +18,8 @@ define([
         action: function() {
             var player = PlayerEntity.get();
             Crafty.e("Attack").attack({
-                x: player.x,
-                y: player.y
+                x: player.x+40,
+                y: player.y+25
             }, mousePosition());
         },
         backgroundPosition: "-53px 0"
