@@ -7,10 +7,28 @@ define([
     Crafty.c("WavesManager", {
         init: function() {
             
-            this.start = function(waves) {
-                Crafty.e("Wave").start(waves[0]);
+            var manager = this;
+            
+            Crafty.bind("WaveFinished", function() {
+                manager.currentWave++;
+                if(manager.currentWave < manager.wavesCount) {
+                    manager.next();
+                }
+            });
+            
+            this.start = function(waves, speed) {
+                _.extend(this, {
+                    currentWave: 0,
+                    wavesCount: waves.length,
+                    waves: waves,
+                    speed: speed || 1
+                });
+                this.next();
             };
             
+            this.next = function() {
+                Crafty.e("Wave").start(this.waves[this.currentWave], this.speed);
+            };
             
         }
     });

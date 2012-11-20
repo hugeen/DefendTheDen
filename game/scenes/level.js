@@ -17,35 +17,8 @@ define([
         name: "level",
         init: function(options) {
             
-            Crafty.e("WavesManager").start(options.level.get("waves"));
-            /*
-            
-            function Wave(wave) {
-                var timer = false
-                var stepsCount = wave[1].length;
-                var step = 0;
-                var self = this;
-                this.start = function() {
-                    this.next();
-                }
-                this.next = function() {
-                    setTimeout(function() {
-                        _.each(wave, function(line, index) {
-                            var symbol = line[step];
-                            if(symbol !== "*") {
-                                MonsterEntity.create("Octocat", index);
-                            }
-                        });
-                        if(step <= stepsCount) {
-                            step++;
-                            self.next();
-                        }
-                    }, 1000);
-                }
-            }
-            var wave = new Wave(waves[0]);
-            wave.start();
-            */
+            Crafty.e("WavesManager").start(options.level.get("waves"), 0.5);
+
             $("#wrapper").append(_.template(_skills));
             
             var player = PlayerEntity.create();

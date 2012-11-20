@@ -35,6 +35,8 @@ define([
                     this.delay(function() {
                         this.next();
                     }, 1000/this.speed);
+                } else {
+                    Crafty.trigger("WaveFinished");
                 }
 
             };
