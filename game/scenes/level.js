@@ -16,13 +16,17 @@ define([
     return {
         name: "level",
         init: function(options) {            
+
+            function wave() {
+                
+            }
             
             $("#wrapper").append(_.template(_skills));
             
             var player = PlayerEntity.create();
             
             skills.each(function(skill) {
-                if(skill.get("availableAt") <= options.level) {
+                if(skill.get("availableAt") <= options.level.get("id")) {
                     skill.init();
                     var compiledTemplate = _.template(_skill, { skill: skill });
                     $("#skills").append(compiledTemplate);

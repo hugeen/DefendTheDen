@@ -5,7 +5,10 @@ define([
 ], function(Backbone, Level, levelsData) {
 
     var Levels = Backbone.Collection.extend({
-        model: Level
+        model: Level,
+        findById: function(id){
+            return this.get(id);
+        }
     });
     
     return new Levels(levelsData);

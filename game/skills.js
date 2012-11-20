@@ -18,7 +18,7 @@ define([
         cooldown: 0.7,
         action: function() {
             var player = PlayerEntity.get();
-            var damages = { min: 30, max: 70 };
+            var damages = { min: 40, max: 60 };
             Crafty.e("Attack").cast({
                 x: player.x+40,
                 y: player.y+25

@@ -3,9 +3,10 @@ define([
     'underscore',
     'backbone',
     'collections/scenes',
+    'collections/levels',
     'text!templates/layouts/battlefield.html',
     'text!templates/levels/show.html',
-], function($, _, Backbone, scenes, _battlefield, _show) {
+], function($, _, Backbone, scenes, levels, _battlefield, _show) {
 
     var Show = Backbone.View.extend({
         el: $("#wrapper"),
@@ -17,8 +18,7 @@ define([
             $("#ig_menu button").click(function() {
                window.location.replace("#"); 
             });
-            
-            scenes.findByName("level").load({level: id});
+            scenes.findByName("level").load({level: levels.get(1)});
 
         }
     });
