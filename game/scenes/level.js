@@ -16,10 +16,33 @@ define([
     return {
         name: "level",
         init: function(options) {            
-
-            function wave() {
-                
+            
+            var waves = options.level.get("waves");
+            function Wave(wave) {
+                var timer = false
+                var stepsCount = wave[1].length;
+                var step = 0;
+                var self = this;
+                this.start = function() {
+                    this.next();
+                }
+                this.next = function() {
+                    setTimeout(function() {
+                        _.each(wave, function(line, index) {
+                            var symbol = line[step];
+                            if(symbol !== "*") {
+                                MonsterEntity.create("Octocat", index);
+                            }
+                        });
+                        if(step <= stepsCount) {
+                            step++;
+                            self.next();
+                        }
+                    }, 1000);
+                }
             }
+            var wave = new Wave(waves[0]);
+            wave.start();
             
             $("#wrapper").append(_.template(_skills));
             
@@ -33,8 +56,8 @@ define([
                 }
             });
             
-            var monster = MonsterEntity.create("Octocat", 1);
-            var monster = MonsterEntity.create("Octocat", 3);
+            //var monster = MonsterEntity.create("Octocat", 1);
+            //var monster = MonsterEntity.create("Octocat", 3);
             Crafty.e("Wires");
 
             $("body").on("click", "#wrapper", function() {

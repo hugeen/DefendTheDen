@@ -3,8 +3,9 @@ define([
 ], function(Backbone) {
     
     var Level = Backbone.Model.extend({
-        defaults: {},
-        initialize: function() {}
+        start: function() {
+            
+        }
     });
     
     return Level;
