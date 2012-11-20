@@ -10,6 +10,7 @@ define([
     'game/components/characters/playable_character',
     'game/components/characters/wolf',
     'game/components/cooldown',
+    'game/components/damages',
     'game/components/effects/blood',
     'game/components/effects/git',
     'game/components/image_particles',

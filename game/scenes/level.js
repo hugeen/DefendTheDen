@@ -26,8 +26,8 @@ define([
                 $("#skills").append(compiledTemplate);
             });
             
-            //var monster = MonsterEntity.create("Octocat", 1);
-            //var monster = MonsterEntity.create("Octocat", 3);
+            var monster = MonsterEntity.create("Octocat", 1);
+            var monster = MonsterEntity.create("Octocat", 3);
             Crafty.e("Wires");
 
             $("body").on("click", "#wrapper", function() {

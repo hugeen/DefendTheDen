@@ -4,14 +4,12 @@ define([
     
     Crafty.c("Attack", {
         init : function() {
-            this.addComponent("Bullet, axe, Collision");
+            this.addComponent("Bullet, fork, Collision");
             this.speed = 15;
-
+            
+            this.collision(new Crafty.polygon([8,14],[67,14],[67,5],[91,5],[91,24],[67,24],[67,20],[8,20]));
+            
             this.attack = function(from, to) {
-                this.origin("center");
-                this.bind("EnterFrame", function() {
-                    this.rotation += 15;
-                });
                 this.fire(from, to, this.speed);
             };
             

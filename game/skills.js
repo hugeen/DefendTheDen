@@ -22,7 +22,7 @@ define([
                 y: player.y+25
             }, mousePosition());
         },
-        backgroundPosition: "-53px 0"
+        backgroundPosition: "-424px 0"
     }, {
         cooldown: 5,
         name: "Blow",

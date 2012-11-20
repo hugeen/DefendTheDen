@@ -25,8 +25,12 @@ define([
 
             this.onHit("Bullet", function(others) {
                 others[0].obj.destroy();
-                this.takeDamages(50);
+                
+                var damages = Math.round(Crafty.math.randomNumber(30,70));
+                
+                this.takeDamages(damages);
                 this.git({x: 35, y: 45});
+                Crafty.e("Damages").display(damages, { x: this._x, y: this._y });
             });
             
             this.bind("Death", function() {

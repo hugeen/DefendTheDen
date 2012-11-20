@@ -23,6 +23,10 @@ define([
                     x: Math.cos(radian) * speed,
                     y: Math.sin(radian) * speed
                 };
+                
+                this.origin("center");
+                this.rotation = Crafty.math.radToDeg(radian);
+
                 this.attr(startCoords);
                 
                 this.bind("EnterFrame", function() {
