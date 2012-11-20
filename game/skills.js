@@ -17,10 +17,11 @@ define([
         cooldown: 0.7,
         action: function() {
             var player = PlayerEntity.get();
-            Crafty.e("Attack").attack({
+            var damages = { min: 30, max: 70 };
+            Crafty.e("Attack").cast({
                 x: player.x+40,
                 y: player.y+25
-            }, mousePosition());
+            }, mousePosition(), damages);
         },
         backgroundPosition: "-424px 0"
     }, {

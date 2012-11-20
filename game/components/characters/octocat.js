@@ -24,9 +24,9 @@ define([
             this.walk();
 
             this.onHit("Bullet", function(others) {
-                others[0].obj.destroy();
-                
-                var damages = Math.round(Crafty.math.randomNumber(30,70));
+                var bullet = others[0].obj;
+                var damages = bullet.damages;
+                bullet.destroy();
                 
                 this.takeDamages(damages);
                 this.git({x: 35, y: 45});
