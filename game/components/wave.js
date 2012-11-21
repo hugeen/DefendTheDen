@@ -25,7 +25,7 @@ define([
                 _.each(this.waveLines, function(line, lineNumber) {
                     var monsterCode = line[this.step];
                     if(monsterCode !== "*") {
-                        Monster.create("Octocat", lineNumber);
+                        Monster.create(utils.entityParser(monsterCode), lineNumber);
                     }
                 }, this);
                 

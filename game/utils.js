@@ -8,6 +8,7 @@ define([
         entityParser: function(code) {
             var entitiesCode = {
                 "p": "Pig",
+                "o": "Octocat",
                 "r": "RiddingHood",
                 "g": "Granny",
                 "!": "Nobody"
