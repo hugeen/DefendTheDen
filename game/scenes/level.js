@@ -17,7 +17,7 @@ define([
         name: "level",
         init: function(options) {
             
-            Crafty.e("WavesManager").start(options.level.get("waves"), 0.5);
+            Crafty.e("WavesManager").start(options.level.get("waves"), options.level.get("speed"));
 
             $("#wrapper").append(_.template(_skills));
             
@@ -30,9 +30,7 @@ define([
                     $("#skills").append(compiledTemplate);
                 }
             });
-            
-            //var monster = MonsterEntity.create("Octocat", 1);
-            //var monster = MonsterEntity.create("Octocat", 3);
+
             Crafty.e("Wires");
 
             $("body").on("click", "#wrapper", function() {
