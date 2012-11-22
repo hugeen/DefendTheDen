@@ -1,7 +1,8 @@
 define([
     'underscore',
-    'crafty'
-], function(_, Crafty) {
+    'crafty',
+    'game/utils'
+], function(_, Crafty, utils) {
     
     Crafty.c("Octocat", {
         init : function() {
@@ -12,7 +13,7 @@ define([
                 h : 90
             });
             
-            this.life = 300;
+            this.life = 185;
             
             this.collision(new Crafty.polygon([29,17],[23,41],[34,54],[42,75],[61,74],[45,45],[74,25]));
             
@@ -27,10 +28,9 @@ define([
                 var bullet = others[0].obj;
                 var damages = bullet.damages;
                 bullet.destroy();
-                
-                this.takeDamages(damages);
+                this.bleed({x: 40, y: 55});
                 this.git({x: 35, y: 45});
-                Crafty.e("Damages").display(damages, { x: this._x, y: this._y });
+                utils.takeDamages(this, damages);
             });
             
             this.bind("Death", function() {
