@@ -1,8 +1,9 @@
 define([
     'underscore',
     'crafty',
-    'game/utils'
-], function(_, Crafty, utils) {
+    'game/utils',
+    'router'
+], function(_, Crafty, utils, router) {
     
     Crafty.c("WavesManager", {
         init: function() {
@@ -13,7 +14,7 @@ define([
                 if(this.currentWave < this.wavesCount) {
                     this.next();
                 } else {
-                    window.location.replace("#/levels/2")
+                    router.go("levels/1");
                 }
             }
             

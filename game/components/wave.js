@@ -1,9 +1,10 @@
 define([
     'underscore',
+    'jquery',
     'crafty',
     'game/utils',
     'game/entities/monster'
-], function(_, Crafty, utils, Monster) {
+], function(_, $, Crafty, utils, Monster) {
     
     Crafty.c("Wave", {
         init: function() {
@@ -32,7 +33,6 @@ define([
                     });
                     return count;
                 })(this.waveLines);
-                
                 this.next();
             };
             

@@ -23,12 +23,17 @@ define([
             box2d.render();
         }
     });
-
+    
+    var router;
+    
     return {
         
         initialize: function() {
-            var router = new AppRouter;
+            router = new AppRouter;
             Backbone.history.start();
+        },
+        go: function(to) {
+            router.navigate(to, {trigger: true, replace: true});
         }
         
     };

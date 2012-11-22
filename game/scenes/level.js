@@ -19,7 +19,9 @@ define([
         init: function(options) {
             
             Crafty.e("WavesManager").start(options.level.get("waves"), options.level.get("speed"));
-
+            
+            $("#wrapper").append("<div id='debug'></div>");
+            
             $("#wrapper").append(_.template(_skills));
             $("#wrapper").append(_.template(_level, { level: options.level }));
             setTimeout(function() {
