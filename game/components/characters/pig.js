@@ -1,7 +1,8 @@
 define([
     'underscore',
-    'crafty'
-], function(_, Crafty) {
+    'crafty',
+    'game/utils'
+], function(_, Crafty, utils) {
     
     Crafty.c("Pig", {
         init : function() {
@@ -11,6 +12,8 @@ define([
                 w : 115,
                 h : 115,
             });
+            
+            this.life = 225;
 
             this.collision(new Crafty.polygon([35,20],[30,40],[40,100],[75,100],[75,40],[35,20]));
             
@@ -22,9 +25,11 @@ define([
             this.walk();
 
             this.onHit("Bullet", function(others) {
-                others[0].obj.destroy();
-                this.takeDamages(50);
+                var bullet = others[0].obj;
+                var damages = bullet.damages;
+                bullet.destroy();
                 this.bleed({x: 40, y: 55});
+                utils.takeDamages(this, damages);
             });
             
             this.bind("Death", function() {
