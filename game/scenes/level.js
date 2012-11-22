@@ -9,9 +9,10 @@ define([
     'collections/skills',
     'text!templates/game_ui/skills.html',
     'text!templates/game_ui/skill.html',
+    'text!templates/levels/level.html',
     'game/mouse',
     'mouseTrap'
-], function(_, $, Crafty, Burst, PlayerEntity, MonsterEntity, keyboard, skills, _skills, _skill, mouse, Mousetrap) {
+], function(_, $, Crafty, Burst, PlayerEntity, MonsterEntity, keyboard, skills, _skills, _skill, _level, mouse, Mousetrap) {
 
     return {
         name: "level",
@@ -20,7 +21,10 @@ define([
             Crafty.e("WavesManager").start(options.level.get("waves"), options.level.get("speed"));
 
             $("#wrapper").append(_.template(_skills));
-            
+            $("#wrapper").append(_.template(_level, { level: options.level }));
+            setTimeout(function() {
+                $(".display_warning").remove();
+            }, 2000);
             var player = PlayerEntity.create();
             
             skills.each(function(skill) {

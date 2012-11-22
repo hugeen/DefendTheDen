@@ -2,7 +2,7 @@ define(function() {
 
     return [{
         id: 1,
-        speed: 0.5,
+        speed: 0.75,
         waves: [{
             "1": "*****",
             "2": "*****",
@@ -20,7 +20,7 @@ define(function() {
         }]
     }, {
         id: 2,
-        speed: 0.6,
+        speed: 0.8,
         waves: [{
             "1": "*****",
             "2": "*****",

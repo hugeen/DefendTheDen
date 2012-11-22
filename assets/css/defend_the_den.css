@@ -274,3 +274,14 @@ body {
 .skill_on_cooldown .skill_key {
   background-color: red;
 }
+
+.display_warning {
+  position: absolute;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  height: 40px;
+  margin-top: -20px;
+  top: 50%;
+  color: white;
+}

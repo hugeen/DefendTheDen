@@ -13,7 +13,7 @@ define([
                 if(this.currentWave < this.wavesCount) {
                     this.next();
                 } else {
-                    alert("stage clear");
+                    window.location.replace("#/levels/2")
                 }
             }
             
