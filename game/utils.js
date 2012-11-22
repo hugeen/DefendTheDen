@@ -6,14 +6,17 @@ define([
 
     return {
         entityParser: function(code) {
-            var entitiesCode = {
+            return {
                 "p": "Pig",
                 "o": "Octocat",
                 "r": "RiddingHood",
                 "g": "Granny",
                 "!": "Nobody"
-            };
-            return entitiesCode[code];
+            }[code];
+        },
+        takeDamages: function(entity, damages) {
+            entity.takeDamages(damages);
+            Crafty.e("Damages").display(damages, { x: entity._x, y: entity._y });
         },
         roll: function(percent) {
             return _.random(0,100) > 100 - percent;
