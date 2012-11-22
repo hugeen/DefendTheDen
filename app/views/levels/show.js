@@ -18,7 +18,7 @@ define([
             $("#ig_menu button").click(function() {
                window.location.replace("#"); 
             });
-            scenes.findByName("level").load({level: levels.get(1)});
+            scenes.findByName("level").load({level: levels.get(id)});
 
         }
     });
