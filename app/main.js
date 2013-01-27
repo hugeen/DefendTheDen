@@ -1,7 +1,7 @@
 
 require.config({
     paths: {
-        underscore: '../libs/underscore/underscore-min',
+        underscore: '../libs/underscore/underscore',
         backbone: '../libs/backbone/backbone-min',
         crafty: '../libs/crafty/crafty',
         caman: '../libs/caman/caman-min',
