@@ -1,7 +1,6 @@
 define([
     'game/components/battlefield/wires',
     'game/components/battlefield/wagon',
-    'game/components/box2d',
     'game/components/bullet',
     'game/components/characters/character',
     'game/components/characters/non_playable_character',

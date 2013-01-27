@@ -22,11 +22,17 @@ define([
                 onError: function(e) {}
             }
             
+            // FIXME
+            return callbacks.onLoad();
+            
+            // Broken on IE below
             var assetsPath = _.map(assets, function(asset){ return asset.path(); });
 
             if(_.isEmpty(assetsPath)) {
                 return callbacks.onLoad();
             }
+            
+            // FIXME
             Crafty.load(assetsPath,
                 function() {
                     _.invoke(assets, 'onLoaded');
