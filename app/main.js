@@ -3,7 +3,7 @@ require.config({
     paths: {
         underscore: '../libs/underscore/underscore-min',
         backbone: '../libs/backbone/backbone-min',
-        crafty: '../libs/crafty/crafty-min',
+        crafty: '../libs/crafty/crafty',
         caman: '../libs/caman/caman-min',
         mouseTrap: '../libs/mousetrap/mousetrap-min',
         store: '../libs/store/store-min',
