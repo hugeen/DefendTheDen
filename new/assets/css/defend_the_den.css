@@ -1,0 +1,287 @@
+@import url(http://fonts.googleapis.com/css?family=Finger+Paint|Audiowide|Press+Start+2P|Marcellus+SC|Underdog|Sofadi+One);
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: url("../images/pinstriped_suit.png") repeat scroll left top transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.title_font { font-family: 'Finger Paint', cursive; }
+.menu_font { font-family: 'Marcellus SC', serif; }
+.dialog_font { font-family: 'Underdog', cursive; }
+.dialog_alt_font { font-family: 'Sofadi One', cursive; }
+
+#outer_background {
+  width: 985px;
+  height: 459px;
+  background: url(../images/bg-website.png) top left no-repeat;
+}
+
+.outer_fixed {
+  left: 50%;
+  margin-left: -492px;
+  margin-top: -230px;
+  position: fixed;
+  top: 50%;
+}
+
+.outer_absolute {
+  left: 50%;
+  margin-left: -492px;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+}
+
+#cr-stage, #wrapper, #inner_background {
+  width: 710px;
+  height: 580px;
+}
+
+#inner_background {
+  background: url("../images/background.png") top left repeat-x;
+  z-index: 0;
+}
+
+#cr-stage {
+  z-index: 1;
+}
+
+#wrapper {
+  z-index: 2;
+  -webkit-box-shadow:  0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 30px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 710px;
+}
+
+.viewport_fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -290px;
+  margin-left: -355px;
+}
+
+.viewport_absolute {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: 0;
+  margin-left: -355px;
+}
+
+.floor {
+  position: absolute;
+  background: url("../images/floor.png") repeat scroll 0% 0% transparent;
+  width: 710px;
+  height: 309px;
+  bottom: 0;
+}
+
+.clouds {
+  position: absolute;
+  background: url("../images/clouds.png") repeat scroll -50px 0px transparent;
+  width: 710px;
+  height: 114px;
+  top: 0;
+}
+
+.defend_the_den {
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 2em;
+  font-size: 3em;
+  top: 250px;
+  left: 0;
+  margin-top: -1.5em;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+
+.menu_link {
+  text-decoration: none !important;
+  display: block;
+  position: absolute;
+  color: rgba(88,54,0,0.95);
+  width: 12em;
+  height: 2.1em;
+  font-size: 2.1em;
+  left: 50%;
+  margin-left: -6em;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -ms-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+.menu_link:hover {
+  text-shadow: 0 0 2px rgba(255,255,255,0.5);
+  color: black;
+}
+
+.survival_link {
+  position: absolute;
+  color: rgba(144,201,60,0.95);
+  font-size: 2.1em;
+  right: 1.5em;
+  top: 3em;
+  cursor: pointer;
+  text-shadow: 0 0 1px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.7);
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -ms-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+  -moz-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+
+.survival_link:hover {
+  color: rgba(203,241,147,0.9);
+}
+
+.new_game {
+  top: 330px;
+}
+
+.continue_game {
+  top: 390px;
+}
+
+#ig_menu {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 2;
+}
+
+#sky {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/sky.png) top left no-repeat;
+}
+
+#earth {
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/earth.png) top left no-repeat;
+}
+
+#battlefield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/battlefield.png) top left no-repeat;
+}
+
+#under_rails {
+  position: absolute;
+  top: 33px;
+  width: 75px;
+  height: 547px;
+  background: url(../images/under-rails.png) top left no-repeat;
+}
+
+#side_rails {
+  position: absolute;
+  width: 74px;
+  height: 580px;
+  background: url(../images/rails-sprite.png) top left no-repeat;
+}
+
+#skills {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.skill {
+  float: left;
+  border: 1px solid #0b0100;
+  width: 53px;
+  height: 53px;
+  -webkit-box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  -moz-box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  box-shadow: inset 0 0 5px 1px rgba(45,33,25,.99);
+  cursor: pointer;
+  background: #0d0302;
+  background-image: url(../images/skills.png);
+  background-position: -53px 0;
+  background-repeat: no-repeat;
+}
+
+.skill:hover, .skill_hover {
+  -webkit-box-shadow: inset 0 0 8px 2px #2d2119;
+  -moz-box-shadow: inset 0 0 8px 2px #2d2119;
+  box-shadow: inset 0 0 8px 2px #2d2119;
+}
+
+.skill:active, .skill_active {
+  -webkit-box-shadow: inset 0 0 9px 3px black;
+  -moz-box-shadow: inset 0 0 9px 3px black;
+  box-shadow: inset 0 0 9px 3px black;
+}
+
+.skill_on_cooldown {
+  -webkit-box-shadow: inset 0 0 9px 3px red;
+  -moz-box-shadow: inset 0 0 9px 3px red;
+  box-shadow: inset 0 0 9px 3px red;
+}
+
+.skill_key {
+  font-size: 0.9em;
+  display: block;
+  color: white;
+  text-align: center;
+  background-color: #0d0302;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-left: 17px;
+}
+
+.skill:hover .skill_key, .skill_hover .skill_key {
+  background-color: #2d2119;
+}
+
+.skill:active .skill_key, .skill_active .skill_key {
+  background-color: black;
+}
+
+.skill_on_cooldown .skill_key {
+  background-color: red;
+}
+
+.display_warning {
+  position: absolute;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  height: 40px;
+  margin-top: -20px;
+  top: 50%;
+  color: white;
+}
